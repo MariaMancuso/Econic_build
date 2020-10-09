@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Shared.ItemPreview"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="WhiteSmoke"
+             ControlTemplate="{StaticResource NavigationTemplate}">
+    <ContentPage.Content>
+        <Grid RowSpacing="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Preview of your services. Do you want to buy it?" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20"/>
+
+            <Image Grid.Row="1" Source="{Binding Image.Source}" HorizontalOptions="FillAndExpand" Aspect="AspectFill"/>
+
+            <StackLayout Grid.Row="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"  Text="{Binding Name}" TextColor="#404040" FontFamily="QuicksandBold"  FontSize="16" HorizontalOptions="Start"/>
+                    <Label Grid.Column="1" Text="{Binding PriceRange}"  TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" HorizontalOptions="End"/>
+                </Grid>
+                <Label Text="{Binding Description}" TextColor="#404040" FontFamily="QuicksandSemiBold" />
+            </StackLayout>
+
+            <Button Clicked="AddBtnClicked" Grid.Row="3" BackgroundColor="#DFECF2" TextColor="#517486" Text="Add another" CornerRadius="20" HorizontalOptions="Center" Padding="10, 0, 10, 0" VerticalOptions="End"/>
+
+            <StackLayout Grid.Row="4" VerticalOptions="End">
+                <Button  Text="Done" Style="{StaticResource NextItemButton}"/>
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.App">
+    <Application.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Quicksand" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="HorizontalTextAlignment" Value="Start" />
+        </Style>
+        <Style x:Key="QuicksandBold" TargetType="Label">
+            <Setter Property="FontFamily" Value="QuicksandBold" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+        <Style x:Key="QuicksandLight" TargetType="Label">
+            <Setter Property="FontFamily" Value="QuicksandLight" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+        <Style x:Key="QuicksandSemiBold" TargetType="Label">
+            <Setter Property="FontFamily" Value="QuicksandSemiBold" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+        <Style x:Key="QuicksandMedium" TargetType="Label">
+            <Setter Property="FontFamily" Value="QuicksandMedium" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="ImageButton" x:Key="SplashButton">
+            <Setter  Property="BackgroundColor" Value="LightGray"/>
+            <Setter Property="Opacity" Value="0.5"/>
+            <Setter Property="VerticalOptions" Value="End"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="WidthRequest" Value="50"/>
+            <Setter Property="CornerRadius" Value="25"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Source" Value="rightarrow"/>
+        </Style>
+        <Style TargetType="Button" x:Key="NextItemButton">
+            <Setter  Property="BackgroundColor" Value="#517486"/>
+            <Setter  Property="TextColor" Value="White"/>
+            <Setter Property="VerticalOptions" Value="End"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="CornerRadius" Value="40"/>
+            <Setter Property="FontFamily" Value="QuicksandBold"/>
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            <Setter Property="VerticalOptions" Value="End"/>
+            <Setter Property="Margin" Value="0, 0, 0, 10"/>
+            <Setter Property="Padding" Value="60, 0, 60, 0"/>
+        </Style>
+        <Style x:Key="Customframe" TargetType="Frame">
+            <Setter Property="BorderColor" Value="DarkGray" />
+            <Setter Property="CornerRadius" Value="3" />
+            <Setter Property="HasShadow" Value="False" />
+            <Setter Property="Padding" Value="10, 0, 10, 0" />
+        </Style>
+
+        <Style x:Key="Title" TargetType="Label">
+            <Setter Property="TextColor" Value="Silver" />
+            <Setter Property="Text" Value="Econic" />
+        </Style>
+
+        <ControlTemplate x:Key="NavigationTemplate">
+            <Grid VerticalOptions="FillAndExpand"
+                  Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" VerticalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <ImageButton Grid.Column="0" Source="backarrow" HorizontalOptions="Start"
+                BackgroundColor="Transparent"
+                                 WidthRequest="25"
+                                 HeightRequest="25"
+                Clicked="OnBackButtonPressed" />
+                    <Label Grid.Column="1" Text="Econic"
+                           HorizontalOptions="CenterAndExpand"
+                    TextColor="Silver"
+                    FontSize="20"/>
+                    
+                </Grid>
+                <ContentPresenter VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        Grid.Row="1"/>
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="Footer">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="secureicon"  WidthRequest="25" HeightRequest="25"/>
+                <Label Text="Your data is 5D Secure" TextColor="DimGray" FontSize="13" FontFamily="QuicksandSemiBold"/>
+                <Label Text="Learn More"  FontFamily="QuicksandSemiBold" FontSize="13" TextColor="CornflowerBlue" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+        </ControlTemplate>
+       
+    </Application.Resources>
+</Application>

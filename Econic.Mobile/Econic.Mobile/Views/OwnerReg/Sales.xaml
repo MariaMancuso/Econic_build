@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.OwnerReg.Sales"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:controls="clr-namespace:Econic.Mobile.Renderers"
+             BackgroundColor="WhiteSmoke"
+             ControlTemplate="{StaticResource NavigationTemplate}">
+
+    <ContentPage.Content>
+        <Grid RowSpacing="40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Econic is super focused on creating profits for you. A little financial info will help." FontFamily="QuicksandBold" TextColor="#404040" FontSize="20"/>
+
+            <StackLayout Grid.Row="1">
+                <Label Text="Tell us how you're doing now" TextColor="#404040" FontFamily="QuicksandBold" />
+                <Frame Style="{StaticResource Customframe}" HorizontalOptions="FillAndExpand"  Grid.Column="0" Grid.Row="0">
+                    <controls:CustomDropDown SelectedItem="{Binding MonthlySales}" BackgroundColor="Transparent" TitleColor="#404040" FontFamily="QuicksandSemiBold"
+                                 HeightRequest="45"
+                                 Image="ddicon"
+                                 Title="My Monthly Sales"/>
+                </Frame>
+            </StackLayout>
+
+            <Label Grid.Row="2" Text="We're not the government, we're your partners. We don't sell this data, we use it to help make you" TextColor="#404040" FontFamily="QuicksandSemiBold" />
+
+
+            <StackLayout Grid.Row="3" VerticalOptions="End">
+                <Button Clicked="ContinueClicked" Text="Continue" Style="{StaticResource NextItemButton}"/>
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

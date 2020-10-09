@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Shared.AddItem"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:controls="clr-namespace:Econic.Mobile.Renderers"
+             BackgroundColor="WhiteSmoke"
+             ControlTemplate="{StaticResource NavigationTemplate}"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             xmlns:input="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms">
+    
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid RowSpacing="10" x:Name="bodyContent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label Padding="0, 0, 0, 10" Grid.Row="0" Text="Display your deals with nice juicy pictures and mouth watering text" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20"/>
+
+                <Image Grid.Row="1" x:Name="profilePicture" Aspect="AspectFill"/>
+                <border:SfBorder Grid.Row="1" x:Name="border" BorderColor="DarkGray" CornerRadius="3">
+                    <border:SfBorder.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="OnGesture" Tapped="OnAddPhotoButtonClicked"/>
+                    </border:SfBorder.GestureRecognizers>
+                    <border:SfBorder.DashArray>
+                        <x:Array Type="{x:Type sys:Double}">
+                            <sys:Double>3</sys:Double>
+                            <sys:Double>4</sys:Double>
+                        </x:Array>
+                    </border:SfBorder.DashArray>
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image Source="cameraicon"/>
+                        <Label Text="Add a picture" TextColor="DarkGray" FontFamily="QuicksandMedium" />
+                    </StackLayout>
+                </border:SfBorder>
+
+                <Frame Grid.Row="2" Style="{StaticResource Customframe}">
+                    <controls:CustomEntry Text="{Binding Name}"  HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Name"  />
+                </Frame>
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Frame Grid.Column="0" Style="{StaticResource Customframe}">
+                        <controls:CustomEntry Text="{Binding MinPrice}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Min Price"  />
+                    </Frame>
+                    <Frame Grid.Column="1" Style="{StaticResource Customframe}">
+                        <controls:CustomEntry Text="{Binding MaxPrice}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Max Price"  />
+                    </Frame>
+
+                </Grid>
+
+                <Frame Grid.Row="4" Style="{StaticResource Customframe}" HeightRequest="100">
+                    <Editor Text="{Binding Description}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Description"  />
+                </Frame>
+
+                <StackLayout Grid.Row="5" VerticalOptions="End">
+                    <Button Clicked="ContinueClicked" Text="Continue" Style="{StaticResource NextItemButton}"/>
+                    <ContentView ControlTemplate="{StaticResource Footer}" />
+                </StackLayout>
+            </Grid>
+
+            <StackLayout  Grid.Row="0" IsVisible="false" x:Name="imageselector" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" >
+                <Frame VerticalOptions="End" HeightRequest="300" Padding="0" Margin="0" HasShadow="True" TranslationY="100" x:Name="imageselectorFrame" BackgroundColor="White" CornerRadius="10">
+                    <!-- message-->
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal" Padding="20">
+                            <Label Text="Your picture," TextColor="#404040" FontAttributes="Bold"></Label>
+                            <Label Text="XLife" FontAttributes="Bold"></Label>
+                        </StackLayout>
+
+                        <!-- collectio view to display images-->
+                        <CollectionView ItemsLayout="HorizontalList" x:Name="imagesCollectionView" ItemsSource="{Binding MediaAssets}" HeightRequest="110" HorizontalScrollBarVisibility="Never">
+
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="imageTapped" CommandParameter="{Binding .}"/>
+                                        </StackLayout.GestureRecognizers>
+
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="100"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="120"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Frame Grid.Row="0" Grid.Column="0" Padding="0" Margin="20,0,0,0" CornerRadius="10" WidthRequest="100" HeightRequest="500" HorizontalOptions="Fill" VerticalOptions="Fill" HasShadow="False" BorderColor="Black" IsClippedToBounds="True">
+                                                <Image Source="{Binding PreviewPath}"  Aspect="AspectFill"></Image>
+                                            </Frame>
+                                            <Frame Grid.Row="0" x:Name="{Binding Id}" Grid.Column="0" Padding="0" Margin="0,5,5,0" VerticalOptions="Start" HorizontalOptions="End" BackgroundColor="Transparent" BorderColor="Beige" CornerRadius="10" WidthRequest="20" HeightRequest="20" HasShadow="False" IsVisible="{Binding IsSelectable}"></Frame>
+                                        </Grid>
+                                    </StackLayout>
+
+
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <!-- skip and next button-->
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Frame x:Name="imageSkip" Padding="10" CornerRadius="7" WidthRequest="100" BackgroundColor="Gray" HasShadow="False" IsVisible="true">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="imageSkipTapped"></TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+                                <Label Text="Skip this" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" FontAttributes="Bold"></Label>
+                            </Frame>
+                            <Frame x:Name="imageNext" Padding="10" CornerRadius="7" WidthRequest="100" TranslationX="100" IsVisible="true"  BackgroundColor="#CC205E" HasShadow="False">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="imageNextTapped"></TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+                                <Label Text="Next" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" FontAttributes="Bold"></Label>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
