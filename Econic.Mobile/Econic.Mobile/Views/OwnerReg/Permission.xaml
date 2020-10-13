@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.OwnerReg.Permission" 
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundColor="WhiteSmoke" 
+             ControlTemplate="{StaticResource NavigationTemplate}">
+    
+    <ContentPage.Content>
+        <Grid RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Your mobile business is ready to be activated!" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+            <Label Grid.Row="1" Text="This is the fine print part, we need your permissions to proceed." FontFamily="QuicksandBold" TextColor="#404040"/>
+
+            <Label Grid.Row="2" Text="Please give Econic access to your:" FontFamily="QuicksandBold" TextColor="#404040" />
+            
+            <Grid Grid.Row="3" RowSpacing="30" Padding="10" ColumnSpacing="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Grid.Column="0" Source="location" HeightRequest="20" WidthRequest="20" />
+                <Label Grid.Row="0" Grid.Column="1" Text="Location" FontFamily="QuicksandSemiBold" TextColor="#404040" VerticalTextAlignment="Center" />
+
+                <Image Grid.Row="1" Grid.Column="0" Source="cameraicon" HeightRequest="20" WidthRequest="20" />
+                <Label Grid.Row="1" Grid.Column="1" Text="Camera" FontFamily="QuicksandSemiBold" TextColor="#404040" VerticalTextAlignment="Center" />
+
+                <Image Grid.Row="2" Grid.Column="0" Source="contacts" HeightRequest="20" WidthRequest="20" />
+                <Label Grid.Row="2" Grid.Column="1" Text="Contacts" FontFamily="QuicksandSemiBold" TextColor="#404040" VerticalTextAlignment="Center" />
+
+                <Image Grid.Row="3" Grid.Column="0" Source="calender" HeightRequest="20" WidthRequest="20" />
+                <Label Grid.Row="3" Grid.Column="1" Text="Calender" FontFamily="QuicksandSemiBold" TextColor="#404040" VerticalTextAlignment="Center" />
+            </Grid>
+
+            <StackLayout Grid.Row="4" VerticalOptions="End">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="Permission" Text="Continue" Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

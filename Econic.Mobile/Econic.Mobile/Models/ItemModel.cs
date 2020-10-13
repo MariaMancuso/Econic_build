@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace Econic.Mobile.Models
 {
-    public class Item
+    public class ItemModel
     {
         public Image Image { get; set; }
 

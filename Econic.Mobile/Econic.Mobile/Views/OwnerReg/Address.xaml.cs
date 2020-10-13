@@ -1,4 +1,5 @@
-﻿using Econic.Mobile.ViewModels;
+﻿using Econic.Mobile.Models;
+using Econic.Mobile.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,14 @@ namespace Econic.Mobile.Views.OwnerReg
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Address : ContentPage
     {
-        AddOwnerViewModel _addOwnerViewModel;
-        public Address(AddOwnerViewModel addOwnerViewModel)
+        public Address(OwnerViewModel OwnerVM)
         {
             InitializeComponent();
-            BindingContext = _addOwnerViewModel = addOwnerViewModel;
-
+            AddStates();
+            BindingContext = OwnerVM;
+        }
+        void AddStates()
+        {
             List<string> states = new List<string>();
             states.Add("AL");
             states.Add("AK");
@@ -72,11 +75,6 @@ namespace Econic.Mobile.Views.OwnerReg
             states.Add("WI");
             states.Add("WY");
             Statedd.ItemsSource = states;
-
-        }
-        async void ContinueClicked(object sender, EventArgs args)
-        {
-            await Navigation.PushAsync(new Sales(_addOwnerViewModel));
         }
     }
 }

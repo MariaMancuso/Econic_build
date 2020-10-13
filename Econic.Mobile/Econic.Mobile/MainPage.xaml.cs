@@ -17,7 +17,7 @@ namespace Econic.Mobile
         }
         async void OwnerClicked(object sender, EventArgs arg)
         {
-            await Navigation.PushAsync(new InfoTemplate());
+            await Navigation.PushAsync(new WelcomeSplash());
         }
     }
 }

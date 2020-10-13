@@ -21,7 +21,7 @@
             <StackLayout Grid.Row="1">
                 <Label Text="Tell us how you're doing now" TextColor="#404040" FontFamily="QuicksandBold" />
                 <Frame Style="{StaticResource Customframe}" HorizontalOptions="FillAndExpand"  Grid.Column="0" Grid.Row="0">
-                    <controls:CustomDropDown SelectedItem="{Binding MonthlySales}" BackgroundColor="Transparent" TitleColor="#404040" FontFamily="QuicksandSemiBold"
+                    <controls:CustomDropDown SelectedItem="{Binding Owner.MonthlySales}" BackgroundColor="Transparent" TitleColor="#404040" FontFamily="QuicksandSemiBold"
                                  HeightRequest="45"
                                  Image="ddicon"
                                  Title="My Monthly Sales"/>
@@ -32,7 +32,7 @@
 
 
             <StackLayout Grid.Row="3" VerticalOptions="End">
-                <Button Clicked="ContinueClicked" Text="Continue" Style="{StaticResource NextItemButton}"/>
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="FirstPreview" Text="Continue" Style="{StaticResource NextItemButton}"/>
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
             

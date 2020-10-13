@@ -34,7 +34,7 @@
             <Button Clicked="AddBtnClicked" Grid.Row="3" BackgroundColor="#DFECF2" TextColor="#517486" Text="Add another" CornerRadius="20" HorizontalOptions="Center" Padding="10, 0, 10, 0" VerticalOptions="End"/>
 
             <StackLayout Grid.Row="4" VerticalOptions="End">
-                <Button  Text="Done" Style="{StaticResource NextItemButton}"/>
+                <Button Clicked="ContinueClicked" Text="Done" Style="{StaticResource NextItemButton}"/>
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
 

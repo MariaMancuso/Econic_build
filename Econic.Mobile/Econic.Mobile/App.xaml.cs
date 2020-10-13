@@ -19,7 +19,7 @@ namespace Econic.Mobile
         public App()
         {
             Device.SetFlags(new[] { "SwipeView_Experimental" });
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzMwMjA5QDMxMzgyZTMzMmUzMGhleGZINGkzc21xRGNyeXdTV3ltOExsM3NFcTJ6YzJMdmMvR2VwUlhJTVk9");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzMzMzI5QDMxMzgyZTMzMmUzMFpUbmo3aGYzM2M5R2cyTmc0WjlhRmhnckFPT3RVR2tzTGlkMlk1WSs0bnM9");
 
             InitializeComponent();
 

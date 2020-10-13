@@ -118,6 +118,7 @@ namespace ImagePicker.Droid.DependencyServiceImplementation
             return await mediaPermissionTcs.Task;
         }
 
+        [Obsolete]
         public async Task<IList<MediaAssest>> RetrieveMediaAssetsAsync(CancellationToken? token = null)
         {
             stopLoad = false;
@@ -147,6 +148,7 @@ namespace ImagePicker.Droid.DependencyServiceImplementation
             return await completedTask;
         }
 
+        [Obsolete]
         async Task<IList<MediaAssest>> LoadMediaAsync()
         {
             IList<MediaAssest> assets = new List<MediaAssest>();

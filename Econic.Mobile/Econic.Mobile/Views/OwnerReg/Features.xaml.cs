@@ -11,12 +11,12 @@ using Xamarin.Forms.Xaml;
 namespace Econic.Mobile.Views.OwnerReg
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class InfoTemplate : ContentPage
+    public partial class Features : ContentPage
     {
-        public InfoTemplate()
+        public Features(OwnerViewModel OwnerVM)
         {
             InitializeComponent();
+            BindingContext = OwnerVM;
         }
-
     }
 }

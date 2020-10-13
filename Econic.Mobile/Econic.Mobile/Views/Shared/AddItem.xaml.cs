@@ -15,27 +15,26 @@ namespace Econic.Mobile.Views.Shared
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddItem : ContentPage
     {
-  
-        AddOwnerViewModel _addOwnerViewModel;
+        OwnerViewModel _OwnerVM;
         PhotoPickerViewModel additemViewModel;
-        Item item;
+        ItemModel item;
 
-        public AddItem(AddOwnerViewModel addOwnerViewModel)
+        public AddItem(OwnerViewModel OwnerVM)
         {
             InitializeComponent();
             imageselector.BindingContext = additemViewModel = new PhotoPickerViewModel();
-            bodyContent.BindingContext = item = new Item();
-            _addOwnerViewModel = addOwnerViewModel;
+            bodyContent.BindingContext = item = new ItemModel();
+            _OwnerVM = OwnerVM;
         }
 
-        void OnAddPhotoButtonClicked(object sender, EventArgs args)
-        {
-            additemViewModel.OnAddPhotoButtonClicked(bodyContent, imageselector, imageNext, imageSkip, imageselectorFrame);
-        }
         async void ContinueClicked(object sender, EventArgs args)
         {
             item.Image = profilePicture;
-            await Navigation.PushAsync(new ItemPreview(_addOwnerViewModel, item));
+            await Navigation.PushAsync(new ItemPreview(_OwnerVM, item));
+        }
+        void OnAddPhotoButtonClicked(object sender, EventArgs args)
+        {
+            additemViewModel.OnAddPhotoButtonClicked(bodyContent, imageselector, imageNext, imageSkip, imageselectorFrame);
         }
         void imageSkipTapped(Object sender, EventArgs e)
         {

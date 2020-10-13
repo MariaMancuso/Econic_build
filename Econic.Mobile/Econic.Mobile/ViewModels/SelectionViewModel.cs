@@ -1,33 +1,43 @@
 ﻿using Econic.Mobile.Models;
+using Econic.Mobile.ViewModel;
 using System;
+using PropertyChanged;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace Econic.Mobile.ViewModels
 {
-    public class SelectionViewModel<T>
+    [AddINotifyPropertyChangedInterface]
+    public class SelectionViewModel<T> : INotifyPropertyChanged
     {
-        public SelectionViewModel()
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            ClassificationTapped = new Command(classificationtapped);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public T Data { get; set; }
-        public bool IsSelected { get; set; }
 
-        public ICommand ClassificationTapped { get; set; }
-
-        private void classificationtapped(Object sender)
+        public SelectionViewModel(List<SelectableData<T>> items)
         {
-            var tgr = (TapGestureRecognizer)sender;
-            var f = tgr.Parent as Frame;
-            var sl = f.Children[0] as StackLayout;
-            var l = sl.Children[1] as Label;
+            Items = items;
+        }
 
-            IsSelected = !IsSelected;
-            f.BackgroundColor = f.BackgroundColor == Color.White ? Color.FromHex("#404040") : Color.White;
-            l.TextColor = l.TextColor == Color.White ? Color.FromHex("#404040") : Color.White;
+        public List<SelectableData<T>> Items { get; set; }
+
+        SelectableData<T> _selectedItem { get; set; }
+
+        public SelectableData<T> SelectedItem
+        {
+            get { return _selectedItem; }
+            set
+            {
+                _selectedItem = value;
+                _selectedItem.Selected = !_selectedItem.Selected;
+
+                _selectedItem = null;
+            }
         }
     }
 }

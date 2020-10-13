@@ -1,4 +1,5 @@
-﻿using Econic.Mobile.ViewModels;
+﻿using Econic.Mobile.Models;
+using Econic.Mobile.ViewModels;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -8,15 +9,10 @@ namespace Econic.Mobile.Views.OwnerReg
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Sales : ContentPage
     {
-        AddOwnerViewModel _addOwnerViewModel;
-        public Sales(AddOwnerViewModel addOwnerViewModel)
+        public Sales(OwnerViewModel OwnerVM)
         {
             InitializeComponent();
-            BindingContext = _addOwnerViewModel = addOwnerViewModel;
-        }
-        async void ContinueClicked(object sender, EventArgs args)
-        {
-            await Navigation.PushAsync(new FirstPreview(_addOwnerViewModel));
+            BindingContext = OwnerVM;
         }
     }
 }

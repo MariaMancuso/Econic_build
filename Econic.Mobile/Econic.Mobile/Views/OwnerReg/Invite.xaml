@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.OwnerReg.Invite" 
+             NavigationPage.HasNavigationBar="False"
+             xmlns:controls="clr-namespace:Econic.Mobile.Renderers"
+             BackgroundColor="WhiteSmoke" 
+             ControlTemplate="{StaticResource NavigationTemplate}">
+    
+    <ContentPage.Content>
+        <Grid RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Empower your employees with these business features" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+            <StackLayout Grid.Row="1" Orientation="Vertical">
+                <Label Text="My Customers" FontFamily="QuicksandBold" TextColor="#404040" FontSize="16"/>
+                <Frame Style="{StaticResource Customframe}" HeightRequest="130">
+                    <controls:CustomEditor Text="{Binding Owner.InviteMessageModel.CustomerMessage}" FontSize="Small" FontFamily="QuicksandSemiBold" HorizontalOptions="FillAndExpand" />
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Orientation="Vertical" x:Name="messageContent">
+                <Label Text="My Employees" FontFamily="QuicksandBold" TextColor="#404040" FontSize="16"/>
+
+                <Frame Style="{StaticResource Customframe}" HeightRequest="130">
+                    <controls:CustomEditor Text="{Binding Owner.InviteMessageModel.EmployeeMessage}" FontSize="Small" FontFamily="QuicksandSemiBold" HorizontalOptions="FillAndExpand" />
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding Owner.HasEmployees}" CheckedChanged="OnCheckedChanged"/>
+                <Label Text="I do not have any employees" VerticalTextAlignment="Center" TextColor="#404040" FontFamily="QuicksandRegular"/>
+            </StackLayout>
+            
+            <StackLayout Grid.Row="4" VerticalOptions="End">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="Features" Text="Continue" Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

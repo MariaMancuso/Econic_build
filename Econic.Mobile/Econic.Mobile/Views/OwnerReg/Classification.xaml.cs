@@ -13,28 +13,12 @@ namespace Econic.Mobile.Views.OwnerReg
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Classification : ContentPage
     {
-        AddOwnerViewModel _addOwnerViewModel;
 
-        public Classification(AddOwnerViewModel addOwnerViewModel)
+        public Classification(OwnerViewModel OwnerVM)
         {
-            List<ClassificationModel> CMlist = new List<ClassificationModel>()
-            {
-            new ClassificationModel() { Name = "Services" },
-            new ClassificationModel() { Name = "Products" },
-            new ClassificationModel() { Name = "Assets" }
-            };
-            
             InitializeComponent();
 
-            CMlistView.ItemsSource = CMlist;
-        }
-        void ItemSelected(object sender, SelectedItemChangedEventArgs args)
-        {
-
-        }
-        async void ContinueClicked(object sender, EventArgs args)
-        {
-            await Navigation.PushAsync(new AddItem(_addOwnerViewModel));
+            BindingContext = OwnerVM;
         }
     }
 }

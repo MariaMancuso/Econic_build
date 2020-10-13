@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Econic.Mobile.Models
 {
-    public class OwnerGoal
+    public class OwnerGoalModel
     {
         public string Goal { get; set; }
         public int Value { get; set; }

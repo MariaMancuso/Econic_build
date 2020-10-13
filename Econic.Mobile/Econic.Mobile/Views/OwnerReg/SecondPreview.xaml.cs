@@ -1,16 +1,18 @@
-﻿using Econic.Mobile.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Econic.Mobile.ViewModels;
-using Econic.Mobile.Views.Shared;
-using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Econic.Mobile.Views.OwnerReg
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FirstPreview : ContentPage
+    public partial class SecondPreview : ContentPage
     {
-        public FirstPreview(OwnerViewModel OwnerVM)
+        public SecondPreview(OwnerViewModel OwnerVM)
         {
             InitializeComponent();
             BindingContext = OwnerVM;

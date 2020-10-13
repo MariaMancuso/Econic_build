@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Android.Content;
 using ImagePicker.Droid.DependencyServiceImplementation;
+using Lottie.Forms.Droid;
 
 namespace Econic.Mobile.Droid
 {
@@ -28,7 +29,9 @@ namespace Econic.Mobile.Droid
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-           
+
+            AnimationViewRenderer.Init();
+
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
