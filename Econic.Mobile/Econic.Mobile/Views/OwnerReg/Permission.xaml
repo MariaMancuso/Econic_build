@@ -48,7 +48,7 @@
             </Grid>
 
             <StackLayout Grid.Row="4" VerticalOptions="End">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="Permission" Text="Continue" Style="{StaticResource NextItemButton}" />
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="FourthPreview" Text="Grant Access" Style="{StaticResource NextItemButton}" />
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
 

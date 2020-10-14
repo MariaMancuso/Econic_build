@@ -11,6 +11,7 @@ using System.IO;
 using Android.Content;
 using ImagePicker.Droid.DependencyServiceImplementation;
 using Lottie.Forms.Droid;
+using Econic.Mobile.Droid.Services;
 
 namespace Econic.Mobile.Droid
 {
@@ -38,6 +39,7 @@ namespace Econic.Mobile.Droid
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             MediaServiceImplementation.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            DevicePermissions.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 

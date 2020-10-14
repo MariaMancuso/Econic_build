@@ -22,7 +22,7 @@
             <StackLayout Grid.Row="1" Orientation="Vertical">
                 <Label Text="My Customers" FontFamily="QuicksandBold" TextColor="#404040" FontSize="16"/>
                 <Frame Style="{StaticResource Customframe}" HeightRequest="130">
-                    <controls:CustomEditor Text="{Binding Owner.InviteMessageModel.CustomerMessage}" FontSize="Small" FontFamily="QuicksandSemiBold" HorizontalOptions="FillAndExpand" />
+                    <controls:CustomEditor Text="{Binding Owner.InviteMessages.CustomerMessage}" FontSize="Small" FontFamily="QuicksandSemiBold" HorizontalOptions="FillAndExpand" />
                 </Frame>
             </StackLayout>
 
@@ -30,7 +30,7 @@
                 <Label Text="My Employees" FontFamily="QuicksandBold" TextColor="#404040" FontSize="16"/>
 
                 <Frame Style="{StaticResource Customframe}" HeightRequest="130">
-                    <controls:CustomEditor Text="{Binding Owner.InviteMessageModel.EmployeeMessage}" FontSize="Small" FontFamily="QuicksandSemiBold" HorizontalOptions="FillAndExpand" />
+                    <controls:CustomEditor Text="{Binding Owner.InviteMessages.EmployeeMessage}" FontSize="Small" FontFamily="QuicksandSemiBold" HorizontalOptions="FillAndExpand" />
                 </Frame>
             </StackLayout>
 

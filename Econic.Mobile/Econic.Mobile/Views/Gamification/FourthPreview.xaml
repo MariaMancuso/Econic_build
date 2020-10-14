@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Gamification.FourthPreview" 
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundColor="WhiteSmoke" 
+             ControlTemplate="{StaticResource NavigationTemplate}" 
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+    
+    <ContentPage.Content>
+        <Grid RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0">
+
+                <Label Text="Now that your store is open and ready to make money, let's make it secure." FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+            </StackLayout>
+
+            <lottie:AnimationView Grid.Row="1" Animation="annimationtest.json" AutoPlay="True" Loop="True" />
+
+            <StackLayout Grid.Row="2" VerticalOptions="End">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="LoyaltyPreview" Text="Secure My Business" Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

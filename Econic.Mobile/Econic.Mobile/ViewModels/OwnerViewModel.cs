@@ -1,12 +1,9 @@
 ﻿using Econic.Mobile.Models;
+using Econic.Mobile.Services;
+using Econic.Mobile.Views.Gamification;
 using Econic.Mobile.Views.OwnerReg;
 using Econic.Mobile.Views.Shared;
-using Syncfusion.ListView.XForms;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -18,46 +15,49 @@ namespace Econic.Mobile.ViewModels
         OwnerModel owner;
         SelectionViewModel<ClassificationModel> cmSelectionViewModel;
         SelectionViewModel<NotifyModel> nmSelectionViewModel;
+        IPermissionService permissionService;
 
         public OwnerViewModel()
         {
-            owner = new OwnerModel();
-            owner.Address = new AddressModel();
-            owner.InviteMessageModel = new InviteMessageModel();
-
-            owner.OwnerGoals = new List<OwnerGoalModel>() 
+            owner = new OwnerModel
             {
-            new OwnerGoalModel() { Goal = "Connect you to your customers", Value = 0},
-            new OwnerGoalModel() { Goal = "Increate your profibility", Value = 0},
-            new OwnerGoalModel() { Goal = "Identify your best products and service - every day", Value = 0},
-            new OwnerGoalModel() { Goal = "Identify and reward your most loyal customers", Value = 0},
-            new OwnerGoalModel() { Goal = "Lower your transactions costs", Value = 0}
+                Address = new AddressModel(),
+                Goals = new List<OwnerGoalModel>()
+                {
+                new OwnerGoalModel() { Goal = "Connect you to your customers", Value = 0},
+                new OwnerGoalModel() { Goal = "Increate your profibility", Value = 0},
+                new OwnerGoalModel() { Goal = "Identify your best products and service - every day", Value = 0},
+                new OwnerGoalModel() { Goal = "Identify and reward your most loyal customers", Value = 0},
+                new OwnerGoalModel() { Goal = "Lower your transactions costs", Value = 0}
+                },
+
+                Classifications = new List<SelectableData<ClassificationModel>>()
+                {
+                    new SelectableData<ClassificationModel>() { Data = new ClassificationModel() { Name = "Services" }},
+                    new SelectableData<ClassificationModel>() { Data = new ClassificationModel() { Name = "Products" }},
+                    new SelectableData<ClassificationModel>() { Data = new ClassificationModel() { Name = "Assets" }}
+                },
+                NotifyMethods = new List<SelectableData<NotifyModel>>()
+                {
+                    new SelectableData<NotifyModel>() { Data = new NotifyModel() { Name = "Text Message" }},
+                    new SelectableData<NotifyModel>() { Data = new NotifyModel() { Name = "Email" }},
+                    new SelectableData<NotifyModel>() { Data = new NotifyModel() { Name = "Push Notifications" }}
+                },
+                InviteMessages = new InviteMessageModel()
+                {
+                    CustomerMessage =
+                    "To all my best customers and VIPs, this is an advance invitation to our new app that provides you special deals and rewards your loyalty. " +
+                    "\n\nPlease click the link to install and save." +
+                    "\nwww.ziba.econic.com",
+                    EmployeeMessage
+                    = "Check out out new Econic mobile business. This will help us sell out best products and services to our best customers. Click the link to install." +
+                    "\nwww.ziba.econic.com"
+                }
             };
+            permissionService = DependencyService.Get<IPermissionService>();
 
-            owner.ClassificationModel = new List<SelectableData<ClassificationModel>>()
-            {
-                new SelectableData<ClassificationModel>() { Data = new ClassificationModel() { Name = "Services" }},
-                new SelectableData<ClassificationModel>() { Data = new ClassificationModel() { Name = "Products" }},
-                new SelectableData<ClassificationModel>() { Data = new ClassificationModel() { Name = "Assets" }}
-            };
-            cmSelectionViewModel = new SelectionViewModel<ClassificationModel>(owner.ClassificationModel);
-
-            owner.NotifyModel = new List<SelectableData<NotifyModel>>()
-            {
-                new SelectableData<NotifyModel>() { Data = new NotifyModel() { Name = "Text Message" }},
-                new SelectableData<NotifyModel>() { Data = new NotifyModel() { Name = "Email" }},
-                new SelectableData<NotifyModel>() { Data = new NotifyModel() { Name = "Push Notifications" }}
-            };
-            nmSelectionViewModel = new SelectionViewModel<NotifyModel>(owner.NotifyModel);
-
-            owner.InviteMessageModel.CustomerMessage =
-                "To all my best customers and VIPs, this is an advance invitation to our new app that provides you special deals and rewards your loyalty. " +
-                "\n\nPlease click the link to install and save." +
-                "\nwww.ziba.econic.com";
-
-            owner.InviteMessageModel.EmployeeMessage
-                = "Check out out new Econic mobile business. This will help us sell out best products and services to our best customers. Click the link to install." +
-                "\nwww.ziba.econic.com";
+            cmSelectionViewModel = new SelectionViewModel<ClassificationModel>(owner.Classifications);
+            nmSelectionViewModel = new SelectionViewModel<NotifyModel>(owner.NotifyMethods);
 
             OpenPageCommand = new Command<string>((arg) => OpenPage(arg));
         }
@@ -69,12 +69,12 @@ namespace Econic.Mobile.ViewModels
         public SelectionViewModel<ClassificationModel> CMSelectionViewModel
         {
             get { return cmSelectionViewModel; }
-            set { cmSelectionViewModel = value; owner.ClassificationModel = cmSelectionViewModel.Items; }
+            set { cmSelectionViewModel = value; owner.Classifications = cmSelectionViewModel.Items; }
         }
         public SelectionViewModel<NotifyModel> NMSelectionViewModel
         {
             get { return nmSelectionViewModel; }
-            set { nmSelectionViewModel = value; owner.NotifyModel = nmSelectionViewModel.Items; }
+            set { nmSelectionViewModel = value; owner.NotifyMethods = nmSelectionViewModel.Items; }
         }
         public string GetInitials()
         {
@@ -118,6 +118,11 @@ namespace Econic.Mobile.ViewModels
                     break;
                 case "Permission":
                     await Application.Current.MainPage.Navigation.PushAsync(new Permission(this));
+                    break;
+                case "FourthPreview":
+                    bool Granted = await permissionService.RequestAllPermissions();
+                    if(Granted)
+                        await Application.Current.MainPage.Navigation.PushAsync(new FourthPreview());
                     break;
                 default:
                     return;

@@ -88,6 +88,7 @@
     <Compile Include="Renderers\AndroidEntryRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DevicePermissions.cs" />
     <Compile Include="Services\MediaServiceImplementation .cs" />
     <Compile Include="Services\PermissionUtil.cs" />
   </ItemGroup>

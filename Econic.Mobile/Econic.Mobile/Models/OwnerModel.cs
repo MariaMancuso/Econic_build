@@ -18,11 +18,11 @@ namespace Econic.Mobile.Models
         public AddressModel Address { get; set; }
         public int MonthlySales { get; set; }
         public string ServiceArea { get; set; }
-        public List<OwnerGoalModel> OwnerGoals { get; set; }
-        public List<SelectableData<ClassificationModel>> ClassificationModel { get; set; }
+        public List<OwnerGoalModel> Goals { get; set; }
+        public List<SelectableData<ClassificationModel>> Classifications { get; set; }
         public List<ItemModel> Items { get; set; }
-        public List<SelectableData<NotifyModel>> NotifyModel { get; set; }
-        public InviteMessageModel InviteMessageModel { get; set; }
+        public List<SelectableData<NotifyModel>> NotifyMethods { get; set; }
+        public InviteMessageModel InviteMessages { get; set; }
         public bool HasEmployees { get; set; }
     }
 }
