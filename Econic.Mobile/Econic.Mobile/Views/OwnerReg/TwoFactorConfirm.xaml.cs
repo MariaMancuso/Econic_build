@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Econic.Mobile.Views.Gamification
+namespace Econic.Mobile.Views.OwnerReg
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FourthPreview : ContentPage
+    public partial class TwoFactorConfirm : ContentPage
     {
-        public FourthPreview(OwnerViewModel OwnerVM)
+        public TwoFactorConfirm(OwnerViewModel OwnerVM)
         {
             InitializeComponent();
-            BindingContext = OwnerVM;
+            BindingContext = new CrossingUIModelViewModel();
         }
     }
 }

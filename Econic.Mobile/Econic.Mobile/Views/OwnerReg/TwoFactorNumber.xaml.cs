@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Econic.Mobile.Views.Gamification
+namespace Econic.Mobile.Views.OwnerReg
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FourthPreview : ContentPage
+    public partial class TwoFactorNumber : ContentPage
     {
-        public FourthPreview(OwnerViewModel OwnerVM)
+        public TwoFactorNumber(OwnerViewModel OwnerVM)
         {
             InitializeComponent();
             BindingContext = OwnerVM;

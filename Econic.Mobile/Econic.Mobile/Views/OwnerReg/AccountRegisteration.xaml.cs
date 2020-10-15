@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Econic.Mobile.Views.Gamification
+namespace Econic.Mobile.Views.OwnerReg
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FourthPreview : ContentPage
+    public partial class AccountRegisteration : ContentPage
     {
-        public FourthPreview(OwnerViewModel OwnerVM)
+        public AccountRegisteration(OwnerViewModel OwnerVM)
         {
             InitializeComponent();
             BindingContext = OwnerVM;

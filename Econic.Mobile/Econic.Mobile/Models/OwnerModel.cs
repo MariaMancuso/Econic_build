@@ -24,5 +24,6 @@ namespace Econic.Mobile.Models
         public List<SelectableData<NotifyModel>> NotifyMethods { get; set; }
         public InviteMessageModel InviteMessages { get; set; }
         public bool HasEmployees { get; set; }
+        public Account Account { get; set; }
     }
 }

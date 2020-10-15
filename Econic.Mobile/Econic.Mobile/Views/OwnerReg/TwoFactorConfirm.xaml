@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.OwnerReg.TwoFactorConfirm"
+             xmlns:local="clr-namespace:Econic.Mobile.Renderers"
+             xmlns:controls="clr-namespace:Econic.Mobile.Services" 
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundColor="WhiteSmoke" 
+             ControlTemplate="{StaticResource NavigationTemplate}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <controls:FrameBorderColorConverter x:Key="cnvborder"/>
+            <controls:FrameBackgroundColorConverter x:Key="cnvbackground" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            
+
+            <Label Grid.Row="0" Text="Enter Code" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" HorizontalOptions="Center"/>
+            
+            <CollectionView Grid.Row="1" x:Name="CrossingView" ItemsSource="{Binding BindCrossingUIModel, Mode=TwoWay}" >
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="6" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="5, 0, 5, 0">
+                            <Frame Padding="0" BorderColor="{Binding IsFocus, Converter={x:StaticResource cnvborder}}" BackgroundColor="{Binding IsFocus, Converter={x:StaticResource cnvbackground}}">
+                                <local:EntryMoveNextControl HorizontalTextAlignment="Center" InputTransparent="{Binding IsDisabled}" x:Name="Fields" Text="{Binding FieldValue, Mode=TwoWay}" IsFocus="{Binding IsFocus, Mode=TwoWay}" Keyboard="Numeric" />
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <StackLayout Grid.Row="2" HorizontalOptions="Center">
+                <Label Text="Didn't get a code?" TextColor="CornflowerBlue" FontFamily="QuicksandBold" />
+                <Button Text="Resend" BackgroundColor="#DFECF2" TextColor="#517486" HeightRequest="40" CornerRadius="20" HorizontalOptions="Center" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="3">
+                <Label Text="Two-Factor Authentication is on" TextColor="#404040" FontFamily="QuicksandSemiBold" HorizontalOptions="Center"/>
+                <Label Text="Any time you log into your account, we will ask for extra security by sending a unique code to this device." TextColor="Gray" FontFamily="QuicksandSemiBold" Padding="15, 0, 15, 0" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+
+            <Image Grid.Row="4" Source="validationIcon" HorizontalOptions="Center" HeightRequest="84" WidthRequest="84"/>
+
+            <StackLayout Grid.Row="5" VerticalOptions="End">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="FifthPreview" Text="Validate" Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

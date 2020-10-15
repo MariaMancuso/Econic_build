@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Gamification.LoyaltyPreview" 
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundColor="WhiteSmoke" 
+             ControlTemplate="{StaticResource NavigationTemplate}" 
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+    
+    <ContentPage.Content>
+        <Grid RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Welcome to the team. Your Econic business and loyalty accounts are now activated." FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+            <StackLayout Grid.Row="1">
+                <Label Text="MEET TOMME" FontFamily="QuicksandBold" TextColor="#404040" HorizontalTextAlignment="Center"/>
+                <Label Text="Your virtual co-founder" FontFamily="QuicksandSemiBold" TextColor="Gray" HorizontalOptions="Center"/>
+            </StackLayout>
+            <lottie:AnimationView Grid.Row="2" Animation="annimationtest.json" AutoPlay="True" Loop="True" />
+
+            <StackLayout Grid.Row="3" VerticalOptions="End">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="AccountRegisteration" Text="Great" Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

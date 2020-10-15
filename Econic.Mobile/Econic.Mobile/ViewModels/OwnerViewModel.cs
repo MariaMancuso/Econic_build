@@ -21,6 +21,7 @@ namespace Econic.Mobile.ViewModels
         {
             owner = new OwnerModel
             {
+                Account = new Account(),
                 Address = new AddressModel(),
                 Goals = new List<OwnerGoalModel>()
                 {
@@ -122,7 +123,22 @@ namespace Econic.Mobile.ViewModels
                 case "FourthPreview":
                     bool Granted = await permissionService.RequestAllPermissions();
                     if(Granted)
-                        await Application.Current.MainPage.Navigation.PushAsync(new FourthPreview());
+                        await Application.Current.MainPage.Navigation.PushAsync(new FourthPreview(this));
+                    break;
+                case "LoyaltyPreview":
+                        await Application.Current.MainPage.Navigation.PushAsync(new LoyaltyPreview(this));
+                    break;
+                case "AccountRegisteration":
+                    await Application.Current.MainPage.Navigation.PushAsync(new AccountRegisteration(this));
+                    break;
+                case "TwoFactorNumber":
+                    await Application.Current.MainPage.Navigation.PushAsync(new TwoFactorNumber(this));
+                    break;
+                case "TwoFactorConfirm":
+                    await Application.Current.MainPage.Navigation.PushAsync(new TwoFactorConfirm(this));
+                    break;
+                case "FifthPreview":
+                    await Application.Current.MainPage.Navigation.PushAsync(new FifthPreview(this));
                     break;
                 default:
                     return;

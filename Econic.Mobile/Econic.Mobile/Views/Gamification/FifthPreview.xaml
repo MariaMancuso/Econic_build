@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Econic.Mobile.Views.Gamification.FourthPreview" 
+             x:Class="Econic.Mobile.Views.Gamification.FifthPreview" 
              NavigationPage.HasNavigationBar="False" 
              BackgroundColor="WhiteSmoke" 
              ControlTemplate="{StaticResource NavigationTemplate}" 
@@ -15,12 +15,12 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Text="Now that your store is open and ready to make money, let's make it secure." FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+            <Label Grid.Row="0" Text="We made it. Your mobile business is ready to start your best deals to your best customers" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
 
             <lottie:AnimationView Grid.Row="1" Animation="annimationtest.json" AutoPlay="True" Loop="True" />
 
             <StackLayout Grid.Row="2" VerticalOptions="End">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="LoyaltyPreview" Text="Let's sell some deals" Style="{StaticResource NextItemButton}" />
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="LoyaltyPreview" Text="Secure My Business" Style="{StaticResource NextItemButton}" />
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
 

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Econic.Mobile.Views.OwnerReg.AccountRegisteration" 
+             NavigationPage.HasNavigationBar="False" 
+             xmlns:controls="clr-namespace:Econic.Mobile.Renderers" 
+             BackgroundColor="WhiteSmoke" 
+             ControlTemplate="{StaticResource NavigationTemplate}" 
+             xmlns:behaviors="clr-namespace:Econic.Mobile.Services">
+    
+    <ContentPage.Content>
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Let's create a secure user account and then we're done." FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+            <Label Grid.Row="1" Text="Finalize your account" FontFamily="QuicksandBold" TextColor="#404040" />
+
+            <Grid Grid.Row="2" RowSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Frame Style="{StaticResource Customframe}" Grid.Row="0">
+                    <controls:CustomEntry Text="{Binding Owner.Account.Name}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Name" />
+                </Frame>
+
+                <Frame Style="{StaticResource Customframe}" Grid.Row="1">
+                    <controls:CustomEntry Text="{Binding Owner.Account.Phone}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Phone" />
+                </Frame>
+
+                <Frame Style="{StaticResource Customframe}" Grid.Row="2">
+                    <controls:CustomEntry Text="{Binding Owner.Account.Username}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Username" />
+                </Frame>
+
+                <Frame Style="{StaticResource Customframe}" Grid.Row="3" >
+                    <controls:CustomEntry x:Name="Password" Text="{Binding Owner.Account.Password}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Password" />
+                </Frame>
+
+                <Frame Style="{StaticResource Customframe}" Grid.Row="4" >
+                    <controls:CustomEntry HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Confirm Password">
+                        <controls:CustomEntry.Behaviors>
+                            <behaviors:ConfirmPasswordBehavior CompareToEntry="{Binding Source={x:Reference Password}}" />
+                        </controls:CustomEntry.Behaviors>
+                    </controls:CustomEntry>
+                </Frame>
+            </Grid>
+
+            <StackLayout Grid.Row="3" Orientation="Vertical" Padding="20, 0, 0, 0">
+                <Label Text="Passwords must be:" FontFamily="QuicksandBold" TextColor="Gray" FontSize="12"/>
+                <Label Text="At least 8 characters in length" FontFamily="QuicksandBold" TextColor="Gray" FontSize="12" />
+                <Label Text="One capital letter" FontFamily="QuicksandBold" TextColor="Gray" FontSize="12"/>
+                <Label Text="One Number" FontFamily="QuicksandBold" TextColor="Gray" FontSize="12" />
+                <Label Text="One special character, such as @ #!" FontFamily="QuicksandBold" TextColor="Gray" FontSize="12"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="4" VerticalOptions="End">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="TwoFactorNumber" Text="Continue" Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

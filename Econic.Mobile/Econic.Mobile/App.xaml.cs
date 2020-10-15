@@ -1,4 +1,5 @@
-﻿using Econic.Mobile.Views.OwnerReg;
+﻿using Econic.Mobile.Views.Gamification;
+using Econic.Mobile.Views.OwnerReg;
 using Econic.Mobile.Views.Shared;
 using System;
 using Xamarin.Forms;
@@ -23,7 +24,7 @@ namespace Econic.Mobile
 
             InitializeComponent();
 
-            Navigation = new NavigationPage(new WelcomeSplash());
+            Navigation = new NavigationPage(new FifthPreview());
             Current.MainPage = Navigation;
         }
         public async void OnBackButtonPressed(object sender, EventArgs e)

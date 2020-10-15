@@ -11,9 +11,9 @@ using Xamarin.Forms.Xaml;
 namespace Econic.Mobile.Views.Gamification
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FourthPreview : ContentPage
+    public partial class LoyaltyPreview : ContentPage
     {
-        public FourthPreview(OwnerViewModel OwnerVM)
+        public LoyaltyPreview(OwnerViewModel OwnerVM)
         {
             InitializeComponent();
             BindingContext = OwnerVM;
