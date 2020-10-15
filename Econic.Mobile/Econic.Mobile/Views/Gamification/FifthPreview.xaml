@@ -20,7 +20,7 @@
             <lottie:AnimationView Grid.Row="1" Animation="annimationtest.json" AutoPlay="True" Loop="True" />
 
             <StackLayout Grid.Row="2" VerticalOptions="End">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="LoyaltyPreview" Text="Secure My Business" Style="{StaticResource NextItemButton}" />
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="Profile" Text="Let's Sell Some Deals" Style="{StaticResource NextItemButton}" />
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
 

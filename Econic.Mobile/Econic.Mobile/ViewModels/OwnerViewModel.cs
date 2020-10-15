@@ -1,12 +1,17 @@
 ﻿using Econic.Mobile.Models;
 using Econic.Mobile.Services;
 using Econic.Mobile.Views.Gamification;
+using Econic.Mobile.Views.OwnerProfile;
 using Econic.Mobile.Views.OwnerReg;
 using Econic.Mobile.Views.Shared;
+using PropertyChanged;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 
 namespace Econic.Mobile.ViewModels
 {
@@ -16,14 +21,16 @@ namespace Econic.Mobile.ViewModels
         SelectionViewModel<ClassificationModel> cmSelectionViewModel;
         SelectionViewModel<NotifyModel> nmSelectionViewModel;
         IPermissionService permissionService;
-
+        CrossingUIModelViewModel crossingUIModelViewModel;
+        string mode;
         public OwnerViewModel()
         {
             owner = new OwnerModel
             {
                 Account = new Account(),
                 Address = new AddressModel(),
-                Goals = new List<OwnerGoalModel>()
+                Items = new ObservableCollection<ItemModel>(),
+                Goals = new ObservableCollection<OwnerGoalModel>()
                 {
                 new OwnerGoalModel() { Goal = "Connect you to your customers", Value = 0},
                 new OwnerGoalModel() { Goal = "Increate your profibility", Value = 0},
@@ -32,13 +39,13 @@ namespace Econic.Mobile.ViewModels
                 new OwnerGoalModel() { Goal = "Lower your transactions costs", Value = 0}
                 },
 
-                Classifications = new List<SelectableData<ClassificationModel>>()
+                Classifications = new ObservableCollection<SelectableData<ClassificationModel>>()
                 {
                     new SelectableData<ClassificationModel>() { Data = new ClassificationModel() { Name = "Services" }},
                     new SelectableData<ClassificationModel>() { Data = new ClassificationModel() { Name = "Products" }},
                     new SelectableData<ClassificationModel>() { Data = new ClassificationModel() { Name = "Assets" }}
                 },
-                NotifyMethods = new List<SelectableData<NotifyModel>>()
+                NotifyMethods = new ObservableCollection<SelectableData<NotifyModel>>()
                 {
                     new SelectableData<NotifyModel>() { Data = new NotifyModel() { Name = "Text Message" }},
                     new SelectableData<NotifyModel>() { Data = new NotifyModel() { Name = "Email" }},
@@ -59,13 +66,29 @@ namespace Econic.Mobile.ViewModels
 
             cmSelectionViewModel = new SelectionViewModel<ClassificationModel>(owner.Classifications);
             nmSelectionViewModel = new SelectionViewModel<NotifyModel>(owner.NotifyMethods);
+            crossingUIModelViewModel = new CrossingUIModelViewModel();
 
             OpenPageCommand = new Command<string>((arg) => OpenPage(arg));
+            InfoTapped = new Command<string>((arg) => OpenInfoPage(arg));
+            AddAnotherTapped = new Command(addAnotherTapped);
+            EditClicked = new Command(editClicked);
+            RemoveClicked = new Command(removeClicked);
+            AddNewItemCommand = new Command(addNewItem);
         }
         public OwnerModel Owner 
         { 
             get { return owner; }
             set { owner = value; }
+        }
+        public ItemModel ItemToAdd { get; set; }
+        public void RemoveItem(ItemModel itemModel)
+        {
+            owner.Items.Remove(itemModel);
+        }
+        public void AddItem(ItemModel itemModel)
+        {
+            owner.Items.Add(itemModel);
+            ItemToAdd = null;
         }
         public SelectionViewModel<ClassificationModel> CMSelectionViewModel
         {
@@ -77,6 +100,11 @@ namespace Econic.Mobile.ViewModels
             get { return nmSelectionViewModel; }
             set { nmSelectionViewModel = value; owner.NotifyMethods = nmSelectionViewModel.Items; }
         }
+        public CrossingUIModelViewModel CrossingUIModelViewModel
+        {
+            get { return crossingUIModelViewModel; }
+            set { crossingUIModelViewModel = value; }
+        }
         public string GetInitials()
         {
             Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
@@ -84,7 +112,19 @@ namespace Econic.Mobile.ViewModels
 
             return init;
         }
+        int height;
+        public int ListViewHeight
+        {
+            get { return height; }
+            set { height = owner.Items.Count * 120; }
+        }
         public ICommand OpenPageCommand { private set; get; }
+        public ICommand InfoTapped { private set; get; }
+
+        public ICommand AddAnotherTapped { private set; get; }
+        public ICommand RemoveClicked { private set; get; }
+        public ICommand EditClicked { private set; get; }
+        public ICommand AddNewItemCommand { private set; get; }
 
         private async void OpenPage(string value)
         {
@@ -106,7 +146,20 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new Classification(this));
                     break;
                 case "AddItem":
-                    await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this));
+                    await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, "add"));
+                    break;
+                case "ItemPreview":
+                    await Application.Current.MainPage.Navigation.PushAsync(new ItemPreview(this));
+                    break;
+                case "SecondPreview":
+                    if (ItemToAdd != null)
+                        AddItem(ItemToAdd);
+
+                    if(mode == "edit" || mode == "addfromprofile")
+                        await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices(this));
+                    else
+                        await Application.Current.MainPage.Navigation.PushAsync(new  SecondPreview(this));
+
                     break;
                 case "NotifyMethod":
                     await Application.Current.MainPage.Navigation.PushAsync(new Notify(this));
@@ -140,9 +193,54 @@ namespace Econic.Mobile.ViewModels
                 case "FifthPreview":
                     await Application.Current.MainPage.Navigation.PushAsync(new FifthPreview(this));
                     break;
+                case "Profile":
+                    await Application.Current.MainPage.Navigation.PushAsync(new Views.OwnerProfile.Profile(this));
+                    break;
                 default:
                     return;
             }
+        }
+        private async void addAnotherTapped()
+        {
+            if (mode == "edit")
+                mode = "addfromprofile";
+            if (ItemToAdd != null)
+                AddItem(ItemToAdd);
+
+            await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, mode));
+        }
+        private async void OpenInfoPage(string value)
+        {
+            switch (value)
+            {
+                case "QRCodes":
+                    await Application.Current.MainPage.Navigation.PushAsync(new QRCodes(this));
+                    break;
+                case "ProductAndServices":
+                    await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices(this));
+                    break;
+                default:
+                    return;
+            }
+        }
+        private async void editClicked(Object sender)
+        {
+            mode = "edit";
+            ItemModel itemModel = sender as ItemModel;
+            RemoveItem(itemModel);
+            ItemToAdd = itemModel;
+            await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, mode));
+        }
+        private void removeClicked(Object sender)
+        {
+            mode = "Remove";
+            ItemModel itemModel = sender as ItemModel;
+            RemoveItem(itemModel);
+        }
+        private async void addNewItem()
+        {
+            mode = "addfromprofile";
+            await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, mode));
         }
     }
 }

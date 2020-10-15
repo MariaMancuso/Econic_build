@@ -7,8 +7,7 @@
              BackgroundColor="WhiteSmoke"
              ControlTemplate="{StaticResource NavigationTemplate}"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:sys="clr-namespace:System;assembly=netstandard"
-             xmlns:input="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms">
+             xmlns:sys="clr-namespace:System;assembly=netstandard">
     
     <ContentPage.Content>
         <Grid>
@@ -28,7 +27,7 @@
 
                 <Label Padding="0, 0, 0, 10" Grid.Row="0" Text="Display your deals with nice juicy pictures and mouth watering text" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20"/>
 
-                <Image Grid.Row="1" x:Name="profilePicture" Aspect="AspectFill"/>
+                <Image Grid.Row="1" x:Name="profilePicture" Source="{Binding ItemToAdd.Image.Source}" Aspect="AspectFill"/>
                 <border:SfBorder Grid.Row="1" x:Name="border" BorderColor="DarkGray" CornerRadius="3">
                     <border:SfBorder.GestureRecognizers>
                         <TapGestureRecognizer x:Name="OnGesture" Tapped="OnAddPhotoButtonClicked"/>
@@ -46,7 +45,7 @@
                 </border:SfBorder>
 
                 <Frame Grid.Row="2" Style="{StaticResource Customframe}">
-                    <controls:CustomEntry Text="{Binding Name}"  HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Name"  />
+                    <controls:CustomEntry Text="{Binding ItemToAdd.Name}"  HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Name"  />
                 </Frame>
 
                 <Grid Grid.Row="3">
@@ -57,20 +56,20 @@
                     </Grid.ColumnDefinitions>
 
                     <Frame Grid.Column="0" Style="{StaticResource Customframe}">
-                        <controls:CustomEntry Text="{Binding MinPrice}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Min Price"  />
+                        <controls:CustomEntry Text="{Binding ItemToAdd.MinPrice}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Min Price"  />
                     </Frame>
                     <Frame Grid.Column="1" Style="{StaticResource Customframe}">
-                        <controls:CustomEntry Text="{Binding MaxPrice}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Max Price"  />
+                        <controls:CustomEntry Text="{Binding ItemToAdd.MaxPrice}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Max Price"  />
                     </Frame>
 
                 </Grid>
 
                 <Frame Grid.Row="4" Style="{StaticResource Customframe}" HeightRequest="100">
-                    <Editor Text="{Binding Description}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Description"  />
+                    <Editor Text="{Binding ItemToAdd.Description}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Description"  />
                 </Frame>
 
                 <StackLayout Grid.Row="5" VerticalOptions="End">
-                    <Button Clicked="ContinueClicked" Text="Continue" Style="{StaticResource NextItemButton}"/>
+                    <Button Command="{Binding OpenPageCommand}" CommandParameter="ItemPreview" Text="Continue" Style="{StaticResource NextItemButton}"/>
                     <ContentView ControlTemplate="{StaticResource Footer}" />
                 </StackLayout>
             </Grid>

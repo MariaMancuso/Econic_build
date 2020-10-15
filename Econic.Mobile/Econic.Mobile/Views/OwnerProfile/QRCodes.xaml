@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.OwnerProfile.QRCodes" 
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundColor="WhiteSmoke" 
+             ControlTemplate="{StaticResource NavigationTemplate}">
+    
+    <ContentPage.Content>
+        <Grid RowSpacing="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="25*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="My QR Codes" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+            <Grid Grid.Row="1" RowSpacing="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="200"/>
+                </Grid.RowDefinitions>
+
+                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="White" HasShadow="True" CornerRadius="5" Padding="5" HorizontalOptions="Center">
+                    <StackLayout>
+                        <Label Text="Customer Code" FontFamily="QuicksandBold" TextColor="#404040" HorizontalTextAlignment="Center"/>
+                        <Image Source="qrcodetest" WidthRequest="150" HeightRequest="150" />
+                    </StackLayout>
+                </Frame>
+                <ImageButton Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" Source="share" WidthRequest="60" HeightRequest="60" HorizontalOptions="Center"/>
+
+                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" HasShadow="True" CornerRadius="5" Padding="5" HorizontalOptions="Center">
+                    <StackLayout>
+                        <Label Text="Customer Code" FontFamily="QuicksandBold" TextColor="#404040" HorizontalTextAlignment="Center"/>
+                        <Image Source="qrcodetest" WidthRequest="150" HeightRequest="150"/>
+                    </StackLayout>
+                </Frame>
+                <ImageButton Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent" Source="share" WidthRequest="60" HeightRequest="60" HorizontalOptions="Center"/>
+
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

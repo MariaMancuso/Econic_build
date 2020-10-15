@@ -1,7 +1,11 @@
-﻿using Econic.Mobile.Views.Gamification;
+﻿using Econic.Mobile.Models;
+using Econic.Mobile.ViewModels;
+using Econic.Mobile.Views.Gamification;
+using Econic.Mobile.Views.OwnerProfile;
 using Econic.Mobile.Views.OwnerReg;
 using Econic.Mobile.Views.Shared;
 using System;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -23,8 +27,15 @@ namespace Econic.Mobile
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzMzMzI5QDMxMzgyZTMzMmUzMFpUbmo3aGYzM2M5R2cyTmc0WjlhRmhnckFPT3RVR2tzTGlkMlk1WSs0bnM9");
 
             InitializeComponent();
-
-            Navigation = new NavigationPage(new FifthPreview());
+            Image i = new Image();
+            i.Source = "OwnerSplashPage1.png";
+            OwnerModel m = new OwnerModel()
+            {
+                Items = new ObservableCollection<ItemModel>() { new ItemModel() { Image = i, Name = "TestName", MinPrice = "9", MaxPrice = "19", Description = "Description" } }
+            };
+            OwnerViewModel viewmodel = new OwnerViewModel();
+            viewmodel.Owner = m;
+            Navigation = new NavigationPage(new ProductsAndServices(viewmodel));
             Current.MainPage = Navigation;
         }
         public async void OnBackButtonPressed(object sender, EventArgs e)

@@ -16,7 +16,7 @@ namespace Econic.Mobile.Views.OwnerReg
         public TwoFactorConfirm(OwnerViewModel OwnerVM)
         {
             InitializeComponent();
-            BindingContext = new CrossingUIModelViewModel();
+            BindingContext = OwnerVM;
         }
     }
 }

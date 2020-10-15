@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.OwnerProfile.Profile" 
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundColor="WhiteSmoke" 
+             ControlTemplate="{StaticResource NavigationTemplate}">
+    
+    <ContentPage.Content>
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="My Profile" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Grid.Column="0" Source="profilepic" HeightRequest="80" WidthRequest="80" HorizontalOptions="Start"/>
+
+                <StackLayout Grid.Row="0" Grid.Column="1" VerticalOptions="Center">
+                    <Label Text="23" FontFamily="QuicksandBold" TextColor="#404040" HorizontalTextAlignment="Center"/>
+                    <Label Text="Employees" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="0" Grid.Column="2" VerticalOptions="Center">
+                    <Label Text="100" FontFamily="QuicksandBold" TextColor="#404040" HorizontalTextAlignment="Center"/>
+                    <Label Text="Customers" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Grid>
+
+            <StackLayout Grid.Row="2">
+                <Label Text="{Binding Owner.Account.Name}" FontFamily="QuicksandBold" TextColor="#404040"/>
+                <Label Text="{Binding Owner.BusinessName, StringFormat='Owner of {0}'}" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" Spacing="15">
+                <Frame HasShadow="True" HeightRequest="70" BackgroundColor="White" HorizontalOptions="Fill" CornerRadius="20" Padding="10, 0, 0, 0">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="QRcode" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="My QR Codes" VerticalTextAlignment="Center" TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding InfoTapped}" CommandParameter="QRCodes" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame HasShadow="True" HeightRequest="70" BackgroundColor="White" HorizontalOptions="Fill" CornerRadius="20" Padding="10, 0, 0, 0">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="sell" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="Products and Services" VerticalTextAlignment="Center" TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding InfoTapped}" CommandParameter="ProductAndServices"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame HasShadow="True" HeightRequest="70" BackgroundColor="White" HorizontalOptions="Fill" CornerRadius="20" Padding="10, 0, 0, 0">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="promotions" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="Promotions" VerticalTextAlignment="Center" TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding InfoTapped}" CommandParameter="Promotions" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame HasShadow="True" HeightRequest="70" BackgroundColor="White" HorizontalOptions="Fill" CornerRadius="20" Padding="10, 0, 0, 0">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="employees" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="Employees" VerticalTextAlignment="Center" TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding InfoTapped}" CommandParameter="Employees" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </StackLayout>
+           
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

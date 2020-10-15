@@ -19,12 +19,12 @@ namespace Econic.Mobile.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public SelectionViewModel(List<SelectableData<T>> items)
+        public SelectionViewModel(ObservableCollection<SelectableData<T>> items)
         {
             Items = items;
         }
 
-        public List<SelectableData<T>> Items { get; set; }
+        public ObservableCollection<SelectableData<T>> Items { get; set; }
 
         SelectableData<T> _selectedItem { get; set; }
 

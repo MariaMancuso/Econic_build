@@ -16,11 +16,9 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
-            
-
             <Label Grid.Row="0" Text="Enter Code" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" HorizontalOptions="Center"/>
-            
-            <CollectionView Grid.Row="1" x:Name="CrossingView" ItemsSource="{Binding BindCrossingUIModel, Mode=TwoWay}" >
+
+            <CollectionView Grid.Row="1" x:Name="CrossingView" ItemsSource="{Binding CrossingUIModelViewModel.BindCrossingUIModel, Mode=TwoWay}" >
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="6" />
                 </CollectionView.ItemsLayout>
