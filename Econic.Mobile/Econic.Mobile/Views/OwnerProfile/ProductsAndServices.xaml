@@ -60,7 +60,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Command="{Binding AddNewItemCommand}" BackgroundColor="#DFECF2" TextColor="#517486" Text="Add a Product" CornerRadius="20" HorizontalOptions="Start" HeightRequest="30" FontSize="12" FontFamily="QuicksandBold" Padding="15, 0, 15, 0"/>
+                <Button Command="{Binding AddNewItemCommand}" BackgroundColor="#DFECF2" TextColor="#517486" Text="+ Add a Product" CornerRadius="20" HorizontalOptions="Start" HeightRequest="30" FontSize="12" FontFamily="QuicksandBold" Padding="15, 0, 15, 0"/>
             </StackLayout>
 
             <StackLayout Grid.Row="2" Padding="0, 10, 0, 10">
@@ -107,7 +107,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Command="{Binding AddNewItemCommand}" BackgroundColor="#DFECF2" TextColor="#517486" Text="Add a Service" CornerRadius="20" HorizontalOptions="Start" HeightRequest="30" FontSize="12" FontFamily="QuicksandBold" Padding="15, 0, 15, 0" />
+                <Button Command="{Binding AddNewItemCommand}" BackgroundColor="#DFECF2" TextColor="#517486" Text="+ Add a Service" CornerRadius="20" HorizontalOptions="Start" HeightRequest="30" FontSize="12" FontFamily="QuicksandBold" Padding="15, 0, 15, 0" />
             </StackLayout>
 
         </Grid>

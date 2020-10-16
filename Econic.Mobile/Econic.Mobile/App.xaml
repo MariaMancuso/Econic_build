@@ -41,7 +41,7 @@
             <Setter Property="Source" Value="rightarrow"/>
         </Style>
         <Style TargetType="Button" x:Key="NextItemButton">
-            <Setter  Property="BackgroundColor" Value="#517486"/>
+            <Setter Property="BackgroundColor" Value="#517486"/>
             <Setter  Property="TextColor" Value="White"/>
             <Setter Property="VerticalOptions" Value="End"/>
             <Setter Property="HorizontalOptions" Value="Center"/>
@@ -53,7 +53,7 @@
             <Setter Property="Padding" Value="60, 0, 60, 0"/>
         </Style>
         <Style x:Key="Customframe" TargetType="Frame">
-            <Setter Property="BorderColor" Value="DarkGray" />
+            <Setter Property="BorderColor" Value="#cbcbcb" />
             <Setter Property="CornerRadius" Value="3" />
             <Setter Property="HasShadow" Value="False" />
             <Setter Property="Padding" Value="10, 0, 10, 0" />

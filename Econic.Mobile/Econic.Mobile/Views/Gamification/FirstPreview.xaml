@@ -20,7 +20,7 @@
                 <Label Text="So far so good." FontFamily="QuicksandBold" TextColor="#404040" FontSize="20"/>
             </StackLayout>
 
-            <lottie:AnimationView Grid.Row="1" Animation="annimationtest.json" AutoPlay="True" Loop="True" Margin="0, 50, 0, 0"/>
+            <lottie:AnimationView Grid.Row="1" Animation="gamificationtest2.json" AutoPlay="True" Loop="True" Margin="0, 50, 0, 0"/>
             
             <StackLayout Grid.Row="1">
 

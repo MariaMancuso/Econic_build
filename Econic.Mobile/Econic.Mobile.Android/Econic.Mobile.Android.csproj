@@ -95,8 +95,8 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\annimationtest.json" />
-    <AndroidAsset Include="Assets\lottie.json" />
-    <AndroidAsset Include="Assets\lottie1.json" />
+    <AndroidAsset Include="Assets\gamifiactiontest1" />
+    <AndroidAsset Include="Assets\gamificationtest2.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

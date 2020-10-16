@@ -65,7 +65,7 @@
                 </Grid>
 
                 <Frame Grid.Row="4" Style="{StaticResource Customframe}" HeightRequest="100">
-                    <Editor Text="{Binding ItemToAdd.Description}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Description"  />
+                    <controls:CustomEditor Text="{Binding ItemToAdd.Description}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Description"  />
                 </Frame>
 
                 <StackLayout Grid.Row="5" VerticalOptions="End">
