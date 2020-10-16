@@ -28,10 +28,9 @@
 
                                     <StackLayout Grid.Row="1">
                                         <Label Text="This is what my business is called:" TextColor="#404040" FontFamily="QuicksandBold" />
-                                        <input:FormView x:Name="Form">
-                                            <input:AdvancedEntry Text="{Binding Owner.BusinessName}" CornerRadius="3" Annotation="LettersOnly" TextColor="#404040" BorderColor="LightGray" IsRequired="True" Placeholder="Type the name here" AnnotationColor="Red" ValidationMessage="Please enter your business name" MaxLength="20" />
-                                        </input:FormView>
-
+                                        <Frame Style="{StaticResource Customframe}">
+                                            <controls:CustomEntry Text="{Binding Owner.BusinessName}" TextColor="#404040"  Placeholder="Type the name here" PlaceholderColor="DarkGray" />
+                                        </Frame>
                                     </StackLayout>
 
                                     <StackLayout Grid.Row="2">
@@ -39,7 +38,7 @@
                                         <Label Text="Select all that makes sense" FontFamily="QuicksandMedium" TextColor="DimGray" />
 
                                         <Frame Style="{StaticResource Customframe}">
-                                            <controls:CustomDropDown SelectedItem="{Binding Owner.Product}" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="Products">
+                                            <controls:CustomDropDown SelectedItem="{Binding Owner.Product}" TextColor="#343434" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="Products">
                                                 <controls:CustomDropDown.Items>
                                                     <x:String>Restuarant</x:String>
                                                     <x:String>Food truck</x:String>
@@ -51,7 +50,7 @@
 
 
                                         <Frame Style="{StaticResource Customframe}">
-                                            <controls:CustomDropDown SelectedItem="{Binding Owner.Service}" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="Services">
+                                            <controls:CustomDropDown SelectedItem="{Binding Owner.Service}" TextColor="#343434" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="Services">
                                                 <controls:CustomDropDown.Items>
                                                     <x:String>Apparel</x:String>
                                                     <x:String>Food service</x:String>
