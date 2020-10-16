@@ -50,7 +50,7 @@
                             Clicked="Book_Clicked"/>
                 </Grid>
 
-                        <ContentView ControlTemplate="{StaticResource FaveServicesControlTemplate}"
+                 <ContentView ControlTemplate="{StaticResource FaveServicesControlTemplate}"
                              x:Name="FaveServices"/>
                 <ContentView ControlTemplate="{StaticResource FavoriteProductsControlTemplate}"
                              x:Name="FaveProducts"/>
