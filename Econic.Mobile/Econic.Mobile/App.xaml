@@ -1,31 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              x:Class="Econic.Mobile.App">
     <Application.Resources>
+        <Color x:Key="ThemeColor">#D03737</Color>
+
+        <Style TargetType="{x:Type ContentPage}"
+               ApplyToDerivedTypes="True">
+            <Setter Property="BackgroundColor" Value="#F8F8F8"/>
+            <Setter Property="NavigationPage.HasNavigationBar" Value="False"/>
+        </Style>
+
         <Style TargetType="Label">
             <Setter Property="FontFamily" Value="Quicksand" />
-            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontSize" Value="16" />
             <Setter Property="HorizontalTextAlignment" Value="Start" />
         </Style>
         <Style x:Key="QuicksandBold" TargetType="Label">
             <Setter Property="FontFamily" Value="QuicksandBold" />
-            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontSize" Value="16" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
         </Style>
         <Style x:Key="QuicksandLight" TargetType="Label">
             <Setter Property="FontFamily" Value="QuicksandLight" />
-            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontSize" Value="16" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
         </Style>
         <Style x:Key="QuicksandSemiBold" TargetType="Label">
             <Setter Property="FontFamily" Value="QuicksandSemiBold" />
-            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontSize" Value="16" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
         </Style>
         <Style x:Key="QuicksandMedium" TargetType="Label">
             <Setter Property="FontFamily" Value="QuicksandMedium" />
-            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontSize" Value="16" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
         </Style>
         <Style TargetType="ImageButton" x:Key="SplashButton">
@@ -64,6 +73,25 @@
             <Setter Property="Text" Value="Econic" />
         </Style>
 
+        <Style x:Key="SectionText" TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="QuicksandBold"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="Padding" Value="7,0,0,0"/>
+            <Setter Property="VerticalTextAlignment" Value="Start"/>
+        </Style>
+
+        <Style x:Key="LandingBttn" TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="QuicksandBold"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="BorderColor" Value="LightGray"/>
+            <Setter Property="BorderWidth" Value=".25"/>
+        </Style>
+
+        <!-- CONTROL TEMPLATES START-->
+
         <ControlTemplate x:Key="NavigationTemplate">
             <Grid VerticalOptions="FillAndExpand"
                   Padding="10">
@@ -80,19 +108,52 @@
                     </Grid.ColumnDefinitions>
 
                     <ImageButton Grid.Column="0" Source="backarrow" HorizontalOptions="Start"
-                BackgroundColor="Transparent"
+                                 BackgroundColor="Transparent"
                                  WidthRequest="25"
                                  HeightRequest="25"
-                Clicked="OnBackButtonPressed" />
-                    <Label Grid.Column="1" Text="Econic"
+                                 Clicked="OnBackButtonPressed" />
+                    <Label Grid.Column="1" Text="ECONIC"
                            HorizontalOptions="CenterAndExpand"
-                    TextColor="Silver"
-                    FontSize="20"/>
-                    
+                           TextColor="Silver"
+                           FontSize="16"/>
+
                 </Grid>
                 <ContentPresenter VerticalOptions="FillAndExpand"
-                        HorizontalOptions="FillAndExpand"
-                        Grid.Row="1"/>
+                                    HorizontalOptions="FillAndExpand"
+                                    Grid.Row="1"/>
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="EconicStudioNavigationTemplate">
+            <Grid VerticalOptions="FillAndExpand"
+                  Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" VerticalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <ImageButton Grid.Column="0" Source="whitebackarrow.png" HorizontalOptions="Start"
+                                 BackgroundColor="Transparent"
+                                 WidthRequest="25"
+                                 HeightRequest="25"
+                                 VerticalOptions="CenterAndExpand"
+                                 Clicked="OnBackButtonPressed" />
+                    <Label Grid.Column="1" Text="ECONIC STUDIO"
+                           HorizontalOptions="CenterAndExpand"
+                           TextColor="Silver"
+                           FontSize="14"/>
+
+                </Grid>
+                <ContentPresenter VerticalOptions="FillAndExpand"
+                                    HorizontalOptions="FillAndExpand"
+                                    Grid.Row="1"/>
             </Grid>
         </ControlTemplate>
 
@@ -103,6 +164,820 @@
                 <Label Text="Learn More"  FontFamily="QuicksandSemiBold" FontSize="13" TextColor="CornflowerBlue" HorizontalOptions="EndAndExpand"/>
             </StackLayout>
         </ControlTemplate>
-       
+
+        <ControlTemplate x:Key="WelcomeActionsControlTemplate">
+            <ScrollView>
+                <StackLayout Padding="16, 20, 28, 22" Spacing="11">
+                    <Grid Padding="0, 25, 0, 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="16"/>
+                            <RowDefinition Height="3"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="15"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <BoxView BackgroundColor="{StaticResource ThemeColor}"
+                                 Grid.Column="0"
+                                 Grid.Row="0"
+                                 HorizontalOptions="StartAndExpand"/>
+                        <Label Style="{StaticResource SectionText}"
+                               Text="Today"
+                               Grid.Column="1" 
+                               Grid.RowSpan="2"
+                               Padding="0, -3, 0, 0"/>
+                    </Grid>
+                    <!--<sh1:Shadows>-->
+                        <Button Text="Appointment"
+                                Style="{StaticResource LandingBttn}"
+                                WidthRequest="331"
+                                HeightRequest="57"
+                                Padding="13, 0, 0, 0"
+                                />
+                    <!--</sh1:Shadows>
+                    <sh1:Shadows>-->
+                        <Button Text="Deals"
+                                Style="{StaticResource LandingBttn}"
+                                WidthRequest="331"
+                                HeightRequest="57"
+                                Padding="13, 0, 0, 0"
+                                />
+                    <!--</sh1:Shadows>
+
+                    <sh1:Shadows>-->
+                        <Button Text="See todays sales!"
+                                Style="{StaticResource LandingBttn}"
+                                WidthRequest="331"
+                                HeightRequest="88"
+                                Padding="32, 0, 42, 0"
+                                ContentLayout="Right, 1"
+                                BackgroundColor="#D03737"
+                                TextColor="White"
+                                />
+                    <!--</sh1:Shadows>-->
+
+                </StackLayout>
+            </ScrollView>
+        </ControlTemplate>
+
+
+        <ControlTemplate x:Key="FaveServicesControlTemplate">
+            <StackLayout Padding="16, 20, 28, 22" Spacing="11">
+                <Grid Padding="0, 22, 0, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="16"/>
+                        <RowDefinition Height="3"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView BackgroundColor="{StaticResource ThemeColor}"
+                         Grid.Column="0"
+                         Grid.Row="0"/>
+                    <Label Style="{StaticResource SectionText}"
+                       Text="Favorite Services"
+                       Grid.Column="1" 
+                       Grid.RowSpan="2"
+                       Padding="0, -4, 0, 0"/>
+                </Grid>
+
+                <!--<ListView x:Name="listview"
+                          ItemsSource="{Binding Services}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell >
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="75"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout HorizontalOptions="StartAndExpand" 
+                                                 Orientation="Horizontal">
+                                        <Frame Grid.Column="0"
+                                               HeightRequest="75"
+                                               WidthRequest="75"
+                                               Padding="0,0,0,0"/>
+                                        <StackLayout Grid.Column="1" 
+                                                     Orientation="Vertical" 
+                                                     Padding="5,0,0,0" 
+                                                     VerticalOptions="StartAndExpand">
+                                            <Label Text="{Binding Name}"/>
+                                            <Label Text="{Binding ServiceType}"/>
+                                        </StackLayout>
+                                        <Button Text="Book" 
+                                                Grid.Column="2" 
+                                                CommandParameter="{Binding .}"
+                                                HorizontalOptions="EndAndExpand"
+                                                WidthRequest="90"
+                                                HeightRequest="37"
+                                                CornerRadius="18"/>
+                                    </StackLayout>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+
+            </StackLayout>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="FavoriteProductsControlTemplate">
+            <StackLayout Padding="16, 20, 28, 22" Spacing="11">
+                <Grid Padding="0, 22, 0, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="16"/>
+                        <RowDefinition Height="3"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView BackgroundColor="{StaticResource ThemeColor}"
+                         Grid.Column="0"
+                         Grid.Row="0"/>
+                    <Label Style="{StaticResource SectionText}"
+                       Text="Favorite Products"
+                       Grid.Column="1" 
+                       Grid.RowSpan="2"
+                       Padding="0, -4, 0, 0"/>
+                </Grid>
+                <!--<syncfusion:SfListView x:Name="listview"
+                           ItemsSource="{Binding FaveProducts}"
+                           HorizontalOptions="Center"
+                           Orientation="Horizontal"
+                           ItemSize="250"
+                           Padding="15, 5, 5, 5">
+                    <syncfusion:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal">
+                                <Frame WidthRequest="200">
+                                    <StackLayout Orientation="Vertical">
+                                        <Frame HeightRequest="141"
+                                   WidthRequest="141"
+                                   HorizontalOptions="CenterAndExpand">
+                                        </Frame>
+                                        <rating:SfRating x:Name="rating"
+                                             ItemCount="5"
+                                             Value="{Binding Rating}"/>
+                                        <Label Text="{Binding Name}"/>
+                                        <Label Text="{Binding Price}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </syncfusion:SfListView.ItemTemplate>
+                </syncfusion:SfListView>-->
+            </StackLayout>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="WishListControlTemplate">
+            <StackLayout Padding="16, 20, 28, 22" Spacing="11">
+                <Grid Padding="0, 22, 0, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="16"/>
+                        <RowDefinition Height="3"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView BackgroundColor="{StaticResource ThemeColor}"
+                         Grid.Column="0"
+                         Grid.Row="0"/>
+                    <Label Style="{StaticResource SectionText}"
+                       Text="Wish List"
+                       Grid.Column="1" 
+                       Grid.RowSpan="2"
+                       Padding="0, -4, 0, 0"/>
+                </Grid>
+
+                <syncfusion:SfListView x:Name="listview"
+                           ItemsSource="{Binding FaveProducts}"
+                           HorizontalOptions="Center"
+                           Orientation="Horizontal"
+                           ItemSize="250"
+                           Padding="15, 5, 5, 5">
+                    <syncfusion:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <ScrollView Orientation="Horizontal">
+
+                                <Frame WidthRequest="200">
+                                    <StackLayout Orientation="Vertical">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="141"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout HorizontalOptions="StartAndExpand" 
+                                                         Orientation="Horizontal">
+                                                <Frame Grid.Column="0"
+                                                       HeightRequest="141"
+                                                       WidthRequest="141"
+                                                       Padding="0,0,0,0"/>
+                                                <StackLayout Grid.Column="1" 
+                                                             Orientation="Vertical" 
+                                                             Padding="5,0,0,0" 
+                                                             VerticalOptions="StartAndExpand">
+                                                    <Label Text="{Binding Name}"/>
+                                                    <Label Text="{Binding Price}"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </ScrollView>
+                        </DataTemplate>
+                    </syncfusion:SfListView.ItemTemplate>
+                </syncfusion:SfListView>
+            </StackLayout>
+        </ControlTemplate>
+
+        <!--Classic Template-->
+        <ControlTemplate x:Key="ClassicControlTemplate">
+            <StackLayout Padding="10">
+                <Grid VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" VerticalOptions="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--<ImageButton Grid.Column="0" Source="backarrow" HorizontalOptions="Start"
+                                 BackgroundColor="Transparent"
+                                 WidthRequest="25"
+                                 HeightRequest="25"/>-->
+                        <Label Grid.Column="1" Text="Preview"
+                                   HorizontalOptions="CenterAndExpand"
+                                   TextColor="{StaticResource ThemeColor}"
+                                   FontSize="10"
+                                   Padding="0"/>
+
+                    </Grid>
+                </Grid>
+                <Label Text="Booking" 
+                       Padding="0, 0, 0, 5"
+                       FontSize="14"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"    
+                       TextColor="{StaticResource ThemeColor}"/>
+
+                <Label Text="Type of Service: "
+                      
+                       HorizontalTextAlignment="Start"
+                       FontSize="7"    
+                       TextColor="{StaticResource ThemeColor}"/>
+
+                <Frame Padding="0, 0, 0, 0"
+                       HeightRequest="22"
+                       WidthRequest="156">
+                    <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
+                                            VerticalOptions="Center"
+                                            x:Name="serviceDropdown"
+                                            FieldText="Make a Selection"/>-->
+                </Frame>
+                <Label Text="Availability: "
+                           Padding="0, 8, 0, 0"
+                           HorizontalTextAlignment="Start"
+                           FontSize="7"    
+                           TextColor="{StaticResource ThemeColor}"/>
+                <Grid Padding="0, 0, 0, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   Padding="0, 0, 0, 0">
+                        <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
+                                                    x:Name="monthDropdown"/>-->
+                    </Frame>
+
+                    <Frame Grid.Column="2"
+                                   Padding="0, 0, 0, 0">
+                        <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
+                                                    x:Name="dayDropdown"/>-->
+                    </Frame>
+                </Grid>
+
+                <Grid Padding="0, 10, 0, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24"/>
+                        <RowDefinition Height="24"/>
+                        <RowDefinition Height="24"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="9:30 AM"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                FontSize="7"
+                                BackgroundColor="#e2e2e2"
+                                TextColor="{StaticResource ThemeColor}"
+                                    Padding="0"/>
+                    <Button Text="10:00 AM"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                FontSize="7"
+                                BackgroundColor="#e2e2e2" 
+                                    Padding="0"
+                                TextColor="{StaticResource ThemeColor}"/>
+                    <Button Text="10:30 AM"
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                FontSize="7"
+                                BackgroundColor="#f8f8f8"
+                                BorderWidth=".25"
+                                BorderColor="#e2e2e2"
+                                    Padding="0"
+                                TextColor="#b9b9b9"/>
+                    <Button Text="11:00 AM"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontSize="7"
+                                BackgroundColor="#f8f8f8"
+                                BorderWidth=".25"
+                                BorderColor="#e2e2e2"
+                                    Padding="0"
+                                TextColor="#b9b9b9"/>
+                    <Button Text="11:30 AM"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                FontSize="7"
+                                TextColor="White"
+                                    Padding="0"
+                                BackgroundColor="{StaticResource ThemeColor}"
+                                />
+                    <Button Text="12:00 PM"
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                 FontSize="7"
+                                BackgroundColor="#e2e2e2"
+                                    Padding="0"
+                                TextColor="{StaticResource ThemeColor}"/>
+                    <Button Text="12:30 PM"
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                FontSize="7"
+                                BackgroundColor="#e2e2e2"
+                                    Padding="0"
+                                TextColor="{StaticResource ThemeColor}"/>
+                    <Button Text="3:30 PM"
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                FontSize="7"
+                                BackgroundColor="#e2e2e2"
+                                    Padding="0"
+                                TextColor="{StaticResource ThemeColor}"/>
+                </Grid>
+
+                <Label Text="You selected: "
+                           Padding="0, 7, 0, 0"
+                           FontSize="7"
+                           HorizontalTextAlignment ="Center"
+                           TextColor="{StaticResource ThemeColor}"/>
+                <Label Text="Type of Service"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           FontSize="9"/>
+                <Label Text="September 27 @ 11:30 AM"
+                           Padding="0, 0, 0, 5"
+                           HorizontalTextAlignment="Center"
+                           FontSize="9"/>
+
+                <Button Text="CONFIRM"
+                                Padding="0"
+                            FontSize="9"
+                            TextColor="White"
+                            HeightRequest="28"
+                            WidthRequest="156"
+                                VerticalOptions="EndAndExpand"
+                            BackgroundColor="{StaticResource ThemeColor}"/>
+            </StackLayout>
+        </ControlTemplate>
+
+        <!-- Modern Template -->
+        <ControlTemplate x:Key="ModernControlTemplate">
+            <StackLayout>
+                <Grid VerticalOptions="FillAndExpand" 
+                      BackgroundColor="{StaticResource ThemeColor}"
+                      Padding="0, 0, 0, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" VerticalOptions="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--<ImageButton Grid.Column="0" Source="backarrow" HorizontalOptions="Start"
+                                 BackgroundColor="Transparent"
+                                 WidthRequest="25"
+                                 HeightRequest="25"/>-->
+                        <Label Grid.Column="1" Text="Preview"
+                                   HorizontalOptions="CenterAndExpand"
+                                   TextColor="White"
+                                   FontSize="10"
+                                   Padding="0"/>
+
+                    </Grid>
+                </Grid>
+                <StackLayout Padding="10">
+                    <Label Text="Booking" 
+                           Padding="0, 0, 0, 5"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Start"    
+                           TextColor="{StaticResource ThemeColor}"/>
+
+                    <Label Text="Type of Service: "
+                               HorizontalTextAlignment="Start"
+                               FontSize="7"    
+                               TextColor="{StaticResource ThemeColor}"/>
+
+                    <Frame Padding="0, 0, 0, 0"
+                               HeightRequest="22"
+                               WidthRequest="156"
+                               CornerRadius="8">
+                        <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
+                                    VerticalOptions="Center"
+                                    x:Name="serviceDropdown"/>-->
+                    </Frame>
+                    <Label Text="Availability: "
+                           Padding="0, 8, 0, 0"
+                           HorizontalTextAlignment="Start"
+                           FontSize="7"    
+                           TextColor="{StaticResource ThemeColor}"/>
+                    <Grid Padding="0, 0, 0, 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="22"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Frame Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   CornerRadius="8"
+                                   Padding="0, 0, 0, 0">
+                            <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
+                                                x:Name="monthDropdown"/>-->
+                        </Frame>
+
+                        <Frame Grid.Column="2"
+                                   CornerRadius="8"
+                                   Padding="0, 0, 0, 0">
+                            <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
+                                            x:Name="dayDropdown"/>-->
+                        </Frame>
+                    </Grid>
+
+                    <Grid Padding="0, 10, 0, 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="24"/>
+                            <RowDefinition Height="24"/>
+                            <RowDefinition Height="24"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Text="9:30 AM"
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    FontSize="7"
+                                    CornerRadius="8"
+                                    BorderWidth="1"
+                                    BackgroundColor="#f8f8f8"
+                                    Padding="0"
+                                    TextColor="{StaticResource ThemeColor}"
+                                    BorderColor="{StaticResource ThemeColor}"/>
+                        <Button Text="10:00 AM"
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    FontSize="7"
+                                    CornerRadius="8"
+                                    BorderWidth="1"
+                                    BackgroundColor="#f8f8f8"
+                                    Padding="0"
+                                    TextColor="{StaticResource ThemeColor}"
+                                    BorderColor="{StaticResource ThemeColor}"/>
+                        <Button Text="10:30 AM"
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                FontSize="7"
+                                BackgroundColor="{StaticResource ThemeColor}"
+                                Opacity=".15"
+                                BorderWidth="1"
+                                CornerRadius="8"
+                                    Padding="0"
+                                BorderColor="{StaticResource ThemeColor}"
+                                TextColor="Black"/>
+                        <Button Text="11:00 AM"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontSize="7"
+                                BackgroundColor="{StaticResource ThemeColor}"
+                                Opacity=".15"
+                                BorderWidth="1"
+                                CornerRadius="8"
+                                BorderColor="{StaticResource ThemeColor}"
+                                TextColor="Black"
+                                    Padding="0"/>
+                        <Button Text="11:30 AM"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                FontSize="7"
+                                TextColor="White"
+                                CornerRadius="8"
+                                    Padding="0"
+                                BackgroundColor="{StaticResource ThemeColor}"/>
+                        <Button Text="12:00 PM"
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                FontSize="7"
+                                    Padding="0"
+                                CornerRadius="8"
+                                BorderWidth="1"
+                                BackgroundColor="#f8f8f8"
+                                BorderColor="{StaticResource ThemeColor}"
+                                TextColor="{StaticResource ThemeColor}"/>
+                        <Button Text="12:30 PM"
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                FontSize="7"
+                                    Padding="0"
+                                CornerRadius="8"
+                                BorderWidth="1"
+                                BorderColor="{StaticResource ThemeColor}"
+                                BackgroundColor="#f8f8f8"
+                                TextColor ="{StaticResource ThemeColor}"/>
+                        <Button Text="3:30 PM"
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                FontSize="7"
+                                    Padding="0"
+                                CornerRadius="8"
+                                BorderWidth="1"
+                                BackgroundColor="#f8f8f8"
+                                TextColor ="{StaticResource ThemeColor}"
+                                BorderColor="{StaticResource ThemeColor}"/>
+                    </Grid>
+
+                    <Label Text="You selected: "
+                           Padding="0, 5, 0, 0"
+                           FontSize="7"
+                           HorizontalTextAlignment ="Start"
+                           TextColor ="{StaticResource ThemeColor}"/>
+                    <Label Text="Type of Service"
+                           HorizontalTextAlignment="Start"
+                           FontAttributes="Bold"
+                           FontSize="9"
+                           />
+                    <Label Text="September 27 @ 11:30 AM"
+                           Padding="0, 0, 0, 5"
+                           HorizontalTextAlignment="Start"
+                           FontSize="9"/>
+
+                    <Button Text="CONFIRM"
+                                Padding="0"
+                            FontSize="9"
+                            BackgroundColor="White"
+                            TextColor="{StaticResource ThemeColor}"
+                            HeightRequest="28"
+                            WidthRequest="156"
+                            CornerRadius="8"
+                            BorderWidth="1"
+                                VerticalOptions="EndAndExpand"
+                            BorderColor="{StaticResource ThemeColor}"
+                            />
+                </StackLayout>
+            </StackLayout>
+        </ControlTemplate>
+
+        <!-- Friendly Template -->
+        <ControlTemplate x:Key="FriendlyControlTemplate">
+            <StackLayout>
+                <StackLayout BackgroundColor="{StaticResource ThemeColor}">
+                    <Grid VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0" VerticalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--<ImageButton Grid.Column="0" Source="backarrow" HorizontalOptions="Start"
+                                 BackgroundColor="Transparent"
+                                 WidthRequest="25"
+                                 HeightRequest="25"/>-->
+                            <Label Grid.Column="1" Text="Preview"
+                                   HorizontalOptions="CenterAndExpand"
+                                   TextColor="White"
+                                   FontSize="10"
+                                   Padding=" 0"/>
+
+                        </Grid>
+                    </Grid>
+                    <Label Text="Booking" 
+                       Padding="0, 0, 0, 5"
+                       FontSize="14"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"    
+                       TextColor ="White"/>
+                </StackLayout>
+                <StackLayout Padding="10">
+                    <Label Text="Type of Service: "
+                       HorizontalTextAlignment="Start"
+                       FontSize="7"    
+                       TextColor ="{StaticResource ThemeColor}"/>
+
+                    <Frame Padding="0, 0, 0, 0"
+                           HeightRequest="22"
+                           WidthRequest="156"
+                           CornerRadius="30">
+                        <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
+                                    VerticalOptions="Center"
+                                    x:Name="serviceDropdown"/>-->
+                    </Frame>
+                    <Label Text="Availability: "
+                           Padding="0, 8, 0, 0"
+                           HorizontalTextAlignment="Start"
+                           FontSize="7"    
+                           TextColor ="{StaticResource ThemeColor}"/>
+                    <Grid Padding="0, 0, 0, 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="22"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Frame Grid.Column="0"
+                               Grid.ColumnSpan="2"
+                               CornerRadius="30"
+                             Padding="0, 0, 0, 0">
+                            <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
+                                            x:Name="monthDropdown"/>-->
+                        </Frame>
+
+                        <Frame Grid.Column="2"
+                               CornerRadius="30"
+                           Padding="0, 0, 0, 0">
+                            <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
+                                            x:Name="dayDropdown"/>-->
+                        </Frame>
+                    </Grid>
+
+                    <Grid Padding="0, 10, 0, 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="24"/>
+                            <RowDefinition Height="24"/>
+                            <RowDefinition Height="24"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Text="9:30 AM"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                FontSize="7"
+                                Padding="0"
+                                CornerRadius="30"
+                                BorderWidth="1"
+                                BackgroundColor="#f8f8f8"
+                                TextColor="{StaticResource ThemeColor}"
+                                BorderColor="{StaticResource ThemeColor}"/>
+                        <Button Text="10:00 AM"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                FontSize="7"
+                                Padding="0"
+                                CornerRadius="30"
+                                BorderWidth="1"
+                                BackgroundColor="#f8f8f8"
+                                TextColor="{StaticResource ThemeColor}"
+                                BorderColor="{StaticResource ThemeColor}"/>
+                        <Button Text="10:30 AM"
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                FontSize="7"
+                                Padding="0"
+                                BackgroundColor="{StaticResource ThemeColor}"
+                                Opacity=".15"
+                                BorderWidth="1"
+                                CornerRadius="30"
+                                BorderColor="{StaticResource ThemeColor}"
+                                TextColor="Black"/>
+                        <Button Text="11:00 AM"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontSize="7"
+                                Padding="0"
+                                BackgroundColor="{StaticResource ThemeColor}"
+                                Opacity=".15"
+                                BorderWidth="1"
+                                CornerRadius="30"
+                                BorderColor="{StaticResource ThemeColor}"
+                                TextColor="Black"/>
+                        <Button Text="11:30 AM"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                FontSize="7"
+                                Padding="0"
+                                TextColor="White"
+                                CornerRadius="30"
+                                BackgroundColor="{StaticResource ThemeColor}"/>
+                        <Button Text="12:00 PM"
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                FontSize="7"
+                                Padding="0"
+                                CornerRadius="30"
+                                BorderWidth="1"
+                                BackgroundColor="#f8f8f8"
+                                TextColor="{StaticResource ThemeColor}"
+                                BorderColor="{StaticResource ThemeColor}"/>
+                        <Button Text="12:30 PM"
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                FontSize="7"
+                                Padding="0"
+                                CornerRadius="30"
+                                BorderWidth="1"
+                                BackgroundColor="#f8f8f8"
+                                TextColor="{StaticResource ThemeColor}"
+                                BorderColor="{StaticResource ThemeColor}"/>
+                        <Button Text="3:30 PM"
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                FontSize="7"
+                                Padding="0"
+                                CornerRadius="30"
+                                BorderWidth="1"
+                                BackgroundColor="#f8f8f8"
+                                TextColor="{StaticResource ThemeColor}"
+                                BorderColor="{StaticResource ThemeColor}"/>
+                    </Grid>
+
+                    <Label Text="You selected: "
+                           Padding="0, 7, 0, 0"
+                           FontSize="7"
+                           HorizontalTextAlignment ="Start"
+                           TextColor ="{StaticResource ThemeColor}"/>
+                    <Label Text="Type of Service"
+                           HorizontalTextAlignment="Start"
+                           FontAttributes="Bold"
+                           FontSize="9"
+                           />
+                    <Label Text="September 27 @ 11:30 AM"
+                           Padding="0, 0, 0, 5"
+                           HorizontalTextAlignment="Start"
+                           FontSize="9"/>
+
+                    <Button Text="CONFIRM"
+                            FontSize="9"
+                            BackgroundColor="{StaticResource ThemeColor}"
+                            TextColor="White"
+                            CornerRadius="30"
+                            Padding="0"
+                            BorderWidth="1"
+                            HeightRequest="28"
+                            WidthRequest="156"
+                            VerticalOptions="EndAndExpand"
+                            BorderColor="{StaticResource ThemeColor}"
+                            />
+                </StackLayout>
+            </StackLayout>
+        </ControlTemplate>
+
     </Application.Resources>
 </Application>
