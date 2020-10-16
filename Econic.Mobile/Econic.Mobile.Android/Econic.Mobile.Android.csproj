@@ -97,6 +97,10 @@
     <AndroidAsset Include="Assets\annimationtest.json" />
     <AndroidAsset Include="Assets\gamifiactiontest1" />
     <AndroidAsset Include="Assets\gamificationtest2.json" />
+    <AndroidAsset Include="Assets\gamificationtest3" />
+    <AndroidAsset Include="Assets\gamificationtest4.json" />
+    <AndroidAsset Include="Assets\gamificationtest5.json" />
+    <AndroidAsset Include="Assets\gamificationtest6.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

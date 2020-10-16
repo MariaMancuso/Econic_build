@@ -23,6 +23,7 @@ namespace Econic.Mobile.ViewModels
         IPermissionService permissionService;
         CrossingUIModelViewModel crossingUIModelViewModel;
         string mode;
+        ItemModel itemToEdit;
         public OwnerViewModel()
         {
             owner = new OwnerModel
@@ -155,6 +156,12 @@ namespace Econic.Mobile.ViewModels
                     if (ItemToAdd != null)
                         AddItem(ItemToAdd);
 
+                    if (itemToEdit != null)
+                    {
+                        RemoveItem(itemToEdit);
+                        itemToEdit = null;
+                    }
+
                     if(mode == "edit" || mode == "addfromprofile")
                         await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices(this));
                     else
@@ -226,9 +233,8 @@ namespace Econic.Mobile.ViewModels
         private async void editClicked(Object sender)
         {
             mode = "edit";
-            ItemModel itemModel = sender as ItemModel;
-            RemoveItem(itemModel);
-            ItemToAdd = itemModel;
+            itemToEdit = sender as ItemModel;
+            ItemToAdd = itemToEdit;
             await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, mode));
         }
         private void removeClicked(Object sender)
