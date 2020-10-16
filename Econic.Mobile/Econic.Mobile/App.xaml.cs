@@ -34,8 +34,11 @@ namespace Econic.Mobile
                 Items = new ObservableCollection<ItemModel>() { new ItemModel() { Image = i, Name = "TestName", MinPrice = "9", MaxPrice = "19", Description = "Description" } }
             };
             OwnerViewModel viewmodel = new OwnerViewModel();
-            viewmodel.Owner = m;*/
-            Navigation = new NavigationPage(new WelcomeSplash());
+
+            viewmodel.Owner = m; */
+            Navigation = new NavigationPage(new MainPage());
+           // Navigation = new NavigationPage(new WelcomeSplash());
+
             Current.MainPage = Navigation;
         }
         public async void OnBackButtonPressed(object sender, EventArgs e)

@@ -19,5 +19,15 @@ namespace Econic.Mobile
         {
             await Navigation.PushAsync(new WelcomeSplash());
         }
+
+        async void EmployeeClicked(object sender, EventArgs arg)
+        {
+            await Navigation.PushAsync(new WelcomeSplash());
+        }
+
+        async void CustomerClicked(object sender, EventArgs arg)
+        {
+            await Navigation.PushAsync(new WelcomeSplash());
+        }
     }
 }

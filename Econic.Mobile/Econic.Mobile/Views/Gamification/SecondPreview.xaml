@@ -35,7 +35,7 @@
 
 
             <StackLayout Grid.Row="2" VerticalOptions="End">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="NotifyMethod" Text="Let's Keep Building" Style="{StaticResource NextItemButton}" />
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="EconicStudio" Text="Let's Keep Building" Style="{StaticResource NextItemButton}" />
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
 
