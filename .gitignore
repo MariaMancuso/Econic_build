@@ -413,10 +413,6 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 
-# Visual Studio instance specific
-#/Econic.Mobile/Econic.Mobile.Android/Resources/Resource.designer.cs
-Resource.designer.cs
-
 # Site specific
 *.[0-9][0-9]
 z.*
