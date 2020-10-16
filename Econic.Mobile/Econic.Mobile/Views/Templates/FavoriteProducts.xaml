@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             x:Class="Econic.Mobile.Views.Templates.FavoriteProducts">
+    <ContentPage.Content>
+        <StackLayout Padding="16, 20, 28, 22" Spacing="11">
+            <Grid Padding="0, 22, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="3"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <BoxView BackgroundColor="{StaticResource ThemeColor}"
+                         Grid.Column="0"
+                         Grid.Row="0"/>
+                <Label Style="{StaticResource SectionText}"
+                       Text="Favorite Products"
+                       Grid.Column="1" 
+                       Grid.RowSpan="2"
+                       Padding="0, -4, 0, 0"/>
+            </Grid>
+            <syncfusion:SfListView x:Name="listview"
+                           ItemsSource="{Binding FaveProducts}"
+                           HorizontalOptions="Center"
+                           Orientation="Horizontal"
+                           ItemSize="250"
+                           Padding="15, 5, 5, 5">
+                    <syncfusion:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal">
+                                <Frame WidthRequest="200">
+                                    <StackLayout Orientation="Vertical">
+                                        <Frame HeightRequest="141"
+                                   WidthRequest="141"
+                                   HorizontalOptions="CenterAndExpand">
+                                        </Frame>
+                                        <rating:SfRating x:Name="rating"
+                                             ItemCount="5"
+                                             Value="{Binding Rating}"/>
+                                        <Label Text="{Binding Name}"/>
+                                        <Label Text="{Binding Price}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </syncfusion:SfListView.ItemTemplate>
+                </syncfusion:SfListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

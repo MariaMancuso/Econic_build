@@ -27,7 +27,7 @@ namespace Econic.Mobile
 
         async void CustomerClicked(object sender, EventArgs arg)
         {
-            await Navigation.PushAsync(new WelcomeSplash());
+            await Navigation.PushAsync(new Views.Customer.LandingPage());
         }
     }
 }

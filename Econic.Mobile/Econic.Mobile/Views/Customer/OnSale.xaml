@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Customer.OnSale"
+             >
+    <ContentPage.Content>
+
+            <StackLayout>
+            <Label Text="On Sale Today!"
+                   TextColor="{StaticResource ThemeColor}"
+                   HorizontalOptions="Center"
+                   FontSize="24"/>
+            <Frame HeightRequest="311"
+                   WidthRequest="311"
+                   Padding="22, 22, 22, 0"      />
+
+            <Button Text="Add to cart"
+                    Clicked="Button_Clicked"/>
+            <!--<ContentView ControlTemplate="{StaticResource ClickedItemControlTemplate}"/>-->
+                <ContentView ControlTemplate="{StaticResource FavoriteProductsControlTemplate}"/>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

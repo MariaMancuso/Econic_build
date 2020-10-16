@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="Econic.Mobile.Views.Templates.WishList">
+    <ContentPage.Content>
+        <StackLayout Padding="16, 20, 28, 22" Spacing="11">
+            <Grid Padding="0, 22, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="3"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <BoxView BackgroundColor="{StaticResource ThemeColor}"
+                         Grid.Column="0"
+                         Grid.Row="0"/>
+                <Label Style="{StaticResource SectionText}"
+                       Text="Wish List"
+                       Grid.Column="1" 
+                       Grid.RowSpan="2"
+                       Padding="0, -4, 0, 0"/>
+            </Grid>
+
+            <syncfusion:SfListView x:Name="listview"
+                           ItemsSource="{Binding FaveProducts}"
+                           HorizontalOptions="Center"
+                           Orientation="Horizontal"
+                           ItemSize="250"
+                           Padding="15, 5, 5, 5">
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <ScrollView Orientation="Horizontal">
+
+                            <Frame WidthRequest="200">
+                                <StackLayout Orientation="Vertical">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="141"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout HorizontalOptions="StartAndExpand" 
+                                                         Orientation="Horizontal">
+                                            <Frame Grid.Column="0"
+                                                       HeightRequest="141"
+                                                       WidthRequest="141"
+                                                       Padding="0,0,0,0"/>
+                                            <StackLayout Grid.Column="1" 
+                                                             Orientation="Vertical" 
+                                                             Padding="5,0,0,0" 
+                                                             VerticalOptions="StartAndExpand">
+                                                <Label Text="{Binding Name}"/>
+                                                <Label Text="{Binding Price}"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </ScrollView>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
