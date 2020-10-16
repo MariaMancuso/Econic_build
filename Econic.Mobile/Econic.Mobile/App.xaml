@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms" xmlns:local="clr-namespace:Econic.Mobile.Controls"
              x:Class="Econic.Mobile.App">
     <Application.Resources>
         <Color x:Key="ThemeColor">#D03737</Color>
@@ -193,6 +193,9 @@
                                 WidthRequest="331"
                                 HeightRequest="57"
                                 Padding="13, 0, 0, 0"
+                                Command="{Binding ClickedCommand}"
+                                CommandParameter="Book"
+                                Clicked="App_Clicked"
                                 />
                     <!--</sh1:Shadows>
                     <sh1:Shadows>-->
@@ -213,7 +216,7 @@
                                 ContentLayout="Right, 1"
                                 BackgroundColor="#D03737"
                                 TextColor="White"
-                                />
+                                Clicked="Sale_Clicked"/>
                     <!--</sh1:Shadows>-->
 
                 </StackLayout>
@@ -242,7 +245,7 @@
                        Padding="0, -4, 0, 0"/>
                 </Grid>
 
-                <!--<ListView x:Name="listview"
+                <!--<ListView x:Name="faveServicesListview"
                           ItemsSource="{Binding Services}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -353,7 +356,7 @@
                        Padding="0, -4, 0, 0"/>
                 </Grid>
 
-                <syncfusion:SfListView x:Name="listview"
+                <!--<syncfusion:SfListView x:Name="listview"
                            ItemsSource="{Binding FaveProducts}"
                            HorizontalOptions="Center"
                            Orientation="Horizontal"
@@ -390,8 +393,181 @@
                             </ScrollView>
                         </DataTemplate>
                     </syncfusion:SfListView.ItemTemplate>
-                </syncfusion:SfListView>
+                </syncfusion:SfListView>-->
             </StackLayout>
+        </ControlTemplate>
+
+
+        <ControlTemplate x:Key="ClickedItemControlTemplate">
+            <ListView x:Name="listview"
+              ItemsSource="{Binding Item}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height=".245*"/>
+                                    <RowDefinition Height=".034*"/>
+                                    <RowDefinition Height=".034*"/>
+                                    <RowDefinition Height=".069*"/>
+                                    <RowDefinition Height=".0167*"/>
+                                    <RowDefinition Height=".039*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".085*"/>
+                                    <ColumnDefinition Width=".83*"/>
+                                    <ColumnDefinition Width=".085*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Frame HeightRequest="311"
+                               WidthRequest="311"
+                               Grid.Row="0"/>
+                                <Label Text="{Binding Title}"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           Grid.Row="1"/>
+                                <Label Text="{Binding SubTitle}"
+                           FontSize="16"
+                           Grid.Row="2"/>
+                                <Label Text="{Binding Descr}"
+                           FontSize="13"
+                           Grid.Row="3"/>
+                                <rating:SfRating x:Name="rating"
+                                     ItemCount="5"
+                                     Value="{Binding Rating}"
+                                     Grid.Row="4">
+                                    <rating:SfRating.RatingSettings>
+                                        <rating:SfRatingSettings RatedFill="Black"
+                                                     UnRatedFill="White"
+                                                     UnRatedStrokeWidth="3"/>
+                                    </rating:SfRating.RatingSettings>
+                                </rating:SfRating>
+                                <Grid Padding="0, 10, 0, 0"
+                          Grid.Row="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".12*"/>
+                                        <ColumnDefinition Width=".341*"/>
+                                        <ColumnDefinition Width=".368*"/>
+                                    </Grid.ColumnDefinitions >
+                                    <Label Text="{Binding Price}"
+                               FontSize="16"
+                               Grid.Column="0"
+                               VerticalOptions="CenterAndExpand"/>
+                                    <Button Text="Add to cart"
+                                Grid.Column="2"
+                                CommandParameter="{Binding .}"
+                                WidthRequest="138"
+                                HeightRequest="37"
+                                CornerRadius="18"
+                                TextColor="#517486"
+                                BackgroundColor="#DFECF2"
+                                HorizontalOptions="EndAndExpand"/>
+                                </Grid>
+                            </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="CartPreviewControlTemplate">
+            <syncfusion:SfListView x:Name="listview"
+                           ItemsSource="{Binding Item}"
+                           HorizontalOptions="Center"
+                           ItemSize="550">
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="22,0,22,0">
+                            <Button Text="Proceed to checkout"
+                    BackgroundColor="{StaticResource ThemeColor}"
+                    TextColor="White"
+                    FontSize="16"
+                    HorizontalOptions="CenterAndExpand"
+                    CornerRadius="18"
+                    WidthRequest="312"
+                    HeightRequest="40"
+                        FontFamily="QuicksandBold"
+                    />
+
+                            <Grid Padding="10, 53, 0, 31">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="141"/>
+                                    <ColumnDefinition Width="159"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35.25"/>
+                                    <RowDefinition Height="35.25"/>
+                                    <RowDefinition Height="35.25"/>
+                                    <RowDefinition Height="35.25"/>
+                                </Grid.RowDefinitions>
+                                <Frame Grid.RowSpan="4"
+                                   Grid.Column="0"
+                                   WidthRequest="141"
+                                   HeightRequest="141"
+                                   HorizontalOptions="CenterAndExpand"/>
+                                <StackLayout Grid.Column="1" Padding="12, 0, 0, 0">
+                                    <Label Text="{Binding Title}"
+                                       FontSize="16"
+                                       Grid.Row="0"
+                                       FontFamily="QuicksandBold"/>
+                                    <Label Text="{Binding SubTitle}"
+                                       FontSize="16"
+                                       Grid.Row="1"/>
+                                    <Label Text="{Binding Price}"
+                                       FontSize="24"
+                                       Grid.Row="2"
+                                       Padding="0,0,0,30"/>
+
+                                    <local:CustomStepper x:Name="Stepper"
+                                             Text="1"
+                                             Grid.Row="3"
+                                             VerticalOptions="EndAndExpand"/>
+                                </StackLayout>
+                            </Grid>
+                            <Button Text="Deal Button"
+                                BackgroundColor="White"
+                                TextColor="{StaticResource ThemeColor}"
+                                HorizontalOptions="CenterAndExpand"
+                                CornerRadius="18"
+                                WidthRequest="312"
+                                HeightRequest="40"
+                                FontFamily="QuicksandBold"
+                                FontSize="16"/>
+
+                            <Label
+                                   HorizontalOptions="EndAndExpand"
+                                   Padding="0, 18, 0, 28">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Remove      "
+                                              TextColor="{StaticResource ThemeColor}"
+                                              FontSize="18">
+                                            <Span.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding TapCommand}"/>
+                                            </Span.GestureRecognizers>
+                                        </Span>
+                                        <Span Text="Save"
+                                              TextColor="{StaticResource ThemeColor}"
+                                              FontSize="18">
+                                            <Span.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding TapCommand}"/>
+                                            </Span.GestureRecognizers>
+                                        </Span>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label Text="Return Policy"
+                                   FontSize="13"
+                                   Padding="0, 0, 0, 8"/>
+                            <Label Text="{Binding Descr}"
+                           FontSize="13"
+                           />
+                        </StackLayout>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+
         </ControlTemplate>
 
         <!--Classic Template-->
