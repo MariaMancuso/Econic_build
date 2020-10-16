@@ -5,7 +5,24 @@
              BackgroundColor="WhiteSmoke">
 
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-        <Button Text="Owner" Clicked="OwnerClicked" BackgroundColor="Gray"/>
+        <Button Text="Owner"
+                Clicked="OwnerClicked" 
+                BackgroundColor="#517486"
+                CornerRadius="25"
+                TextColor="White"
+                Padding="80, 0, 80, 0"/>
+        <Button Text="Employee"
+                Clicked="EmployeeClicked"
+                BackgroundColor="#517486"
+                CornerRadius="25"
+                TextColor="White"
+                Padding="80, 0, 80, 0"/>
+        <Button Text="Customer" 
+                Clicked="CustomerClicked" 
+                BackgroundColor="#517486"
+                CornerRadius="25"
+                TextColor="White"
+                Padding="80, 0, 80, 0"/>
     </StackLayout>
 
 </ContentPage>

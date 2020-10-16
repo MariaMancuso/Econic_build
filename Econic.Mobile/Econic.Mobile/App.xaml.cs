@@ -36,7 +36,7 @@ namespace Econic.Mobile
             OwnerViewModel viewmodel = new OwnerViewModel();
             viewmodel.Owner = m;
             //Navigation = new NavigationPage(new ProductsAndServices(viewmodel));
-            Navigation = new NavigationPage(new WelcomeSplash());
+            Navigation = new NavigationPage(new MainPage());
             Current.MainPage = Navigation;
         }
         public async void OnBackButtonPressed(object sender, EventArgs e)
