@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.EconicStudio.WelcomeScreen"
+             ControlTemplate="{x:StaticResource NavigationTemplate}"
+             BackgroundColor="#343434">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Give your mobile business some of your personality in the Econic Studio"
+                   TextColor="White"
+                   FontSize="24"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   FontFamily="QuicksandBold"
+                   Padding="22, 0, 22, 40"/>
+            <Image Source="ColorPalette.png"
+                   HorizontalOptions="CenterAndExpand"
+                   />
+            <Label Text="What you need to prepare:"
+                   TextColor="White"
+                   FontSize="18"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   FontFamily="QuicksandBold"
+                   Padding="0, 30, 0, 0"/>
+
+            <Label Text="-Your logo in PNG or JPG format"
+                   FontSize="16"
+                   TextColor="White"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   />
+            <Label Text="-An app icon design or choose one of ours"
+                   FontSize="16"
+                   TextColor="White"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   Padding="0, 0, 0, 60"/>
+            <Button Text="Let's start"
+                    TextColor="#343434"
+                    BackgroundColor="White"
+                    CornerRadius="25"
+                    HorizontalOptions="CenterAndExpand"
+                    Padding="74, 0, 74, 0"
+                    FontFamily="QuicksandBold"
+                    Command="{Binding OpenPageCommand}"
+                    CommandParameter="Theme"/>
+            <ContentView ControlTemplate="{StaticResource Footer}"
+                         VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

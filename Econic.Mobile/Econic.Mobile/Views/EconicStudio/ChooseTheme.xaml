@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.EconicStudio.ChooseTheme"
+             BackgroundColor="#343434"
+             Padding="0"
+             ControlTemplate="{StaticResource EconicStudioNavigationTemplate}">
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical">
+            <StackLayout >
+
+                <Label Text="Choose theme and color"
+                   FontSize="22"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   FontFamily="QuicksandBold"/>
+
+                <ScrollView Orientation="Horizontal">
+                    <ContentView>
+                        <StackLayout Orientation="Horizontal">
+                            <Frame BackgroundColor="#343434"
+                               BorderColor="#343434"
+                               HasShadow="False"
+                               HeightRequest="397"
+                               WidthRequest="178"
+                               Padding="5, 5, 5, 5"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand">
+                                <StackLayout>
+                                    <Label Text="Classic"
+                               FontSize="16"
+                               HorizontalTextAlignment="Start"
+                               TextColor="White"/>
+                                    <Frame BackgroundColor="#f8f8f8"
+                                       HasShadow="True"
+                                       IsClippedToBounds="True"
+                                       Padding="0">
+                                        <ContentView ControlTemplate="{StaticResource ClassicControlTemplate}"
+                                                 />
+                                    </Frame>
+                                </StackLayout>
+                            </Frame>
+                            <Frame BackgroundColor="#343434"
+                               BorderColor="#343434"
+                               HasShadow="False"
+                               HeightRequest="397"
+                               WidthRequest="178"
+                               Padding="5">
+                                <StackLayout>
+                                    <Label Text="Modern"
+                                       FontSize="16"
+                                       HorizontalTextAlignment="Start"
+                                       TextColor="White"/>
+                                    <Frame BackgroundColor="#f8f8f8"
+                                           HasShadow="True"
+                                           IsClippedToBounds="True"
+                                           Padding="0">
+                                        <ContentView ControlTemplate="{StaticResource ModernControlTemplate}"/>
+                                    </Frame>
+                                </StackLayout>
+                            </Frame>
+                            <Frame BackgroundColor="#343434"
+                               BorderColor="#343434"
+                               HasShadow="False"
+                               HeightRequest="397"
+                               WidthRequest="178"
+                               Padding="5">
+                                <StackLayout>
+                                    <Label Text="Friendly"
+                                       FontSize="16"
+                                       HorizontalTextAlignment="Start"
+                                       TextColor="White"/>
+                                    <Frame BackgroundColor="#f8f8f8"
+                                           HasShadow="True"
+                                           IsClippedToBounds="True"
+                                           Padding="0">
+                                        <ContentView ControlTemplate="{StaticResource FriendlyControlTemplate}"/>
+                                    </Frame>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </ContentView>
+                </ScrollView>
+
+                <Label Text="Select a color"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   FontSize="14"/>
+
+                <Grid x:Name ="grid"/>
+
+
+                <Button Text="Continue"
+                    HorizontalOptions="CenterAndExpand"
+                    Padding="80, 0, 80, 0"
+                    BackgroundColor="White"
+                    TextColor="#434343"
+                    FontFamily="QuicksandBold"
+                    CornerRadius="25"
+                    FontSize="16"
+                    Command="{Binding OpenPageCommand}"
+                    CommandParameter="NotifyMethod"/>
+
+                <ContentView ControlTemplate="{StaticResource Footer}"
+                         VerticalOptions="EndAndExpand"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

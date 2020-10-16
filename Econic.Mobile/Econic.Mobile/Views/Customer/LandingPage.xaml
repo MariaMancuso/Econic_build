@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Customer.LandingPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Frame HeightRequest="141"
+                       WidthRequest="141"
+                       HorizontalOptions="Center"/>
+                <ContentView ControlTemplate="{StaticResource WelcomeActionsControlTemplate}"
+                             x:Name="WelcomeActions"
+                             IsVisible="True"/>
+                <ContentView ControlTemplate="{StaticResource FaveServicesControlTemplate}"
+                             x:Name="FaveServices"/>
+                <ContentView ControlTemplate="{StaticResource FavoriteProductsControlTemplate}"
+                             x:Name="FaveProducts"/>
+                <ContentView ControlTemplate="{StaticResource WishListControlTemplate}"
+                             x:Name="WishList"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

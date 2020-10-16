@@ -28,10 +28,13 @@
 
   <ItemGroup>
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.0.0" />
+    <PackageReference Include="MagicGradients" Version="1.1.1" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.2.9" />
+    <PackageReference Include="Sharpnado.Shadows" Version="1.2.0" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.3.0.38" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.3.0.38" />
     <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.3.0.38" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="18.3.0.40" />
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <PackageReference Include="Xamarin.Forms.InputKit" Version="3.4.1" />
@@ -57,6 +60,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\Customer\LandingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\EconicStudio\ChooseTheme.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\EconicStudio\WelcomeScreen.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Gamification\FifthPreview.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
