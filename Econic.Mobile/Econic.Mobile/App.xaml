@@ -157,6 +157,28 @@
             </Grid>
         </ControlTemplate>
 
+        <ControlTemplate x:Key="FeatureHeaderControlTemplate">
+            <Grid Padding="0, 25, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="3"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <BoxView BackgroundColor="{StaticResource ThemeColor}"
+                                 Grid.Column="0"
+                                 Grid.Row="0"
+                                 HorizontalOptions="StartAndExpand"/>
+                <Label Style="{StaticResource SectionText}"
+                               Text="Today"
+                               Grid.Column="1" 
+                               Grid.RowSpan="2"
+                               Padding="0, -3, 0, 0"/>
+            </Grid>
+        </ControlTemplate>
+
         <ControlTemplate x:Key="Footer">
             <StackLayout Orientation="Horizontal">
                 <Image Source="secureicon"  WidthRequest="25" HeightRequest="25"/>

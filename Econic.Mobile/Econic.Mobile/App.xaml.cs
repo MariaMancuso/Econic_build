@@ -27,7 +27,7 @@ namespace Econic.Mobile
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzMzMzI5QDMxMzgyZTMzMmUzMFpUbmo3aGYzM2M5R2cyTmc0WjlhRmhnckFPT3RVR2tzTGlkMlk1WSs0bnM9");
 
             InitializeComponent();
-            Navigation = new NavigationPage(new WelcomeSplash());
+            Navigation = new NavigationPage(new MainPage());
 
             Current.MainPage = Navigation;
             ControlTemplateViewModel control = new ControlTemplateViewModel();
