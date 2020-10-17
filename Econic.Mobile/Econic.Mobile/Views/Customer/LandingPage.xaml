@@ -11,7 +11,11 @@
                        WidthRequest="141"
                        HorizontalOptions="Center"/>
                 <ContentView x:Name="WelcomeContent"/>
+                <ContentView ControlTemplate="{StaticResource FeatureHeaderControlTemplate}"/>
                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -30,8 +34,9 @@
                             TextColor="{StaticResource ThemeColor}"
                             Clicked="Book_Clicked"/>
                 </Grid>
-
+                <ContentView ControlTemplate="{StaticResource FeatureHeaderControlTemplate}"/>
                 <ContentView x:Name="FaveServices"/>
+                <ContentView ControlTemplate="{StaticResource FeatureHeaderControlTemplate}"/>
                 <ContentView x:Name="FaveProducts"/>
                 <!--<ContentView x:Name="WishList"/>-->
 

@@ -5,11 +5,15 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="Booking" 
+                <Label Text="BOOK AN APPOINTMENT" 
                        Padding="0, 10, 0, 31"
-                       />
+                       FontSize="24"
+                       TextColor="{StaticResource ThemeColor}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
                 <Label Text="Type of Service: "
                        Padding="0, 0, 0, 10"
+                       TextColor="{StaticResource ThemeColor}"
                        />
 
                 <Frame Padding="0, 0, 0, 0"
@@ -22,7 +26,9 @@
                 </Frame>
                 <Label Text="Availability: "
                        Padding="0, 36, 0, 10"
-                   />
+                       TextColor="{StaticResource ThemeColor}"
+                       />
+                
                 <Grid Padding="0, 0, 0, 0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="48"/>
@@ -33,14 +39,14 @@
                         <ColumnDefinition Width="107"/>
                     </Grid.ColumnDefinitions>
                     <Frame Grid.Column="0"
-                           Padding="0, 0, 0, 0">
+                           Padding="0">
                         <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
                                         
                                         x:Name="monthDropdown"/>-->
                     </Frame>
 
                     <Frame Grid.Column="2"
-                           Padding="0, 0, 0, 0">
+                           Padding="0">
                         <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
                                         
                                         x:Name="dayDropdown"/>-->
@@ -94,6 +100,8 @@
 
                 <Label Text="You selected: "
                        Padding="0, 55, 0, 10"
+                       TextColor="{StaticResource ThemeColor}"
+                       HorizontalOptions="Center"
                        />
                 <Label Text="Type of Service"
                        />

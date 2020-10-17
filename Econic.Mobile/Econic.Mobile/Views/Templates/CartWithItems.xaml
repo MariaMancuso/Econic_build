@@ -12,15 +12,14 @@
                     <DataTemplate>
                         <StackLayout Padding="22,0,22,0">
                             <Button Text="Proceed to checkout"
-                    BackgroundColor="{StaticResource ThemeColor}"
-                    TextColor="White"
-                    FontSize="16"
-                    HorizontalOptions="CenterAndExpand"
-                    CornerRadius="18"
-                    WidthRequest="312"
-                    HeightRequest="40"
-                        FontFamily="QuicksandBold"
-                    />
+                                    BackgroundColor="{StaticResource ThemeColor}"
+                                    TextColor="White"
+                                    FontSize="16"
+                                    HorizontalOptions="CenterAndExpand"
+                                    CornerRadius="18"
+                                    WidthRequest="312"
+                                    HeightRequest="40"
+                                    FontFamily="QuicksandBold"/>
 
                             <Grid Padding="10, 53, 0, 31">
                                 <Grid.ColumnDefinitions>

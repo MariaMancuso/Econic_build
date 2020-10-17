@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Econic.Mobile.Views.Templates.WelcomeActions">
     <ContentView.Content>
-        <StackLayout Padding="16, 20, 28, 22" Spacing="11">
+        <StackLayout Padding="0, 0, 0, 22" Spacing="11">
             <ContentView ControlTemplate="{StaticResource FeatureHeaderControlTemplate}"/>
             <!--<sh1:Shadows>-->
             <Button Text="Appointment"

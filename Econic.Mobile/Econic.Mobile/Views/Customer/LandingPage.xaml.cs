@@ -15,7 +15,7 @@ namespace Econic.Mobile.Views.Customer
 	{
 		ControlTemplate welcome = new ControlTemplate(typeof(WelcomeActions));
 		ControlTemplate services = new ControlTemplate(typeof(FavoriteServices));
-		ControlTemplate products = new ControlTemplate(typeof(FavoriteServices));
+		ControlTemplate products = new ControlTemplate(typeof(FavoriteProducts));
 		public LandingPage()
 		{
 			InitializeComponent();
