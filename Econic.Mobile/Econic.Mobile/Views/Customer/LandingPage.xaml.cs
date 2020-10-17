@@ -13,14 +13,15 @@ namespace Econic.Mobile.Views.Customer
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LandingPage : ContentPage
 	{
-		//ControlTemplate welcome = new ControlTemplate(typeof(WelcomeActions));
-		//ControlTemplate services = new ControlTemplate(typeof(FavoriteServices));
+		ControlTemplate welcome = new ControlTemplate(typeof(WelcomeActions));
+		ControlTemplate services = new ControlTemplate(typeof(FavoriteServices));
+		ControlTemplate products = new ControlTemplate(typeof(FavoriteServices));
 		public LandingPage()
 		{
 			InitializeComponent();
-			//ControlTemplate = services;
-
-			//ContentView.ControlTemplateProperty(welcome);
+			WelcomeContent.ControlTemplate = welcome;
+			FaveServices.ControlTemplate = services;
+			FaveProducts.ControlTemplate = products;
 
 		}
 

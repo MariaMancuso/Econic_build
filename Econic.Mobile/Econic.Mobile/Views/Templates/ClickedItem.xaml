@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             x:Class="Econic.Mobile.Views.Templates.ClickedItem">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="listview"
+              ItemsSource="{Binding Item}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height=".245*"/>
+                                    <RowDefinition Height=".034*"/>
+                                    <RowDefinition Height=".034*"/>
+                                    <RowDefinition Height=".069*"/>
+                                    <RowDefinition Height=".0167*"/>
+                                    <RowDefinition Height=".039*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".085*"/>
+                                    <ColumnDefinition Width=".83*"/>
+                                    <ColumnDefinition Width=".085*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Frame HeightRequest="311"
+                               WidthRequest="311"
+                               Grid.Row="0"/>
+                                <Label Text="{Binding Title}"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           Grid.Row="1"/>
+                                <Label Text="{Binding SubTitle}"
+                           FontSize="16"
+                           Grid.Row="2"/>
+                                <Label Text="{Binding Descr}"
+                           FontSize="13"
+                           Grid.Row="3"/>
+                                <rating:SfRating x:Name="rating"
+                                     ItemCount="5"
+                                     Value="{Binding Rating}"
+                                     Grid.Row="4">
+                                    <rating:SfRating.RatingSettings>
+                                        <rating:SfRatingSettings RatedFill="Black"
+                                                     UnRatedFill="White"
+                                                     UnRatedStrokeWidth="3"/>
+                                    </rating:SfRating.RatingSettings>
+                                </rating:SfRating>
+                                <Grid Padding="0, 10, 0, 0"
+                          Grid.Row="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".12*"/>
+                                        <ColumnDefinition Width=".341*"/>
+                                        <ColumnDefinition Width=".368*"/>
+                                    </Grid.ColumnDefinitions >
+                                    <Label Text="{Binding Price}"
+                               FontSize="16"
+                               Grid.Column="0"
+                               VerticalOptions="CenterAndExpand"/>
+                                    <Button Text="Add to cart"
+                                Grid.Column="2"
+                                CommandParameter="{Binding .}"
+                                WidthRequest="138"
+                                HeightRequest="37"
+                                CornerRadius="18"
+                                TextColor="#517486"
+                                BackgroundColor="#DFECF2"
+                                HorizontalOptions="EndAndExpand"/>
+                                </Grid>
+                            </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

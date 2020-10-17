@@ -6,30 +6,11 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
+ 
                 <Frame HeightRequest="141"
                        WidthRequest="141"
                        HorizontalOptions="Center"/>
-                <ContentView ControlTemplate="{StaticResource WelcomeActionsControlTemplate}"
-                             x:Name="WelcomeActions"
-                             IsVisible="True"/>
-                <Grid Padding="0, 22, 0, 0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="16"/>
-                        <RowDefinition Height="3"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="15"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <BoxView BackgroundColor="{StaticResource ThemeColor}"
-                         Grid.Column="0"
-                         Grid.Row="0"/>
-                    <Label Style="{StaticResource SectionText}"
-                       Text="Quick Actions"
-                       Grid.Column="1" 
-                       Grid.RowSpan="2"
-                       Padding="0, -4, 0, 0"/>
-                </Grid>
+                <ContentView x:Name="WelcomeContent"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -50,12 +31,9 @@
                             Clicked="Book_Clicked"/>
                 </Grid>
 
-                 <ContentView ControlTemplate="{StaticResource FaveServicesControlTemplate}"
-                             x:Name="FaveServices"/>
-                <ContentView ControlTemplate="{StaticResource FavoriteProductsControlTemplate}"
-                             x:Name="FaveProducts"/>
-                <ContentView ControlTemplate="{StaticResource WishListControlTemplate}"
-                             x:Name="WishList"/>
+                <ContentView x:Name="FaveServices"/>
+                <ContentView x:Name="FaveProducts"/>
+                <!--<ContentView x:Name="WishList"/>-->
 
             </StackLayout>
         </ScrollView>
