@@ -38,19 +38,19 @@
                                         <Label Text="Select all that makes sense" FontFamily="QuicksandMedium" TextColor="DimGray" />
 
                                         <Frame Style="{StaticResource Customframe}">
-                                            <controls:CustomDropDown SelectedItem="{Binding Owner.Product}" TextColor="#343434" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="Products">
+                                            <!--<controls:CustomDropDown SelectedItem="{Binding Owner.Product}" TextColor="#343434" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="Products">
                                                 <controls:CustomDropDown.Items>
                                                     <x:String>Restuarant</x:String>
                                                     <x:String>Food truck</x:String>
                                                     <x:String>Catering</x:String>
                                                     <x:String>Other</x:String>
                                                 </controls:CustomDropDown.Items>
-                                            </controls:CustomDropDown>
+                                            </controls:CustomDropDown>-->
                                         </Frame>
 
 
                                         <Frame Style="{StaticResource Customframe}">
-                                            <controls:CustomDropDown SelectedItem="{Binding Owner.Service}" TextColor="#343434" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="Services">
+                                            <!--<controls:CustomDropDown SelectedItem="{Binding Owner.Service}" TextColor="#343434" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="Services">
                                                 <controls:CustomDropDown.Items>
                                                     <x:String>Apparel</x:String>
                                                     <x:String>Food service</x:String>
@@ -59,7 +59,7 @@
                                                     <x:String>Health and Beauty</x:String>
                                                     <x:String>Jewlery</x:String>
                                                 </controls:CustomDropDown.Items>
-                                            </controls:CustomDropDown>
+                                            </controls:CustomDropDown>-->
                                         </Frame>
                                     </StackLayout>
 
