@@ -21,8 +21,8 @@ namespace Econic.Mobile.ViewModels
         SelectionViewModel<ClassificationModel> cmSelectionViewModel;
         SelectionViewModel<NotifyModel> nmSelectionViewModel;
         IPermissionService permissionService;
-        CrossingUIModelViewModel crossingUIModelViewModel;
         string mode;
+        ItemModel itemToEdit;
         public OwnerViewModel()
         {
             owner = new OwnerModel
@@ -66,7 +66,6 @@ namespace Econic.Mobile.ViewModels
 
             cmSelectionViewModel = new SelectionViewModel<ClassificationModel>(owner.Classifications);
             nmSelectionViewModel = new SelectionViewModel<NotifyModel>(owner.NotifyMethods);
-            crossingUIModelViewModel = new CrossingUIModelViewModel();
 
             OpenPageCommand = new Command<string>((arg) => OpenPage(arg));
             InfoTapped = new Command<string>((arg) => OpenInfoPage(arg));
@@ -102,8 +101,8 @@ namespace Econic.Mobile.ViewModels
         }
         public CrossingUIModelViewModel CrossingUIModelViewModel
         {
-            get { return crossingUIModelViewModel; }
-            set { crossingUIModelViewModel = value; }
+            get { return new CrossingUIModelViewModel(); }
+            set { CrossingUIModelViewModel = value; }
         }
         public string GetInitials()
         {
@@ -140,9 +139,9 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new FirstPreview(this));
                     break;
                 case "DragAndDrop":
-                    await Application.Current.MainPage.Navigation.PushAsync(new DragAndDrop(this));
+                    await Application.Current.MainPage.Navigation.PushAsync(new DragAndDrop { BindingContext = this });
                     break;
-                case "Classification":
+                case "SharedDragnDrop":
                     await Application.Current.MainPage.Navigation.PushAsync(new Classification(this));
                     break;
                 case "AddItem":
@@ -154,6 +153,12 @@ namespace Econic.Mobile.ViewModels
                 case "SecondPreview":
                     if (ItemToAdd != null)
                         AddItem(ItemToAdd);
+
+                    if (itemToEdit != null)
+                    {
+                        RemoveItem(itemToEdit);
+                        itemToEdit = null;
+                    }
 
                     if(mode == "edit" || mode == "addfromprofile")
                         await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices(this));
@@ -188,9 +193,9 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new TwoFactorNumber(this));
                     break;
                 case "TwoFactorConfirm":
-                    await Application.Current.MainPage.Navigation.PushAsync(new TwoFactorConfirm(this));
+                    await Application.Current.MainPage.Navigation.PushAsync(new TwoFactorConfirm { BindingContext = this });
                     break;
-                case "FifthPreview":
+                case "SharedPageConfirmNum":
                     await Application.Current.MainPage.Navigation.PushAsync(new FifthPreview(this));
                     break;
                 case "Profile":
@@ -232,9 +237,8 @@ namespace Econic.Mobile.ViewModels
         private async void editClicked(Object sender)
         {
             mode = "edit";
-            ItemModel itemModel = sender as ItemModel;
-            RemoveItem(itemModel);
-            ItemToAdd = itemModel;
+            itemToEdit = sender as ItemModel;
+            ItemToAdd = itemToEdit;
             await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, mode));
         }
         private void removeClicked(Object sender)

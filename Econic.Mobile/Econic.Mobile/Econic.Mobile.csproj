@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.0.0" />
+    <PackageReference Include="MagicGradients" Version="1.1.1" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.2.9" />
     <PackageReference Include="Sharpnado.Shadows" Version="1.2.0" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.3.0.38" />
@@ -55,6 +56,30 @@
     </Compile>
     <Compile Update="Views\OwnerReg\Address.xaml.cs">
       <DependentUpon>Address.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shared\SharedActivate.xaml.cs">
+      <DependentUpon>SharedActivate.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shared\SharedLogin.xaml.cs">
+      <DependentUpon>SharedLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shared\SharedRegisteration.xaml.cs">
+      <DependentUpon>SharedRegisteration.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shared\SplashScreens\SharedSplashFour.xaml.cs">
+      <DependentUpon>SharedSplashFour.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shared\SplashScreens\SharedSplashThree.xaml.cs">
+      <DependentUpon>SharedSplashThree.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shared\SplashScreens\SharedSplashTwo.xaml.cs">
+      <DependentUpon>SharedSplashTwo.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shared\SplashScreens\SharedSplashOne.xaml.cs">
+      <DependentUpon>SharedSplashOne.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shared\TwoFactorConfirm.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -132,9 +157,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\OwnerReg\Sales.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\OwnerReg\TwoFactorConfirm.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\OwnerReg\TwoFactorNumber.xaml">

@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:Econic.Mobile.Controls"
              x:Class="Econic.Mobile.App">
     <Application.Resources>
+        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/ControlTemplateResourceDic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
         <Color x:Key="ThemeColor">#D03737</Color>
 
         <Style TargetType="{x:Type ContentPage}"
@@ -39,7 +46,7 @@
             <Setter Property="HorizontalTextAlignment" Value="Center" />
         </Style>
         <Style TargetType="ImageButton" x:Key="SplashButton">
-            <Setter  Property="BackgroundColor" Value="LightGray"/>
+            <Setter  Property="BackgroundColor" Value="DimGray"/>
             <Setter Property="Opacity" Value="0.5"/>
             <Setter Property="VerticalOptions" Value="End"/>
             <Setter Property="HorizontalOptions" Value="Center"/>
@@ -93,6 +100,7 @@
 
         <!-- CONTROL TEMPLATES START-->
 
+
         <ControlTemplate x:Key="NavigationTemplate">
             <Grid VerticalOptions="FillAndExpand"
                   Padding="10">
@@ -116,7 +124,7 @@
                     <Label Grid.Column="1" Text="REVYVV"
                            HorizontalOptions="CenterAndExpand"
                            TextColor="Silver"
-                           FontSize="16"/>
+                           FontSize="14"/>
 
                 </Grid>
                 <ContentPresenter VerticalOptions="FillAndExpand"

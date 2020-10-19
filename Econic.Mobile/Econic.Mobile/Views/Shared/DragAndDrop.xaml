@@ -17,33 +17,53 @@
             
             <Label Grid.Row="0" Text="We do some pretty cool things for you, if we don't say so ourselves!" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20"/>
             <Label Grid.Row="1" Text="Drag to rank in order of importance to you" TextColor="#404040" FontFamily="QuicksandSemiBold" />
+        <syncfusion:SfListView x:Name="listView" Grid.Row="2" ItemsSource="{Binding Owner.Goals}" DragStartMode="OnDragIndicator" BackgroundColor="White" ItemSize="60" SelectionMode="None">
 
-            <syncfusion:SfListView x:Name="listView" Grid.Row="2" ItemsSource="{Binding Owner.Goals}"
-                   DragStartMode="OnDragIndicator"
-                   BackgroundColor="White"
-                   ItemSize="60">
-                <syncfusion:SfListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="60" />
-                            </Grid.ColumnDefinitions>
+                    <syncfusion:SfListView.DragItemTemplate>
+                        <DataTemplate>
+                            <StackLayout BackgroundColor="Gainsboro" Spacing="0">
+                                <BoxView BackgroundColor="Gray" HeightRequest="1" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="60" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label x:Name="textLabel" Text="{Binding Goal}" Grid.Column="0" FontSize="15" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" HorizontalOptions="Start" Margin="5,0,0,0" />
 
-                            <Label x:Name="textLabel" Text="{Binding Goal}" Grid.Column="0" FontSize="15" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" HorizontalOptions="Start" Margin="5,0,0,0" />
-
-                            <syncfusion:DragIndicatorView Grid.Column="1" ListView="{x:Reference listView}" HorizontalOptions="Center" VerticalOptions="Center">
-                                <Grid Padding="10, 20, 20, 20">
-                                    <Image Source="hamburger" VerticalOptions="Center" HorizontalOptions="Center" />
+                                    <syncfusion:DragIndicatorView Grid.Column="1" ListView="{x:Reference listView}" HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Grid Padding="10, 20, 20, 20">
+                                            <Image Source="hamburger" VerticalOptions="Center" HorizontalOptions="Center" />
+                                        </Grid>
+                                    </syncfusion:DragIndicatorView>
                                 </Grid>
-                            </syncfusion:DragIndicatorView>
-                        </Grid>
-                    </DataTemplate>
-                </syncfusion:SfListView.ItemTemplate>
-            </syncfusion:SfListView>
+                                <BoxView BackgroundColor="Gray" HeightRequest="1" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </syncfusion:SfListView.DragItemTemplate>
+                    <syncfusion:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="0">
+                                <BoxView BackgroundColor="Gray" HeightRequest="1" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="60" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label x:Name="textLabel" Text="{Binding Goal}" Grid.Column="0" FontSize="15" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" HorizontalOptions="Start" Margin="5,0,0,0" />
 
-            <StackLayout Grid.Row="3" VerticalOptions="End">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="Classification" Text="Next" Style="{StaticResource NextItemButton}"/>
+                                    <syncfusion:DragIndicatorView Grid.Column="1" ListView="{x:Reference listView}" HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Grid Padding="10, 20, 20, 20">
+                                            <Image Source="hamburger" VerticalOptions="Center" HorizontalOptions="Center" />
+                                        </Grid>
+                                    </syncfusion:DragIndicatorView>
+                                </Grid>
+                            </StackLayout>
+                        </DataTemplate>
+                    </syncfusion:SfListView.ItemTemplate>
+                </syncfusion:SfListView>
+
+                <StackLayout Grid.Row="3" VerticalOptions="End">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="SharedDragnDrop" Text="Next" Style="{StaticResource NextItemButton}"/>
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
             

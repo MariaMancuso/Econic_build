@@ -27,17 +27,8 @@ namespace Econic.Mobile
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzMzMzI5QDMxMzgyZTMzMmUzMFpUbmo3aGYzM2M5R2cyTmc0WjlhRmhnckFPT3RVR2tzTGlkMlk1WSs0bnM9");
 
             InitializeComponent();
-            /*Image i = new Image();
-            i.Source = "OwnerSplashPage1.png";
-            OwnerModel m = new OwnerModel()
-            {
-                Items = new ObservableCollection<ItemModel>() { new ItemModel() { Image = i, Name = "TestName", MinPrice = "9", MaxPrice = "19", Description = "Description" } }
-            };
-            OwnerViewModel viewmodel = new OwnerViewModel();
-
-            viewmodel.Owner = m; */
             Navigation = new NavigationPage(new MainPage());
-           // Navigation = new NavigationPage(new WelcomeSplash());
+
             Current.MainPage = Navigation;
         }
         public async void OnBackButtonPressed(object sender, EventArgs e)

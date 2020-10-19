@@ -18,11 +18,7 @@
 
             <Label Grid.Row="0" Text="Welcome to the team. Your Econic business and loyalty accounts are now activated." FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
 
-            <StackLayout Grid.Row="1">
-                <Label Text="MEET TOMME" FontFamily="QuicksandBold" TextColor="#404040" HorizontalTextAlignment="Center"/>
-                <Label Text="Your virtual co-founder" FontFamily="QuicksandSemiBold" TextColor="Gray" HorizontalOptions="Center"/>
-            </StackLayout>
-            <lottie:AnimationView Grid.Row="2" Animation="annimationtest.json" AutoPlay="True" Loop="True" />
+            <lottie:AnimationView Grid.Row="2" Animation="gamificationtest7.json" AutoPlay="True" Loop="True" />
 
             <StackLayout Grid.Row="3" VerticalOptions="End">
                 <Button Command="{Binding OpenPageCommand}" CommandParameter="AccountRegisteration" Text="Great" Style="{StaticResource NextItemButton}" />
