@@ -16,7 +16,7 @@
 
                             <StackLayout Grid.Row="1">
 
-                                <Grid Padding="10, 0, 10, 0" RowSpacing="40" VerticalOptions="FillAndExpand">
+                                <Grid Padding="20, 0, 20, 0" RowSpacing="40" VerticalOptions="FillAndExpand">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />

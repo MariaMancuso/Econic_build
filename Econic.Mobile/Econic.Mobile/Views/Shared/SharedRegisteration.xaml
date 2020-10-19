@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:Econic.Mobile.Renderers" 
+             x:Class="Econic.Mobile.Views.Shared.SharedRegisteration" 
+             ControlTemplate="{StaticResource PageWithoutBackBtn}">
+    
+    <ContentPage.Content>
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Hi Jeanie, we're so glad to see you here in our mobile business" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+            <Label Grid.Row="1" Text="Please complete your registeration" FontFamily="QuicksandRegular" TextColor="#404040" />
+
+            <StackLayout Grid.Row="2" Orientation="Vertical">
+                <Frame Style="{StaticResource Customframe}" Margin="0, 0, 0, 10">
+                    <controls:CustomEntry HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Username" />
+                </Frame>
+                <Frame Style="{StaticResource Customframe}" Margin="0, 0, 0, 10">
+                    <controls:CustomEntry HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Password" IsPassword="True" />
+                </Frame>
+
+                <Frame Style="{StaticResource Customframe}">
+                    <controls:CustomEntry HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Confirm Password" IsPassword="True" />
+                </Frame>
+                
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" Spacing="0">
+                <Label Text="Passwords must be:" TextColor="#404040" FontFamily="QuicksandRegular" FontSize="14"/>
+                <Label Text="At least 8 characters in length, one capital letter, 1 number and one special case, such as @ #!" FontSize="14" TextColor="#404040" FontFamily="QuicksandRegular" />
+            </StackLayout>  
+
+            <Image Grid.Row="4" Source="imgregistration" HorizontalOptions="Center" HeightRequest="120" WidthRequest="120" VerticalOptions="Center"/>
+
+            <StackLayout Grid.Row="5" VerticalOptions="End">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="TwoFactorConfirm" Text="Done" Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

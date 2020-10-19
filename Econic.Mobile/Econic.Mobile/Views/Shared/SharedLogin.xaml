@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:Econic.Mobile.Renderers" 
+             x:Class="Econic.Mobile.Views.Shared.SharedLogin" 
+             ControlTemplate="{StaticResource NavigationTemplate}">
+    
+    <ContentPage.Content>
+        <Grid RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Welcome back!" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+            <Label Grid.Row="1" Text="Check out what's happened since you left" FontFamily="QuicksandRegular" TextColor="#404040" />
+
+            <StackLayout Grid.Row="2" Orientation="Vertical">
+                <Frame Style="{StaticResource Customframe}" Margin="0, 0, 0, 10">
+                    <controls:CustomEntry HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Username" />
+                </Frame>
+                <Frame Style="{StaticResource Customframe}">
+                    <controls:CustomEntry HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Password"  IsPassword="True"/>
+                </Frame>
+
+            </StackLayout>
+
+            <Label Grid.Row="3" Text="Forgot password?" TextColor="#3475b7" FontFamily="QuicksandSemiBold"/>
+
+            <StackLayout Grid.Row="4" VerticalOptions="End">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="DragnDrop" Text="Log in" Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

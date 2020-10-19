@@ -8,15 +8,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Econic.Mobile.Views.OwnerReg
+namespace Econic.Mobile.Views.Shared.SplashScreens
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TwoFactorConfirm : ContentPage
+    public partial class SharedSplashFour : ContentPage
     {
-        public TwoFactorConfirm(OwnerViewModel OwnerVM)
+        public SharedSplashFour()
         {
             InitializeComponent();
-            BindingContext = OwnerVM;
         }
     }
 }

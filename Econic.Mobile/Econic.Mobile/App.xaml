@@ -4,6 +4,13 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              x:Class="Econic.Mobile.App">
     <Application.Resources>
+        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/ControlTemplateResourceDic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
         <Color x:Key="ThemeColor">#D03737</Color>
 
         <Style TargetType="{x:Type ContentPage}"
@@ -91,38 +98,6 @@
         </Style>
 
         <!-- CONTROL TEMPLATES START-->
-
-        <ControlTemplate x:Key="NavigationTemplate">
-            <Grid VerticalOptions="FillAndExpand"
-                  Padding="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Row="0" VerticalOptions="Center">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <ImageButton Grid.Column="0" Source="backarrow" HorizontalOptions="Start"
-                                 BackgroundColor="Transparent"
-                                 WidthRequest="25"
-                                 HeightRequest="25"
-                                 Clicked="OnBackButtonPressed" />
-                    <Label Grid.Column="1" Text="ECONIC"
-                           HorizontalOptions="CenterAndExpand"
-                           TextColor="Silver"
-                           FontSize="16"/>
-
-                </Grid>
-                <ContentPresenter VerticalOptions="FillAndExpand"
-                                    HorizontalOptions="FillAndExpand"
-                                    Grid.Row="1"/>
-            </Grid>
-        </ControlTemplate>
 
         <ControlTemplate x:Key="EconicStudioNavigationTemplate">
             <Grid VerticalOptions="FillAndExpand"

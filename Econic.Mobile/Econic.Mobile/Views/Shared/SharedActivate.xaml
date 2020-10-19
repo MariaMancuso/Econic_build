@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Shared.SharedActivate" 
+             ControlTemplate="{StaticResource NavigationTemplate}">
+    
+    <ContentPage.Content>
+        <Grid RowSpacing="60">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Your loyalty account is now activated. Enjoy great deals and rewards." FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+            <Grid Grid.Row="1" RowSpacing="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Grid.Column="0" Source=""/>
+                <Label Grid.Row="0" Grid.Column="1" 
+                       Text="Here's your first loyalty token to get you started! Every time you check out a deal the point clock starts. When you purchase, you earn double points."
+                       FontFamily="QuickSandMedium" TextColor="#404040"/>
+
+                <Image Grid.Row="1" Grid.Column="0" Source="" />
+                <Label Grid.Row="1" Grid.Column="1" 
+                       Text="Say Hi to Tomme, he's your personal deal finder. Stay tuned to his offers." 
+                       FontFamily="QuickSandMedium" TextColor="#404040" />
+            </Grid>
+
+            <StackLayout Grid.Row="2" VerticalOptions="End">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="LandingPage" Text="Next" Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
