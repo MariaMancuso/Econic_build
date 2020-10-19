@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Econic.Mobile.Views.OwnerReg.DealSplash"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             Padding="0">
     <ContentPage.Content>
         <Grid>
             <Image Source="OwnerSplashPage3" Aspect="AspectFill"/>

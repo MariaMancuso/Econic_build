@@ -11,11 +11,16 @@ namespace Econic.Mobile.Models
 
 		public int Price { private set; get; }
 
-		public Products(int rating, string name, int price)
+		//public Products(int rating, string name, int price)
+		//{
+		//	this.Rating = rating;
+		//	this.Name = name;
+		//	this.Price = price;
+		//}
+
+		public Products(string name)
 		{
-			this.Rating = rating;
 			this.Name = name;
-			this.Price = price;
 		}
 	}
 }

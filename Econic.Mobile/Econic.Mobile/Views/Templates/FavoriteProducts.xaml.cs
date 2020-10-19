@@ -18,9 +18,9 @@ namespace Econic.Mobile.Views.Templates
 			InitializeComponent();
 			List<Models.Products> products = new List<Models.Products>
 			{
-				new Models.Products( 4, "Eyebrow Brush", 18 ),
-				new Models.Products( 5, "The Brow Trio", 19 ),
-				new Models.Products( 2, "The Finish Wax", 29 ),
+				//new Models.Products( 4, "Eyebrow Brush", 18 ),
+				//new Models.Products( 5, "The Brow Trio", 19 ),
+				//new Models.Products( 2, "The Finish Wax", 29 ),
 			};
 			listview.HeightRequest = products.Count * 100;
 			listview.ItemsSource = products;
