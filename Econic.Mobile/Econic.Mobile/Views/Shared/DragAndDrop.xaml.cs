@@ -11,10 +11,9 @@ namespace Econic.Mobile.Views.Shared
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DragAndDrop : ContentPage
     {
-        public DragAndDrop(OwnerViewModel OwnerVM)
+        public DragAndDrop()
         {
             InitializeComponent();
-            BindingContext = OwnerVM;
         }
     }
 }

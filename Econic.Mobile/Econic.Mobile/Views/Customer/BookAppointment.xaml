@@ -1,28 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Econic.Mobile.Renderers"
              x:Class="Econic.Mobile.Views.Customer.BookAppointment">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="Booking" 
+                <Label Text="BOOK AN APPOINTMENT" 
                        Padding="0, 10, 0, 31"
-                       />
+                       FontSize="24"
+                       TextColor="{StaticResource ThemeColor}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
                 <Label Text="Type of Service: "
                        Padding="0, 0, 0, 10"
+                       TextColor="{StaticResource ThemeColor}"
                        />
 
                 <Frame Padding="0, 0, 0, 0"
                        HeightRequest="48"
                        WidthRequest="336">
-                    <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
+                    <local:CustomDropDown HorizontalOptions ="FillAndExpand"
                                     VerticalOptions="Center"
                                     FieldText="Make a selection"
-                                    x:Name="serviceDropdown"/>-->
+                                    x:Name="serviceDropdown"/>
                 </Frame>
                 <Label Text="Availability: "
                        Padding="0, 36, 0, 10"
-                   />
+                       TextColor="{StaticResource ThemeColor}"/>
+                
                 <Grid Padding="0, 0, 0, 0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="48"/>
@@ -33,14 +38,14 @@
                         <ColumnDefinition Width="107"/>
                     </Grid.ColumnDefinitions>
                     <Frame Grid.Column="0"
-                           Padding="0, 0, 0, 0">
+                           Padding="0">
                         <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
                                         
                                         x:Name="monthDropdown"/>-->
                     </Frame>
 
                     <Frame Grid.Column="2"
-                           Padding="0, 0, 0, 0">
+                           Padding="0">
                         <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
                                         
                                         x:Name="dayDropdown"/>-->
@@ -49,61 +54,72 @@
 
                 <Grid Padding="0, 20, 0, 0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="48"/>
+                        <RowDefinition Height="48"/>
+                        <RowDefinition Height="48"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <!--<Button Text="9:30 AM"
+                    
+                    <Button Text="9:30 AM"
                         Grid.Row="0"
                         Grid.Column="0"
-                        Style="{StaticResource AvailableTimes}"/>
+                        />
                     <Button Text="10:00 AM"
                         Grid.Row="0"
                         Grid.Column="1"
-                        Style="{StaticResource AvailableTimes}"/>
+                        />
                     <Button Text="10:30 AM"
                         Grid.Row="0"
                         Grid.Column="2"
-                        Style="{StaticResource UnavailableTimes}"/>
+                        />
                     <Button Text="11:00 AM"
                         Grid.Row="1"
                         Grid.Column="0"
-                        Style="{StaticResource UnavailableTimes}"/>
+                        />
                     <Button Text="11:30 AM"
                         Grid.Row="1"
                         Grid.Column="1"
-                        Style="{StaticResource SelectedTime}"/>
+                        />
                     <Button Text="12:00 PM"
                         Grid.Row="1"
                         Grid.Column="2"
-                        Style="{StaticResource AvailableTimes}"/>
+                        />
                     <Button Text="12:30 PM"
                         Grid.Row="2"
                         Grid.Column="0"
-                        Style="{StaticResource AvailableTimes}"/>
+                        />
                     <Button Text="3:30 PM"
                         Grid.Row="2"
                         Grid.Column="1"
-                        Style="{StaticResource AvailableTimes}"/>-->
+                        />
+                    
                 </Grid>
 
                 <Label Text="You selected: "
                        Padding="0, 55, 0, 10"
-                       />
+                       TextColor="{StaticResource ThemeColor}"
+                       HorizontalOptions="Center"/>
+                
                 <Label Text="Type of Service"
-                       />
+                       FontFamily="QuicksandBold"
+                       HorizontalOptions="Center"
+                       FontSize="20"/>
+                
                 <Label Text="September 27 @ 11:30 AM"
-                       Padding="0, 5, 0, 30"
-                       />
+                       HorizontalOptions="Center"
+                       FontSize="20"/>
 
-                <Button Text="Confirm"
+                <Button Text="CONFIRM"
                         FontSize="20"
-                        />
+                        HorizontalOptions="Center"
+                        HeightRequest="60"
+                        WidthRequest="336"
+                        TextColor="White"
+                        BackgroundColor="{StaticResource ThemeColor}"/>
 
             </StackLayout>
         </ScrollView>

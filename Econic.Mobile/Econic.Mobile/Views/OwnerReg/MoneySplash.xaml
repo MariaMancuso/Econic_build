@@ -1,22 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Econic.Mobile.Views.OwnerReg.MoneySplash" NavigationPage.HasNavigationBar="False" xmlns:controls="clr-namespace:Econic.Mobile.Renderers" BackgroundColor="WhiteSmoke" xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit" xmlns:magicGradients="clr-namespace:MagicGradients;assembly=MagicGradients">
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.OwnerReg.MoneySplash"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:controls="clr-namespace:Econic.Mobile.Renderers"
+             BackgroundColor="WhiteSmoke"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             xmlns:magicGradients="clr-namespace:MagicGradients;assembly=MagicGradients"
+             Padding="0">
+
     <ContentPage.Content>
         <SwipeView>
             <SwipeView.BottomItems>
-                <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="RemainOpen">
+                <SwipeItems Mode="Reveal"
+                            SwipeBehaviorOnInvoked="RemainOpen">
 
                     <SwipeItemView>
-                        <Grid x:Name="gg" Padding="0, 10, 0, 0" HeightRequest="659.428571428571">
+                        <Grid x:Name="gg" 
+                              Padding="0, 10, 0, 0" 
+                              HeightRequest="659.428571428571">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
 
-                            <Label Grid.Row="0" Text="Econic" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="Silver" FontSize="20" />
+                            <Label Grid.Row="0" 
+                                   Text="REVYVV" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="Center" 
+                                   TextColor="Silver" 
+                                   FontSize="14" />
 
                             <StackLayout Grid.Row="1">
 
-                                <Grid Padding="10, 0, 10, 0" RowSpacing="40" VerticalOptions="FillAndExpand">
+
+                                <Grid Padding="20, 0, 20, 0" RowSpacing="40" VerticalOptions="FillAndExpand">
+
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
@@ -24,42 +44,45 @@
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
 
-                                    <Label Grid.Row="0" Text="We know your business is unique. It's yours. Let's get to know each other." FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+                                    <Label Grid.Row="0"
+                                           Text="We know your business is unique. It's yours. Let's get to know each other." 
+                                           FontFamily="QuicksandBold" 
+                                           TextColor="#404040" 
+                                           FontSize="20" />
 
                                     <StackLayout Grid.Row="1">
-                                        <Label Text="This is what my business is called:" TextColor="#404040" FontFamily="QuicksandBold" />
+                                        <Label Text="This is what my business is called:" 
+                                               TextColor="#404040" 
+                                               FontFamily="QuicksandBold" />
                                         <Frame Style="{StaticResource Customframe}">
-                                            <controls:CustomEntry Text="{Binding Owner.BusinessName}" TextColor="#404040"  Placeholder="Type the name here" PlaceholderColor="DarkGray" />
+                                            <controls:CustomEntry Text="{Binding Owner.BusinessName}"
+                                                                  TextColor="#404040"  
+                                                                  Placeholder="Type the name here"
+                                                                  PlaceholderColor="DarkGray" />
                                         </Frame>
                                     </StackLayout>
 
                                     <StackLayout Grid.Row="2">
-                                        <Label Text="This is what my business sells:" FontFamily="QuicksandBold" TextColor="#404040" />
-                                        <Label Text="Select all that makes sense" FontFamily="QuicksandMedium" TextColor="DimGray" />
+                                        <Label Text="This is what my business sells:" 
+                                               FontFamily="QuicksandBold"
+                                               TextColor="#404040" />
+                                        <Label Text="Select all that makes sense"
+                                               FontFamily="QuicksandMedium" 
+                                               TextColor="DimGray" />
 
                                         <Frame Style="{StaticResource Customframe}">
-                                            <controls:CustomDropDown SelectedItem="{Binding Owner.Product}" TextColor="#343434" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="Products">
-                                                <controls:CustomDropDown.Items>
-                                                    <x:String>Restuarant</x:String>
-                                                    <x:String>Food truck</x:String>
-                                                    <x:String>Catering</x:String>
-                                                    <x:String>Other</x:String>
-                                                </controls:CustomDropDown.Items>
-                                            </controls:CustomDropDown>
+
+                                            <controls:CustomDropDown HorizontalOptions ="FillAndExpand"
+                                                                     VerticalOptions="Center"
+                                                                     x:Name="productsDropdown"/>
                                         </Frame>
 
 
                                         <Frame Style="{StaticResource Customframe}">
-                                            <controls:CustomDropDown SelectedItem="{Binding Owner.Service}" TextColor="#343434" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="Services">
-                                                <controls:CustomDropDown.Items>
-                                                    <x:String>Apparel</x:String>
-                                                    <x:String>Food service</x:String>
-                                                    <x:String>Household goods</x:String>
-                                                    <x:String>Sport</x:String>
-                                                    <x:String>Health and Beauty</x:String>
-                                                    <x:String>Jewlery</x:String>
-                                                </controls:CustomDropDown.Items>
-                                            </controls:CustomDropDown>
+                                            <controls:CustomDropDown x:Name="serviceDropdown"
+                                                                     HorizontalOptions="FillAndExpand"
+                                                                     VerticalOptions="Center"/>
+
                                         </Frame>
                                     </StackLayout>
 

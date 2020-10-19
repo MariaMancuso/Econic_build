@@ -1,15 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Econic.Mobile.Views.OwnerReg.TwoFactorNumber" 
-             NavigationPage.HasNavigationBar="False" 
-             xmlns:local="clr-namespace:Econic.Mobile.Services" 
-             BackgroundColor="WhiteSmoke" 
-             ControlTemplate="{StaticResource NavigationTemplate}">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Econic.Mobile.Views.OwnerReg.TwoFactorNumber" NavigationPage.HasNavigationBar="False" xmlns:local="clr-namespace:Econic.Mobile.Services" BackgroundColor="WhiteSmoke" ControlTemplate="{StaticResource NavigationTemplate}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local:PhoneNumConverter x:Key="cnvPhoneNum"/>
+            <local:PhoneNumConverter x:Key="cnvPhoneNum" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -39,9 +33,9 @@
 
                     <Image Grid.Column="0" Grid.Row="0" Source="TwoFactor" />
                     <StackLayout Grid.Column="1" Grid.Row="0">
-                        <Label Text="We'll send a code via a text to:" TextColor="#404040" FontFamily="QuicksandSemiBold"/>
-                        <Label Text="{Binding Owner.Account.Phone, Converter={StaticResource cnvPhoneNum}}" TextColor="#404040" FontFamily="QuicksandSemiBold"/>
-                        <Label Text="to get you set up" TextColor="#404040" FontFamily="QuicksandSemiBold"/>
+                        <Label Text="We'll send a code via a text to:" TextColor="#404040" FontFamily="QuicksandSemiBold" />
+                        <Label Text="{Binding Owner.Account.Phone, Converter={StaticResource cnvPhoneNum}}" TextColor="#404040" FontFamily="QuicksandSemiBold" />
+                        <Label Text="to get you set up" TextColor="#404040" FontFamily="QuicksandSemiBold" />
                         <Label Text="Use a different number" FontSize="12" TextColor="CornflowerBlue" FontFamily="QuicksandBold" />
                     </StackLayout>
 
