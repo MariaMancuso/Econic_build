@@ -21,10 +21,10 @@
             <StackLayout Grid.Row="1">
                 <Label Text="Tell us how you're doing now" TextColor="#404040" FontFamily="QuicksandBold" />
                 <Frame Style="{StaticResource Customframe}" HorizontalOptions="FillAndExpand"  Grid.Column="0" Grid.Row="0">
-                    <controls:CustomDropDown SelectedItem="{Binding Owner.MonthlySales}" BackgroundColor="Transparent" TitleColor="#404040" FontFamily="QuicksandSemiBold"
+                    <!--<controls:CustomDropDown SelectedItem="{Binding Owner.MonthlySales}" BackgroundColor="Transparent" TitleColor="#404040" FontFamily="QuicksandSemiBold"
                                  HeightRequest="45"
                                  Image="ddicon"
-                                 Title="My Monthly Sales"/>
+                                 Title="My Monthly Sales"/>-->
                 </Frame>
             </StackLayout>
 

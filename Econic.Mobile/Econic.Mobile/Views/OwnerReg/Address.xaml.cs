@@ -74,7 +74,7 @@ namespace Econic.Mobile.Views.OwnerReg
             states.Add("WV");
             states.Add("WI");
             states.Add("WY");
-            Statedd.ItemsSource = states;
+            //Statedd.ItemsSource = states;
         }
     }
 }

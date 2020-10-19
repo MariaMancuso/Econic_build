@@ -30,8 +30,6 @@ namespace Econic.Mobile
             Navigation = new NavigationPage(new MainPage());
 
             Current.MainPage = Navigation;
-            ControlTemplateViewModel control = new ControlTemplateViewModel();
-            BindingContext = control;
         }
         public async void OnBackButtonPressed(object sender, EventArgs e)
         {
@@ -47,16 +45,6 @@ namespace Econic.Mobile
 
         protected override void OnResume()
         {
-        }
-
-		private async void App_Clicked(object sender, EventArgs e)
-		{
-            await Application.Current.MainPage.Navigation.PushAsync(new Views.Customer.BookAppointment());
-        }
-
-		private async void Sale_Clicked(object sender, EventArgs e)
-		{
-            await Application.Current.MainPage.Navigation.PushAsync(new Views.Customer.OnSale());
         }
 	}
 }
