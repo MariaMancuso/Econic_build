@@ -23,11 +23,11 @@
                             </Grid.RowDefinitions>
 
                             <Label Grid.Row="0" 
-                                   Text="Econic" 
+                                   Text="REVYVV" 
                                    HorizontalOptions="CenterAndExpand" 
                                    VerticalOptions="Center" 
                                    TextColor="Silver" 
-                                   FontSize="20" />
+                                   FontSize="14" />
 
                             <StackLayout Grid.Row="1">
 

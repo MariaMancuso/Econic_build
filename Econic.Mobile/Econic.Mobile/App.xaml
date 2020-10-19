@@ -113,7 +113,7 @@
                                  WidthRequest="25"
                                  HeightRequest="25"
                                  Clicked="OnBackButtonPressed" />
-                    <Label Grid.Column="1" Text="ECONIC"
+                    <Label Grid.Column="1" Text="REVYVV"
                            HorizontalOptions="CenterAndExpand"
                            TextColor="Silver"
                            FontSize="16"/>
