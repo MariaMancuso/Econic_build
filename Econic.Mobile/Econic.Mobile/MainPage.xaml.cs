@@ -1,4 +1,5 @@
 ﻿using Econic.Mobile.ViewModels;
+using Econic.Mobile.Views.Customer;
 using Econic.Mobile.Views.OwnerReg;
 using Econic.Mobile.Views.Shared.SplashScreens;
 using System;
@@ -29,7 +30,7 @@ namespace Econic.Mobile
 
         async void CustomerClicked(object sender, EventArgs arg)
         {
-            await Navigation.PushAsync(new SharedSplashOne { BindingContext = new CustomerViewModel() });
+            await Navigation.PushAsync(new LandingPage());
         }
     }
 }

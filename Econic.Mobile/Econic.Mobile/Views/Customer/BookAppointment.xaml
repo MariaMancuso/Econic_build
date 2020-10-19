@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Econic.Mobile.Renderers"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:Econic.Mobile.Renderers"
              x:Class="Econic.Mobile.Views.Customer.BookAppointment">
     <ContentPage.Content>
         <ScrollView>
@@ -39,16 +40,14 @@
                     </Grid.ColumnDefinitions>
                     <Frame Grid.Column="0"
                            Padding="0">
-                        <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
-                                        
-                                        x:Name="monthDropdown"/>-->
+                        <local:CustomDropDown HorizontalOptions ="FillAndExpand"
+                                              x:Name="monthDropdown"/>
                     </Frame>
 
                     <Frame Grid.Column="2"
                            Padding="0">
-                        <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
-                                        
-                                        x:Name="dayDropdown"/>-->
+                        <local:CustomDropDown HorizontalOptions ="FillAndExpand"
+                                         x:Name="dayDropdown"/>
                     </Frame>
                 </Grid>
 
