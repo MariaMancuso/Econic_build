@@ -17,146 +17,81 @@
                    FontSize="22"
                    TextColor="White"
                    HorizontalTextAlignment="Center"
-                   FontFamily="QuicksandBold"/>
-
-                <CarouselView PeekAreaInsets="100"
-                              ItemsSource="{Binding ControlTemplates}"
-                              x:Name="carouselView">
-                    <CarouselView.ItemTemplate>
-                        <DataTemplate>
+                   FontFamily="QuicksandBold"
+                       Padding="0, 0, 0, 20"/>
+                
+                    <CarouselView PeekAreaInsets="100"
+                                  ItemsSource="{Binding templates}"
+                                  x:Name="carouselView"
+                                  HeightRequest="475">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate >
                             <StackLayout>
-                                <VisualStateManager.VisualStateGroups>
-                                    <VisualStateGroup x:Name="CommonStates">
-                                        <VisualState x:Name="CurrentItem">
-                                            <VisualState.Setters>
-                                                <Setter Property="Scale"
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="CurrentItem">
+                                                <VisualState.Setters>
+                                                    <Setter Property="Scale"
                                                         Value="1.1" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="PreviousItem">
-                                            <VisualState.Setters>
-                                                <Setter Property="Opacity"
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState x:Name="PreviousItem">
+                                                <VisualState.Setters>
+                                                    <Setter Property="Opacity"
                                                         Value="0.5" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="NextItem">
-                                            <VisualState.Setters>
-                                                <Setter Property="Opacity"
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState x:Name="NextItem">
+                                                <VisualState.Setters>
+                                                    <Setter Property="Opacity"
                                                         Value="0.5" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="DefaultItem">
-                                            <VisualState.Setters>
-                                                <Setter Property="Opacity"
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState x:Name="DefaultItem">
+                                                <VisualState.Setters>
+                                                    <Setter Property="Opacity"
                                                         Value="0.25" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                    </VisualStateGroup>
-                                </VisualStateManager.VisualStateGroups>
-                                <StackLayout>
-                                    <Frame BackgroundColor="#343434"
-                                           BorderColor="#343434"
-                                           HasShadow="False"
-                                           HeightRequest="397"
-                                           WidthRequest="178"
-                                           Padding="5, 5, 5, 5"
-                                           HorizontalOptions="CenterAndExpand"
-                                           VerticalOptions="CenterAndExpand">
-                                        <StackLayout>
-                                            <Label Text="{Binding name}"
-                                                   FontSize="16"
-                                                   HorizontalTextAlignment="Start"
-                                                   TextColor="White"/>
-                                            <Frame BackgroundColor="#f8f8f8"
-                                                   HasShadow="True"
-                                                   IsClippedToBounds="True"
-                                                   Padding="0">
-                                                <ContentView BindingContext="{Binding Name}"/>
-                                            </Frame>
-                                        </StackLayout>
-                                    </Frame>
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <StackLayout>
+                                        <Frame BackgroundColor="#343434"
+                                               BorderColor="#343434"
+                                               HasShadow="False"
+                                               WidthRequest="178"
+                                               
+                                               Padding="15"
+                                               HorizontalOptions="CenterAndExpand"
+                                               VerticalOptions="CenterAndExpand">
+                                            <StackLayout>
+                                                <Label Text="{Binding name}"
+                                                       FontSize="16"
+                                                       HorizontalTextAlignment="Start"
+                                                       TextColor="White"/>
+                                                <Frame BackgroundColor="#f8f8f8"
+                                                       HasShadow="True"
+                                                       IsClippedToBounds="True"
+                                                       Padding="0">
+                                                    <ContentView ControlTemplate="{Binding Name}"/>
+                                                </Frame>
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
                                 </StackLayout>
-                            </StackLayout>
-                        </DataTemplate>
-                    </CarouselView.ItemTemplate>
-                </CarouselView>
-
-                    <!--<ScrollView Orientation="Horizontal">
-                        <ContentView>
-                            <StackLayout Orientation="Horizontal">
-                                <Frame BackgroundColor="#343434"
-                               BorderColor="#343434"
-                               HasShadow="False"
-                               HeightRequest="397"
-                               WidthRequest="178"
-                               Padding="5, 5, 5, 5"
-                               HorizontalOptions="CenterAndExpand"
-                               VerticalOptions="CenterAndExpand">
-                                    <StackLayout>
-                                        <Label Text="Classic"
-                                           FontSize="16"
-                                           HorizontalTextAlignment="Start"
-                                           TextColor="White"/>
-                                        <Frame BackgroundColor="#f8f8f8"
-                                       HasShadow="True"
-                                       IsClippedToBounds="True"
-                                       Padding="0">
-                                            <ContentView ControlTemplate="{StaticResource ClassicControlTemplate}"
-                                                 />
-                                        </Frame>
-                                    </StackLayout>
-                                </Frame>
-                                <Frame BackgroundColor="#343434"
-                               BorderColor="#343434"
-                               HasShadow="False"
-                               HeightRequest="397"
-                               WidthRequest="178"
-                               Padding="5">
-                                    <StackLayout>
-                                        <Label Text="Modern"
-                                       FontSize="16"
-                                       HorizontalTextAlignment="Start"
-                                       TextColor="White"/>
-                                        <Frame BackgroundColor="#f8f8f8"
-                                           HasShadow="True"
-                                           IsClippedToBounds="True"
-                                           Padding="0">
-                                            <ContentView ControlTemplate="{StaticResource ModernControlTemplate}"/>
-                                        </Frame>
-                                    </StackLayout>
-                                </Frame>
-                                <Frame BackgroundColor="#343434"
-                               BorderColor="#343434"
-                               HasShadow="False"
-                               HeightRequest="397"
-                               WidthRequest="178"
-                               Padding="5">
-                                    <StackLayout>
-                                        <Label Text="Friendly"
-                                       FontSize="16"
-                                       HorizontalTextAlignment="Start"
-                                       TextColor="White"/>
-                                        <Frame BackgroundColor="#f8f8f8"
-                                           HasShadow="True"
-                                           IsClippedToBounds="True"
-                                           Padding="0">
-                                            <ContentView ControlTemplate="{StaticResource FriendlyControlTemplate}"/>
-                                        </Frame>
-                                    </StackLayout>
-                                </Frame>
-                            </StackLayout>
-                        </ContentView>
-                    </ScrollView>-->
-
-                    <Label Text="Select a color"
-                   TextColor="White"
-                   HorizontalOptions="Center"
-                       HorizontalTextAlignment="Start"
-                   FontSize="14"/>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                
+                <Label Text="Select a color"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Start"
+                           FontSize="16"/>
 
                     <Grid x:Name ="grid" 
-                      HorizontalOptions="CenterAndExpand"
-                      Padding="0, 0, 0, 20">
+                          HorizontalOptions="CenterAndExpand"
+                          Padding="0, 0, 0, 20">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="18"/>
                             <RowDefinition Height="18"/>
@@ -206,7 +141,6 @@
                              Grid.Row="1"
                              Grid.Column="5"/>
                     </Grid>
-
 
                     <Button Text="Continue"
                     HorizontalOptions="CenterAndExpand"

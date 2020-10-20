@@ -5,6 +5,8 @@ using Econic.Mobile.Views.Templates;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -16,17 +18,21 @@ namespace Econic.Mobile.ViewModels
 		public ICommand ClickedCommand { private set; get; }
 		public event PropertyChangedEventHandler PropertyChanged;
 		readonly IList<ControlTemplates> list;
-		public ObservableCollection<ControlTemplates> templates;
+		public ControlTemplates CurrentItem;
+		public ObservableCollection<ControlTemplates> templates { get; set; }
 
-		//DataTemplate classicTemplate = new DataTemplate(typeof(ClassicTemplate));
-		//DataTemplate modernTemplate = new DataTemplate(typeof(ModernTemplate));
-		//DataTemplate friendlyTemplate = new DataTemplate(typeof(FriendlyTemplate));
+		public int PreviousPosition { get; set; }
+		public int CurrentPosition { get; set; }
+		public int Position { get; set; }
 
 		public ControlTemplateViewModel() {
 			list = new List<ControlTemplates>();
 			CreateTemplateCollection();
-
+			CurrentItem = templates.Skip(3).FirstOrDefault();
+			OnPropertyChanged("CurrentItem");
 			ClickedCommand = new Command<string>((arg) => NextPage(arg));
+			Position = 3;
+			OnPropertyChanged("Position");
 		}
 
 		private async void NextPage(string value)
@@ -41,7 +47,7 @@ namespace Econic.Mobile.ViewModels
 			}
 		}
 		
-		public void CreateTemplateCollection()
+		void CreateTemplateCollection()
 		{
 			list.Add(new ControlTemplates
 			{
@@ -61,7 +67,22 @@ namespace Econic.Mobile.ViewModels
 				Name = (ControlTemplate)Application.Current.Resources["FriendlyControlTemplate"]
 			});
 
+			//return list;
 			templates = new ObservableCollection<ControlTemplates>(list);
+			//return templates;
+		}
+
+		void PositionChanged(int position)
+		{
+			PreviousPosition = CurrentPosition;
+			CurrentPosition = position;
+			OnPropertyChanged("PreviousPosition");
+			OnPropertyChanged("CurrentPosition");
+		}
+
+		void OnPropertyChanged([CallerMemberName] string propertyName = null)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }
