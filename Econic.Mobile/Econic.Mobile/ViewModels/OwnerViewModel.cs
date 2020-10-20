@@ -205,7 +205,7 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new Views.EconicStudio.WelcomeScreen(this));
                     break;
                 case "Theme":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Views.EconicStudio.ChooseTheme(this));
+                    //await Application.Current.MainPage.Navigation.PushAsync(new Views.EconicStudio.ChooseTheme(this));
                     break;
                 default:
                     return;

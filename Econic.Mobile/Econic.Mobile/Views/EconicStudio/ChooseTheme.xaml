@@ -60,7 +60,6 @@
                                                BorderColor="#343434"
                                                HasShadow="False"
                                                WidthRequest="178"
-                                               
                                                Padding="15"
                                                HorizontalOptions="CenterAndExpand"
                                                VerticalOptions="CenterAndExpand">
@@ -84,65 +83,16 @@
                     </CarouselView>
                 
                 <Label Text="Select a color"
-                           TextColor="White"
-                           HorizontalOptions="Center"
-                           HorizontalTextAlignment="Start"
-                           FontSize="16"/>
+                       TextColor="White"
+                       FontSize="16"
+                       FontFamily="QuicksandBold"
+                       Padding="85, 0, 0, 0"/>
 
-                    <Grid x:Name ="grid" 
-                          HorizontalOptions="CenterAndExpand"
-                          Padding="0, 0, 0, 20">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="18"/>
-                            <RowDefinition Height="18"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="18"/>
-                            <ColumnDefinition Width="18"/>
-                            <ColumnDefinition Width="18"/>
-                            <ColumnDefinition Width="18"/>
-                            <ColumnDefinition Width="18"/>
-                            <ColumnDefinition Width="18"/>
-                        </Grid.ColumnDefinitions>
-                        <BoxView BackgroundColor="#c72129"
-                             Grid.Row="0"
-                             Grid.Column="0"/>
-                        <BoxView BackgroundColor="#ff8611"
-                             Grid.Row="0"
-                             Grid.Column="1"/>
-                        <BoxView BackgroundColor="#32922c"
-                             Grid.Row="0"
-                             Grid.Column="2"/>
-                        <BoxView BackgroundColor="#11a18e"
-                             Grid.Row="0"
-                             Grid.Column="3"/>
-                        <BoxView BackgroundColor="#000059"
-                             Grid.Row="0"
-                             Grid.Column="4"/>
-                        <BoxView BackgroundColor="#0070f4"
-                             Grid.Row="0"
-                             Grid.Column="5"/>
-                        <BoxView BackgroundColor="#cc4a82"
-                             Grid.Row="1"
-                             Grid.Column="0"/>
-                        <BoxView BackgroundColor="#754313"
-                             Grid.Row="1"
-                             Grid.Column="1"/>
-                        <BoxView BackgroundColor="#354134"
-                             Grid.Row="1"
-                             Grid.Column="2"/>
-                        <BoxView BackgroundColor="#7323a8"
-                             Grid.Row="1"
-                             Grid.Column="3"/>
-                        <BoxView BackgroundColor="#6f6f6f"
-                             Grid.Row="1"
-                             Grid.Column="4"/>
-                        <BoxView BackgroundColor="#c9a015"
-                             Grid.Row="1"
-                             Grid.Column="5"/>
-                    </Grid>
+                <Grid x:Name ="grid" 
+                      HorizontalOptions="CenterAndExpand"
+                      Padding="85, 0, 85, 30"/>
 
-                    <Button Text="Continue"
+                <Button Text="Continue"
                     HorizontalOptions="CenterAndExpand"
                     Padding="80, 0, 80, 0"
                     BackgroundColor="White"

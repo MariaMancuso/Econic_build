@@ -20,6 +20,8 @@ namespace Econic.Mobile.ViewModels
 		readonly IList<ControlTemplates> list;
 		public ControlTemplates CurrentItem;
 		public ObservableCollection<ControlTemplates> templates { get; set; }
+		public ObservableCollection<BoxColorModel> BoxColors { get; set; }
+		public IList<BoxColorModel> box;
 
 		public int PreviousPosition { get; set; }
 		public int CurrentPosition { get; set; }
@@ -28,6 +30,7 @@ namespace Econic.Mobile.ViewModels
 		public ControlTemplateViewModel() {
 			list = new List<ControlTemplates>();
 			CreateTemplateCollection();
+			CreateBoxCollection();
 			CurrentItem = templates.Skip(3).FirstOrDefault();
 			OnPropertyChanged("CurrentItem");
 			ClickedCommand = new Command<string>((arg) => NextPage(arg));
@@ -66,10 +69,27 @@ namespace Econic.Mobile.ViewModels
 				name = "Friendly",
 				Name = (ControlTemplate)Application.Current.Resources["FriendlyControlTemplate"]
 			});
-
-			//return list;
 			templates = new ObservableCollection<ControlTemplates>(list);
-			//return templates;
+		}
+
+		public IList<BoxColorModel> CreateBoxCollection()
+		{
+			box = new List<BoxColorModel>();
+			box.Add(new BoxColorModel { color = Color.FromHex("#c72129") });
+			box.Add(new BoxColorModel { color = Color.FromHex("#ff8611") });
+			box.Add(new BoxColorModel { color = Color.FromHex("#32922c") });
+			box.Add(new BoxColorModel { color = Color.FromHex("#11a18e") });
+			box.Add(new BoxColorModel { color = Color.FromHex("#000059") });
+			box.Add(new BoxColorModel { color = Color.FromHex("#0070f4") });
+			box.Add(new BoxColorModel { color = Color.FromHex("#cc4a82") });
+			box.Add(new BoxColorModel { color = Color.FromHex("#754313") });
+			box.Add(new BoxColorModel { color = Color.FromHex("#354134") });
+			box.Add(new BoxColorModel { color = Color.FromHex("#7323a8") });
+			box.Add(new BoxColorModel { color = Color.FromHex("#6f6f6f") });
+			box.Add(new BoxColorModel { color = Color.FromHex("#c9a015") });
+
+			return box;
+			//BoxColors = new ObservableCollection<BoxColorModel>(box);
 		}
 
 		void PositionChanged(int position)
