@@ -154,7 +154,7 @@
                                  HeightRequest="25"
                                  VerticalOptions="CenterAndExpand"
                                  Clicked="OnBackButtonPressed" />
-                    <Label Grid.Column="1" Text="ECONIC STUDIO"
+                    <Label Grid.Column="1" Text="REVYVV STUDIO"
                            HorizontalOptions="CenterAndExpand"
                            TextColor="Silver"
                            FontSize="14"/>

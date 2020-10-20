@@ -1,5 +1,7 @@
 ﻿using Econic.Mobile.Models;
 using Econic.Mobile.ViewModels;
+using Econic.Mobile.Views.Customer;
+using Econic.Mobile.Views.EconicStudio;
 using Econic.Mobile.Views.Gamification;
 using Econic.Mobile.Views.OwnerProfile;
 using Econic.Mobile.Views.OwnerReg;
@@ -27,7 +29,7 @@ namespace Econic.Mobile
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzMzMzI5QDMxMzgyZTMzMmUzMFpUbmo3aGYzM2M5R2cyTmc0WjlhRmhnckFPT3RVR2tzTGlkMlk1WSs0bnM9");
 
             InitializeComponent();
-            Navigation = new NavigationPage(new MainPage());
+            Navigation = new NavigationPage(new ChooseTheme());
 
             Current.MainPage = Navigation;
         }

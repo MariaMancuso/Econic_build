@@ -1,5 +1,6 @@
 ﻿using Econic.Mobile.Models;
 using Econic.Mobile.ViewModels;
+using Econic.Mobile.Views.Templates;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -15,19 +16,21 @@ namespace Econic.Mobile.Views.EconicStudio
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ChooseTheme : ContentPage
 	{
-		IList<BoxColorModel> boxes;
-		BoxColorViewModel boxvm;
+		IList<ControlTemplates> templates = new List<ControlTemplates>();
+
+		
 		public ChooseTheme(OwnerViewModel owner)
 		{
 			InitializeComponent();
-			BindingContext = owner;
-			//SetColorGrid();
+			//BindingContext = owner;
+		}
+		public ChooseTheme()
+		{
+			InitializeComponent();
+
+			//carouselView.ItemsSource = templates;
+			//Content = carouselView;
 		}
 
-		public void SetColorGrid()
-		{
-			//boxes = boxvm.SetColors();
-			
-		}
 	}
 }

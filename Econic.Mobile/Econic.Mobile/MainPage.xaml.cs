@@ -30,7 +30,7 @@ namespace Econic.Mobile
 
         async void CustomerClicked(object sender, EventArgs arg)
         {
-            await Navigation.PushAsync(new LandingPage());
+            await Navigation.PushAsync(new BookAppointment());
         }
     }
 }

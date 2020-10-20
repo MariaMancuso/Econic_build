@@ -18,7 +18,7 @@ namespace Econic.Mobile.Droid.Renderers
 {
     class AndroidDropDownRenderer : ViewRenderer<CustomDropDown, Spinner>
 	{
-		CustomDropDown element;
+		//CustomDropDown element;
 		Spinner spinner;
 		public AndroidDropDownRenderer(Context context) : base(context){ }
 
@@ -26,18 +26,17 @@ namespace Econic.Mobile.Droid.Renderers
 		{
 			base.OnElementChanged(e);
 
-			element = (CustomDropDown)this.Element;
+			//element = (CustomDropDown)this.Element;
 			
 			if (Control == null)
 			{
 				spinner = new Spinner(Context);
-				LayoutParams layout = new LayoutParams(LayoutParams.MatchParent, LayoutParams.WrapContent);
+				LayoutParams layout = new LayoutParams(LayoutParams.MatchParent, LayoutParams.MatchParent);
 				spinner.LayoutParameters = layout;
-				var metrics = Resources.DisplayMetrics;
 				spinner.SetClipToPadding(true);
-				spinner.DropDownWidth = (int)element.WidthRequest;
+				var width = layout.Width;
+				spinner.DropDownWidth = width;
 				spinner.DropDownVerticalOffset = 130;
-
 				Java.Lang.Reflect.Field popup = spinner.Class.GetDeclaredField("mPopup");
 				popup.Accessible = true;
 				var popupWindow = (ListPopupWindow)popup.Get(spinner);
@@ -55,10 +54,9 @@ namespace Econic.Mobile.Droid.Renderers
 			{
 				var view = e.NewElement;
 				ArrayAdapter adapter = new ArrayAdapter(Context, Android.Resource.Layout.SimpleListItem1, view.ItemsSource);
-				//adapter.SetDropDownViewResource(view.SelectedIndex);
 				Control.Adapter = adapter;
 
-				if (view.SelectedIndex != -1 && view.SelectedIndex != 0)
+				if (view.SelectedIndex != -1)
 				{
 					Control.SetSelection(view.SelectedIndex);
 				}

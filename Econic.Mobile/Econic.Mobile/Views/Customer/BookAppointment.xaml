@@ -19,11 +19,11 @@
 
                 <Frame Padding="0, 0, 0, 0"
                        HeightRequest="48"
-                       WidthRequest="336">
+                       WidthRequest="336"
+                       >
                     <local:CustomDropDown HorizontalOptions ="FillAndExpand"
-                                    VerticalOptions="Center"
-                                    FieldText="Make a selection"
-                                    x:Name="serviceDropdown"/>
+                                        VerticalOptions="Center"
+                                        x:Name="serviceDropdown"/>
                 </Frame>
                 <Label Text="Availability: "
                        Padding="0, 36, 0, 10"

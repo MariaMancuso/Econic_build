@@ -37,11 +37,12 @@ namespace Econic.Mobile.Views.Customer
 
 			for(int i = 0; i < ser.Count; i++)
 			{
+				Console.WriteLine(ser[i].Name);
 				servicelist.Add(ser[i].Name);
 			}
 
 			serviceDropdown.ItemsSource = servicelist;
-			serviceDropdown.SelectedIndex = 0;
+			serviceDropdown.SelectedIndex = 1;
 			serviceDropdown.ItemSelected += OnDropdownSelected;
 		}
 
@@ -51,7 +52,7 @@ namespace Econic.Mobile.Views.Customer
 			int month = date.Month;
 			int year = date.Year;
 			var dayNum = DateTime.DaysInMonth(year, month);
-			for(int i = 1; i < dayNum+1; i++)
+			for (int i = 1; i < dayNum + 1; i++)
 			{
 				datelist.Add(i.ToString());
 			}
@@ -64,29 +65,19 @@ namespace Econic.Mobile.Views.Customer
 
 		private void SelectMonth()
 		{
-			for(int i = 0; i < 12; i++)
+			for (int i = 0; i < 12; i++)
 			{
 				monthlist.Add(CultureInfo.CurrentCulture.DateTimeFormat.MonthNames[i]);
 			}
 			monthDropdown.ItemsSource = monthlist;
-			monthDropdown.SelectedIndex = 0;
+			monthDropdown.SelectedIndex = 1;
 			monthDropdown.ItemSelected += OnDropdownSelected;
 		}
 
 		private void OnDropdownSelected(object sender, ItemSelectedEventArgs e)
 		{
-			if(monthlist[e.SelectedIndex] != null)
-			{
-				appointmentlist.Add(monthlist[e.SelectedIndex]);
-			}
-			if (datelist[e.SelectedIndex] != null)
-			{
-				appointmentlist.Add(datelist[e.SelectedIndex]);
-			}
-			if (servicelist[e.SelectedIndex] != null)
-			{
-				appointmentlist.Add(servicelist[e.SelectedIndex]);
-			}
+			var service = servicelist[e.SelectedIndex];
+			Console.WriteLine("You selected: " + service);
 		}
 	}
 }
