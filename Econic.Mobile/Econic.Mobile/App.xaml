@@ -4,13 +4,13 @@
              xmlns:local="clr-namespace:Econic.Mobile.Controls"
              x:Class="Econic.Mobile.App">
     <Application.Resources>
-        
+
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/ControlTemplateResourceDic.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        
+
         <Color x:Key="ThemeColor">#D03737</Color>
 
         <Style TargetType="{x:Type ContentPage}"

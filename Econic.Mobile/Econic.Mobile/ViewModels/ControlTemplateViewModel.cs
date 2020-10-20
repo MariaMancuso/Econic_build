@@ -2,6 +2,7 @@
 using Econic.Mobile.Services;
 using Econic.Mobile.Views.Customer;
 using Econic.Mobile.Views.Templates;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -16,6 +17,8 @@ namespace Econic.Mobile.ViewModels
 	{
 
 		public ICommand ClickedCommand { private set; get; }
+		public ICommand BoxCommand { private set; get; }
+
 		public event PropertyChangedEventHandler PropertyChanged;
 		readonly IList<ControlTemplates> list;
 		public ControlTemplates CurrentItem;
@@ -33,9 +36,20 @@ namespace Econic.Mobile.ViewModels
 			CreateBoxCollection();
 			CurrentItem = templates.Skip(3).FirstOrDefault();
 			OnPropertyChanged("CurrentItem");
-			ClickedCommand = new Command<string>((arg) => NextPage(arg));
 			Position = 3;
 			OnPropertyChanged("Position");
+
+			ClickedCommand = new Command<string>((arg) => NextPage(arg));
+			BoxCommand = new Command<Color>((arg) => SetThemeColor(arg));
+			
+		}
+
+		private void SetThemeColor(Color value)
+		{
+			Console.WriteLine(value.ToString());
+			var newColor = Application.Current.Resources["ThemeColor"];
+			value = (Color)newColor;
+
 		}
 
 		private async void NextPage(string value)

@@ -16,18 +16,12 @@ namespace Econic.Mobile.Views.EconicStudio
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ChooseTheme : ContentPage
 	{
-
-		
-		//public ChooseTheme(OwnerViewModel owner)
-		//{
-		//	InitializeComponent();
-		//}
-
-		
 		public ChooseTheme()
 		{
 			InitializeComponent();
+			ControlTemplateViewModel control = new ControlTemplateViewModel();
 			CreateBoxGrid();
+			BindingContext = control;
 		}
 
 		private void CreateBoxGrid()
@@ -43,17 +37,20 @@ namespace Econic.Mobile.Views.EconicStudio
 				//columns
 				for(int j = 0; j < 6; j++)
 				{ 				
-					BoxView boxes = new BoxView()
+					Button boxes = new Button()
 					{
 						BackgroundColor = b[boxIndex].color,
 						HeightRequest = 24, 
-						WidthRequest = 24
+						WidthRequest = 24,
+						CommandParameter = b[boxIndex].color
 					};
-
+					boxes.SetBinding(Button.CommandProperty, new Binding(nameof(BoxCommand), source: control));
+					//boxes.SetBinding(Button.CommandParameterProperty, new Binding((b[boxIndex].color).ToString()));
 					grid.Children.Add(boxes, j, i);
 					boxIndex++;
 				}
 			}
+
 		}
 
 	}
