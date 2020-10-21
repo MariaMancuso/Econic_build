@@ -22,6 +22,7 @@
                 
                     <CarouselView PeekAreaInsets="100"
                                   ItemsSource="{Binding templates}"
+                                  CurrentItemChanged="OnCurrentItemChanged"
                                   x:Name="carouselView"
                                   HeightRequest="475">
                         <CarouselView.ItemTemplate>
@@ -93,15 +94,15 @@
                       Padding="85, 0, 85, 30"/>
 
                 <Button Text="Continue"
-                    HorizontalOptions="CenterAndExpand"
-                    Padding="80, 0, 80, 0"
-                    BackgroundColor="White"
-                    TextColor="#434343"
-                    FontFamily="QuicksandBold"
-                    CornerRadius="25"
-                    FontSize="16"
-                    Command="{Binding OpenPageCommand}"
-                    CommandParameter="NotifyMethod"/>
+                        HorizontalOptions="CenterAndExpand"
+                        Padding="80, 0, 80, 0"
+                        BackgroundColor="White"
+                        TextColor="#434343"
+                        FontFamily="QuicksandBold"
+                        CornerRadius="25"
+                        FontSize="16"
+                        Command="{Binding ClickedCommand}"
+                        CommandParameter="ChooseLogo"/>
 
                 <ContentView ControlTemplate="{StaticResource Footer}"
                          VerticalOptions="EndAndExpand"

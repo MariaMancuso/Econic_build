@@ -16,6 +16,9 @@ using Xamarin.Forms.Xaml;
 [assembly: ExportFont("Quicksand-Light.ttf", Alias = "QuicksandLight")]
 [assembly: ExportFont("Quicksand-SemiBold.ttf", Alias = "QuicksandSemiBold")]
 [assembly: ExportFont("Quicksand-Medium.ttf", Alias = "QuicksandMedium")]
+[assembly: ExportFont("Roboto-Regular.ttf", Alias = "RobotoRegular")]
+[assembly: ExportFont("Roboto-Bold.ttf", Alias = "RobotoBold")]
+[assembly: ExportFont("Roboto-Light.ttf", Alias = "RobotoLight")]
 
 namespace Econic.Mobile
 {

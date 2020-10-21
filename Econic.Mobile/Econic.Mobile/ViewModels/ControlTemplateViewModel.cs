@@ -1,6 +1,7 @@
 ﻿using Econic.Mobile.Models;
 using Econic.Mobile.Services;
 using Econic.Mobile.Views.Customer;
+using Econic.Mobile.Views.EconicStudio;
 using Econic.Mobile.Views.Templates;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace Econic.Mobile.ViewModels
 
 		public event PropertyChangedEventHandler PropertyChanged;
 		readonly IList<ControlTemplates> list;
-		public ControlTemplates CurrentItem;
+		
 		public ObservableCollection<ControlTemplates> templates { get; set; }
 		public ObservableCollection<BoxColorModel> BoxColors { get; set; }
 		public IList<BoxColorModel> box;
@@ -29,6 +30,10 @@ namespace Econic.Mobile.ViewModels
 		public int PreviousPosition { get; set; }
 		public int CurrentPosition { get; set; }
 		public int Position { get; set; }
+
+		public ControlTemplates PreviousTemplate { get; set; }
+		public ControlTemplates CurrentTemplate { get; set; }
+		public ControlTemplates CurrentItem { get; set; }
 
 		public ControlTemplateViewModel() {
 			list = new List<ControlTemplates>();
@@ -56,6 +61,10 @@ namespace Econic.Mobile.ViewModels
 			{
 				case "Book":
 					await Application.Current.MainPage.Navigation.PushAsync(new BookAppointment());
+					break;
+				case "ChooseLogo":
+					await Application.Current.MainPage.Navigation.PushAsync(new ChooseLogo());
+					//ChangeThemeInfo();
 					break;
 				default:
 					return;
@@ -101,16 +110,44 @@ namespace Econic.Mobile.ViewModels
 			box.Add(new BoxColorModel { color = Color.FromHex("#c9a015") });
 
 			return box;
-			//BoxColors = new ObservableCollection<BoxColorModel>(box);
 		}
 
-		void PositionChanged(int position)
+		public void ItemChanged(ControlTemplates item)
 		{
-			PreviousPosition = CurrentPosition;
-			CurrentPosition = position;
-			OnPropertyChanged("PreviousPosition");
-			OnPropertyChanged("CurrentPosition");
+			PreviousTemplate = CurrentTemplate;
+			CurrentTemplate = item;
+			//Console.Write("You've Selected the " +  item.name + " template");
+			//ChangeThemeInfo(item.name);
+			OnPropertyChanged("PreviousTemplate");
+			OnPropertyChanged("CurrentTemplate");
 		}
+
+		void ChangeThemeInfo(string name)
+		{
+			if(name == "Classic")
+			{
+				//App.Current.Resources["Label"] = App.Current.Resources["Georgia"];
+				
+			}
+
+			if(name == "Modern")
+			{
+
+			}
+
+			if(name == "Friendly")
+			{
+
+			}
+		}
+
+		//void PositionChanged(int position)
+		//{
+		//	PreviousPosition = CurrentPosition;
+		//	CurrentPosition = position;
+		//	OnPropertyChanged("PreviousPosition");
+		//	OnPropertyChanged("CurrentPosition");
+		//}
 
 		void OnPropertyChanged([CallerMemberName] string propertyName = null)
 		{

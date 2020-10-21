@@ -5,26 +5,35 @@ using System.Windows.Input;
 using Econic.Mobile.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System;
 
 namespace Econic.Mobile.Views.EconicStudio
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ChooseTheme : ContentPage
 	{
+		ControlTemplates previousItem;
+		ControlTemplates currentItem;
+		ControlTemplateViewModel control = new ControlTemplateViewModel();
 		public ChooseTheme()
 		{
 			InitializeComponent();
-			ControlTemplateViewModel control = new ControlTemplateViewModel();
 			CreateBoxGrid();
 			BindingContext = control;
+		}
+
+		void OnCurrentItemChanged(object sender, CurrentItemChangedEventArgs e) 
+		{
+			previousItem = e.PreviousItem as ControlTemplates;
+			currentItem = e.CurrentItem as ControlTemplates;
+			control.ItemChanged(currentItem);
+			//Console.WriteLine("Item Changed");
 		}
 
 		private void CreateBoxGrid()
 		{
 			ControlTemplateViewModel control = new ControlTemplateViewModel();
 			IList<BoxColorModel> b = control.CreateBoxCollection();
-
-
 			var boxIndex = 0;
 			//rows
 			for (int i = 0; i < 2; i++)
