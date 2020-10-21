@@ -15,6 +15,7 @@ namespace Econic.Mobile.ViewModels
 { 
 	public class ControlTemplateViewModel : INotifyPropertyChanged
 	{
+		
 		public ICommand ClickedCommand { private set; get; }
 		public ICommand BoxCommand { set; get; }
 
@@ -46,9 +47,7 @@ namespace Econic.Mobile.ViewModels
 		private void SetThemeColor(Color value)
 		{
 			Console.WriteLine(value.ToString());
-			var newColor = Application.Current.Resources["ThemeColor"];
-			value = (Color)newColor;
-
+			App.Current.Resources["ThemeColor"] = value;
 		}
 
 		private async void NextPage(string value)
