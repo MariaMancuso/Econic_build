@@ -31,7 +31,7 @@
                                 HeightRequest="88"
                                 Padding="32, 0, 42, 0"
                                 ContentLayout="Right, 1"
-                                BackgroundColor="#D03737"
+                                BackgroundColor="{DynamicResource ThemeColor}"
                                 TextColor="White"
                                 />
             <!--</sh1:Shadows>-->

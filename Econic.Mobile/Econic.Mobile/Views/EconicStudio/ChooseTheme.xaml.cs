@@ -1,12 +1,7 @@
 ﻿using Econic.Mobile.Models;
 using Econic.Mobile.ViewModels;
-using Econic.Mobile.Views.Templates;
-using System;
 using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
 using Econic.Mobile.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -44,8 +39,7 @@ namespace Econic.Mobile.Views.EconicStudio
 						WidthRequest = 24,
 						CommandParameter = b[boxIndex].color
 					};
-					boxes.SetBinding(Button.CommandProperty, new Binding(nameof(BoxCommand), source: control));
-					//boxes.SetBinding(Button.CommandParameterProperty, new Binding((b[boxIndex].color).ToString()));
+					boxes.SetBinding(Button.CommandProperty, new Binding(nameof(control.BoxCommand), source: control));
 					grid.Children.Add(boxes, j, i);
 					boxIndex++;
 				}

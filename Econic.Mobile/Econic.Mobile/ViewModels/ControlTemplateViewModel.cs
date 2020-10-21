@@ -15,9 +15,8 @@ namespace Econic.Mobile.ViewModels
 { 
 	public class ControlTemplateViewModel : INotifyPropertyChanged
 	{
-
 		public ICommand ClickedCommand { private set; get; }
-		public ICommand BoxCommand { private set; get; }
+		public ICommand BoxCommand { set; get; }
 
 		public event PropertyChangedEventHandler PropertyChanged;
 		readonly IList<ControlTemplates> list;

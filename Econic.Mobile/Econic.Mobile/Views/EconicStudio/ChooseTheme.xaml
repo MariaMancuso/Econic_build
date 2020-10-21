@@ -14,10 +14,10 @@
         <ScrollView Orientation="Vertical">
             <StackLayout >
                 <Label Text="Choose theme and color"
-                   FontSize="22"
-                   TextColor="White"
-                   HorizontalTextAlignment="Center"
-                   FontFamily="QuicksandBold"
+                       FontSize="22"
+                       TextColor="White"
+                       HorizontalTextAlignment="Center"
+                       FontFamily="QuicksandBold"
                        Padding="0, 0, 0, 20"/>
                 
                     <CarouselView PeekAreaInsets="100"

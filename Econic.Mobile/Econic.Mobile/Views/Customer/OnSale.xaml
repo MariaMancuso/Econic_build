@@ -7,7 +7,7 @@
 
             <StackLayout>
             <Label Text="On Sale Today!"
-                   TextColor="{StaticResource ThemeColor}"
+                   TextColor="{DynamicResource ThemeColor}"
                    HorizontalOptions="Center"
                    FontSize="24"/>
             <Frame HeightRequest="311"

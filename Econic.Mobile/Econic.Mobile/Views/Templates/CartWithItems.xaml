@@ -12,7 +12,7 @@
                     <DataTemplate>
                         <StackLayout Padding="22,0,22,0">
                             <Button Text="Proceed to checkout"
-                                    BackgroundColor="{StaticResource ThemeColor}"
+                                    BackgroundColor="{DynamicResource ThemeColor}"
                                     TextColor="White"
                                     FontSize="16"
                                     HorizontalOptions="CenterAndExpand"
@@ -58,7 +58,7 @@
                             </Grid>
                             <Button Text="Deal Button"
                                 BackgroundColor="White"
-                                TextColor="{StaticResource ThemeColor}"
+                                TextColor="{DynamicResource ThemeColor}"
                                 HorizontalOptions="CenterAndExpand"
                                 CornerRadius="18"
                                 WidthRequest="312"
@@ -72,14 +72,14 @@
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span Text="Remove      "
-                                              TextColor="{StaticResource ThemeColor}"
+                                              TextColor="{DynamicResource ThemeColor}"
                                               FontSize="18">
                                             <Span.GestureRecognizers>
                                                 <TapGestureRecognizer Command="{Binding TapCommand}"/>
                                             </Span.GestureRecognizers>
                                         </Span>
                                         <Span Text="Save"
-                                              TextColor="{StaticResource ThemeColor}"
+                                              TextColor="{DynamicResource ThemeColor}"
                                               FontSize="18">
                                             <Span.GestureRecognizers>
                                                 <TapGestureRecognizer Command="{Binding TapCommand}"/>
