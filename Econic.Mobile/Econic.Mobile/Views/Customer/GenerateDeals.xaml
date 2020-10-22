@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Customer.GenerateDeals"
+             xmlns:magicGradients="clr-namespace:MagicGradients;assembly=MagicGradients"
+             BackgroundColor="#343434"
+             Padding="0">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<magicGradients:GradientView VerticalOptions="FillAndExpand">
+                <magicGradients:GradientView.GradientSource>
+                    <magicGradients:RadialGradient Shape="Circle">
+                        <magicGradients:GradientStop Color="Black" Offset="0"/>
+                        --><!--<magicGradients:GradientStop Color="#1b1c1d" Offset=".25"/>--><!--
+                        <magicGradients:GradientStop Color="#262626" Offset=".75"/>
+                        <magicGradients:GradientStop Color="#4e4e4e" Offset="1"/>
+                        
+                    </magicGradients:RadialGradient>
+                </magicGradients:GradientView.GradientSource>
+            </magicGradients:GradientView>-->
+
+            <Label Text="Tap the engine to generate your deals!"
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   FontFamily="QuicksandBold"
+                   FontSize="24"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

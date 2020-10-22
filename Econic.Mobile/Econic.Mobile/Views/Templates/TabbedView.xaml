@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Templates.TabbedView">
+    <ContentView.Content>
+        <Grid VerticalOptions="EndAndExpand"
+              BackgroundColor="White"
+              Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0"
+                  HorizontalOptions="FillAndExpand"
+                  BackgroundColor="White"
+                  Padding="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="25" />
+                </Grid.RowDefinitions>
+
+                <ImageButton Grid.Row="0" 
+                             Grid.Column="0"
+                             Source="homeicon.png"
+                             BackgroundColor="Transparent"
+                             Padding="0"/>
+                <Label Text="Home"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       HorizontalOptions="Center"
+                       TextColor="#919191"/>
+
+                <ImageButton Grid.Row="0" 
+                             Grid.Column="1"
+                             Source="merchantsicon.png"
+                             BackgroundColor="Transparent"/>
+                <Label Text="Merchants"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       HorizontalOptions="Center"
+                       
+                       TextColor="#919191"/>
+
+                <ImageButton Grid.Row="0" 
+                             Grid.Column="2"
+                             Source="accounticon.png"
+                             BackgroundColor="Transparent"/>
+                <Label Text="Account"
+                       Grid.Row="1"
+                       Grid.Column="2"
+                       HorizontalOptions="Center"
+                       TextColor="#919191"/>
+
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

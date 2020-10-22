@@ -99,15 +99,7 @@
             <Setter Property="BorderWidth" Value=".25"/>
         </Style>
 
-        <!-- CLASSIC CONTROL STYLES-->
-        <Style x:Key="ClassicHeaderText" TargetType="Label">
-            <Setter Property="FontSize" Value="36"/>
-            <Setter Property="HorizontalOptions" Value="Center"/>
-            <Setter Property="TextColor" Value="{DynamicResource ThemeColor}"/>
-        </Style>
-
         <!-- CONTROL TEMPLATES START-->
-
 
         <ControlTemplate x:Key="NavigationTemplate">
             <Grid VerticalOptions="FillAndExpand"
