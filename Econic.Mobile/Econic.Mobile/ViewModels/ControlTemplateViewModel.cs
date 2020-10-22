@@ -64,7 +64,16 @@ namespace Econic.Mobile.ViewModels
 					break;
 				case "ChooseLogo":
 					await Application.Current.MainPage.Navigation.PushAsync(new ChooseLogo());
-					//ChangeThemeInfo();
+					
+					break;
+				case "ETGoHome":
+					await Application.Current.MainPage.Navigation.PushAsync(new DealBoard());
+					break;
+				case "MerchantHome":
+					await Application.Current.MainPage.Navigation.PushAsync(new LandingPage());
+					break;
+				case "AccountHome":
+					await Application.Current.MainPage.Navigation.PushAsync(new LandingPage());
 					break;
 				default:
 					return;

@@ -40,8 +40,6 @@
                     <ContentView x:Name="FaveServices"/>
                     <ContentView ControlTemplate="{StaticResource FeatureHeaderControlTemplate}"/>
                     <ContentView x:Name="FaveProducts"/>
-
-
                 </StackLayout>
             </ScrollView>
             <ContentView x:Name="TabbedView"
