@@ -19,14 +19,14 @@ namespace Econic.Mobile.Views.OwnerReg
             //gg.HeightRequest = Application.Current.MainPage.Height;
             BindingContext = new OwnerViewModel();
 
-            SelectService();
-			SelectProduct();
+           // SelectService();
+			//SelectProduct();
 			
 
 		}
 
-        private void SelectService()
-		{
+        //private void SelectService()
+		//{
 
 			//IList<Models.Services> ser = new List<Models.Services> {
 			//	new Models.Services ("Services"),
@@ -46,20 +46,20 @@ namespace Econic.Mobile.Views.OwnerReg
 			//serviceDropdown.ItemsSource = list;
 			//serviceDropdown.SelectedIndex = 0;
 			//serviceDropdown.ItemSelected += OnServiceDropdownSelected;
-		}
+		//}
 
-		private void OnServiceDropdownSelected(object sender, ItemSelectedEventArgs e)
-		{
-			if(e.SelectedIndex != 0)
-			{
-				Console.WriteLine(list[e.SelectedIndex]);
-				//serviceDropdown = list[e.SelectedIndex];
-			}
+		//private void OnServiceDropdownSelected(object sender, ItemSelectedEventArgs e)
+		//{
+		//	if(e.SelectedIndex != 0)
+		//	{
+		//		Console.WriteLine(list[e.SelectedIndex]);
+		//		//serviceDropdown = list[e.SelectedIndex];
+		//	}
 			
-		}
+		//}
 
-		private void SelectProduct()
-		{
+		//private void SelectProduct()
+		//{
 			//IList<Models.Products> ser = new List<Models.Products> {
 			//	new Models.Products ("Goods"),
 			//	new Models.Products ("Apparel"),
@@ -80,18 +80,18 @@ namespace Econic.Mobile.Views.OwnerReg
 			//productsDropdown.ItemSelected += OnProductDropdownSelected;
 			
 			
-		}
+		//}
 
 
 
-		private void OnProductDropdownSelected(object sender, ItemSelectedEventArgs e)
-		{
-			if (e.SelectedIndex != 0)
-			{
-				Console.WriteLine(list2[e.SelectedIndex]);
-				//serviceDropdown = list[e.SelectedIndex];
-			}
+		//private void OnProductDropdownSelected(object sender, ItemSelectedEventArgs e)
+		//{
+		//	if (e.SelectedIndex != 0)
+		//	{
+		//		Console.WriteLine(list2[e.SelectedIndex]);
+		//		//serviceDropdown = list[e.SelectedIndex];
+		//	}
 
-		}
+		//}
 	}
 }

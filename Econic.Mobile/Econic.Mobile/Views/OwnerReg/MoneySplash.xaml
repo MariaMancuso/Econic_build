@@ -8,10 +8,8 @@
              BackgroundColor="WhiteSmoke"
              xmlns:local ="clr-namespace:Econic.Mobile.ViewModels"
              xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
-             BackgroundColor="WhiteSmoke" 
              xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard" 
              xmlns:magicGradients="clr-namespace:MagicGradients;assembly=MagicGradients"
-             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              Padding="0">
     <ContentPage.BindingContext>
         <local:ProductsViewModel/>
