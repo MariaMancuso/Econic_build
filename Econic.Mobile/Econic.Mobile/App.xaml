@@ -18,7 +18,7 @@
                ApplyToDerivedTypes="True">
             <Setter Property="BackgroundColor" Value="#F8F8F8"/>
             <Setter Property="NavigationPage.HasNavigationBar" Value="False"/>
-            <Setter Property="Padding" Value="22, 0, 22, 0"/>
+            <Setter Property="Padding" Value="0"/>
         </Style>
 
         <Style TargetType="Label">
@@ -105,6 +105,7 @@
             <Setter Property="Padding" Value="7,0,0,0"/>
             <Setter Property="VerticalTextAlignment" Value="Start"/>
         </Style>
+
 
         <Style x:Key="LandingBttn" TargetType="Button">
             <Setter Property="FontSize" Value="16"/>
@@ -211,7 +212,7 @@
                                  HeightRequest="25"
                                  VerticalOptions="CenterAndExpand"
                                  Clicked="OnBackButtonPressed" />
-                    <Label Grid.Column="1" Text="ECONIC STUDIO"
+                    <Label Grid.Column="1" Text="REVYVV STUDIO"
                            HorizontalOptions="CenterAndExpand"
                            TextColor="Silver"
                            FontSize="14"/>
@@ -221,14 +222,6 @@
                                     HorizontalOptions="FillAndExpand"
                                     Grid.Row="1"/>
             </Grid>
-        </ControlTemplate>
-
-        <ControlTemplate x:Key="Footer">
-            <StackLayout Orientation="Horizontal">
-                <Image Source="secureicon"  WidthRequest="25" HeightRequest="25"/>
-                <Label Text="Your data is 5D Secure" TextColor="DimGray" FontSize="13" FontFamily="QuicksandSemiBold"/>
-                <Label Text="Learn More"  FontFamily="QuicksandSemiBold" FontSize="13" TextColor="CornflowerBlue" HorizontalOptions="EndAndExpand"/>
-            </StackLayout>
         </ControlTemplate>
 
         <ControlTemplate x:Key="FeatureHeaderControlTemplate">
@@ -241,18 +234,25 @@
                     <ColumnDefinition Width="15"/>
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
-                <BoxView BackgroundColor="{StaticResource ThemeColor}"
+                <BoxView BackgroundColor="{DynamicResource ThemeColor}"
                                  Grid.Column="0"
                                  Grid.Row="0"
                                  HorizontalOptions="StartAndExpand"/>
                 <Label Style="{StaticResource SectionText}"
-                       Grid.Column="1"
-                       Grid.RowSpan="2"
-                       Padding="0, -3, 0, 0"
-                       />
+                               Text="Today"
+                               Grid.Column="1" 
+                               Grid.RowSpan="2"
+                               Padding="0, -3, 0, 0"/>
             </Grid>
         </ControlTemplate>
 
+        <ControlTemplate x:Key="Footer">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="secureicon"  WidthRequest="25" HeightRequest="25"/>
+                <Label Text="Your data is 5D Secure" TextColor="DimGray" FontSize="13" FontFamily="QuicksandSemiBold"/>
+                <Label Text="Learn More"  FontFamily="QuicksandSemiBold" FontSize="13" TextColor="CornflowerBlue" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+        </ControlTemplate>
 
                     <!--Classic Template-->
         <ControlTemplate x:Key="ClassicControlTemplate">
@@ -270,30 +270,28 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <!--<ImageButton Grid.Column="0" Source="backarrow" HorizontalOptions="Start"
-                                 BackgroundColor="Transparent"
-                                 WidthRequest="25"
-                                 HeightRequest="25"/>-->
+
                         <Label Grid.Column="1" Text="Preview"
                                    HorizontalOptions="CenterAndExpand"
-                                   TextColor="{StaticResource ThemeColor}"
+                                   TextColor="{DynamicResource ThemeColor}"
                                    FontSize="10"
                                    Padding="0"/>
 
                     </Grid>
                 </Grid>
-                <Label Text="Booking" 
+                <Label 
+                       Text="Booking" 
                        Padding="0, 0, 0, 5"
                        FontSize="14"
                        FontAttributes="Bold"
                        HorizontalTextAlignment="Center"    
-                       TextColor="{StaticResource ThemeColor}"/>
+                       TextColor="{DynamicResource ThemeColor}"/>
 
                 <Label Text="Type of Service: "
                       
                        HorizontalTextAlignment="Start"
                        FontSize="7"    
-                       TextColor="{StaticResource ThemeColor}"/>
+                       TextColor="{DynamicResource ThemeColor}"/>
 
                 <Frame Padding="0, 0, 0, 0"
                        HeightRequest="22"
@@ -307,7 +305,7 @@
                            Padding="0, 8, 0, 0"
                            HorizontalTextAlignment="Start"
                            FontSize="7"    
-                           TextColor="{StaticResource ThemeColor}"/>
+                           TextColor="{DynamicResource ThemeColor}"/>
                 <Grid Padding="0, 0, 0, 0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="22"/>
@@ -347,7 +345,7 @@
                                 Grid.Column="0"
                                 FontSize="7"
                                 BackgroundColor="#e2e2e2"
-                                TextColor="{StaticResource ThemeColor}"
+                                TextColor="{DynamicResource ThemeColor}"
                                     Padding="0"/>
                     <Button Text="10:00 AM"
                                 Grid.Row="0"
@@ -355,7 +353,7 @@
                                 FontSize="7"
                                 BackgroundColor="#e2e2e2" 
                                     Padding="0"
-                                TextColor="{StaticResource ThemeColor}"/>
+                                TextColor="{DynamicResource ThemeColor}"/>
                     <Button Text="10:30 AM"
                                 Grid.Row="0"
                                 Grid.Column="2"
@@ -380,7 +378,7 @@
                                 FontSize="7"
                                 TextColor="White"
                                     Padding="0"
-                                BackgroundColor="{StaticResource ThemeColor}"
+                                BackgroundColor="{DynamicResource ThemeColor}"
                                 />
                     <Button Text="12:00 PM"
                                 Grid.Row="1"
@@ -388,28 +386,28 @@
                                  FontSize="7"
                                 BackgroundColor="#e2e2e2"
                                     Padding="0"
-                                TextColor="{StaticResource ThemeColor}"/>
+                                TextColor="{DynamicResource ThemeColor}"/>
                     <Button Text="12:30 PM"
                                 Grid.Row="2"
                                 Grid.Column="0"
                                 FontSize="7"
                                 BackgroundColor="#e2e2e2"
                                     Padding="0"
-                                TextColor="{StaticResource ThemeColor}"/>
+                                TextColor="{DynamicResource ThemeColor}"/>
                     <Button Text="3:30 PM"
                                 Grid.Row="2"
                                 Grid.Column="1"
                                 FontSize="7"
                                 BackgroundColor="#e2e2e2"
                                     Padding="0"
-                                TextColor="{StaticResource ThemeColor}"/>
+                                TextColor="{DynamicResource ThemeColor}"/>
                 </Grid>
 
                 <Label Text="You selected: "
                            Padding="0, 7, 0, 0"
                            FontSize="7"
                            HorizontalTextAlignment ="Center"
-                           TextColor="{StaticResource ThemeColor}"/>
+                           TextColor="{DynamicResource ThemeColor}"/>
                 <Label Text="Type of Service"
                            HorizontalTextAlignment="Center"
                            FontAttributes="Bold"
@@ -426,7 +424,7 @@
                             HeightRequest="28"
                             WidthRequest="156"
                                 VerticalOptions="EndAndExpand"
-                            BackgroundColor="{StaticResource ThemeColor}"/>
+                            BackgroundColor="{DynamicResource ThemeColor}"/>
             </StackLayout>
         </ControlTemplate>
 
@@ -434,7 +432,7 @@
         <ControlTemplate x:Key="ModernControlTemplate">
             <StackLayout>
                 <Grid VerticalOptions="FillAndExpand" 
-                      BackgroundColor="{StaticResource ThemeColor}"
+                      BackgroundColor="{DynamicResource ThemeColor}"
                       Padding="0, 0, 0, 0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="25" />
@@ -448,10 +446,6 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <!--<ImageButton Grid.Column="0" Source="backarrow" HorizontalOptions="Start"
-                                 BackgroundColor="Transparent"
-                                 WidthRequest="25"
-                                 HeightRequest="25"/>-->
                         <Label Grid.Column="1" Text="Preview"
                                    HorizontalOptions="CenterAndExpand"
                                    TextColor="White"
@@ -466,12 +460,12 @@
                            FontSize="14"
                            FontAttributes="Bold"
                            HorizontalTextAlignment="Start"    
-                           TextColor="{StaticResource ThemeColor}"/>
+                           TextColor="{DynamicResource ThemeColor}"/>
 
                     <Label Text="Type of Service: "
                                HorizontalTextAlignment="Start"
                                FontSize="7"    
-                               TextColor="{StaticResource ThemeColor}"/>
+                               TextColor="{DynamicResource ThemeColor}"/>
 
                     <Frame Padding="0, 0, 0, 0"
                                HeightRequest="22"
@@ -485,7 +479,7 @@
                            Padding="0, 8, 0, 0"
                            HorizontalTextAlignment="Start"
                            FontSize="7"    
-                           TextColor="{StaticResource ThemeColor}"/>
+                           TextColor="{DynamicResource ThemeColor}"/>
                     <Grid Padding="0, 0, 0, 0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="22"/>
@@ -530,8 +524,8 @@
                                     BorderWidth="1"
                                     BackgroundColor="#f8f8f8"
                                     Padding="0"
-                                    TextColor="{StaticResource ThemeColor}"
-                                    BorderColor="{StaticResource ThemeColor}"/>
+                                    TextColor="{DynamicResource ThemeColor}"
+                                    BorderColor="{DynamicResource ThemeColor}"/>
                         <Button Text="10:00 AM"
                                     Grid.Row="0"
                                     Grid.Column="1"
@@ -540,28 +534,28 @@
                                     BorderWidth="1"
                                     BackgroundColor="#f8f8f8"
                                     Padding="0"
-                                    TextColor="{StaticResource ThemeColor}"
-                                    BorderColor="{StaticResource ThemeColor}"/>
+                                    TextColor="{DynamicResource ThemeColor}"
+                                    BorderColor="{DynamicResource ThemeColor}"/>
                         <Button Text="10:30 AM"
                                 Grid.Row="0"
                                 Grid.Column="2"
                                 FontSize="7"
-                                BackgroundColor="{StaticResource ThemeColor}"
+                                BackgroundColor="{DynamicResource ThemeColor}"
                                 Opacity=".15"
                                 BorderWidth="1"
                                 CornerRadius="8"
-                                    Padding="0"
-                                BorderColor="{StaticResource ThemeColor}"
+                                Padding="0"
+                                BorderColor="{DynamicResource ThemeColor}"
                                 TextColor="Black"/>
                         <Button Text="11:00 AM"
                                 Grid.Row="1"
                                 Grid.Column="0"
                                 FontSize="7"
-                                BackgroundColor="{StaticResource ThemeColor}"
+                                BackgroundColor="{DynamicResource ThemeColor}"
                                 Opacity=".15"
                                 BorderWidth="1"
                                 CornerRadius="8"
-                                BorderColor="{StaticResource ThemeColor}"
+                                BorderColor="{DynamicResource ThemeColor}"
                                 TextColor="Black"
                                     Padding="0"/>
                         <Button Text="11:30 AM"
@@ -571,7 +565,7 @@
                                 TextColor="White"
                                 CornerRadius="8"
                                     Padding="0"
-                                BackgroundColor="{StaticResource ThemeColor}"/>
+                                BackgroundColor="{DynamicResource ThemeColor}"/>
                         <Button Text="12:00 PM"
                                 Grid.Row="1"
                                 Grid.Column="2"
@@ -580,8 +574,8 @@
                                 CornerRadius="8"
                                 BorderWidth="1"
                                 BackgroundColor="#f8f8f8"
-                                BorderColor="{StaticResource ThemeColor}"
-                                TextColor="{StaticResource ThemeColor}"/>
+                                BorderColor="{DynamicResource ThemeColor}"
+                                TextColor="{DynamicResource ThemeColor}"/>
                         <Button Text="12:30 PM"
                                 Grid.Row="2"
                                 Grid.Column="0"
@@ -589,9 +583,9 @@
                                     Padding="0"
                                 CornerRadius="8"
                                 BorderWidth="1"
-                                BorderColor="{StaticResource ThemeColor}"
+                                BorderColor="{DynamicResource ThemeColor}"
                                 BackgroundColor="#f8f8f8"
-                                TextColor ="{StaticResource ThemeColor}"/>
+                                TextColor ="{DynamicResource ThemeColor}"/>
                         <Button Text="3:30 PM"
                                 Grid.Row="2"
                                 Grid.Column="1"
@@ -600,15 +594,15 @@
                                 CornerRadius="8"
                                 BorderWidth="1"
                                 BackgroundColor="#f8f8f8"
-                                TextColor ="{StaticResource ThemeColor}"
-                                BorderColor="{StaticResource ThemeColor}"/>
+                                TextColor ="{DynamicResource ThemeColor}"
+                                BorderColor="{DynamicResource ThemeColor}"/>
                     </Grid>
 
                     <Label Text="You selected: "
                            Padding="0, 5, 0, 0"
                            FontSize="7"
                            HorizontalTextAlignment ="Start"
-                           TextColor ="{StaticResource ThemeColor}"/>
+                           TextColor ="{DynamicResource ThemeColor}"/>
                     <Label Text="Type of Service"
                            HorizontalTextAlignment="Start"
                            FontAttributes="Bold"
@@ -623,13 +617,13 @@
                                 Padding="0"
                             FontSize="9"
                             BackgroundColor="White"
-                            TextColor="{StaticResource ThemeColor}"
+                            TextColor="{DynamicResource ThemeColor}"
                             HeightRequest="28"
                             WidthRequest="156"
                             CornerRadius="8"
                             BorderWidth="1"
                                 VerticalOptions="EndAndExpand"
-                            BorderColor="{StaticResource ThemeColor}"
+                            BorderColor="{DynamicResource ThemeColor}"
                             />
                 </StackLayout>
             </StackLayout>
@@ -638,7 +632,7 @@
         <!-- Friendly Template -->
         <ControlTemplate x:Key="FriendlyControlTemplate">
             <StackLayout>
-                <StackLayout BackgroundColor="{StaticResource ThemeColor}">
+                <StackLayout BackgroundColor="{DynamicResource ThemeColor}">
                     <Grid VerticalOptions="FillAndExpand">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25" />
@@ -652,10 +646,6 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <!--<ImageButton Grid.Column="0" Source="backarrow" HorizontalOptions="Start"
-                                 BackgroundColor="Transparent"
-                                 WidthRequest="25"
-                                 HeightRequest="25"/>-->
                             <Label Grid.Column="1" Text="Preview"
                                    HorizontalOptions="CenterAndExpand"
                                    TextColor="White"
@@ -675,7 +665,7 @@
                     <Label Text="Type of Service: "
                        HorizontalTextAlignment="Start"
                        FontSize="7"    
-                       TextColor ="{StaticResource ThemeColor}"/>
+                       TextColor ="{DynamicResource ThemeColor}"/>
 
                     <Frame Padding="0, 0, 0, 0"
                            HeightRequest="22"
@@ -689,7 +679,7 @@
                            Padding="0, 8, 0, 0"
                            HorizontalTextAlignment="Start"
                            FontSize="7"    
-                           TextColor ="{StaticResource ThemeColor}"/>
+                           TextColor ="{DynamicResource ThemeColor}"/>
                     <Grid Padding="0, 0, 0, 0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="22"/>
@@ -734,8 +724,8 @@
                                 CornerRadius="30"
                                 BorderWidth="1"
                                 BackgroundColor="#f8f8f8"
-                                TextColor="{StaticResource ThemeColor}"
-                                BorderColor="{StaticResource ThemeColor}"/>
+                                TextColor="{DynamicResource ThemeColor}"
+                                BorderColor="{DynamicResource ThemeColor}"/>
                         <Button Text="10:00 AM"
                                 Grid.Row="0"
                                 Grid.Column="1"
@@ -744,29 +734,29 @@
                                 CornerRadius="30"
                                 BorderWidth="1"
                                 BackgroundColor="#f8f8f8"
-                                TextColor="{StaticResource ThemeColor}"
-                                BorderColor="{StaticResource ThemeColor}"/>
+                                TextColor="{DynamicResource ThemeColor}"
+                                BorderColor="{DynamicResource ThemeColor}"/>
                         <Button Text="10:30 AM"
                                 Grid.Row="0"
                                 Grid.Column="2"
                                 FontSize="7"
                                 Padding="0"
-                                BackgroundColor="{StaticResource ThemeColor}"
+                                BackgroundColor="{DynamicResource ThemeColor}"
                                 Opacity=".15"
                                 BorderWidth="1"
                                 CornerRadius="30"
-                                BorderColor="{StaticResource ThemeColor}"
+                                BorderColor="{DynamicResource ThemeColor}"
                                 TextColor="Black"/>
                         <Button Text="11:00 AM"
                                 Grid.Row="1"
                                 Grid.Column="0"
                                 FontSize="7"
                                 Padding="0"
-                                BackgroundColor="{StaticResource ThemeColor}"
+                                BackgroundColor="{DynamicResource ThemeColor}"
                                 Opacity=".15"
                                 BorderWidth="1"
                                 CornerRadius="30"
-                                BorderColor="{StaticResource ThemeColor}"
+                                BorderColor="{DynamicResource ThemeColor}"
                                 TextColor="Black"/>
                         <Button Text="11:30 AM"
                                 Grid.Row="1"
@@ -775,7 +765,7 @@
                                 Padding="0"
                                 TextColor="White"
                                 CornerRadius="30"
-                                BackgroundColor="{StaticResource ThemeColor}"/>
+                                BackgroundColor="{DynamicResource ThemeColor}"/>
                         <Button Text="12:00 PM"
                                 Grid.Row="1"
                                 Grid.Column="2"
@@ -784,8 +774,8 @@
                                 CornerRadius="30"
                                 BorderWidth="1"
                                 BackgroundColor="#f8f8f8"
-                                TextColor="{StaticResource ThemeColor}"
-                                BorderColor="{StaticResource ThemeColor}"/>
+                                TextColor="{DynamicResource ThemeColor}"
+                                BorderColor="{DynamicResource ThemeColor}"/>
                         <Button Text="12:30 PM"
                                 Grid.Row="2"
                                 Grid.Column="0"
@@ -794,8 +784,8 @@
                                 CornerRadius="30"
                                 BorderWidth="1"
                                 BackgroundColor="#f8f8f8"
-                                TextColor="{StaticResource ThemeColor}"
-                                BorderColor="{StaticResource ThemeColor}"/>
+                                TextColor="{DynamicResource ThemeColor}"
+                                BorderColor="{DynamicResource ThemeColor}"/>
                         <Button Text="3:30 PM"
                                 Grid.Row="2"
                                 Grid.Column="1"
@@ -804,15 +794,15 @@
                                 CornerRadius="30"
                                 BorderWidth="1"
                                 BackgroundColor="#f8f8f8"
-                                TextColor="{StaticResource ThemeColor}"
-                                BorderColor="{StaticResource ThemeColor}"/>
+                                TextColor="{DynamicResource ThemeColor}"
+                                BorderColor="{DynamicResource ThemeColor}"/>
                     </Grid>
 
                     <Label Text="You selected: "
                            Padding="0, 7, 0, 0"
                            FontSize="7"
                            HorizontalTextAlignment ="Start"
-                           TextColor ="{StaticResource ThemeColor}"/>
+                           TextColor ="{DynamicResource ThemeColor}"/>
                     <Label Text="Type of Service"
                            HorizontalTextAlignment="Start"
                            FontAttributes="Bold"
@@ -825,7 +815,7 @@
 
                     <Button Text="CONFIRM"
                             FontSize="9"
-                            BackgroundColor="{StaticResource ThemeColor}"
+                            BackgroundColor="{DynamicResource ThemeColor}"
                             TextColor="White"
                             CornerRadius="30"
                             Padding="0"
@@ -833,7 +823,7 @@
                             HeightRequest="28"
                             WidthRequest="156"
                             VerticalOptions="EndAndExpand"
-                            BorderColor="{StaticResource ThemeColor}"
+                            BorderColor="{DynamicResource ThemeColor}"
                             />
                 </StackLayout>
             </StackLayout>

@@ -1,4 +1,5 @@
 ﻿using Econic.Mobile.ViewModels;
+using Econic.Mobile.Views.Customer;
 using Econic.Mobile.Views.OwnerReg;
 using Econic.Mobile.Views.Shared.HamburgerMenu;
 using Econic.Mobile.Views.Shared.SplashScreens;
@@ -20,7 +21,7 @@ namespace Econic.Mobile
         }
         async void OwnerClicked(object sender, EventArgs arg)
         {
-            await Navigation.PushAsync(new WelcomeSplash());
+            await Navigation.PushAsync(new Views.EconicStudio.ChooseTheme());
         }
 
         async void EmployeeClicked(object sender, EventArgs arg)
@@ -31,7 +32,7 @@ namespace Econic.Mobile
 
         async void CustomerClicked(object sender, EventArgs arg)
         {
-            await Navigation.PushAsync(new SharedSplashOne { BindingContext = new CustomerViewModel() });
+            await Navigation.PushAsync(new GenerateDeals());
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Econic.Mobile.Renderers"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:Econic.Mobile.Renderers"
              x:Class="Econic.Mobile.Views.Customer.BookAppointment">
     <ContentPage.Content>
         <ScrollView>
@@ -8,24 +9,25 @@
                 <Label Text="BOOK AN APPOINTMENT" 
                        Padding="0, 10, 0, 31"
                        FontSize="24"
-                       TextColor="{StaticResource ThemeColor}"
+                       TextColor="{DynamicResource ThemeColor}"
                        HorizontalOptions="Center"
                        HorizontalTextAlignment="Center"/>
                 <Label Text="Type of Service: "
                        Padding="0, 0, 0, 10"
-                       TextColor="{StaticResource ThemeColor}"
+                       TextColor="{DynamicResource ThemeColor}"
                        />
 
                 <Frame Padding="0, 0, 0, 0"
                        HeightRequest="48"
-                       WidthRequest="336">
+                       WidthRequest="336"
+                       >
                     <local:CustomDropDown HorizontalOptions ="FillAndExpand"
                                     VerticalOptions="Center"
                                     x:Name="serviceDropdown"/>
                 </Frame>
                 <Label Text="Availability: "
                        Padding="0, 36, 0, 10"
-                       TextColor="{StaticResource ThemeColor}"/>
+                       TextColor="{DynamicResource ThemeColor}"/>
                 
                 <Grid Padding="0, 0, 0, 0">
                     <Grid.RowDefinitions>
@@ -38,16 +40,14 @@
                     </Grid.ColumnDefinitions>
                     <Frame Grid.Column="0"
                            Padding="0">
-                        <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
-                                        
-                                        x:Name="monthDropdown"/>-->
+                        <local:CustomDropDown HorizontalOptions ="FillAndExpand"
+                                              x:Name="monthDropdown"/>
                     </Frame>
 
                     <Frame Grid.Column="2"
                            Padding="0">
-                        <!--<local:Dropdown HorizontalOptions ="FillAndExpand"
-                                        
-                                        x:Name="dayDropdown"/>-->
+                        <local:CustomDropDown HorizontalOptions ="FillAndExpand"
+                                         x:Name="dayDropdown"/>
                     </Frame>
                 </Grid>
 
@@ -100,7 +100,7 @@
 
                 <Label Text="You selected: "
                        Padding="0, 55, 0, 10"
-                       TextColor="{StaticResource ThemeColor}"
+                       TextColor="{DynamicResource ThemeColor}"
                        HorizontalOptions="Center"/>
                 
                 <Label Text="Type of Service"
@@ -118,7 +118,7 @@
                         HeightRequest="60"
                         WidthRequest="336"
                         TextColor="White"
-                        BackgroundColor="{StaticResource ThemeColor}"/>
+                        BackgroundColor="{DynamicResource ThemeColor}"/>
 
             </StackLayout>
         </ScrollView>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Templates.ClassicTemplate">
+    <ContentView.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#343434"
+                               BorderColor="#343434"
+                               HasShadow="False"
+                               HeightRequest="397"
+                               WidthRequest="178"
+                               Padding="5, 5, 5, 5"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <Label Text="Classic"
+                                           FontSize="16"
+                                           HorizontalTextAlignment="Start"
+                                           TextColor="White"/>
+                    <Frame BackgroundColor="#f8f8f8"
+                                       HasShadow="True"
+                                       IsClippedToBounds="True"
+                                       Padding="0">
+                        <ContentView ControlTemplate="{StaticResource ClassicControlTemplate}" />
+                    </Frame>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

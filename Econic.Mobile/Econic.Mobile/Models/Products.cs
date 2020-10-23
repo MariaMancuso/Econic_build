@@ -4,23 +4,19 @@ using System.Text;
 
 namespace Econic.Mobile.Models
 {
-	class Products
+	public class Products
 	{
+		private string name;
+		public string Name
+		{
+			get { return name; }
+			set { name = value; }
+		}
 		public int Rating { private set; get; }
-		public string Name { private set; get; }
+		//public string Name { set; get; }
 
 		public int Price { private set; get; }
 
-		//public Products(int rating, string name, int price)
-		//{
-		//	this.Rating = rating;
-		//	this.Name = name;
-		//	this.Price = price;
-		//}
-
-		public Products(string name)
-		{
-			this.Name = name;
-		}
+		
 	}
 }

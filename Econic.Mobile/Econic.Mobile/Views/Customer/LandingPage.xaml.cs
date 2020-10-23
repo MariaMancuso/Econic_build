@@ -16,12 +16,14 @@ namespace Econic.Mobile.Views.Customer
 		ControlTemplate welcome = new ControlTemplate(typeof(WelcomeActions));
 		ControlTemplate services = new ControlTemplate(typeof(FavoriteServices));
 		ControlTemplate products = new ControlTemplate(typeof(FavoriteProducts));
+		ControlTemplate tabbed = new ControlTemplate(typeof(TabbedView));
 		public LandingPage()
 		{
 			InitializeComponent();
 			WelcomeContent.ControlTemplate = welcome;
 			FaveServices.ControlTemplate = services;
 			FaveProducts.ControlTemplate = products;
+			TabbedView.ControlTemplate = tabbed;
 
 		}
 

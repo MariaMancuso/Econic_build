@@ -1,5 +1,6 @@
 ﻿using Econic.Mobile.Models;
 using Econic.Mobile.Services;
+using Econic.Mobile.Views.EconicStudio;
 using Econic.Mobile.Views.Gamification;
 using Econic.Mobile.Views.OwnerProfile;
 using Econic.Mobile.Views.OwnerReg;
@@ -163,12 +164,13 @@ namespace Econic.Mobile.ViewModels
 
                     break;
                 case "NotifyMethod":
-                    foreach(string notifymethod in nSelection.Items)
-                    {
-                        if(!owner.NotifyMethods.Any(x => x.Name == notifymethod))
-                            owner.NotifyMethods.Add(new NotifyModel { Name = notifymethod });
-                    }
-                    await Application.Current.MainPage.Navigation.PushAsync(new Notify(this));
+                    await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this});
+                    //foreach(string notifymethod in nSelection.Items)
+                    //{
+                    //    if(!owner.NotifyMethods.Any(x => x.Name == notifymethod))
+                    //        owner.NotifyMethods.Add(new NotifyModel { Name = notifymethod });
+                    //}
+                    //await Application.Current.MainPage.Navigation.PushAsync(new Notify(this));
                     break;
                 case "Invite":
                     await Application.Current.MainPage.Navigation.PushAsync(new Invite(this));
@@ -206,7 +208,7 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new Views.EconicStudio.WelcomeScreen(this));
                     break;
                 case "Theme":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Views.EconicStudio.ChooseTheme(this));
+                    await Application.Current.MainPage.Navigation.PushAsync(new ChooseTheme());
                     break;
                 default:
                     return;

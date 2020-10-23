@@ -1,5 +1,7 @@
 ﻿using Econic.Mobile.Models;
 using Econic.Mobile.ViewModels;
+using Econic.Mobile.Views.Customer;
+using Econic.Mobile.Views.EconicStudio;
 using Econic.Mobile.Views.Gamification;
 using Econic.Mobile.Views.OwnerProfile;
 using Econic.Mobile.Views.OwnerReg;
@@ -15,6 +17,12 @@ using Xamarin.Forms.Xaml;
 [assembly: ExportFont("Quicksand-Light.ttf", Alias = "QuicksandLight")]
 [assembly: ExportFont("Quicksand-SemiBold.ttf", Alias = "QuicksandSemiBold")]
 [assembly: ExportFont("Quicksand-Medium.ttf", Alias = "QuicksandMedium")]
+[assembly: ExportFont("Roboto-Regular.ttf", Alias = "RobotoRegular")]
+[assembly: ExportFont("Roboto-Bold.ttf", Alias = "RobotoBold")]
+[assembly: ExportFont("Roboto-Light.ttf", Alias = "RobotoLight")]
+[assembly: ExportFont("Lora-Regular.ttf", Alias = "LoraRegular")]
+[assembly: ExportFont("Lora-Medium.ttf", Alias = "LoraMedium")]
+[assembly: ExportFont("Lora-Bold.ttf", Alias = "LoraBold")]
 
 namespace Econic.Mobile
 {

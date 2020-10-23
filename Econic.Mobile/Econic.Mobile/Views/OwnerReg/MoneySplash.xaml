@@ -5,12 +5,17 @@
              x:Class="Econic.Mobile.Views.OwnerReg.MoneySplash"
              NavigationPage.HasNavigationBar="False"
              xmlns:controls="clr-namespace:Econic.Mobile.Renderers"
+             BackgroundColor="WhiteSmoke"
+             xmlns:local ="clr-namespace:Econic.Mobile.ViewModels"
              xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              BackgroundColor="WhiteSmoke" 
              xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard" 
              xmlns:magicGradients="clr-namespace:MagicGradients;assembly=MagicGradients"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              Padding="0">
-
+    <ContentPage.BindingContext>
+        <local:ProductsViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <SwipeView>
             <SwipeView.BottomItems>
@@ -71,6 +76,39 @@
                                                FontFamily="QuicksandMedium" 
                                                TextColor="DimGray" />
 
+
+                                        <!--<Frame Style="{StaticResource Customframe}">-->
+
+                                            <!--<controls:CustomDropDown HorizontalOptions ="FillAndExpand"
+                                                                     VerticalOptions="Center"
+                                                                     x:Name="productsDropdown"/>-->
+                                            <combobox:SfComboBox
+                                                x:Name="productdropdown"
+                                                HeightRequest="40"
+                                                BackgroundColor="White"
+                                                ShowBorder="true"
+                                                Watermark="Products"
+                                                WatermarkColor="#343434"
+                                                DropDownItemHeight="50"
+                                                DataSource="{Binding ProductCollection}">
+                                                <combobox:SfComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Label Text="{Binding Name}"
+                                                               TextColor="#343434"
+                                                               Padding="15, 0, 0, 0"/>
+                                                    </DataTemplate>
+                                                </combobox:SfComboBox.ItemTemplate>
+                                            </combobox:SfComboBox>
+                                        <!--</Frame>-->
+                                        <!--</Frame>-->
+
+
+                                        <Frame Style="{StaticResource Customframe}">
+                                            <!--<controls:CustomDropDown x:Name="serviceDropdown"
+                                                                     HorizontalOptions="FillAndExpand"
+                                                                     VerticalOptions="Center"/>-->
+
+                                        </Frame>
                                         <Frame Style="{StaticResource Customframe}" Padding="2">
                                             <combobox:SfComboBox 
                                                 HeightRequest="40"
@@ -91,7 +129,6 @@
                                                 </combobox:SfComboBox.ComboBoxSource>
                                             </combobox:SfComboBox>
                                         </Frame>
-
                                     </StackLayout>
 
                                     <StackLayout Grid.Row="3" VerticalOptions="End">
