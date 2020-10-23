@@ -4,7 +4,8 @@
              xmlns:controls="clr-namespace:Econic.Mobile.Renderers"
              xmlns:converter="clr-namespace:Econic.Mobile.Services"
              x:Class="Econic.Mobile.Views.Shared.SharedLogin" 
-             ControlTemplate="{StaticResource NavigationTemplate}">
+             ControlTemplate="{StaticResource NavigationTemplate}" 
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -25,15 +26,17 @@
 
             <Label Grid.Row="1" Text="Check out what's happened since you left" FontFamily="QuicksandRegular" TextColor="#404040" />
 
-            <StackLayout Grid.Row="2" Orientation="Vertical">
-                <Frame Style="{StaticResource Customframe}" Margin="0, 0, 0, 10">
-                    <controls:CustomEntry x:Name="username" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Username" />
-                </Frame>
-                <Frame Style="{StaticResource Customframe}">
-                    <controls:CustomEntry HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Password"  IsPassword="True"/>
-                </Frame>
+            <Grid Grid.Row="2" RowSpacing="0">
+                
+                <inputLayout:SfTextInputLayout Grid.Row="0" InputViewPadding="10" Hint="Username" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <Entry ReturnType="Next" />
+                </inputLayout:SfTextInputLayout>
 
-            </StackLayout>
+                <inputLayout:SfTextInputLayout Grid.Row="1" InputViewPadding="10" Hint="Password" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <Entry ReturnType="Done" IsPassword="True"/>
+                </inputLayout:SfTextInputLayout>
+                
+            </Grid>
 
             <Label Grid.Row="3" Text="Forgot password?" TextColor="#3475b7" FontFamily="QuicksandSemiBold"/>
 

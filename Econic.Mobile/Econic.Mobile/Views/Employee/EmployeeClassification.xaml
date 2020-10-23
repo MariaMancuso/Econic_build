@@ -24,7 +24,7 @@
                         <Label Text="Services" FontFamily="QuicksandBold" TextColor="#404040" VerticalTextAlignment="Center" />
                     </StackLayout>
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding CMTapped}" CommandParameter="{Binding Source={x:RelativeSource Self}}"/>
+                        <TapGestureRecognizer Command="{Binding CMTapped}" CommandParameter="{Binding Source={x:RelativeSource Self}}" />
                     </Frame.GestureRecognizers>
                 </Frame>
 
@@ -41,7 +41,7 @@
                 <Frame CornerRadius="20">
                     <StackLayout Orientation="Horizontal">
                         <Image Source="Services" />
-                        <Label Text="Both" FontFamily="QuicksandBold" TextColor="#404040" VerticalTextAlignment="Center"/>
+                        <Label Text="Both" FontFamily="QuicksandBold" TextColor="#404040" VerticalTextAlignment="Center" />
                     </StackLayout>
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding CMTapped}" CommandParameter="{Binding Source={x:RelativeSource Self}}" />
@@ -49,12 +49,6 @@
                 </Frame>
 
             </StackLayout>
-
-            <StackLayout Grid.Row="2" VerticalOptions="End">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="EmployeeSchedule" Text="Next" Style="{StaticResource NextItemButton}" />
-                <ContentView ControlTemplate="{StaticResource Footer}" />
-            </StackLayout>
-
         </Grid>
     </ContentPage.Content>
 </ContentPage>

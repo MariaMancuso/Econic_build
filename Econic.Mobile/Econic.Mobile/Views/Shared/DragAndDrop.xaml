@@ -6,6 +6,7 @@
              BackgroundColor="WhiteSmoke"
              ControlTemplate="{StaticResource NavigationTemplate}"
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms">
+
     <ContentPage.Content>
         <Grid RowSpacing="30">
             <Grid.RowDefinitions>
@@ -17,46 +18,41 @@
             
             <Label Grid.Row="0" Text="We do some pretty cool things for you, if we don't say so ourselves!" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20"/>
             <Label Grid.Row="1" Text="Drag to rank in order of importance to you" TextColor="#404040" FontFamily="QuicksandSemiBold" />
-        <syncfusion:SfListView x:Name="listView" Grid.Row="2" ItemsSource="{Binding Owner.Goals}" DragStartMode="OnDragIndicator" BackgroundColor="White" ItemSize="60" SelectionMode="None">
+            <syncfusion:SfListView x:Name="listView" Grid.Row="2" DragStartMode="OnDragIndicator" BackgroundColor="White" ItemSize="60" SelectionMode="None">
 
                     <syncfusion:SfListView.DragItemTemplate>
-                        <DataTemplate>
-                            <StackLayout BackgroundColor="Gainsboro" Spacing="0">
-                                <BoxView BackgroundColor="Gray" HeightRequest="1" />
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="60" />
-                                    </Grid.ColumnDefinitions>
-                                    <Label x:Name="textLabel" Text="{Binding Goal}" Grid.Column="0" FontSize="15" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" HorizontalOptions="Start" Margin="5,0,0,0" />
-
-                                    <syncfusion:DragIndicatorView Grid.Column="1" ListView="{x:Reference listView}" HorizontalOptions="Center" VerticalOptions="Center">
-                                        <Grid Padding="10, 20, 20, 20">
-                                            <Image Source="hamburger" VerticalOptions="Center" HorizontalOptions="Center" />
-                                        </Grid>
-                                    </syncfusion:DragIndicatorView>
-                                </Grid>
-                                <BoxView BackgroundColor="Gray" HeightRequest="1" />
-                            </StackLayout>
-                        </DataTemplate>
-                    </syncfusion:SfListView.DragItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Spacing="0" BackgroundColor="Gainsboro">
+                            <BoxView BackgroundColor="Gray" HeightRequest="1" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Frame Grid.Column="0">
+                                    <Label Text="{Binding Value}" />
+                                </Frame>
+                                <Label x:Name="textLabel" Text="{Binding Goal}" Grid.Column="1" FontSize="15" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" HorizontalOptions="Start" Margin="5,0,0,0" />
+                                <syncfusion:DragIndicatorView Grid.Column="1" ListView="{x:Reference listView}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                            </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+                </syncfusion:SfListView.DragItemTemplate>
                     <syncfusion:SfListView.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:Name="template">
                             <StackLayout Spacing="0">
                                 <BoxView BackgroundColor="Gray" HeightRequest="1" />
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="60" />
-                                    </Grid.ColumnDefinitions>
-                                    <Label x:Name="textLabel" Text="{Binding Goal}" Grid.Column="0" FontSize="15" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" HorizontalOptions="Start" Margin="5,0,0,0" />
-
-                                    <syncfusion:DragIndicatorView Grid.Column="1" ListView="{x:Reference listView}" HorizontalOptions="Center" VerticalOptions="Center">
-                                        <Grid Padding="10, 20, 20, 20">
-                                            <Image Source="hamburger" VerticalOptions="Center" HorizontalOptions="Center" />
-                                        </Grid>
-                                    </syncfusion:DragIndicatorView>
-                                </Grid>
+                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Frame Grid.Column="0">
+                                    <Label Text="{Binding Value}" />
+                                </Frame>
+                                <Label x:Name="textLabel" Text="{Binding Goal}" Grid.Column="1" FontSize="15" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" HorizontalOptions="Start" Margin="5,0,0,0" />
+                                <syncfusion:DragIndicatorView Grid.Column="1" ListView="{x:Reference listView}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                            </Grid>
                             </StackLayout>
                         </DataTemplate>
                     </syncfusion:SfListView.ItemTemplate>

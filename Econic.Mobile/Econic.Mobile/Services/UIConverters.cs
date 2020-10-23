@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Syncfusion.ListView.XForms;
+using System;
 using System.Text.RegularExpressions;
 using Xamarin.Forms;
 
@@ -29,7 +30,6 @@ namespace Econic.Mobile.Services
 
 		#endregion
 	}
-
 	public class DayLabelConverter : IValueConverter
 	{
 

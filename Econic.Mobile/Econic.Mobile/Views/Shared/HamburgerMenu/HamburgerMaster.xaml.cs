@@ -33,10 +33,10 @@ namespace Econic.Mobile.Views.Shared.HamburgerMenu
             {
                 MenuItems = new ObservableCollection<HamburgerMasterMenuItem>(new[]
                 {
-                    new HamburgerMasterMenuItem { Id = 0, Title = "My Dashboard", TargetType = typeof(Dashboard) },
-                    new HamburgerMasterMenuItem { Id = 1, Title = "Settings", TargetType = typeof(Settings) },
+                    new HamburgerMasterMenuItem { Id = 0, Title = "My Dashboard", Icon = "icon_account", TargetType = typeof(Dashboard) },
+                    new HamburgerMasterMenuItem { Id = 1, Title = "Settings", Icon = "icon_settings", TargetType = typeof(Settings) },
                     new HamburgerMasterMenuItem { Id = 2, Title = "Support", Icon = "icon_support", TargetType = typeof(Support) },
-                    new HamburgerMasterMenuItem { Id = 3, Title = "Revyvv U", Icon = "icon_econic_u", TargetType = typeof(RevyvvU) }
+                    new HamburgerMasterMenuItem { Id = 3, Title = "Revyvv U", Icon = "icon_revyvvu", TargetType = typeof(RevyvvU) }
                 });
             }
 

@@ -105,7 +105,7 @@ namespace Econic.Mobile.ViewModels
             classification = label.Text;
             frame.BackgroundColor = Color.FromHex("#404040");
             label.TextColor = Color.White;
-            await Application.Current.MainPage.Navigation.PushAsync(new SharedSplashTwo { BindingContext = this });
+            await Application.Current.MainPage.Navigation.PushAsync(new EmployeeSchedule { BindingContext = this });
             frame.BackgroundColor = Color.White;
             label.TextColor = Color.FromHex("#404040");
         }
@@ -139,9 +139,6 @@ namespace Econic.Mobile.ViewModels
                     break;
                 case "SharedActivate":
                     await Application.Current.MainPage.Navigation.PushAsync(new EmployeeClassification { BindingContext = this });
-                    break;
-                case "EmployeeSchedule":
-                    await Application.Current.MainPage.Navigation.PushAsync(new EmployeeSchedule { BindingContext = this });
                     break;
                 case "GoalOutliner":
                     await Application.Current.MainPage.Navigation.PushAsync(new GoalOutliner { BindingContext = this });
