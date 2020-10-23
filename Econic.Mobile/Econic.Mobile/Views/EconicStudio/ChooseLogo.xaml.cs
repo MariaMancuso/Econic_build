@@ -14,12 +14,13 @@ namespace Econic.Mobile.Views.EconicStudio
 	public partial class ChooseLogo : ContentPage
 	{
 		PhotoPickerViewModel additemViewModel;
-		OwnerViewModel OwnerVM;
+		//OwnerViewModel OwnerVM = new OwnerViewModel();
 		public ChooseLogo()
 		{
 			InitializeComponent();
 			imageselector.BindingContext = additemViewModel = new PhotoPickerViewModel();
-			bodyContent.BindingContext = OwnerVM;
+            OwnerViewModel OwnerVM = new OwnerViewModel();
+            bodyContent.BindingContext = OwnerVM;
 		}
 
         void OnAddPhotoButtonClicked(object sender, EventArgs args)

@@ -1,5 +1,6 @@
 ﻿using Econic.Mobile.Models;
 using Econic.Mobile.Services;
+using Econic.Mobile.Views.EconicStudio;
 using Econic.Mobile.Views.Gamification;
 using Econic.Mobile.Views.OwnerProfile;
 using Econic.Mobile.Views.OwnerReg;
@@ -167,7 +168,7 @@ namespace Econic.Mobile.ViewModels
 
                     break;
                 case "NotifyMethod":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Notify(this));
+                    await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this});
                     break;
                 case "Invite":
                     await Application.Current.MainPage.Navigation.PushAsync(new Invite(this));
@@ -203,6 +204,9 @@ namespace Econic.Mobile.ViewModels
                     break;
                 case "EconicStudio":
                     await Application.Current.MainPage.Navigation.PushAsync(new Views.EconicStudio.WelcomeScreen(this));
+                    break;
+                case "Theme":
+                    await Application.Current.MainPage.Navigation.PushAsync(new ChooseTheme());
                     break;
                 default:
                     return;

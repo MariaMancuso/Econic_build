@@ -77,8 +77,8 @@
                         FontFamily="QuicksandBold"
                         CornerRadius="25"
                         FontSize="16"
-                        Command="{Binding ClickedCommand}"
-                        CommandParameter="Notify"/>
+                        Command="{Binding OpenPageCommand}"
+                        CommandParameter="NotifyMethod"/>
                 <ContentView ControlTemplate="{StaticResource Footer}"
                              VerticalOptions="EndAndExpand"
                              Padding="0, 20, 0, 10"

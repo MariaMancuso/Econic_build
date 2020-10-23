@@ -20,7 +20,7 @@ namespace Econic.Mobile
         }
         async void OwnerClicked(object sender, EventArgs arg)
         {
-            await Navigation.PushAsync(new WelcomeSplash());
+            await Navigation.PushAsync(new Views.EconicStudio.ChooseTheme());
         }
 
         async void EmployeeClicked(object sender, EventArgs arg)
@@ -30,7 +30,7 @@ namespace Econic.Mobile
 
         async void CustomerClicked(object sender, EventArgs arg)
         {
-            await Navigation.PushAsync(new BookAppointment());
+            await Navigation.PushAsync(new GenerateDeals());
         }
     }
 }

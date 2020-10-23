@@ -65,12 +65,11 @@ namespace Econic.Mobile.ViewModels
 					break;
 				case "ChooseLogo":
 					await Application.Current.MainPage.Navigation.PushAsync(new ChooseLogo());
-					
 					break;
 
-				case "Notify":
-					await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this });
-					break;
+				//case "Notify":
+					//await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this });
+					//break;
 
 				case "ETGoHome":
 					await Application.Current.MainPage.Navigation.PushAsync(new DealBoard());
@@ -79,7 +78,7 @@ namespace Econic.Mobile.ViewModels
 					await Application.Current.MainPage.Navigation.PushAsync(new LandingPage());
 					break;
 				case "AccountHome":
-					await Application.Current.MainPage.Navigation.PushAsync(new LandingPage());
+					await Application.Current.MainPage.Navigation.PushAsync(new LoyaltyConfirmation());
 					break;
 				default:
 					return;

@@ -19,8 +19,17 @@
                 </magicGradients:GradientView.GradientSource>
             </magicGradients:GradientView>-->
 
+            <ImageButton Source="iconrevyvv1.png"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                         Command="{Binding OpenPageCommand}"
+                         CommandParameter="ClickEngine"
+                         BackgroundColor="Transparent"/>
             <Label Text="Tap the engine to generate your deals!"
-                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalTextAlignment="Center"
+                   VerticalOptions="CenterAndExpand"
                    TextColor="White"
                    FontFamily="QuicksandBold"
                    FontSize="24"/>

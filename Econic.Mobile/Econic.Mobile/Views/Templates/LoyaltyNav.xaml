@@ -21,8 +21,8 @@
                 <ImageButton Grid.Column="0" Source="backarrow" HorizontalOptions="Start"
                                  BackgroundColor="Transparent"
                                  WidthRequest="25"
-                                 HeightRequest="25"
-                                 Clicked="OnBackButtonPressed" />
+                                 HeightRequest="25"/>
+                <!--Clicked="OnBackButtonPressed" />-->
                 <Label Grid.Column="1" Text="REVYVV"
                            HorizontalOptions="CenterAndExpand"
                            TextColor="Silver"
