@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:magicGradients="clr-namespace:MagicGradients;assembly=MagicGradients" 
              x:Class="Econic.Mobile.Views.Shared.SplashScreens.SharedSplashOne" 
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False" Padding="0">
              
     <ContentPage.Content>
         <Grid>

@@ -74,7 +74,7 @@ namespace Econic.Mobile.ViewModels
                 case "SharedDragnDrop":
                     await Application.Current.MainPage.Navigation.PushAsync(new SharedActivate { BindingContext = this });
                     break;
-                case "LandingPage":
+                case "SharedActivate":
                     await Application.Current.MainPage.Navigation.PushAsync(new LandingPage { BindingContext = this });
                     break;
                 case "ClickEngine":

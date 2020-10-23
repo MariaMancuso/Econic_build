@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Econic.Mobile.Controls"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms" 
+             xmlns:converter="clr-namespace:Econic.Mobile.Services"
              x:Class="Econic.Mobile.App">
     <Application.Resources>
 
@@ -68,6 +69,22 @@
             <Setter Property="VerticalOptions" Value="End"/>
             <Setter Property="Margin" Value="0, 0, 0, 10"/>
             <Setter Property="Padding" Value="60, 0, 60, 0"/>
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="#517486" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="#395360" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
         </Style>
         <Style x:Key="Customframe" TargetType="Frame">
             <Setter Property="BorderColor" Value="#cbcbcb" />
@@ -99,11 +116,39 @@
             <Setter Property="BorderWidth" Value=".25"/>
         </Style>
 
+        <Style TargetType="combobox:SfComboBox">
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="ShowBorder" Value="False" />
+            <Setter Property="FontFamily" Value="QuicksandMedium" />
+            <Setter Property="WatermarkColor" Value="#404040" />
+            <Setter Property="TextColor" Value="#404040" />
+        </Style>
+
         <!-- CONTROL TEMPLATES START-->
 
+        <ControlTemplate x:Key="SpecialityTemplate">
+            <StackLayout Margin="0, 5, 0, 0">
+                <BoxView BackgroundColor="Gray" HeightRequest="0.5" Margin="0, 0, 0, 5" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{TemplateBinding BindingContext.SpecialityHeader}" HorizontalOptions="Start" TextColor="#919191" FontFamily="QuicksandBold"/>
+                    <Label Text="Remove" TextColor="#D03737" HorizontalOptions="EndAndExpand" FontSize="13" FontFamily="QuicksandSemiBold">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{TemplateBinding BindingContext.SpecialityRemoveTapped}" CommandParameter="{Binding Source={x:RelativeSource Self}}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame Style="{StaticResource Customframe}" Padding="2">
+                    <combobox:SfComboBox ItemsSource="{Binding TypeOfServices}" SelectedItem="{Binding SelectedService}" Watermark="Type of Service" />
+                </Frame>
+                <Frame Style="{StaticResource Customframe}" Padding="2">
+                    <combobox:SfComboBox ItemsSource="{Binding TimeOfServices}" SelectedItem="{Binding SelectedTime}" Watermark="Amount of time for Service" />
+                </Frame>
+            </StackLayout>
+        </ControlTemplate>
+        
         <ControlTemplate x:Key="NavigationTemplate">
-            <Grid VerticalOptions="FillAndExpand"
-                  Padding="10">
+            <Grid VerticalOptions="FillAndExpand" Padding="0" HorizontalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />
                     <RowDefinition Height="*" />
@@ -111,27 +156,40 @@
 
                 <Grid Grid.Row="0" VerticalOptions="Center">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <ImageButton Grid.Column="0" Source="backarrow" HorizontalOptions="Start"
-                                 BackgroundColor="Transparent"
-                                 WidthRequest="25"
-                                 HeightRequest="25"
-                                 Clicked="OnBackButtonPressed" />
-                    <Label Grid.Column="1" Text="REVYVV"
-                           HorizontalOptions="CenterAndExpand"
-                           TextColor="Silver"
-                           FontSize="14"/>
+                    <ImageButton Grid.Column="0" Source="backarrow" HorizontalOptions="Start" BackgroundColor="Transparent" WidthRequest="25" HeightRequest="25" Clicked="OnBackButtonPressed" />
+                    <Label Grid.Column="1" Text="ECONIC" HorizontalOptions="CenterAndExpand" TextColor="Silver" FontSize="16" />
 
                 </Grid>
-                <ContentPresenter VerticalOptions="FillAndExpand"
-                                    HorizontalOptions="FillAndExpand"
-                                    Grid.Row="1"/>
+                <ContentPresenter VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="1" Padding="5, 0, 5, 10" />
             </Grid>
         </ControlTemplate>
+
+        <ControlTemplate x:Key="PageWithoutBackBtn">
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" VerticalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="1" Text="ECONIC" HorizontalOptions="CenterAndExpand" TextColor="Silver" FontSize="16" />
+
+                </Grid>
+                <ContentPresenter VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="1" Padding="10, 0, 10, 0" />
+            </Grid>
+        </ControlTemplate>
+        
 
         <ControlTemplate x:Key="EconicStudioNavigationTemplate">
             <Grid VerticalOptions="FillAndExpand"

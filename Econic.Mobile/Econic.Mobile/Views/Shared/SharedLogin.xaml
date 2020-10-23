@@ -1,10 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:controls="clr-namespace:Econic.Mobile.Renderers" 
+             xmlns:controls="clr-namespace:Econic.Mobile.Renderers"
+             xmlns:converter="clr-namespace:Econic.Mobile.Services"
              x:Class="Econic.Mobile.Views.Shared.SharedLogin" 
              ControlTemplate="{StaticResource NavigationTemplate}">
-    
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:IsStringNullorEmpty x:Key="checkLength"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid RowSpacing="20">
             <Grid.RowDefinitions>
@@ -21,7 +27,7 @@
 
             <StackLayout Grid.Row="2" Orientation="Vertical">
                 <Frame Style="{StaticResource Customframe}" Margin="0, 0, 0, 10">
-                    <controls:CustomEntry HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Username" />
+                    <controls:CustomEntry x:Name="username" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Username" />
                 </Frame>
                 <Frame Style="{StaticResource Customframe}">
                     <controls:CustomEntry HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Password"  IsPassword="True"/>
@@ -32,7 +38,11 @@
             <Label Grid.Row="3" Text="Forgot password?" TextColor="#3475b7" FontFamily="QuicksandSemiBold"/>
 
             <StackLayout Grid.Row="4" VerticalOptions="End">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="DragnDrop" Text="Log in" Style="{StaticResource NextItemButton}" />
+                <Button
+                    Command="{Binding OpenPageCommand}" 
+                    CommandParameter="DragnDrop" 
+                    Text="Log in" 
+                    Style="{StaticResource NextItemButton}" />
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
 

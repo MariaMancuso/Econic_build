@@ -9,6 +9,7 @@ using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -19,18 +20,18 @@ namespace Econic.Mobile.ViewModels
     public class OwnerViewModel
     {
         OwnerModel owner;
-        SelectionViewModel<ClassificationModel> cmSelectionViewModel;
-        SelectionViewModel<NotifyModel> nmSelectionViewModel;
         IPermissionService permissionService;
         string mode;
-        ItemModel itemToEdit;
+        GoodModel itemToEdit;
+        SelectionViewModel cmSelection;
+        SelectionViewModel nSelection;
         public OwnerViewModel()
         {
             owner = new OwnerModel
             {
                 Account = new Account(),
                 Address = new AddressModel(),
-                Items = new ObservableCollection<ItemModel>(),
+                Items = new ObservableCollection<GoodModel>(),
                 Goals = new ObservableCollection<OwnerGoalModel>()
                 {
                 new OwnerGoalModel() { Goal = "Connect you to your customers", Value = 0},
@@ -40,18 +41,9 @@ namespace Econic.Mobile.ViewModels
                 new OwnerGoalModel() { Goal = "Lower your transactions costs", Value = 0}
                 },
 
-                Classifications = new ObservableCollection<SelectableData<ClassificationModel>>()
-                {
-                    new SelectableData<ClassificationModel>() { Data = new ClassificationModel() { Name = "Services" }},
-                    new SelectableData<ClassificationModel>() { Data = new ClassificationModel() { Name = "Products" }},
-                    new SelectableData<ClassificationModel>() { Data = new ClassificationModel() { Name = "Assets" }}
-                },
-                NotifyMethods = new ObservableCollection<SelectableData<NotifyModel>>()
-                {
-                    new SelectableData<NotifyModel>() { Data = new NotifyModel() { Name = "Text Message" }},
-                    new SelectableData<NotifyModel>() { Data = new NotifyModel() { Name = "Email" }},
-                    new SelectableData<NotifyModel>() { Data = new NotifyModel() { Name = "Push Notifications" }}
-                },
+                Classifications = new ObservableCollection<ClassificationModel>(),
+                NotifyMethods = new ObservableCollection<NotifyModel>(),
+
                 InviteMessages = new InviteMessageModel()
                 {
                     CustomerMessage =
@@ -64,9 +56,8 @@ namespace Econic.Mobile.ViewModels
                 }
             };
             permissionService = DependencyService.Get<IPermissionService>();
-
-            cmSelectionViewModel = new SelectionViewModel<ClassificationModel>(owner.Classifications);
-            nmSelectionViewModel = new SelectionViewModel<NotifyModel>(owner.NotifyMethods);
+            cmSelection = new SelectionViewModel();
+            nSelection = new SelectionViewModel();
 
             OpenPageCommand = new Command<string>((arg) => OpenPage(arg));
             InfoTapped = new Command<string>((arg) => OpenInfoPage(arg));
@@ -80,25 +71,25 @@ namespace Econic.Mobile.ViewModels
             get { return owner; }
             set { owner = value; }
         }
-        public ItemModel ItemToAdd { get; set; }
-        public void RemoveItem(ItemModel itemModel)
+        public GoodModel ItemToAdd { get; set; }
+        public void RemoveItem(GoodModel itemModel)
         {
             owner.Items.Remove(itemModel);
         }
-        public void AddItem(ItemModel itemModel)
+        public void AddItem(GoodModel itemModel)
         {
             owner.Items.Add(itemModel);
             ItemToAdd = null;
         }
-        public SelectionViewModel<ClassificationModel> CMSelectionViewModel
+        public SelectionViewModel CMSelectionViewModel
         {
-            get { return cmSelectionViewModel; }
-            set { cmSelectionViewModel = value; owner.Classifications = cmSelectionViewModel.Items; }
+            get { return cmSelection; }
+            set { cmSelection = value;}
         }
-        public SelectionViewModel<NotifyModel> NMSelectionViewModel
+        public SelectionViewModel NMSelectionViewModel
         {
-            get { return nmSelectionViewModel; }
-            set { nmSelectionViewModel = value; owner.NotifyMethods = nmSelectionViewModel.Items; }
+            get { return nSelection; }
+            set { nSelection = value; }
         }
         public CrossingUIModelViewModel CrossingUIModelViewModel
         {
@@ -146,6 +137,11 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new Classification(this));
                     break;
                 case "AddItem":
+                    foreach (string classification in cmSelection.Items)
+                    {
+                        if(!owner.Classifications.Any(x => x.Name == classification))
+                            owner.Classifications.Add(new ClassificationModel { Name = classification });
+                    }
                     await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, "add"));
                     break;
                 case "ItemPreview":
@@ -169,6 +165,12 @@ namespace Econic.Mobile.ViewModels
                     break;
                 case "NotifyMethod":
                     await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this});
+                    //foreach(string notifymethod in nSelection.Items)
+                    //{
+                    //    if(!owner.NotifyMethods.Any(x => x.Name == notifymethod))
+                    //        owner.NotifyMethods.Add(new NotifyModel { Name = notifymethod });
+                    //}
+                    //await Application.Current.MainPage.Navigation.PushAsync(new Notify(this));
                     break;
                 case "Invite":
                     await Application.Current.MainPage.Navigation.PushAsync(new Invite(this));
@@ -238,14 +240,14 @@ namespace Econic.Mobile.ViewModels
         private async void editClicked(Object sender)
         {
             mode = "edit";
-            itemToEdit = sender as ItemModel;
+            itemToEdit = sender as GoodModel;
             ItemToAdd = itemToEdit;
             await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, mode));
         }
         private void removeClicked(Object sender)
         {
             mode = "Remove";
-            ItemModel itemModel = sender as ItemModel;
+            GoodModel itemModel = sender as GoodModel;
             RemoveItem(itemModel);
         }
         private async void addNewItem()

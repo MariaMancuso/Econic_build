@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="Econic.Mobile.Views.Shared.SplashScreens.SharedSplashThree" 
-             xmlns:magicGradients="clr-namespace:MagicGradients;assembly=MagicGradients">
+             xmlns:magicGradients="clr-namespace:MagicGradients;assembly=MagicGradients" Padding="0">
     
     <ContentPage.Content>
         <Grid>

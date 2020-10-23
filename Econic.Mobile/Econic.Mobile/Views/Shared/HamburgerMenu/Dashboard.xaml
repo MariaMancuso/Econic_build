@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Shared.HamburgerMenu.Dashboard" 
+            xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms" 
+            NavigationPage.HasNavigationBar="True" 
+            BarBackgroundColor="WhiteSmoke" 
+            SelectedTabColor="#343434" 
+            UnselectedTabColor="#adadad">
+    <NavigationPage.TitleView>
+        <Label Text="Hello, Jonathan Maldonado" TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" />
+    </NavigationPage.TitleView>
+    <ContentPage Title="Weekly" NavigationPage.HasNavigationBar="True">
+        <Grid Padding="20, 10, 20, 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40*" />
+                <RowDefinition Height="60*" />
+            </Grid.RowDefinitions>
+            <chart:SfChart x:Name="Chart" BackgroundColor="Transparent" Grid.Row="0">
+                <chart:SfChart.PrimaryAxis>
+                    <chart:CategoryAxis ArrangeByIndex="False">
+                    </chart:CategoryAxis>
+                </chart:SfChart.PrimaryAxis>
+
+                <chart:SfChart.SecondaryAxis>
+                    <chart:NumericalAxis Maximum="6" Interval="1">
+                    </chart:NumericalAxis>
+                </chart:SfChart.SecondaryAxis>
+                <chart:SfChart.Series>
+                    <chart:LineSeries ItemsSource="{Binding StripLineData}" StrokeWidth="1" Color="Black" XBindingPath="Name" YBindingPath="Value">
+                        <chart:LineSeries.DataMarker>
+                            <chart:ChartDataMarker x:Name="chartDataMarker" ShowLabel="false" ShowMarker="True" MarkerBorderColor="Black" MarkerColor="#666666" MarkerHeight="5" MarkerWidth="5" />
+                        </chart:LineSeries.DataMarker>
+                    </chart:LineSeries>
+                </chart:SfChart.Series>
+            </chart:SfChart>
+
+            <StackLayout Grid.Row="1">
+                <Grid RowSpacing="15" ColumnSpacing="15">
+                    <Frame Grid.Row="0" Grid.Column="0" CornerRadius="10" BorderColor="#f0f0f0">
+                        <StackLayout>
+                            <Image BackgroundColor="Pink" WidthRequest="40" HeightRequest="40" HorizontalOptions="Center"/>
+                            <Label Text="Customer Views" FontFamily="Quicksand" TextColor="#404040" HorizontalTextAlignment="Center"/>
+                            <Label Text="123" TextColor="#404040" FontFamily="QuicksandBold" HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="0" Grid.Column="1" CornerRadius="10" BorderColor="#f0f0f0">
+                        <StackLayout>
+                            <Image BackgroundColor="Pink" WidthRequest="40" HeightRequest="40" HorizontalOptions="Center"/>
+                            <Label Text="Goods Sold" FontFamily="Quicksand" TextColor="#404040" HorizontalTextAlignment="Center" />
+                            <Label Text="20" TextColor="#404040" FontFamily="QuicksandBold" HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="1" Grid.Column="0" CornerRadius="10" BorderColor="#f0f0f0">
+                        <StackLayout>
+                            <Image BackgroundColor="Pink" WidthRequest="40" HeightRequest="40" HorizontalOptions="Center"/>
+                            <Label Text="Money Earned" FontFamily="Quicksand" TextColor="#404040" HorizontalTextAlignment="Center"/>
+                            <Label Text="250" TextColor="#404040" FontFamily="QuicksandBold" HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="1" Grid.Column="1" CornerRadius="10" BorderColor="#f0f0f0">
+                        <StackLayout>
+                            <Image BackgroundColor="Pink" WidthRequest="40" HeightRequest="40" HorizontalOptions="Center"/>
+                            <Label Text="Appointments" FontFamily="Quicksand" TextColor="#404040" HorizontalTextAlignment="Center"/>
+                            <Label Text="5" TextColor="#404040" FontFamily="QuicksandBold" HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage>
+    <ContentPage Title="Monthly">
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Yearly">
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>

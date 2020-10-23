@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace Econic.Mobile.Models
 {
-    public class ItemModel
+    public class GoodModel
     {
         public Image Image { get; set; }
 
@@ -21,5 +21,9 @@ namespace Econic.Mobile.Models
                 return string.Format("${0}-${1}", MinPrice, MaxPrice);
             }
         }
+    }
+    public class ServiceModel : GoodModel
+    {
+        public string TimeFrame { get; set; }
     }
 }

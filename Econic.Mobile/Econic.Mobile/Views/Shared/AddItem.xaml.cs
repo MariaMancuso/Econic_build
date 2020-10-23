@@ -23,7 +23,7 @@ namespace Econic.Mobile.Views.Shared
 
             if(mode != "edit")
             {
-                OwnerVM.ItemToAdd = new ItemModel();
+                OwnerVM.ItemToAdd = new GoodModel();
                 OwnerVM.ItemToAdd.Image = profilePicture;
             }
             bodyContent.BindingContext = OwnerVM;

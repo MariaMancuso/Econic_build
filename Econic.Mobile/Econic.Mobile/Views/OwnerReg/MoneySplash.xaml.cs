@@ -13,13 +13,12 @@ namespace Econic.Mobile.Views.OwnerReg
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MoneySplash : ContentPage
     {
-		List<string> list = new List<string>();
-		List<string> list2 = new List<string>();
 		public MoneySplash()
         {
             InitializeComponent();
             //gg.HeightRequest = Application.Current.MainPage.Height;
             BindingContext = new OwnerViewModel();
+
             SelectService();
 			SelectProduct();
 			

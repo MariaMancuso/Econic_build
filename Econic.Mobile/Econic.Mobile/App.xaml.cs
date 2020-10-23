@@ -6,6 +6,7 @@ using Econic.Mobile.Views.Gamification;
 using Econic.Mobile.Views.OwnerProfile;
 using Econic.Mobile.Views.OwnerReg;
 using Econic.Mobile.Views.Shared;
+using Econic.Mobile.Views.Shared.HamburgerMenu;
 using System;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
