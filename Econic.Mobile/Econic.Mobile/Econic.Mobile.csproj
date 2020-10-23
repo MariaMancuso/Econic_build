@@ -31,7 +31,8 @@
     <PackageReference Include="MagicGradients" Version="1.1.1" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.2.9" />
     <PackageReference Include="Sharpnado.Shadows" Version="1.2.0" />
-    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.3.0.38" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="18.3.0.42" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.3.0.40" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.3.0.38" />
     <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.3.0.38" />
     <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="18.3.0.40" />
@@ -84,6 +85,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Resources\ControlTemplateResourceDic.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Customer\BookAppointment.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -106,6 +110,15 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\EconicStudio\WelcomeScreen.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Employee\EmployeeClassification.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Employee\EmployeeSchedule.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Employee\GoalOutliner.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Gamification\FifthPreview.xaml">
@@ -169,6 +182,27 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Shared\DragAndDrop.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Shared\HamburgerMenu\Dashboard.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Shared\HamburgerMenu\Hamburger.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Shared\HamburgerMenu\HamburgerMaster.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Shared\HamburgerMenu\PrivacyAndSecurity.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Shared\HamburgerMenu\RevyvvU.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Shared\HamburgerMenu\Settings.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Shared\HamburgerMenu\Support.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Shared\ItemPreview.xaml">

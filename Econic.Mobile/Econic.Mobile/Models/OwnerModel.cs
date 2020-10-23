@@ -15,14 +15,13 @@ namespace Econic.Mobile.Models
         }
         public string BusinessName { get; set; }
         public string Product { get; set; }
-        public string Service { get; set; }
         public AddressModel Address { get; set; }
         public int MonthlySales { get; set; }
         public string ServiceArea { get; set; }
         public ObservableCollection<OwnerGoalModel> Goals { get; set; }
-        public ObservableCollection<SelectableData<ClassificationModel>> Classifications { get; set; }
-        public ObservableCollection<ItemModel> Items { get; set; }
-        public ObservableCollection<SelectableData<NotifyModel>> NotifyMethods { get; set; }
+        public ObservableCollection<ClassificationModel> Classifications { get; set; }
+        public ObservableCollection<GoodModel> Items { get; set; }
+        public ObservableCollection<NotifyModel> NotifyMethods { get; set; }
         public InviteMessageModel InviteMessages { get; set; }
         public bool HasEmployees { get; set; }
         public Account Account { get; set; }

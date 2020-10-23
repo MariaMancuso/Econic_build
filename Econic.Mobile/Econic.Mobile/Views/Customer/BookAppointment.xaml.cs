@@ -17,10 +17,10 @@ namespace Econic.Mobile.Views.Customer
 		public BookAppointment()
 		{
 			InitializeComponent();
-			SelectService();
+			//SelectService();
 		}
 
-		private void SelectService() 
+		/*private void SelectService() 
 		{
 			IList<Models.Services> ser = new List<Models.Services> {
 				new Models.Services ("Waxing"),
@@ -42,6 +42,6 @@ namespace Econic.Mobile.Views.Customer
 		{
 			//service = list[e.SelectedIndex];
 			await DisplayAlert("", list[e.SelectedIndex], "OK");
-		}
+		}*/
 	}
 }

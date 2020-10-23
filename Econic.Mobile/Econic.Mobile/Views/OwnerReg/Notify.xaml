@@ -1,19 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Econic.Mobile.Views.OwnerReg.Notify" 
-             xmlns:local="clr-namespace:Econic.Mobile.Services" 
+             x:Class="Econic.Mobile.Views.OwnerReg.Notify"
              NavigationPage.HasNavigationBar="False" 
              BackgroundColor="WhiteSmoke" 
              ControlTemplate="{StaticResource NavigationTemplate}">
     
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <local:BackgroundConverter x:Key="cnvlabel" />
-            <local:LabelConverter x:Key="cnvbackground" />
-            <local:NoWhiteSpaceTextConverter x:Key="cnvtextspace"/>
-        </ResourceDictionary>
-    </ContentPage.Resources>
 
     <ContentPage.Content>
         <Grid RowSpacing="20">
@@ -28,22 +20,40 @@
             <Label Grid.Row="0" Text="How do you want to notify everyone about your new mobile business?" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
             <Label Grid.Row="1" Text="Select all the apply." FontFamily="QuicksandBold" TextColor="#404040" />
 
-            <ListView Grid.Row="2" x:Name="listview" ItemsSource="{Binding NMSelectionViewModel.Items}" HasUnevenRows="True" SelectedItem="{Binding NMSelectionViewModel.SelectedItem, Mode=TwoWay}" SeparatorVisibility="None">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame HasShadow="True" HeightRequest="70" BackgroundColor="{Binding Selected, Converter={StaticResource cnvbackground}}" HorizontalOptions="Fill" CornerRadius="20" Padding="10, 0, 0, 0" Margin="0, 0, 0, 10">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image Source="{Binding Data.Name, Converter={StaticResource cnvtextspace}}" WidthRequest="30" HeightRequest="30" />
-                                    <Label Text="{Binding Data.Name}" VerticalTextAlignment="Center" TextColor="{Binding Selected, Converter={StaticResource cnvlabel}}" FontFamily="QuicksandBold" FontSize="16" />
-                                </StackLayout>
-                            </Frame>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <StackLayout Grid.Row="2">
+                <Frame HasShadow="True" HeightRequest="70" BackgroundColor="White" HorizontalOptions="Fill" CornerRadius="20" Padding="10, 0, 0, 0" Margin="0, 0, 0, 10">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="Textmessage" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="Text Message" VerticalTextAlignment="Center" TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NMSelectionViewModel.ItemTapped}" CommandParameter="{Binding Source={x:RelativeSource Self}}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
 
-            <StackLayout Grid.Row="4" VerticalOptions="End">
+                <Frame HasShadow="True" HeightRequest="70" BackgroundColor="White" HorizontalOptions="Fill" CornerRadius="20" Padding="10, 0, 0, 0" Margin="0, 0, 0, 10">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="Email" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="Email" VerticalTextAlignment="Center" TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NMSelectionViewModel.ItemTapped}" CommandParameter="{Binding Source={x:RelativeSource Self}}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame HasShadow="True" HeightRequest="70" BackgroundColor="White" HorizontalOptions="Fill" CornerRadius="20" Padding="10, 0, 0, 0" Margin="0, 0, 0, 10">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="pushnotifications" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="Push Notifications" VerticalTextAlignment="Center" TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NMSelectionViewModel.ItemTapped}" CommandParameter="{Binding Source={x:RelativeSource Self}}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" VerticalOptions="End">
                 <Button Command="{Binding OpenPageCommand}" CommandParameter="Invite" Text="Next" Style="{StaticResource NextItemButton}" />
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>

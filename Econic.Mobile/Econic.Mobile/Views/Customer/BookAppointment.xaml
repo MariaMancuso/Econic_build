@@ -21,7 +21,6 @@
                        WidthRequest="336">
                     <local:CustomDropDown HorizontalOptions ="FillAndExpand"
                                     VerticalOptions="Center"
-                                    FieldText="Make a selection"
                                     x:Name="serviceDropdown"/>
                 </Frame>
                 <Label Text="Availability: "

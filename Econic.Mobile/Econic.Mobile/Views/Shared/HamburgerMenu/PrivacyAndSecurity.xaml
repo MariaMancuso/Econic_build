@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Shared.HamburgerMenu.PrivacyAndSecurity"
+             NavigationPage.HasNavigationBar="True">
+    <ContentPage.Content>
+        <Grid RowSpacing="20" Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="Privacy And Security" TextColor="#404040" FontFamily="QuicksandBold" FontSize="20" />
+            <Label Grid.Row="1" Text="Here at Econic we care about our customer, that means we care about you and your privacy." TextColor="#404040" FontFamily="QuicksandBold" />
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Row="0" Grid.Column="0">
+                    <Label Text="Face ID" TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" />
+                    <Label Text="Turns on face ID for a faster and more secure log in" TextColor="#404040" />
+                </StackLayout>
+                <Switch Grid.Row="0" Grid.Column="1"/>
+
+                <StackLayout Grid.Row="1" Grid.Column="0">
+                    <Label Text="App-related announcments" TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" />
+                    <Label Text="Receive notifications on new deals" TextColor="#404040" />
+                </StackLayout>
+                <Switch Grid.Row="1" Grid.Column="1" />
+
+                <StackLayout Grid.Row="2" Grid.Column="0">
+                    <Label Text="Auto fill at Purchase" TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" />
+                    <Label Text="smakreavey@gmail.com" TextColor="#404040"  />
+                </StackLayout>
+                <Switch Grid.Row="2" Grid.Column="1" />
+            </Grid>
+
+            <StackLayout Grid.Row="3" Padding="0, 10, 0, 10">
+                <BoxView HeightRequest="0.5" BackgroundColor="Gray"/>
+                <Label Text="Click to read out Privacy Notice" TextColor="CornflowerBlue" FontFamily="QuicksandMedium"/>
+            </StackLayout>
+
+
+            <StackLayout Grid.Row="4" VerticalOptions="End">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="Sales" Text="Continue" Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

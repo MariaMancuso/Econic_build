@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Employee.EmployeeClassification" 
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundColor="WhiteSmoke"
+             ControlTemplate="{StaticResource NavigationTemplate}">
+    
+    <ContentPage.Content>
+        <Grid RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+
+            <Label Grid.Row="0" Text="Tomme can help you more if he knows what you sell." FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+            <StackLayout Grid.Row="1">
+                <Frame CornerRadius="20" Margin="0, 0, 0, 10">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="Services" />
+                        <Label Text="Services" FontFamily="QuicksandBold" TextColor="#404040" VerticalTextAlignment="Center" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CMTapped}" CommandParameter="{Binding Source={x:RelativeSource Self}}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame CornerRadius="20" Margin="0, 0, 0, 10">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="Products" />
+                        <Label Text="Goods" FontFamily="QuicksandBold" TextColor="#404040" VerticalTextAlignment="Center" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CMTapped}" CommandParameter="{Binding Source={x:RelativeSource Self}}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame CornerRadius="20">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="Services" />
+                        <Label Text="Both" FontFamily="QuicksandBold" TextColor="#404040" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CMTapped}" CommandParameter="{Binding Source={x:RelativeSource Self}}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" VerticalOptions="End">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="EmployeeSchedule" Text="Next" Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

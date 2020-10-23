@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Employee.GoalOutliner" 
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundColor="WhiteSmoke" 
+             ControlTemplate="{StaticResource NavigationTemplate}">
+    
+    <ContentPage.Content>
+        <Grid RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+
+            <Label Grid.Row="0" Text="We are going to help you reach your goals!" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+            <StackLayout Grid.Row="1">
+                <Label Text="Goals need to get here!" VerticalOptions="Center" HorizontalOptions="Center"/>
+            </StackLayout>
+
+          
+            <StackLayout Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center">
+                <Image Source="img_rocket" WidthRequest="150" HeightRequest="150" />
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="SharedMenuPage" Text="Get Started" Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

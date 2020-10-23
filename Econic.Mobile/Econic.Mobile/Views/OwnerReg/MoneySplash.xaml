@@ -5,8 +5,9 @@
              x:Class="Econic.Mobile.Views.OwnerReg.MoneySplash"
              NavigationPage.HasNavigationBar="False"
              xmlns:controls="clr-namespace:Econic.Mobile.Renderers"
-             BackgroundColor="WhiteSmoke"
-             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             BackgroundColor="WhiteSmoke" 
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard" 
              xmlns:magicGradients="clr-namespace:MagicGradients;assembly=MagicGradients"
              Padding="0">
 
@@ -17,7 +18,7 @@
                             SwipeBehaviorOnInvoked="RemainOpen">
 
                     <SwipeItemView>
-                        <Grid x:Name="gg" 
+                        <Grid x:Name="gg"
                               Padding="0, 10, 0, 0" 
                               HeightRequest="659.428571428571">
                             <Grid.RowDefinitions>
@@ -70,20 +71,27 @@
                                                FontFamily="QuicksandMedium" 
                                                TextColor="DimGray" />
 
-                                        <Frame Style="{StaticResource Customframe}">
-
-                                            <controls:CustomDropDown HorizontalOptions ="FillAndExpand"
-                                                                     VerticalOptions="Center"
-                                                                     x:Name="productsDropdown"/>
+                                        <Frame Style="{StaticResource Customframe}" Padding="2">
+                                            <combobox:SfComboBox 
+                                                HeightRequest="40"
+                                                BackgroundColor="White"
+                                                ShowBorder="False" 
+                                                Watermark="Products" 
+                                                WatermarkColor="#404040">
+                                                <combobox:SfComboBox.ComboBoxSource>
+                                                    <ListCollection:List x:TypeArguments="x:String">
+                                                        <x:String>Goods</x:String>
+                                                        <x:String>Apparel</x:String>
+                                                        <x:String>Food service</x:String>
+                                                        <x:String>Household goods</x:String>
+                                                        <x:String>Sports</x:String>
+                                                        <x:String>Health and Beauty</x:String>
+                                                        <x:String>Jewlery</x:String>
+                                                    </ListCollection:List>
+                                                </combobox:SfComboBox.ComboBoxSource>
+                                            </combobox:SfComboBox>
                                         </Frame>
 
-
-                                        <Frame Style="{StaticResource Customframe}">
-                                            <controls:CustomDropDown x:Name="serviceDropdown"
-                                                                     HorizontalOptions="FillAndExpand"
-                                                                     VerticalOptions="Center"/>
-
-                                        </Frame>
                                     </StackLayout>
 
                                     <StackLayout Grid.Row="3" VerticalOptions="End">
