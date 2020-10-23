@@ -18,12 +18,11 @@
             <Label Grid.Row="0" Text="We are going to help you reach your goals!" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
 
             <StackLayout Grid.Row="1">
-                <Label Text="Goals need to get here!" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Label Text="Goals need to get here!" VerticalOptions="Center" HorizontalOptions="Center" />
             </StackLayout>
 
-          
-            <StackLayout Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center">
-                <Image Source="img_rocket" WidthRequest="150" HeightRequest="150" />
+            <StackLayout Grid.Row="2" VerticalOptions="End">
+                <Image VerticalOptions="End" Source="img_rocket" WidthRequest="150" HeightRequest="150" />
                 <Button Command="{Binding OpenPageCommand}" CommandParameter="SharedMenuPage" Text="Get Started" Style="{StaticResource NextItemButton}" />
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
