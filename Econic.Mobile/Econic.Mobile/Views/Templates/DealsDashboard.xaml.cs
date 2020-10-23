@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Econic.Mobile.Views.Templates
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LoyaltyConfirmation : ContentPage
+	public partial class DealsDashboard : ContentView
 	{
-		public LoyaltyConfirmation()
+		public DealsDashboard()
 		{
 			InitializeComponent();
 		}

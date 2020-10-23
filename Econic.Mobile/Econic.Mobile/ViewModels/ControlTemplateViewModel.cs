@@ -3,6 +3,7 @@ using Econic.Mobile.Services;
 using Econic.Mobile.Views.Customer;
 using Econic.Mobile.Views.EconicStudio;
 using Econic.Mobile.Views.Templates;
+using Econic.Mobile.Views.OwnerReg;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -66,6 +67,11 @@ namespace Econic.Mobile.ViewModels
 					await Application.Current.MainPage.Navigation.PushAsync(new ChooseLogo());
 					
 					break;
+
+				case "Notify":
+					await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this });
+					break;
+
 				case "ETGoHome":
 					await Application.Current.MainPage.Navigation.PushAsync(new DealBoard());
 					break;
