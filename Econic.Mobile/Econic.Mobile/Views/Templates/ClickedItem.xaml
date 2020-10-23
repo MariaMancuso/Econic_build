@@ -48,7 +48,7 @@
                                     </rating:SfRating.RatingSettings>
                                 </rating:SfRating>
                                 <Grid Padding="0, 10, 0, 0"
-                          Grid.Row="5">
+                                        Grid.Row="5">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width=".12*"/>
                                         <ColumnDefinition Width=".341*"/>

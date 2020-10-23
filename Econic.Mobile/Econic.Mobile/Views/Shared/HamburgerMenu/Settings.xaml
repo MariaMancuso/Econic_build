@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Shared.HamburgerMenu.Settings"
+             NavigationPage.HasNavigationBar="True"
+            BarBackgroundColor="WhiteSmoke"
+            SelectedTabColor="#404040"
+            UnselectedTabColor="#adadad">
+    <ContentPage Title="Settings" BackgroundColor="WhiteSmoke">
+        <ContentPage.Content>
+            <StackLayout>
+                <Frame  BackgroundColor="Transparent" Padding="10, 20, 10, 10">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="icon_contacts" WidthRequest="30" HeightRequest="30" />
+                            <Label Text="Contact Details" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                        </StackLayout>
+                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame BackgroundColor="Transparent" Padding="10">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="icon_card" WidthRequest="30" HeightRequest="30" />
+                            <Label Text="Payment Methods" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                        </StackLayout>
+                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SettingOptionCommand}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame BackgroundColor="Transparent" Padding="10">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="icon_privacy" WidthRequest="30" HeightRequest="30" />
+                            <Label Text="Privacy and Security" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                        </StackLayout>
+                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SettingTapped" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame BackgroundColor="Transparent" Padding="10">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="icon_languages" WidthRequest="30" HeightRequest="30" />
+                            <Label Text="Languages" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                        </StackLayout>
+                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SettingOptionCommand}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame BackgroundColor="Transparent" Padding="10">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="icon_revyvvweb" WidthRequest="30" HeightRequest="30" />
+                            <Label Text="Revyvv Web" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                        </StackLayout>
+                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SettingOptionCommand}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="Schedule">
+
+    </ContentPage>
+</TabbedPage>

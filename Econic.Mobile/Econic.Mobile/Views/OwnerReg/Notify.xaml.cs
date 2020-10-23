@@ -13,10 +13,11 @@ namespace Econic.Mobile.Views.OwnerReg
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Notify : ContentPage
     {
-        public Notify(OwnerViewModel OwnerVM)
+        //OwnerViewModel OwnerVM;
+        public Notify()
         {
             InitializeComponent();
-            BindingContext = OwnerVM;
+            //BindingContext = OwnerVM;
         }
     }
 }

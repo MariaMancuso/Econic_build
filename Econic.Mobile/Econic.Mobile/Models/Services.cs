@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace Econic.Mobile.Models
 {
-	class Services
+	public class Services
 	{
 		public ImageSource ServiceImg;
 		public string Name { private set; get; }

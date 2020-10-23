@@ -1,29 +1,27 @@
 ﻿using System;
 using System.ComponentModel;
 using Android.Content;
-using Android.Graphics;
-using Android.Graphics.Drawables;
-using Android.Widget;
-using Android.Support.V4.Content;
 using Econic.Mobile.Droid.Renderers;
 using Econic.Mobile.Renderers;
 using Xamarin.Forms;
+using Syncfusion.XForms.Android.ComboBox;
 using Xamarin.Forms.Platform.Android;
 using Android.OS;
 using Android.Graphics.Drawables.Shapes;
+using Android.App;
+
+using Syncfusion.XForms.ComboBox;
+
 
 [assembly: ExportRenderer(typeof(CustomDropDown), typeof(AndroidDropDownRenderer))]
 namespace Econic.Mobile.Droid.Renderers
 {
-    class AndroidDropDownRenderer : ViewRenderer<CustomDropDown, Spinner>
+    class AndroidDropDownRenderer : SfComboBoxRenderer
 	{
-		CustomDropDown element;
-		Spinner spinner;
-		public AndroidDropDownRenderer(Context context) : base(context) 
-		{ 
-			
-		}
 
+		//CustomDropDown element;
+		Spinner spinner;
+		public AndroidDropDownRenderer(Context context) : base(context){ }
 
 		protected override void OnElementChanged(ElementChangedEventArgs<CustomDropDown> e)
 		{
@@ -34,6 +32,17 @@ namespace Econic.Mobile.Droid.Renderers
 			if (Control == null)
 			{
 				spinner = new Spinner(Context);
+				LayoutParams layout = new LayoutParams(LayoutParams.MatchParent, LayoutParams.MatchParent);
+				spinner.LayoutParameters = layout;
+				spinner.SetClipToPadding(true);
+				var width = layout.Width;
+				spinner.DropDownWidth = width;
+				spinner.DropDownVerticalOffset = 130;
+				Java.Lang.Reflect.Field popup = spinner.Class.GetDeclaredField("mPopup");
+				popup.Accessible = true;
+				var popupWindow = (ListPopupWindow)popup.Get(spinner);
+				popupWindow.Height = 500;
+
 				SetNativeControl(spinner);
 			}
 
@@ -48,7 +57,7 @@ namespace Econic.Mobile.Droid.Renderers
 				ArrayAdapter adapter = new ArrayAdapter(Context, Android.Resource.Layout.SimpleListItem1, view.ItemsSource);
 				Control.Adapter = adapter;
 
-				if (view.SelectedIndex != -1 && view.SelectedIndex != 0)
+				if (view.SelectedIndex != -1)
 				{
 					Control.SetSelection(view.SelectedIndex);
 				}
@@ -83,4 +92,18 @@ namespace Econic.Mobile.Droid.Renderers
 			}
 		}
 	}
+
+
+		public AndroidDropDownRenderer(Context context) : base(context) 
+		{ 
+			
+		}
+        protected override void OnElementChanged(ElementChangedEventArgs<SfComboBox> e)
+        {
+            base.OnElementChanged(e);
+            if (Control != null)
+                Control.SetBackgroundColor(global::Android.Graphics.Color.Transparent);
+        }
+    }
+
 }
