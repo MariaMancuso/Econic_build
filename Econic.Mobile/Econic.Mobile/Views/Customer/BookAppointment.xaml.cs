@@ -1,4 +1,5 @@
 ﻿using Econic.Mobile.Renderers;
+using Econic.Mobile.Views.Templates.Resources;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -7,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace Econic.Mobile.Views.Customer
@@ -15,18 +17,20 @@ namespace Econic.Mobile.Views.Customer
 	public partial class BookAppointment : ContentPage
 	{
 
-		List<string> servicelist = new List<string>();
-		List<string> monthlist = new List<string>();
-		List<string> datelist = new List<string>();
-		List<string> appointmentlist = new List<string>();
+		//List<string> servicelist = new List<string>();
+		//List<string> monthlist = new List<string>();
+		//List<string> datelist = new List<string>();
+		//List<string> appointmentlist = new List<string>();
+		ResourceDictionary classic = new ClassicDictionary();
+		
 		public BookAppointment()
 		{
 			InitializeComponent();
-
+			//var classic = ResourceDictionary.RDSourceTypeConverter(typeof(ClassicDictionary));
 			//SelectService();
 			//SelectDay();
 			//SelectMonth();
-
+			Content.Resources = classic;
 		}
 
 		/*private void SelectService() 
