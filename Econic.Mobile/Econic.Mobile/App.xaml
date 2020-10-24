@@ -362,13 +362,13 @@
                                 FontSize="7"
                                 BackgroundColor="#e2e2e2"
                                 TextColor="{DynamicResource ThemeColor}"
-                                    Padding="0"/>
+                                Padding="0"/>
                     <Button Text="10:00 AM"
                                 Grid.Row="0"
                                 Grid.Column="1"
                                 FontSize="7"
                                 BackgroundColor="#e2e2e2" 
-                                    Padding="0"
+                                Padding="0"
                                 TextColor="{DynamicResource ThemeColor}"/>
                     <Button Text="10:30 AM"
                                 Grid.Row="0"
@@ -377,7 +377,7 @@
                                 BackgroundColor="#f8f8f8"
                                 BorderWidth=".25"
                                 BorderColor="#e2e2e2"
-                                    Padding="0"
+                                Padding="0"
                                 TextColor="#b9b9b9"/>
                     <Button Text="11:00 AM"
                                 Grid.Row="1"

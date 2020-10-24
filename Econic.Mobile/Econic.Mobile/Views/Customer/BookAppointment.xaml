@@ -11,11 +11,10 @@
                        FontSize="24"
                        TextColor="{DynamicResource ThemeColor}"
                        HorizontalOptions="Center"
-                       HorizontalTextAlignment="Center"/>
+                       Style="{DynamicResource TextAlignment}"/>
                 <Label Text="Type of Service: "
                        Padding="0, 0, 0, 10"
-                       TextColor="{DynamicResource ThemeColor}"
-                       />
+                       TextColor="{DynamicResource ThemeColor}"/>
 
                 <Frame Padding="0, 0, 0, 0"
                        HeightRequest="48"
@@ -27,6 +26,7 @@
                 </Frame>
                 <Label Text="Availability: "
                        Padding="0, 36, 0, 10"
+                       HorizontalTextAlignment="Start"
                        TextColor="{DynamicResource ThemeColor}"/>
                 
                 <Grid Padding="0, 0, 0, 0">
@@ -64,52 +64,58 @@
                     </Grid.ColumnDefinitions>
                     
                     <Button Text="9:30 AM"
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        />
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Style="{DynamicResource AvailableButton}"
+                           
+                            />
                     <Button Text="10:00 AM"
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        />
+                            Grid.Row="0"
+                            Grid.Column="1" 
+                            Style="{DynamicResource AvailableButton}"
+                            
+                            />
                     <Button Text="10:30 AM"
-                        Grid.Row="0"
-                        Grid.Column="2"
-                        />
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Style="{DynamicResource UnavailableButton}"
+                            />
                     <Button Text="11:00 AM"
                         Grid.Row="1"
                         Grid.Column="0"
-                        />
+                        Style="{DynamicResource UnavailableButton}"/>
                     <Button Text="11:30 AM"
                         Grid.Row="1"
                         Grid.Column="1"
-                        />
+      
+                        Style="{DynamicResource SelectedButton}"/>
                     <Button Text="12:00 PM"
                         Grid.Row="1"
                         Grid.Column="2"
-                        />
+                        Style="{DynamicResource AvailableButton}"/>
                     <Button Text="12:30 PM"
                         Grid.Row="2"
                         Grid.Column="0"
-                        />
+                         Style="{DynamicResource AvailableButton}"/>
                     <Button Text="3:30 PM"
                         Grid.Row="2"
                         Grid.Column="1"
-                        />
+                         Style="{DynamicResource AvailableButton}"/>
                     
                 </Grid>
 
                 <Label Text="You selected: "
                        Padding="0, 55, 0, 10"
                        TextColor="{DynamicResource ThemeColor}"
-                       HorizontalOptions="Center"/>
-                
+                       Style="{DynamicResource TextAlignment}"/>
+
                 <Label Text="Type of Service"
                        FontFamily="QuicksandBold"
-                       HorizontalOptions="Center"
+                       Style="{DynamicResource TextAlignment}"
                        FontSize="20"/>
                 
                 <Label Text="September 27 @ 11:30 AM"
-                       HorizontalOptions="Center"
+                       Style="{DynamicResource TextAlignment}"
                        FontSize="20"/>
 
                 <Button Text="CONFIRM"
@@ -117,8 +123,7 @@
                         HorizontalOptions="Center"
                         HeightRequest="60"
                         WidthRequest="336"
-                        TextColor="White"
-                        BackgroundColor="{DynamicResource ThemeColor}"/>
+                        Style="{DynamicResource ConfirmButton}"/>
 
             </StackLayout>
         </ScrollView>

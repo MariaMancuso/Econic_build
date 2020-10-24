@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Templates.Resources.ModernDictionary">
+    <Style x:Key="TextAlignment" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+    </Style>
+    <Style x:Key="AvailableButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#f8f8f8"/>
+        <Setter Property="BorderWidth" Value="1"/>
+        <Setter Property="BorderColor" Value="{DynamicResource ThemeColor}"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="TextColor" Value="{DynamicResource ThemeColor}"/>
+    </Style>
+    <Style x:Key="UnavailableButton" TargetType="Button">
+        <Setter Property="BorderColor" Value="{DynamicResource ThemeColor}"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource ThemeColor}"/>
+        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="BorderWidth" Value="1"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Opacity" Value=".15"/>
+    </Style>
+    <Style x:Key="SelectedButton" TargetType="Button">
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource ThemeColor}"/>
+    </Style>
+    <Style x:Key="ConfirmButton" TargetType="Button">
+        <Setter Property="TextColor" Value="{DynamicResource ThemeColor}"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="BorderWidth" Value="1"/>
+        <Setter Property="BorderColor" Value="{DynamicResource ThemeColor}"/>
+        <Setter Property="BackgroundColor" Value="White"/>
+    </Style>
+</ResourceDictionary>
