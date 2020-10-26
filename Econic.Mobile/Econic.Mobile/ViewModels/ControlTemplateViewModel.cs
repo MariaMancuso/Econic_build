@@ -2,7 +2,7 @@
 using Econic.Mobile.Services;
 using Econic.Mobile.Views.Customer;
 using Econic.Mobile.Views.EconicStudio;
-using Econic.Mobile.Views.Templates;
+using Econic.Mobile.Views.Templates.Resources;
 using Econic.Mobile.Views.OwnerReg;
 using System;
 using System.Collections.Generic;
@@ -12,6 +12,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 
 namespace Econic.Mobile.ViewModels
 { 
@@ -35,6 +36,9 @@ namespace Econic.Mobile.ViewModels
 		public ControlTemplates PreviousTemplate { get; set; }
 		public ControlTemplates CurrentTemplate { get; set; }
 		public ControlTemplates CurrentItem { get; set; }
+
+		
+		public ResourceDictionary ThemeDict { get; set; }
 
 		public ControlTemplateViewModel() {
 			list = new List<ControlTemplates>();
@@ -63,10 +67,6 @@ namespace Econic.Mobile.ViewModels
 				case "Book":
 					await Application.Current.MainPage.Navigation.PushAsync(new BookAppointment());
 					break;
-				case "ChooseLogo":
-					await Application.Current.MainPage.Navigation.PushAsync(new ChooseLogo());
-					break;
-
 				//case "Notify":
 					//await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this });
 					//break;
@@ -130,30 +130,34 @@ namespace Econic.Mobile.ViewModels
 		{
 			PreviousTemplate = CurrentTemplate;
 			CurrentTemplate = item;
-			//Console.Write("You've Selected the " +  item.name + " template");
+			Console.Write("You've Selected the " +  item.name + " template");
 			//ChangeThemeInfo(item.name);
 			OnPropertyChanged("PreviousTemplate");
 			OnPropertyChanged("CurrentTemplate");
 		}
 
-		void ChangeThemeInfo(string name)
+		public void ChangeThemeInfo(string name)
 		{
-			if(name == "Classic")
+			switch(name)
 			{
-				//App.Current.Resources["Label"] = App.Current.Resources["Georgia"];
-				
-			}
+				case "Classic":
+					var source = new Uri("Templates/Resources/ClassicDictionary.xaml", UriKind.RelativeOrAbsolute);
+					Console.WriteLine("ChangeThemeInfo " + source);
+					//this.ThemeDict.MergedDictionaries.Clear();
+					//this.ThemeDict.MergedDictionaries.Add(new ResourceDictionary() { Source = source });
+					
 
-			if(name == "Modern")
-			{
-
-			}
-
-			if(name == "Friendly")
-			{
-
+					break;
+				case "Modern":
+					break;
+				case "Friendly":
+					break;
+				default:
+					break;
 			}
 		}
+
+		
 
 		//void PositionChanged(int position)
 		//{

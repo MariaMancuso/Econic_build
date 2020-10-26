@@ -75,7 +75,7 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new SharedActivate { BindingContext = this });
                     break;
                 case "SharedActivate":
-                    await Application.Current.MainPage.Navigation.PushAsync(new LandingPage { BindingContext = this });
+                    await Application.Current.MainPage.Navigation.PushAsync(new GenerateDeals { BindingContext = this });
                     break;
                 case "ClickEngine":
                     await Application.Current.MainPage.Navigation.PushAsync(new DealBoard { BindingContext = this });

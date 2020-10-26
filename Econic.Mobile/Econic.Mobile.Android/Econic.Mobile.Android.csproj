@@ -284,7 +284,6 @@
     <AndroidResource Include="Resources\drawable\imgregistration.png" />
   </ItemGroup>
   <ItemGroup>
-
     <AndroidResource Include="Resources\drawable\accounticon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -295,7 +294,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\iconrevyvv1.png" />
-
     <AndroidResource Include="Resources\drawable\img_rocket.png" />
   </ItemGroup>
   <ItemGroup>
@@ -318,7 +316,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon_contacts.png" />
-
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon_revyvvu.png" />
@@ -331,6 +328,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon_settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\img_token_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\img_tom_6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

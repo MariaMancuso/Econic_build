@@ -13,11 +13,11 @@ namespace Econic.Mobile.Views.Customer
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class GenerateDeals : ContentPage
 	{
-		CustomerViewModel CustomerVM = new CustomerViewModel();
+		//CustomerViewModel CustomerVM = new CustomerViewModel();
 		public GenerateDeals()
 		{
 			InitializeComponent();
-			BindingContext = CustomerVM;
+			//BindingContext = CustomerVM;
 		}
 	}
 }

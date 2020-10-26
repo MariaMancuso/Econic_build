@@ -21,16 +21,16 @@ namespace Econic.Mobile.Views.Customer
 		//List<string> monthlist = new List<string>();
 		//List<string> datelist = new List<string>();
 		//List<string> appointmentlist = new List<string>();
-		ResourceDictionary classic = new ClassicDictionary();
+		
 		
 		public BookAppointment()
 		{
 			InitializeComponent();
-			//var classic = ResourceDictionary.RDSourceTypeConverter(typeof(ClassicDictionary));
+			
 			//SelectService();
 			//SelectDay();
 			//SelectMonth();
-			Content.Resources = classic;
+			
 		}
 
 		/*private void SelectService() 

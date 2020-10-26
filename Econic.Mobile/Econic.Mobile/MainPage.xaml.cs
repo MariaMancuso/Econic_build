@@ -32,7 +32,7 @@ namespace Econic.Mobile
 
         async void CustomerClicked(object sender, EventArgs arg)
         {
-            await Navigation.PushAsync(new BookAppointment());
+            await Navigation.PushAsync(new SharedSplashOne { BindingContext = new CustomerViewModel() });
         }
     }
 }
