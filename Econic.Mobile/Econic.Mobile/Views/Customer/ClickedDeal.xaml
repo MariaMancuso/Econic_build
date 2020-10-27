@@ -7,18 +7,18 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Padding="22, 0, 22, 0">
-                <Frame BackgroundColor="#3e8f52"
+                <Frame BackgroundColor= "{Binding color}"
                        CornerRadius="8"
                        x:Name="frame"
                        Padding="0">
                     <StackLayout Padding="0">
-                        <Grid BackgroundColor="#ff2a6037" Padding="22, 15, 22, 15">
+                        <Grid BackgroundColor="{Binding headerColor}" Padding="22, 15, 22, 15">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2*"/>
                                 <ColumnDefinition Width="2*"/>
                                 <ColumnDefinition Width=".75*"/>
                             </Grid.ColumnDefinitions>
-                            <Label Text="Buy and Earn" 
+                            <Label Text="{Binding cardTitle}" 
                                    Grid.Column="0"
                                    FontFamily="QuicksandBold"
                                    TextColor="White"/>
@@ -39,7 +39,7 @@
                                     <ColumnDefinition Width="2*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Text="Ziba Beauty"
+                                <Label Text="{Binding ShopTitle}"
                                        TextColor="White"
                                        Grid.Column="1"
                                        FontSize="12"
@@ -59,18 +59,17 @@
                                            FontFamily="Quicksand"
                                            TextColor="White"
                                            HorizontalTextAlignment="Center"/>
-                            <Label Text="$19.99"
+                            <Label Text="{Binding price}"
                                    FontSize="32"
                                    FontFamily="QuicksandBold"
                                    TextColor="White"
                                    HorizontalTextAlignment="Center"/>
-                            <Label Text="2 for 1 Eyebrow Brush"
+                            <Label Text="{Binding dealDescr}"
                                    TextColor="White"
                                    FontFamily="QuicksandBold"
                                    HorizontalTextAlignment="Center"/>
 
-                            <Image Source="component_561_1.png"
-                                   />
+                            <Image Source="{Binding dealPic}"/>
                             <Frame BackgroundColor="White"
                                    CornerRadius="8"
                                    Padding="0, 10, 0, 10"

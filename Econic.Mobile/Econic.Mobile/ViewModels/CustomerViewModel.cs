@@ -7,6 +7,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using System.Dynamic;
 using System.Collections.Generic;
+using System;
 
 namespace Econic.Mobile.ViewModels
 {
@@ -89,12 +90,18 @@ namespace Econic.Mobile.ViewModels
             }
         }
 
-        public IList<Deals> SetDeals ()
+        public List<Deals> SetDeals ()
         {
             List<Deals> deals = new List<Deals>
             {
                 new Deals
                 {
+                    CardID = 1,
+                    cardTitle = "Buy & Earn",
+                    price = "$19.99",
+                    dealDescr = "2 for 1 Eyebrow Brush",
+                    dealPic = "component_561_1.png",
+                    headerColor = Color.FromHex("#EA0404"),
                     img = "red_deal_icon.png",
                     ShopTitle = "Ziba Beauty",
                     DealTitle = "2 for 1",
@@ -104,6 +111,12 @@ namespace Econic.Mobile.ViewModels
 
                 new Deals
                 {
+                    CardID = 2,
+                    cardTitle = "Buy & Earn",
+                    price = "$19.99",
+                    dealDescr = "2 for 1 Eyebrow Brush",
+                    dealPic = "component_561_1.png",
+                    headerColor = Color.FromHex("#ff2a6037"),
                     img = "green_deal_icon.png",
                     ShopTitle = "Ziba Beauty",
                     DealTitle = "30% off",
@@ -113,6 +126,12 @@ namespace Econic.Mobile.ViewModels
 
                 new Deals
                 {
+                    CardID = 3,
+                    cardTitle = "Buy & Earn",
+                    price = "$19.99",
+                    dealDescr = "2 for 1 Eyebrow Brush",
+                    dealPic = "component_561_1.png",
+                    headerColor = Color.FromHex("#ff2a6037"),
                     img = "blue_deal_icon.png",
                     ShopTitle = "Ziba Beauty",
                     DealTitle = "2 for 1",
@@ -122,6 +141,12 @@ namespace Econic.Mobile.ViewModels
 
                 new Deals
                 {
+                    CardID = 4,
+                    cardTitle = "Buy & Earn",
+                    price = "$19.99",
+                    dealDescr = "2 for 1 Eyebrow Brush",
+                    dealPic = "component_561_1.png",
+                    headerColor = Color.FromHex("#ff2a6037"),
                     img = "black_deal_icon.png",
                     ShopTitle = "Ziba Beauty",
                     DealTitle = "Black Friday",
@@ -132,5 +157,17 @@ namespace Econic.Mobile.ViewModels
 
             return deals;
         }
+
+        public async void SetCard(int id)
+		{
+            List<Deals> d = SetDeals();
+            for(int i = 0; i < d.Count; i++)
+			{
+                if(d[i].CardID.Equals(id))
+                { 
+                    await Application.Current.MainPage.Navigation.PushAsync(new ClickedDeal(d[i]));
+                }
+            }
+		}
     }
 }

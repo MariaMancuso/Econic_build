@@ -32,7 +32,10 @@ namespace Econic.Mobile.Views.Templates
 
 		private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new ClickedDeal());
+			Deals d = (sender as Frame).BindingContext as Deals;
+			Console.WriteLine(d.CardID);
+			customer.SetCard(d.CardID);
+			//await Navigation.PushAsync(new ClickedDeal() { BindingContext = customer });
 		}
 	}
 }
