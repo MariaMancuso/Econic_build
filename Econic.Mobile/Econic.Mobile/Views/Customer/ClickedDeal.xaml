@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Customer.ClickedDeal"
+             ControlTemplate="{StaticResource PageWithoutBackBtn}"
+             Padding="0">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="22, 0, 22, 0">
+                <Frame BackgroundColor="#3e8f52"
+                       CornerRadius="8"
+                       x:Name="frame"
+                       Padding="0">
+                    <StackLayout Padding="0">
+                        <Grid BackgroundColor="#ff2a6037" Padding="22, 15, 22, 15">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width=".75*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Buy and Earn" 
+                                   Grid.Column="0"
+                                   FontFamily="QuicksandBold"
+                                   TextColor="White"/>
+                            <Label Text="10 x 5 = 50 " 
+                                   Grid.Column="1"
+                                   FontFamily="QuicksandBold"
+                                   TextColor="White"
+                                   HorizontalOptions="EndAndExpand"/>
+                            <Label Text="Points" 
+                                   Grid.Column="2"
+                                   TextColor="White"
+                                   HorizontalOptions="EndAndExpand"/>
+                        </Grid>
+
+                        <Grid Padding="22, 15, 22, 15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Ziba Beauty"
+                                       TextColor="White"
+                                       Grid.Column="1"
+                                       FontSize="12"
+                                       HorizontalTextAlignment="Center"/>
+                                <ImageButton Source="exit_icon.png"
+                                             Grid.Column="2"
+                                             BackgroundColor="Transparent"
+                                             Clicked="ImageButton_Clicked"
+                                             HorizontalOptions="EndAndExpand"
+                                             HeightRequest="15"/>
+
+                            </Grid>
+                        <StackLayout Padding="22, 0, 22, 10"
+                                     Spacing="7">
+                                    <Label Text="Today's Deal"
+                                           FontSize="24"
+                                           FontFamily="Quicksand"
+                                           TextColor="White"
+                                           HorizontalTextAlignment="Center"/>
+                            <Label Text="$19.99"
+                                   FontSize="32"
+                                   FontFamily="QuicksandBold"
+                                   TextColor="White"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Text="2 for 1 Eyebrow Brush"
+                                   TextColor="White"
+                                   FontFamily="QuicksandBold"
+                                   HorizontalTextAlignment="Center"/>
+
+                            <Image Source="component_561_1.png"
+                                   />
+                            <Frame BackgroundColor="White"
+                                   CornerRadius="8"
+                                   Padding="0, 10, 0, 10"
+                                   VerticalOptions="EndAndExpand">
+                                <StackLayout Spacing="2.5">
+                                    <Label Text="Buy it now!" 
+                                       FontSize="20"
+                                       FontFamily="QuicksandBold"
+                                           HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="Double your points!"
+                                            HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <ContentView x:Name="TabbedView"
+                         Padding="0"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

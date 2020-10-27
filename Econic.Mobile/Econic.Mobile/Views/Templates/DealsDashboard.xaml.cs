@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Econic.Mobile.Models;
 using Econic.Mobile.ViewModels;
+using Econic.Mobile.Views.Customer;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Markup;
@@ -13,6 +14,7 @@ namespace Econic.Mobile.Views.Templates
 	public partial class DealsDashboard : ContentView
 	{
 		CustomerViewModel customer = new CustomerViewModel();
+		
 		public DealsDashboard()
 		{
 			
@@ -20,19 +22,17 @@ namespace Econic.Mobile.Views.Templates
 			var screenWidth = DeviceDisplay.MainDisplayInfo.Width;
 			var screenHeight = DeviceDisplay.MainDisplayInfo.Height;
 			var dealsList = customer.SetDeals();
-			Console.WriteLine(dealsList.Count);
+
 			listview.ItemSize = 100;
 			listview.WidthRequest = screenWidth * .88;
 			listview.HeightRequest = dealsList.Count * 200;
 			listview.ItemsSource = dealsList;
 			Content = listview;
-
 		}
 
-		private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+		private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
 		{
-			//cardView.IsVisible = true;
-			//listview.IsVisible = false;
+			await Navigation.PushAsync(new ClickedDeal());
 		}
 	}
 }

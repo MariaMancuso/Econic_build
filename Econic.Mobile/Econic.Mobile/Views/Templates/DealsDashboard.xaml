@@ -2,15 +2,21 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:pulltoRefresh="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
              x:Class="Econic.Mobile.Views.Templates.DealsDashboard">
     <ContentView.Content>
         <StackLayout>
-            <syncfusion:SfListView x:Name="listview"
+            <!--<pullToRefresh:SfPullToRefresh x:Name="pullToRefresh"
+                               ProgressBackgroundColor="#428BCA" RefreshContentHeight="50" 
+                               RefreshContentWidth="50" TransitionMode="Push" IsRefreshing="False">
+                <pullToRefresh:SfPullToRefresh.PullableContent>-->
+                    <syncfusion:SfListView x:Name="listview"
                                    ItemSpacing="10"
                                    ItemsSource="{Binding Deals}"
                                    HorizontalOptions="Center"
                                    Orientation="Vertical"
-                                   Padding="0">
+                                   Padding="0"
+                                   >
                 <syncfusion:SfListView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout>
@@ -30,7 +36,7 @@
                                     <Image Source="{Binding img}"
                                            Grid.Column="0"
                                            HeightRequest="100"/>
-                                    <StackLayout Grid.Column="1" Padding="5, 0, 0, 0">
+                                    <StackLayout Grid.Column="1" Padding="10, 0, 0, 0">
                                         <Label Text="{Binding DealTitle}"
                                                TextColor="White"
                                                FontFamily="QuicksandBold"
@@ -47,27 +53,8 @@
                     </DataTemplate>
                 </syncfusion:SfListView.ItemTemplate>
             </syncfusion:SfListView>
-
-            <!--<Frame x:Name="cardView" 
-                   IsVisible="False"
-                   BackgroundColor="#3e8f52">
-                <StackLayout>
-                    <Label Text="Ziba Beauty"/>
-                    <Label Text="Today's Deal"
-                       FontSize="24"
-                       FontFamily="Quicksand"/>
-                    <Label Text="$19.99"
-                       FontSize="32"
-                       FontFamily="QuicksandBold"/>
-                    <Label Text="2 for 1 Nail Polish"/>
-                    <Frame HeightRequest="170"
-                       WidthRequest="190"/>
-                    <Button Text="Buy it now!"
-                        BackgroundColor="White"
-                        CornerRadius="18"/>
-
-                </StackLayout>
-            </Frame>-->
+                <!--</pullToRefresh:SfPullToRefresh.PullableContent>
+            </pullToRefresh:SfPullToRefresh>-->
         </StackLayout>
     </ContentView.Content>
 </ContentView>

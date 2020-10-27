@@ -16,11 +16,13 @@ namespace Econic.Mobile.Views.Customer
 	{
 		ControlTemplate deals = new ControlTemplate(typeof(DealsDashboard));
 		ControlTemplate tabbed = new ControlTemplate(typeof(TabbedView));
+		//ControlTemplate card = new ControlTemplate(typeof(CardView));
 		public DealBoard()
 		{
 			InitializeComponent();
 			TabbedView.ControlTemplate = tabbed;
 			Dash.ControlTemplate = deals;
+			//cardView.ControlTemplate = card;
 		}
 	}
 

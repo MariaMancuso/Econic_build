@@ -12,12 +12,12 @@
                        VerticalTextAlignment="Center"
                        FontFamily="QuicksandBold"
                        FontSize="24"/>
-                
-
+               
             </StackLayout>
 
             <ContentView x:Name="Dash"
                          Padding="0"/>
+            <ContentView x:Name="cardView"/>
 
             <ContentView x:Name="TabbedView"
                          Padding="0"/>
