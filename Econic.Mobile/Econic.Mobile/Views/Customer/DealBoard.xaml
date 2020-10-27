@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="Econic.Mobile.Views.Customer.DealBoard"
              Padding="0"
              ControlTemplate="{StaticResource PageWithoutBackBtn}">
@@ -12,15 +12,15 @@
                        VerticalTextAlignment="Center"
                        FontFamily="QuicksandBold"
                        FontSize="24"/>
-                <Label Text="In Progress"
-                       HorizontalOptions="CenterAndExpand"
-                       VerticalOptions="CenterAndExpand"
-                       HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center"
-                       FontSize="16"/>
+                
+
             </StackLayout>
+
+            <ContentView x:Name="Dash"
+                         Padding="0"/>
+
             <ContentView x:Name="TabbedView"
-                         VerticalOptions="EndAndExpand"/>
+                         Padding="0"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
