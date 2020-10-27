@@ -7,35 +7,24 @@
             <ContentView ControlTemplate="{StaticResource FeatureHeaderControlTemplate}"/>
             <!--<sh1:Shadows>-->
             <Button Text="Appointment"
-                                Style="{StaticResource LandingBttn}"
-                                WidthRequest="331"
-                                HeightRequest="57"
-                                Padding="13, 0, 0, 0"
-                                Command="{Binding ClickedCommand}"
-                                CommandParameter="Book"
-                                />
+                    x:Name="appbttn"
+                    Style="{StaticResource LandingBttn}"
+                    WidthRequest="331"
+                    HeightRequest="57"
+                    Padding="13, 0, 0, 0"/>
+                    <!--Command="{Binding ClickedCommand}"
+                    CommandParameter="Book"-->
+                                
             <!--</sh1:Shadows>
                     <sh1:Shadows>-->
-            <Button Text="Deals"
-                                Style="{StaticResource LandingBttn}"
-                                WidthRequest="331"
-                                HeightRequest="57"
-                                Padding="13, 0, 0, 0"
-                                />
-            <!--</sh1:Shadows>
-
-                    <sh1:Shadows>-->
-            <Button Text="See todays sales!"
-                                Style="{StaticResource LandingBttn}"
-                                WidthRequest="331"
-                                HeightRequest="88"
-                                Padding="32, 0, 42, 0"
-                                ContentLayout="Right, 1"
-                                BackgroundColor="{DynamicResource ThemeColor}"
-                                TextColor="White"
-                                />
-            <!--</sh1:Shadows>-->
-
+            <Button Text="On Sale Today"
+                    Style="{StaticResource LandingBttn}"
+                    WidthRequest="331"
+                    HeightRequest="88"
+                    Padding="13, 0, 0, 0"
+                    ImageSource="icon_revyvv.png"
+                    BackgroundColor="{DynamicResource ThemeColor}"
+                    TextColor="White"/>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

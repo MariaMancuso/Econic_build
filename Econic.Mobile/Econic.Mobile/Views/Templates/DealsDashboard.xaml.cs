@@ -30,12 +30,10 @@ namespace Econic.Mobile.Views.Templates
 			Content = listview;
 		}
 
-		private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+		private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
 		{
 			Deals d = (sender as Frame).BindingContext as Deals;
-			Console.WriteLine(d.CardID);
 			customer.SetCard(d.CardID);
-			//await Navigation.PushAsync(new ClickedDeal() { BindingContext = customer });
 		}
 	}
 }

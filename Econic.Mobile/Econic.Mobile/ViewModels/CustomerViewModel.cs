@@ -24,6 +24,18 @@ namespace Econic.Mobile.ViewModels
             get { return new CrossingUIModelViewModel(); }
             set { CrossingUIModelViewModel = value; }
         }
+
+        CustomerModel model;
+        public bool HasAccount(bool hasAccount)
+		{
+            return model.hasAccount = hasAccount;
+		}
+
+        public bool HasAppointment()
+		{
+            return model.hasAppointment;
+		}
+
         public string[] SplashTitles
         {
             get
@@ -55,6 +67,8 @@ namespace Econic.Mobile.ViewModels
             switch (value)
             {
                 case "SharedSplashTwo":
+                    //model.hasAccount = false;
+                    //model.hasAppointment = false;
                     await Application.Current.MainPage.Navigation.PushAsync(new SharedSplashTwo { BindingContext = this });
                     break;
                 case "SharedSplashThree":
@@ -82,6 +96,7 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new GenerateDeals { BindingContext = this });
                     break;
                 case "ClickEngine":
+                    //model.hasAccount = true;
                     await Application.Current.MainPage.Navigation.PushAsync(new DealBoard { BindingContext = this });
                     break;
  

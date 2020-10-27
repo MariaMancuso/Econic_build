@@ -27,8 +27,7 @@
                             CornerRadius="18"
                             BackgroundColor="White"
                             TextColor="{DynamicResource ThemeColor}"
-                            Clicked="Shop_Clicked"
-                            />
+                            Clicked="Shop_Clicked"/>
                         <Button Text="Book"
                             Grid.Column="1"
                             CornerRadius="18"

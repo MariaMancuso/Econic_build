@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="Econic.Mobile.Views.Templates.ProductsView">
+  <ContentView.Content>
+      <StackLayout>
+            <syncfusion:SfListView x:Name="listview"
+                                   ItemsSource="{Binding Products}"
+                                   ItemSize="100"
+                                   ItemSpacing="10"
+                                   AutoFitMode="DynamicHeight">
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                    <Image Source ="{Binding img}" 
+                                           Grid.Column="0"
+                                           Grid.RowSpan="2"
+                                           HeightRequest="75"
+                                           WidthRequest="75"/>
+                                    <StackLayout Grid.Column="1"
+                                                 Grid.RowSpan="2">
+                                        <Label Text="{Binding Name}"
+                                               HorizontalTextAlignment="Start"
+                                               FontFamily="QuicksandBold"
+                                               FontAttributes="Bold"/>
+                                        <Label Text="{Binding Price}"
+                                               HorizontalTextAlignment="Start"/>
+                                    </StackLayout>
+                                    <Button Text="Book" 
+                                                Grid.Column="2"
+                                                Grid.Row="1"
+                                                CommandParameter="{Binding .}"
+                                                HorizontalOptions="EndAndExpand"
+                                                WidthRequest="90"
+                                                HeightRequest="37"
+                                                CornerRadius="18"
+                                                Padding="0"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

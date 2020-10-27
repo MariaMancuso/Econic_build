@@ -18,15 +18,12 @@
                             <StackLayout Orientation="Horizontal">
                                 <Frame WidthRequest="200">
                                     <StackLayout Orientation="Vertical">
-                                        <Frame HeightRequest="141"
-                                   WidthRequest="141"
-                                   HorizontalOptions="CenterAndExpand">
-                                        </Frame>
-                                        <rating:SfRating x:Name="rating"
-                                             ItemCount="5"
-                                             Value="{Binding Rating}"/>
-                                        <Label Text="{Binding Name}"/>
-                                        <Label Text="{Binding Price}"/>
+                                    <Image Source="{Binding img}"
+                                           HeightRequest="141"
+                                           WidthRequest="141"
+                                           HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding Name}"/>
+                                    <Label Text="{Binding Price}"/>
                                     </StackLayout>
                                 </Frame>
                             </StackLayout>
