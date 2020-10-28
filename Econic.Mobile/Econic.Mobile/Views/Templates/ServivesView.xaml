@@ -8,11 +8,11 @@
                                    ItemsSource="{Binding Services}"
                                    ItemSize="100"
                                    ItemSpacing="10"
-                                   AutoFitMode="DynamicHeight">
+                                   >
                 <syncfusion:SfListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
+                            <Grid RowSpacing="10">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
@@ -22,31 +22,35 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <!--<Image Source ="{Binding img}" 
-                                           Grid.Column="0"
-                                           Grid.RowSpan="2"
-                                           HeightRequest="75"
-                                           WidthRequest="75"/>-->
-                                <StackLayout Grid.Column="0"
-                                             Grid.RowSpan="2">
-                                    <Label Text="{Binding Name}"
-                                               HorizontalTextAlignment="Start"
-                                               FontFamily="QuicksandBold"
-                                               FontAttributes="Bold"/>
-                                    <Label Text="{Binding deal}"
-                                               HorizontalTextAlignment="Start"/>
-                                    <Label Text="{Binding Price}"
-                                               HorizontalTextAlignment="Start"/>
-                                </StackLayout>
-                                <Button Text="Book" 
-                                                Grid.Column="2"
-                                                Grid.Row="1"
+                                
+                                    <!--<Frame Grid.Column="0"
+                                               HeightRequest="75"
+                                               WidthRequest="75"
+                                               Padding="0,0,0,0"/>-->
+                                    <StackLayout Grid.Column="0" 
+                                                 Grid.RowSpan="2">
+                                        <Label Text="{Binding Name}"
+                                                  
+                                                   HorizontalTextAlignment="Start"
+                                                   FontFamily="QuicksandBold"
+                                                   FontAttributes="Bold"/>
+                                        <Label Text="{Binding deal}"
+                                                   
+                                                   HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding price}"
+                                                   
+                                                   HorizontalTextAlignment="Start"/>
+                                    </StackLayout>
+                                    <Button Text="Book" 
+                                                Grid.Column="2" 
+                                            Grid.Row="1"
                                                 CommandParameter="{Binding .}"
                                                 HorizontalOptions="EndAndExpand"
                                                 WidthRequest="90"
                                                 HeightRequest="37"
                                                 CornerRadius="18"
                                                 Padding="0"/>
+                                
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

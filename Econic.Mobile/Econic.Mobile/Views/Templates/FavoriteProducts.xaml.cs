@@ -20,10 +20,17 @@ namespace Econic.Mobile.Views.Templates
 		{
 			InitializeComponent();
 			ObservableCollection<Models.Products> products;
+			ObservableCollection<Models.Products> list = new ObservableCollection<Models.Products>();
 			products = prod.SetProducts();
-			listview.HeightRequest = products.Count * 100;
-			listview.ItemsSource = products;
-			listview.ItemTemplate = new DataTemplate(typeof(CustomFPCell));
+
+			for(int i = 0; i < 3; i++)
+			{
+				list.Add(products[i]);
+			}
+
+			listview.HeightRequest = list.Count * 100;
+			listview.ItemsSource = list;
+			//listview.ItemTemplate = new DataTemplate(typeof(CustomFPCell));
 
 			Padding = new Thickness(0, 20, 0, 0);
 			Content = listview;

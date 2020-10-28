@@ -3,17 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Econic.Mobile.Views.Customer.ListServices">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Padding="0">
-                <StackLayout Padding="16, 20, 28, 22" Spacing="11">
-                    <ContentView ControlTemplate="{StaticResource FeatureHeaderControlTemplate}"/>
-                    <ContentView x:Name="Services"/>
-                </StackLayout>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout Padding="0">
+                    <StackLayout Padding="16, 20, 28, 22" Spacing="11">
+                        <ContentView ControlTemplate="{StaticResource FeatureHeaderControlTemplate}"/>
+                        <ContentView x:Name="Services"/>
+                    </StackLayout>
 
-                <ContentView x:Name="TabbedView"
+
+                </StackLayout>
+            </ScrollView>
+            <ContentView x:Name="TabbedView"
                              VerticalOptions="EndAndExpand"
                              Padding="0"/>
-            </StackLayout>
-        </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

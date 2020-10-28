@@ -8,10 +8,13 @@
         <StackLayout>
             <ScrollView>
                 <StackLayout Padding="22, 0, 22, 0">
-
-                    <Frame HeightRequest="141"
-                       WidthRequest="141"
+                    <Image Source="img_ziba_logo.png"
+                           HeightRequest="150"
+                       WidthRequest="150"
                        HorizontalOptions="Center"/>
+                    <!--<Frame HeightRequest="141"
+                       WidthRequest="141"
+                       HorizontalOptions="Center"/>-->
                     <ContentView x:Name="WelcomeContent"/>
                     <ContentView ControlTemplate="{StaticResource FeatureHeaderControlTemplate}"/>
                     <Grid>

@@ -23,5 +23,10 @@ namespace Econic.Mobile.Views.Templates
 				appbttn.IsVisible = false;
 			//}
 		}
+
+		private async void Button_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new Econic.Mobile.Views.Customer.DealBoard());
+		}
 	}
 }

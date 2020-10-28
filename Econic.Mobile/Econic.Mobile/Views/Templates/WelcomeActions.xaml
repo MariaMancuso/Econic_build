@@ -6,25 +6,30 @@
         <StackLayout Padding="0, 0, 0, 22" Spacing="11">
             <ContentView ControlTemplate="{StaticResource FeatureHeaderControlTemplate}"/>
             <!--<sh1:Shadows>-->
-            <Button Text="Appointment"
+            <Button Text="September 27 @ 3pm"
                     x:Name="appbttn"
                     Style="{StaticResource LandingBttn}"
                     WidthRequest="331"
                     HeightRequest="57"
-                    Padding="13, 0, 0, 0"/>
+                    Padding="13, 0, 0, 0"
+                    TextColor="#343434"/>
                     <!--Command="{Binding ClickedCommand}"
                     CommandParameter="Book"-->
                                 
             <!--</sh1:Shadows>
                     <sh1:Shadows>-->
             <Button Text="On Sale Today"
+                    FontSize="20"
+                    FontFamily="QuicksandBold"
                     Style="{StaticResource LandingBttn}"
                     WidthRequest="331"
                     HeightRequest="88"
-                    Padding="13, 0, 0, 0"
+                    Padding="90, 0, 45, 0"
                     ImageSource="icon_revyvv.png"
+                    ContentLayout="Right, 1"
                     BackgroundColor="{DynamicResource ThemeColor}"
-                    TextColor="White"/>
+                    TextColor="White"
+                    Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

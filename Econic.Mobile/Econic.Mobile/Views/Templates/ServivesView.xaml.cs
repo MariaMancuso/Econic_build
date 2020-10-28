@@ -15,8 +15,9 @@ namespace Econic.Mobile.Views.Templates
 			InitializeComponent();
 			ObservableCollection<Models.Services> products;
 			products = ser.SetServices();
+
 			var screenHeight = DeviceDisplay.MainDisplayInfo.Height;
-			listview.ItemSize = screenHeight;
+			//listview.ItemSize = screenHeight;
 			listview.HeightRequest = products.Count * 100;
 			listview.ItemsSource = products;
 
