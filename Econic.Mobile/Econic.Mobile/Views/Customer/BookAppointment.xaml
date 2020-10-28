@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:Econic.Mobile.Renderers"
-             x:Class="Econic.Mobile.Views.Customer.BookAppointment">
+             x:Class="Econic.Mobile.Views.Customer.BookAppointment"
+             Padding="22">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -20,9 +21,9 @@
                        HeightRequest="48"
                        WidthRequest="336"
                        >
-                    <local:CustomDropDown HorizontalOptions ="FillAndExpand"
+                    <!--<local:CustomDropDown HorizontalOptions ="FillAndExpand"
                                     VerticalOptions="Center"
-                                    x:Name="serviceDropdown"/>
+                                    x:Name="serviceDropdown"/>-->
                 </Frame>
                 <Label Text="Availability: "
                        Padding="0, 36, 0, 10"
@@ -40,14 +41,14 @@
                     </Grid.ColumnDefinitions>
                     <Frame Grid.Column="0"
                            Padding="0">
-                        <local:CustomDropDown HorizontalOptions ="FillAndExpand"
-                                              x:Name="monthDropdown"/>
+                        <!--<local:CustomDropDown HorizontalOptions ="FillAndExpand"
+                                              x:Name="monthDropdown"/>-->
                     </Frame>
 
                     <Frame Grid.Column="2"
                            Padding="0">
-                        <local:CustomDropDown HorizontalOptions ="FillAndExpand"
-                                         x:Name="dayDropdown"/>
+                        <!--<local:CustomDropDown HorizontalOptions ="FillAndExpand"
+                                         x:Name="dayDropdown"/>-->
                     </Frame>
                 </Grid>
 

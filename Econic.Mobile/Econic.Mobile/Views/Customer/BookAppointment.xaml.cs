@@ -16,9 +16,6 @@ namespace Econic.Mobile.Views.Customer
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BookAppointment : ContentPage
 	{
-
-
-		
 		public BookAppointment()
 		{
 			InitializeComponent();

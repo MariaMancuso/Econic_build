@@ -13,6 +13,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using System.Collections;
 
 namespace Econic.Mobile.ViewModels
 { 
@@ -135,36 +136,32 @@ namespace Econic.Mobile.ViewModels
 			OnPropertyChanged("CurrentTemplate");
 		}
 
-		public void ChangeThemeInfo(string name)
+		public void ChangeThemeInfo(object template)
 		{
-			switch(name)
-			{
-				case "Classic":
-					var source = new Uri("Templates/Resources/ClassicDictionary.xaml", UriKind.RelativeOrAbsolute);
-					Console.WriteLine("ChangeThemeInfo " + source);
-					//this.ThemeDict.MergedDictionaries.Clear();
-					//this.ThemeDict.MergedDictionaries.Add(new ResourceDictionary() { Source = source });
-					
+			//Theme theme = (Theme)template;
 
-					break;
-				case "Modern":
-					break;
-				case "Friendly":
-					break;
-				default:
-					break;
-			}
+			//ICollection<ResourceDictionary> mergedDictionaries = Application.Current.Resources.MergedDictionaries;
+			//if (mergedDictionaries != null)
+			//{
+			//	Console.WriteLine(mergedDictionaries.Count);
+			//	mergedDictionaries.Clear();
+			//	switch (theme)
+			//	{
+			//		case Theme.Classic:
+			//			mergedDictionaries.Add(new Views.Templates.Resources.ClassicDictionary());
+			//			break;
+			//		case Theme.Modern:
+			//			mergedDictionaries.Add(new Views.Templates.Resources.ModernDictionary());
+			//			break;
+			//		case Theme.Friendly:
+			//			mergedDictionaries.Add(new Views.Templates.Resources.Friendly());
+			//			break;
+			//		default:
+			//			break;
+			//	}
+			//}
+			
 		}
-
-		
-
-		//void PositionChanged(int position)
-		//{
-		//	PreviousPosition = CurrentPosition;
-		//	CurrentPosition = position;
-		//	OnPropertyChanged("PreviousPosition");
-		//	OnPropertyChanged("CurrentPosition");
-		//}
 
 		void OnPropertyChanged([CallerMemberName] string propertyName = null)
 		{

@@ -17,7 +17,7 @@ namespace Econic.Mobile.Views.EconicStudio
 		ControlTemplates currentItem;
 		ControlTemplateViewModel control = new ControlTemplateViewModel();
 		
-		string template { get; set; }
+		object template { get; set; }
 		public ChooseTheme()
 		{
 			InitializeComponent();
@@ -30,9 +30,9 @@ namespace Econic.Mobile.Views.EconicStudio
 			previousItem = e.PreviousItem as ControlTemplates;
 			currentItem = e.CurrentItem as ControlTemplates;
 			//control.ItemChanged(currentItem);
-			Console.WriteLine(currentItem.name);
+			//Console.WriteLine(currentItem.name);
 			template = currentItem.name;
-			Console.WriteLine(template);
+			//Console.WriteLine(template);
 		}
 
 		private void CreateBoxGrid()
@@ -65,8 +65,9 @@ namespace Econic.Mobile.Views.EconicStudio
 		{
 			if (template != null)
 			{
+
 				control.ChangeThemeInfo(template);
-				//await Navigation.PushAsync(new BookAppointment());
+				await Navigation.PushAsync(new BookAppointment());
 			}
 			else
 			{

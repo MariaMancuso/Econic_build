@@ -6,12 +6,14 @@
              x:Class="Econic.Mobile.App">
     <Application.Resources>
 
-        <ResourceDictionary>
+        <!--<ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/ControlTemplateResourceDic.xaml" />
-                <ResourceDictionary x:Name="TemplateDictionary" Source="Views/Templates/Resources/ClassicDictionary.xaml"/>
+                
+                
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        </ResourceDictionary>-->
+        <ResourceDictionary Source="Views/Templates/Resources/ClassicDictionary.xaml"/>
 
         <Color x:Key="ThemeColor">#D03737</Color>
 
