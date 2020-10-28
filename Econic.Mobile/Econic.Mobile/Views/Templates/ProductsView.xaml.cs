@@ -1,4 +1,5 @@
 ﻿using Econic.Mobile.ViewModels;
+using Econic.Mobile.Views.Customer;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,10 +16,11 @@ namespace Econic.Mobile.Views.Templates
 	public partial class ProductsView : ContentView
 	{
 		ProductsViewModel prod = new ProductsViewModel();
+		CustomerViewModel customer = new CustomerViewModel();
 		public ProductsView()
 		{
 			InitializeComponent();
-			ObservableCollection<Models.Products>products;
+			ObservableCollection<Models.Products> products;
 			products = prod.SetProducts();
 			var screenHeight = DeviceDisplay.MainDisplayInfo.Height;
 			listview.ItemSize = screenHeight;
@@ -27,6 +29,12 @@ namespace Econic.Mobile.Views.Templates
 
 			Padding = new Thickness(0, 20, 0, 0);
 			Content = listview;
+		}
+
+		private void Button_Clicked(object sender, EventArgs e)
+		{
+			Models.Products product = (sender as Button).BindingContext as Models.Products;
+			customer.SetCartPreview(product.Name);
 		}
 	}
 }

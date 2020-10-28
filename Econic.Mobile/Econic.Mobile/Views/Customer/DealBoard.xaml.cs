@@ -20,9 +20,21 @@ namespace Econic.Mobile.Views.Customer
 		public DealBoard()
 		{
 			InitializeComponent();
+			Refreshing(true);
 			TabbedView.ControlTemplate = tabbed;
 			Dash.ControlTemplate = deals;
 			//cardView.ControlTemplate = card;
+		}
+		private async void Refreshing(bool running)
+		{
+			runner.IsRunning = running;
+			if (running)
+			{
+				Dash.IsVisible = false;
+				await Task.Delay(2000);
+				Refreshing(false);
+				Dash.IsVisible = true;
+			}
 		}
 	}
 

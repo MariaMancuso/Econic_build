@@ -14,7 +14,10 @@
                        FontSize="24"/>
                
             </StackLayout>
-
+            <RelativeLayout HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand">
+                <ActivityIndicator x:Name="runner" IsRunning="True"/>
+            </RelativeLayout>
             <ContentView x:Name="Dash"
                          Padding="0"/>
             <!--<ContentView x:Name="cardView"/>-->

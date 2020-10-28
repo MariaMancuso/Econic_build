@@ -6,10 +6,11 @@
              x:Class="Econic.Mobile.Views.Templates.DealsDashboard">
     <ContentView.Content>
         <StackLayout>
-            <!--<pullToRefresh:SfPullToRefresh x:Name="pullToRefresh"
+            
+            <!--<pulltoRefresh:SfPullToRefresh x:Name="pullToRefresh"
                                ProgressBackgroundColor="#428BCA" RefreshContentHeight="50" 
                                RefreshContentWidth="50" TransitionMode="Push" IsRefreshing="False">
-                <pullToRefresh:SfPullToRefresh.PullableContent>-->
+                <pulltoRefresh:SfPullToRefresh.PullableContent>-->
                     <syncfusion:SfListView x:Name="listview"
                                    ItemSpacing="10"
                                    ItemsSource="{Binding Deals}"
@@ -17,44 +18,52 @@
                                    Orientation="Vertical"
                                    Padding="0"
                                    >
-                <syncfusion:SfListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout>
-                            <Frame x:Name="frame" 
+                        <syncfusion:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame x:Name="frame" 
                                    BackgroundColor="{Binding color}"
                                    CornerRadius="18"
                                    HasShadow="True">
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped ="TapGestureRecognizer_Tapped"/>
-                                </Frame.GestureRecognizers>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="{Binding img}"
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped ="TapGestureRecognizer_Tapped"/>
+                                        </Frame.GestureRecognizers>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width=".25*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="{Binding img}"
                                            Grid.Column="0"
                                            HeightRequest="100"/>
-                                    <StackLayout Grid.Column="1" Padding="10, 0, 0, 0">
-                                        <Label Text="{Binding DealTitle}"
+                                            <StackLayout Grid.Column="1" Padding="10, 0, 0, 0">
+                                                <Label Text="{Binding DealTitle}"
                                                TextColor="White"
                                                FontFamily="QuicksandBold"
                                                FontSize="20"
                                                HorizontalTextAlignment="Start"/>
-                                        <Label Text="{Binding ShopTitle}"
+                                                <Label Text="{Binding ShopTitle}"
                                                TextColor="White"
                                                HorizontalTextAlignment="Start"/>
-                                    </StackLayout>
-                                    <Image x:Name="NextButton" Source="" Grid.Column="2"/>
-                                </Grid>
-                            </Frame>
-                        </StackLayout>
-                    </DataTemplate>
-                </syncfusion:SfListView.ItemTemplate>
-            </syncfusion:SfListView>
-                <!--</pullToRefresh:SfPullToRefresh.PullableContent>
-            </pullToRefresh:SfPullToRefresh>-->
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" 
+                                                 HeightRequest="50"
+                                                 Grid.Column="2">
+                                                <Image x:Name="NextButton" 
+                                               Source="magic_white_arrow.png" 
+                                               HeightRequest="50"
+                                               HorizontalOptions="EndAndExpand"
+                                               />
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </syncfusion:SfListView.ItemTemplate>
+                    </syncfusion:SfListView>
+                <!--</pulltoRefresh:SfPullToRefresh.PullableContent>
+            </pulltoRefresh:SfPullToRefresh>-->
         </StackLayout>
     </ContentView.Content>
 </ContentView>

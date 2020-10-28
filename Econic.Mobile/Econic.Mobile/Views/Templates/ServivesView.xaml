@@ -49,7 +49,8 @@
                                                 WidthRequest="90"
                                                 HeightRequest="37"
                                                 CornerRadius="18"
-                                                Padding="0"/>
+                                                Padding="0"
+                                            Clicked="Button_Clicked"/>
                                 
                             </Grid>
                         </ViewCell>

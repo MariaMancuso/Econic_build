@@ -26,7 +26,7 @@ namespace Econic.Mobile.Views.Templates
 
 		private async void Button_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new Econic.Mobile.Views.Customer.DealBoard());
+			await Navigation.PushAsync(new Customer.DealBoard());
 		}
 	}
 }

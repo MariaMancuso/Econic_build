@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using System.Dynamic;
 using System.Collections.Generic;
 using System;
+using System.Collections.ObjectModel;
 
 namespace Econic.Mobile.ViewModels
 {
@@ -183,6 +184,22 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new ClickedDeal(d[i]));
                 }
             }
+		}
+
+        public async void SetCartPreview(string name)
+		{
+            Console.WriteLine(name);
+            ObservableCollection<Models.Products> prod = new ObservableCollection<Products>();
+            ProductsViewModel pvm = new ProductsViewModel();
+            prod = pvm.SetProducts();
+
+            for(int i = 0; i < prod.Count; i++)
+			{
+                if(prod[i].Name.Equals(name))
+				{
+                    await Application.Current.MainPage.Navigation.PushAsync(new CartPreview(prod[i]));
+				}
+			}
 		}
     }
 }

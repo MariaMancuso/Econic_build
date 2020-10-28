@@ -16,6 +16,7 @@ namespace Econic.Mobile.Views.Templates
 	public partial class FavoriteProducts : ContentView
 	{
 		ProductsViewModel prod = new ProductsViewModel();
+		CustomerViewModel customer = new CustomerViewModel();
 		public FavoriteProducts()
 		{
 			InitializeComponent();
@@ -34,6 +35,12 @@ namespace Econic.Mobile.Views.Templates
 
 			Padding = new Thickness(0, 20, 0, 0);
 			Content = listview;
+		}
+
+		private void Button_Clicked(object sender, EventArgs e)
+		{
+			Models.Products product = (sender as Button).BindingContext as Models.Products;
+			customer.SetCartPreview(product.Name);
 		}
 	}
 }

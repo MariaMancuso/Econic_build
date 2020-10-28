@@ -24,7 +24,14 @@
                                            HorizontalOptions="CenterAndExpand"/>
                                     <Label Text="{Binding Name}"/>
                                     <Label Text="{Binding Price}"/>
-                                    </StackLayout>
+                                    <Button Text="Buy"
+                                                HorizontalOptions="EndAndExpand"
+                                                WidthRequest="90"
+                                                HeightRequest="37"
+                                                CornerRadius="18"
+                                                Padding="0"
+                                            Clicked="Button_Clicked"/>
+                                </StackLayout>
                                 </Frame>
                             </StackLayout>
                         </DataTemplate>

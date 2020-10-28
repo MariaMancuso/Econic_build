@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Econic.Mobile.Models;
 using Econic.Mobile.ViewModels;
 using Econic.Mobile.Views.Customer;
+using Syncfusion.SfPullToRefresh.XForms;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Markup;
@@ -19,6 +21,7 @@ namespace Econic.Mobile.Views.Templates
 		{
 			
 			InitializeComponent();
+			
 			var screenWidth = DeviceDisplay.MainDisplayInfo.Width;
 			var screenHeight = DeviceDisplay.MainDisplayInfo.Height;
 			var dealsList = customer.SetDeals();
@@ -28,8 +31,8 @@ namespace Econic.Mobile.Views.Templates
 			listview.HeightRequest = dealsList.Count * 200;
 			listview.ItemsSource = dealsList;
 			Content = listview;
-		}
 
+		}
 		private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
 		{
 			Deals d = (sender as Frame).BindingContext as Deals;
