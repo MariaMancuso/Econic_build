@@ -37,6 +37,8 @@ namespace Econic.Mobile
 
             InitializeComponent();
             Navigation = new NavigationPage(new MainPage());
+            Navigation.BarBackgroundColor = Color.WhiteSmoke;
+            Navigation.BarTextColor = Color.FromHex("#404040");
 
             Current.MainPage = Navigation;
         }

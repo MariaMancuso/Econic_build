@@ -16,7 +16,7 @@ namespace Econic.Mobile.Views.Shared
     public partial class AddItem : ContentPage
     {
         PhotoPickerViewModel additemViewModel;
-        public AddItem(OwnerViewModel OwnerVM, string mode)
+        public AddItem(OwnerBoardingViewModel OwnerVM, string mode)
         {
             InitializeComponent();
             imageselector.BindingContext = additemViewModel = new PhotoPickerViewModel();

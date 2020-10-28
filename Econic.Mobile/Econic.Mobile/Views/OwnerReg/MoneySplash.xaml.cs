@@ -17,7 +17,7 @@ namespace Econic.Mobile.Views.OwnerReg
         {
             InitializeComponent();
             //gg.HeightRequest = Application.Current.MainPage.Height;
-            BindingContext = new OwnerViewModel();
+            BindingContext = new OwnerBoardingViewModel();
 
            // SelectService();
 			//SelectProduct();

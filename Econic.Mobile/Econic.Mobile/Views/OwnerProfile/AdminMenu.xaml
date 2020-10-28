@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.OwnerProfile.AdminMenu" 
+             Padding="20, 0, 20, 0">
+    <ContentPage.Content>
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Admin" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="33.33*" />
+                    <ColumnDefinition Width="33.33*" />
+                    <ColumnDefinition Width="33.33*" />
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Row="0" Grid.Column="0" Source="profilepic" Aspect="AspectFit" WidthRequest="80" HeightRequest="80" />
+
+                <StackLayout Grid.Row="0" Grid.Column="1" VerticalOptions="Center">
+                    <Label Text="23" FontFamily="QuicksandBold" TextColor="#404040" HorizontalTextAlignment="Center" />
+                    <Label Text="Employees" HorizontalTextAlignment="Center" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="0" Grid.Column="2" VerticalOptions="Center">
+                    <Label Text="100" FontFamily="QuicksandBold" TextColor="#404040" HorizontalTextAlignment="Center" />
+                    <Label Text="Customers" HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </Grid>
+
+            <ScrollView Grid.Row="2">
+                <StackLayout>
+                    <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="icon_contacts" WidthRequest="30" HeightRequest="30" />
+                                <Label Text="Customers" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                            </StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="CustomersTapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="icon_promo" WidthRequest="30" HeightRequest="30" />
+                                <Label Text="Promotions" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                            </StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="Payments" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="icon_employees" WidthRequest="30" HeightRequest="30" />
+                                <Label Text="Employees" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                            </StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="EmployeesTapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="icon_service" WidthRequest="30" HeightRequest="30" />
+                                <Label Text="Goods &amp; Services" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                            </StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="Languages" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="icon_revyvvweb" WidthRequest="30" HeightRequest="30" />
+                                <Label Text="Revyvv Web" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                            </StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="Revyvvweb" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="icon_qr" WidthRequest="30" HeightRequest="30" />
+                                <Label Text="My QR codes" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                            </StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="QrTapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

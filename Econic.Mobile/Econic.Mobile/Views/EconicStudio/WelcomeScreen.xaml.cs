@@ -12,7 +12,7 @@ namespace Econic.Mobile.Views.EconicStudio
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class WelcomeScreen : ContentPage
 	{
-		public WelcomeScreen(OwnerViewModel owner)
+		public WelcomeScreen(OwnerBoardingViewModel owner)
 		{
 			InitializeComponent();
 			BindingContext = owner;

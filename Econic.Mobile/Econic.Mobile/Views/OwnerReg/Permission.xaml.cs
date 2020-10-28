@@ -13,7 +13,7 @@ namespace Econic.Mobile.Views.OwnerReg
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Permission : ContentPage
     {
-        public Permission(OwnerViewModel OwnerVM)
+        public Permission(OwnerBoardingViewModel OwnerVM)
         {
             InitializeComponent();
             BindingContext = OwnerVM;

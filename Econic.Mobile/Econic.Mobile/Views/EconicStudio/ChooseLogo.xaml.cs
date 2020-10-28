@@ -19,7 +19,7 @@ namespace Econic.Mobile.Views.EconicStudio
 		{
 			InitializeComponent();
 			imageselector.BindingContext = additemViewModel = new PhotoPickerViewModel();
-            OwnerViewModel OwnerVM = new OwnerViewModel();
+            OwnerBoardingViewModel OwnerVM = new OwnerBoardingViewModel();
             bodyContent.BindingContext = OwnerVM;
 		}
 

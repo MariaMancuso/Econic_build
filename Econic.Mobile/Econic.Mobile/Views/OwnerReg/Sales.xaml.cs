@@ -9,7 +9,7 @@ namespace Econic.Mobile.Views.OwnerReg
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Sales : ContentPage
     {
-        public Sales(OwnerViewModel OwnerVM)
+        public Sales(OwnerBoardingViewModel OwnerVM)
         {
             InitializeComponent();
             BindingContext = OwnerVM;

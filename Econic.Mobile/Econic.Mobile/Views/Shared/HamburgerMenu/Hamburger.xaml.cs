@@ -28,11 +28,12 @@ namespace Econic.Mobile.Views.Shared.HamburgerMenu
             var page = (Page)Activator.CreateInstance(item.TargetType);
             page.Title = item.Title;
 
-            Detail = new NavigationPage(page) 
-            { 
-                BarBackgroundColor = Color.WhiteSmoke, 
+            Detail = new NavigationPage(page)
+            {
+                BarBackgroundColor = Color.WhiteSmoke,
                 BarTextColor = Color.FromHex("#404040"),
-                BackgroundColor = Color.WhiteSmoke
+                BackgroundColor = Color.WhiteSmoke,
+                BindingContext = MasterPage.BindingContext, 
             };
             IsPresented = false;
 

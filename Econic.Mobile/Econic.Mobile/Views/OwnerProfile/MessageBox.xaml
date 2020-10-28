@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms" x:Class="Econic.Mobile.Views.OwnerProfile.MessageBox"
+             NavigationPage.HasNavigationBar="True"
+             Padding="20, 0, 20, 0"
+             BackgroundColor="WhiteSmoke">
+    <ContentPage.Content>
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Compose a message" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+            <StackLayout Grid.Row="1">
+                <inputLayout:SfTextInputLayout InputViewPadding="10" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <combobox:SfComboBox 
+                        FontFamily="QuicksandMedium" 
+                        BackgroundColor="Transparent" 
+                        Watermark="To: All Employees" 
+                        NoResultsFoundText="No Results Found"
+                        DataSource="{Binding Owner.Employees}" 
+                        SelectedItem="{Binding EmployeeSelected}"
+                        IsEditableMode="True"
+                        AllowFiltering="True"
+                        DisplayMemberPath="Name">
+                    </combobox:SfComboBox>
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Title" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <Entry />
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Message" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <Editor AutoSize="TextChanges" HeightRequest="150" />
+                </inputLayout:SfTextInputLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

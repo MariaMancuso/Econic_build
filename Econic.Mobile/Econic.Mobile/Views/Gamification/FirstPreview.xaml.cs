@@ -10,7 +10,7 @@ namespace Econic.Mobile.Views.OwnerReg
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FirstPreview : ContentPage
     {
-        public FirstPreview(OwnerViewModel OwnerVM)
+        public FirstPreview(OwnerBoardingViewModel OwnerVM)
         {
             InitializeComponent();
             BindingContext = OwnerVM;

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" 
+             x:Class="Econic.Mobile.Views.OwnerProfile.CustomerHistoryView"
+             xmlns:converters="clr-namespace:Econic.Mobile.Services">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:OrderStatusBorderConverter x:Key="cnvborder"/>
+            <converters:OrderStatusTextConverter x:Key="cnvtext" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+  <ContentView.Content>
+      <StackLayout>
+            <sync:SfListView x:Name="employeelistview" Grid.Row="1" ItemsSource="{Binding CustomerSelected.Orders}" ItemSize="150" >
+                <sync:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BorderColor="{Binding status, Converter={x:StaticResource cnvborder}}" CornerRadius="10" Margin="0, 8, 0, 8" Padding="0, 10, 0, 15">
+                                <StackLayout>
+                                    <StackLayout >
+                                        <Label Text="{Binding status, Converter={x:StaticResource cnvtext}}" FontFamily="QuicksandBold" TextColor="Gray" Padding="15, 0, 0, 0" />
+                                        <BoxView BackgroundColor="{Binding status, Converter={x:StaticResource cnvborder}}" HeightRequest="1" HorizontalOptions="FillAndExpand" />
+                                    </StackLayout>
+                                    <Grid Padding="15, 0, 0, 0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.Column="0" Source="{Binding ImageSource}" WidthRequest="75" HeightRequest="75" VerticalOptions="Center" />
+                                        <StackLayout Grid.Column="1" Spacing="0" VerticalOptions="Center">
+                                            <Label Text="{Binding OrderNumber}" FontFamily="QuicksandBold" TextColor="#404040" />
+                                            <Label Text="{Binding ProductName}" FontFamily="QuicksandBold" TextColor="Gray" />
+                                            <Label Text="{Binding Price, StringFormat='${0}'}" FontFamily="QuicksandBold" TextColor="Gray" />
+                                        </StackLayout>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </sync:SfListView.ItemTemplate>
+            </sync:SfListView>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

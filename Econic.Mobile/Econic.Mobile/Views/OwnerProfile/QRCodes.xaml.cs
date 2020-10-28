@@ -13,10 +13,9 @@ namespace Econic.Mobile.Views.OwnerProfile
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class QRCodes : ContentPage
     {
-        public QRCodes(OwnerViewModel OwnerVM)
+        public QRCodes()
         {
             InitializeComponent();
-            BindingContext = OwnerVM;
         }
     }
 }

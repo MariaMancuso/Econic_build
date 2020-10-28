@@ -91,22 +91,6 @@
             <Setter Property="CornerRadius" Value="3" />
             <Setter Property="HasShadow" Value="False" />
             <Setter Property="Padding" Value="10, 0, 10, 0" />
-            <Setter Property="VisualStateManager.VisualStateGroups">
-                <VisualStateGroupList>
-                    <VisualStateGroup x:Name="CommonStates">
-                        <VisualState x:Name="Selected">
-                            <VisualState.Setters>
-                                <Setter Property="BackgroundColor" Value="#517486" />
-                            </VisualState.Setters>
-                        </VisualState>
-                        <VisualState x:Name="UnSelected">
-                            <VisualState.Setters>
-                                <Setter Property="BackgroundColor" Value="#395360" />
-                            </VisualState.Setters>
-                        </VisualState>
-                    </VisualStateGroup>
-                </VisualStateGroupList>
-            </Setter>
         </Style>
 
         <Style x:Key="Title" TargetType="Label">

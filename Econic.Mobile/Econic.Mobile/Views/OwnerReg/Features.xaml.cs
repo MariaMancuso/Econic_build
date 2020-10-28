@@ -13,7 +13,7 @@ namespace Econic.Mobile.Views.OwnerReg
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Features : ContentPage
     {
-        public Features(OwnerViewModel OwnerVM)
+        public Features(OwnerBoardingViewModel OwnerVM)
         {
             InitializeComponent();
             BindingContext = OwnerVM;

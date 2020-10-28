@@ -13,7 +13,7 @@ namespace Econic.Mobile.Views.OwnerReg
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TwoFactorNumber : ContentPage
     {
-        public TwoFactorNumber(OwnerViewModel OwnerVM)
+        public TwoFactorNumber(OwnerBoardingViewModel OwnerVM)
         {
             InitializeComponent();
             BindingContext = OwnerVM;

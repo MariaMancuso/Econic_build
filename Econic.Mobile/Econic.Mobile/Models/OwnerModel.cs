@@ -1,4 +1,5 @@
-﻿using Econic.Mobile.ViewModels;
+﻿using Econic.Mobile.Models.EmployeeModels;
+using Econic.Mobile.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,7 +24,10 @@ namespace Econic.Mobile.Models
         public ObservableCollection<GoodModel> Items { get; set; }
         public ObservableCollection<NotifyModel> NotifyMethods { get; set; }
         public InviteMessageModel InviteMessages { get; set; }
+        public ObservableCollection<PartyDetailsModel> Employees { get; set; }
+        public ObservableCollection<CustomerPartyDetailsModel> Customers { get; set; }
         public bool HasEmployees { get; set; }
         public Account Account { get; set; }
+
     }
 }
