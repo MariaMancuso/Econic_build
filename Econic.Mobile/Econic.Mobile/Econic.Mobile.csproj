@@ -36,6 +36,7 @@
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.3.0.40" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.3.0.38" />
     <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.3.0.38" />
+    <PackageReference Include="Syncfusion.Xamarin.SfProgressBar" Version="18.3.0.44" />
     <PackageReference Include="Syncfusion.Xamarin.SfPullToRefresh" Version="18.3.0.44" />
     <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="18.3.0.40" />
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
