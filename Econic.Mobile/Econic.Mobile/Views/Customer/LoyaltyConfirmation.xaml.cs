@@ -15,13 +15,25 @@ namespace Econic.Mobile.Views.Customer
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoyaltyConfirmation : ContentPage
 	{
+		List<string> list = new List<string>();
+
 		ControlTemplate tabbed = new ControlTemplate(typeof(TabbedView));
+		ControlTemplate history = new ControlTemplate(typeof(LoyaltyHistory));
+		ControlTemplate settings = new ControlTemplate(typeof(CustomerSettings));
 		public LoyaltyConfirmation()
 		{
 			InitializeComponent();
 			TabbedView.ControlTemplate = tabbed;
 			CreateProgressBar();
+
+			list.Add("Loyalty");
+			list.Add("History");
+			list.Add("Settings");
+
+
 			CreateSegmentedControl();
+			HistoryLayout.IsVisible = false;
+			HistoryLayout.IsEnabled = false;
 		}
 
 		private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
@@ -90,13 +102,58 @@ namespace Econic.Mobile.Views.Customer
 
 		private void CreateSegmentedControl()
 		{
-			List<string> list = new List<string>();
-			list.Add("Loyalty");
-			list.Add("History");
-			list.Add("Setting");
+			SelectionIndicatorSettings selectionIndicator = new SelectionIndicatorSettings();
+			selectionIndicator.Position = SelectionIndicatorPosition.Bottom;
+			segControl.SelectionIndicatorSettings = selectionIndicator;
+			segControl.SelectionChanged += SegControl_SelectionChanged;
+			segControl.FontColor = Color.FromHex("#343434");
+			segControl.SelectionTextColor = Color.Black;
+			segControl.SelectedIndex = 0;
+			segControl.FontSize = 16;
+			segControl.BorderColor = Color.Transparent;
+			segControl.BackgroundColor = Color.Transparent;
+			segControl.DisplayMode = SegmentDisplayMode.Text;
+			segControl.ItemsSource = list;
 
+		}
 
+		private void SegControl_SelectionChanged(object sender, Syncfusion.XForms.Buttons.SelectionChangedEventArgs e)
+		{
+			var name = list[e.Index];
+			Console.WriteLine(name);
+			if(name.Equals("History"))
+			{
+				PointsLayout.IsVisible = false;
+				PointsLayout.IsEnabled = false;
+				HistoryLayout.IsVisible = true;
+				HistoryLayout.IsEnabled = true;
+				SettingsLayout.IsVisible = false;
+				SettingsLayout.IsEnabled = false;
+				HistoryView.ControlTemplate = history;
+				
+			}
 
+			if (name.Equals("Loyalty"))
+			{
+				PointsLayout.IsVisible = true;
+				PointsLayout.IsEnabled = true;
+				HistoryLayout.IsVisible = false;
+				HistoryLayout.IsEnabled = false;
+				SettingsLayout.IsVisible = false;
+				SettingsLayout.IsEnabled = false;
+			}
+
+			if (name.Equals("Settings"))
+			{
+				PointsLayout.IsVisible = false;
+				PointsLayout.IsEnabled = false;
+				HistoryLayout.IsVisible = false;
+				HistoryLayout.IsEnabled = false;
+				SettingsLayout.IsVisible = true;
+				SettingsLayout.IsEnabled = true;
+
+				SettingsView.ControlTemplate = settings;
+			}
 		}
 	}
 }

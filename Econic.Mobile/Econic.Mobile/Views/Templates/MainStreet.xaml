@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Templates.MainStreet">
+  <ContentView.Content>
+        <StackLayout
+          Padding="0, 10, 0, 10">
+            <Label Text="MY MAIN STREET VIEW"
+                   FontSize="20"
+                   FontFamily="QuicksandBold"
+                   TextColor="#343434"/>
+            <Label Text="Climb the levels to revive your main street!"/>
+            <Image Source="disabledmainstreet.png"
+                   HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

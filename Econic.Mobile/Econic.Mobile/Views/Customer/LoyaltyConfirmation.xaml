@@ -9,163 +9,172 @@
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-            <StackLayout Padding="20, 0, 20, 10">
-                <Label Text="Hi, Jeanie"
+                <StackLayout Padding="20, 0, 20, 10">
+                    <Label Text="Hi, Jeanie"
                    FontSize="24"
                    HorizontalOptions="Start"
                    FontFamily="QuicksandBold"
                        TextColor="#343434"/>
 
-                    <buttons:SfSegmentedControl x:Name="segControl"/>
+                    <buttons:SfSegmentedControl x:Name="segControl"
+                                                HorizontalOptions="StartAndExpand"/>
 
-
-                    <Label Text="MY POINTS"
+                    <StackLayout x:Name="PointsLayout">
+                        <Label Text="MY POINTS"
                        FontFamily="QuicksandBold"
                        Padding="0, 20, 0, 10"/>
-                    <Label Text="500/1000 more points to earn a token"/>
-                    <progressBar:SfStepProgressBar x:Name="stepProgressBar"
+                        <Label Text="500/1000 more points to earn a token"/>
+                        <progressBar:SfStepProgressBar x:Name="stepProgressBar"
                                                   Padding="0, 10, 0, 20"/>
-                <Label Text="MY PROGRESS"
+                        <Label Text="MY PROGRESS"
                        FontFamily="QuicksandBold"
                        Padding="0, 0,0 , 10"/>
-                <StackLayout>
-                    <Frame x:Name="frame" 
+                        <StackLayout>
+                            <Frame x:Name="frame" 
                        CornerRadius="18"
                        HasShadow="True"
                        BorderColor="WhiteSmoke"
                        HeightRequest="80">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped ="TapGestureRecognizer_Tapped"/>
-                        </Frame.GestureRecognizers>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width=".25*"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Source="icon_tree_disabled.png"
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped ="TapGestureRecognizer_Tapped"/>
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width=".25*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="icon_tree_disabled.png"
                                Grid.Column="0"
                                HeightRequest="100"/>
-                            <StackLayout Grid.Column="1" 
+                                    <StackLayout Grid.Column="1" 
                                      Padding="10, 0, 0, 0" 
                                      VerticalOptions="CenterAndExpand">
-                                <Label Text="Level 5"
+                                        <Label Text="Level 5"
                                    FontFamily="QuicksandBold"
                                    FontSize="20"
                                    HorizontalTextAlignment="Start"/>
-                                <Label Text="Learn more about levels"
+                                        <Label Text="Learn more about levels"
                                    HorizontalTextAlignment="Start"/>
-                            </StackLayout>
+                                    </StackLayout>
 
-                            <StackLayout Orientation="Horizontal" 
+                                    <StackLayout Orientation="Horizontal" 
                                      HeightRequest="20"
                                      Grid.Column="2">
-                                <Image 
+                                        <Image 
                                    Source="forward_arrow.png" 
                                    HeightRequest="20"
                                    HorizontalOptions="EndAndExpand"/>
-                            </StackLayout>
-                        </Grid>
-                    </Frame>
-                </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
 
-                <StackLayout>
-                    <Frame x:Name="blackfridayframe" 
+                        <StackLayout>
+                            <Frame x:Name="blackfridayframe" 
                        CornerRadius="18"
                        HasShadow="True"
                        BorderColor="WhiteSmoke"
                        HeightRequest="80"
                        Padding="0, 25, 0, 10">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped ="TapGestureRecognizer_Tapped"/>
-                        </Frame.GestureRecognizers>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="2*"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <StackLayout Orientation="Horizontal" 
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped ="TapGestureRecognizer_Tapped"/>
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Orientation="Horizontal" 
                                      Grid.Row="0"
                                      HorizontalOptions="CenterAndExpand">
-                                <Image Source="loyalty_bages_day_disabled.png"
+                                        <Image Source="loyalty_bages_day_disabled.png"
                                />
-                                <Image Source="circle.png"
+                                        <Image Source="circle.png"
                                
                                HeightRequest="100"/>
-                                <Image Source="circle.png"
+                                        <Image Source="circle.png"
                                
                                HeightRequest="100"/>
-                                <Image Source="circle.png"
+                                        <Image Source="circle.png"
                                
                                HeightRequest="100"/>
-                                <Image Source="circle.png"
+                                        <Image Source="circle.png"
                                
                                HeightRequest="100"/>
-                                <Image Source="inactivefriday.png"
+                                        <Image Source="inactivefriday.png"
                                    HeightRequest="150"/>
-                            </StackLayout>
-                                <BoxView HeightRequest=".25" Grid.Row="1" BackgroundColor="SlateGray"/>
-                                <StackLayout Orientation="Horizontal" 
+                                    </StackLayout>
+                                    <BoxView HeightRequest=".25" Grid.Row="1" BackgroundColor="SlateGray"/>
+                                    <StackLayout Orientation="Horizontal" 
                                      HorizontalOptions="CenterAndExpand"
                                      HeightRequest="10"
                                      Grid.Row="2">
-                                    
-                                    <Label Text="View all"/>
-                                <Image
+
+                                        <Label Text="View all"/>
+                                        <Image
                                    Source="forward_arrow.png" 
                                    HeightRequest="10"
                                    HorizontalOptions="EndAndExpand"/>
-                            </StackLayout>
-                        </Grid>
-                    </Frame>
-                </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
 
-                <StackLayout>
-                    <Frame x:Name="tokenframe" 
+                        <StackLayout>
+                            <Frame x:Name="tokenframe" 
                        CornerRadius="18"
                        HasShadow="True"
                        BorderColor="WhiteSmoke"
                        HeightRequest="100"
                        >
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped ="TapGestureRecognizer_Tapped"/>
-                        </Frame.GestureRecognizers>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width=".25*"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Source="img_token_yellow.png"
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped ="TapGestureRecognizer_Tapped"/>
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width=".25*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="img_token_yellow.png"
                                Grid.Column="0"
                                HeightRequest="60"/>
-                            <StackLayout Grid.Column="1" Padding="10, 0, 0, 0" VerticalOptions="CenterAndExpand">
-                                <Label Text="You have 24 Tokens"
+                                    <StackLayout Grid.Column="1" Padding="10, 0, 0, 0" VerticalOptions="CenterAndExpand">
+                                        <Label Text="You have 24 Tokens"
                                    FontFamily="QuicksandBold"
                                    FontSize="20"
                                    HorizontalTextAlignment="Start"/>
-                                <Label Text="What can I do with my tokens?"
+                                        <Label Text="What can I do with my tokens?"
                                    HorizontalTextAlignment="Start"/>
-                            </StackLayout>
+                                    </StackLayout>
 
-                            <StackLayout Orientation="Horizontal" 
+                                    <StackLayout Orientation="Horizontal" 
                                      HeightRequest="20"
                                      Grid.Column="2">
-                                <Image 
+                                        <Image 
                                    Source="forward_arrow.png" 
                                    HeightRequest="20"
                                    HorizontalOptions="EndAndExpand"/>
-                            </StackLayout>
-                        </Grid>
-                    </Frame>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+
+                    </StackLayout>
+                    <StackLayout x:Name="HistoryLayout">
+                        <ContentView x:Name="HistoryView"/>
+                    </StackLayout>
+                    <StackLayout x:Name="SettingsLayout">
+                        <ContentView x:Name="SettingsView"/>
+                    </StackLayout>
                 </StackLayout>
- 
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
         <StackLayout>
-            <ContentView x:Name="TabbedView"
-                         Padding="0"/>
+        <ContentView x:Name="TabbedView"
+                     Padding="0"
+                     VerticalOptions="EndAndExpand"/>
         </StackLayout>
         </StackLayout>
     </ContentPage.Content>
