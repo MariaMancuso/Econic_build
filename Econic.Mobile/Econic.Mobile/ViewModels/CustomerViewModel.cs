@@ -201,5 +201,21 @@ namespace Econic.Mobile.ViewModels
 				}
 			}
 		}
+
+        ObservableCollection<CustomerLevels> levels = new ObservableCollection<CustomerLevels>();
+        public ObservableCollection<CustomerLevels> SetLevelImages()
+		{
+            levels.Add(new CustomerLevels() { level = 1, disabled = "icon_tree_disabled.png", abled = "icon_tree_idle.png" });
+            levels.Add(new CustomerLevels() { level = 2, disabled = "icon_traffic_disabled.png", abled = "icon_traffic_idle.png" });
+            levels.Add(new CustomerLevels() { level = 3, disabled = "icon_road_disabled.png", abled = "icon_road_idle.png" });
+            levels.Add(new CustomerLevels() { level = 4, disabled = "icon_playground_disabled.png", abled = "icon_playground_idle.png" });
+            levels.Add(new CustomerLevels() { level = 5, disabled = "icon_sidewalk_disabled.png", abled = "icon_sidewalk_idle.png" });
+            levels.Add(new CustomerLevels() { level = 6, disabled = "icon_store_disabled.png", abled = "icon_store_idle.png" });
+            levels.Add(new CustomerLevels() { level = 7, disabled = "icon_help_neighbors_disabled.png", abled = "icon_help_neighbors_idle.png" });
+            levels.Add(new CustomerLevels() { level = 8, disabled = "icon_plant_garden_disabled.png", abled = "icon_plant_garden_idle.png" });
+            levels.Add(new CustomerLevels() { level = 9, disabled = "icon_run_office_disabled.png", abled = "icon_run_office_idle.png" });
+            return levels;
+		}
+
     }
 }

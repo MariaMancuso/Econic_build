@@ -20,6 +20,8 @@ namespace Econic.Mobile.Views.Customer
 		ControlTemplate tabbed = new ControlTemplate(typeof(TabbedView));
 		ControlTemplate history = new ControlTemplate(typeof(LoyaltyHistory));
 		ControlTemplate settings = new ControlTemplate(typeof(CustomerSettings));
+		ControlTemplate mainstreet = new ControlTemplate(typeof(MainStreet));
+		ControlTemplate badges = new ControlTemplate(typeof(Badges));
 		public LoyaltyConfirmation()
 		{
 			InitializeComponent();
@@ -32,11 +34,34 @@ namespace Econic.Mobile.Views.Customer
 
 
 			CreateSegmentedControl();
-			HistoryLayout.IsVisible = false;
-			HistoryLayout.IsEnabled = false;
+			History(false);
+			Settings(false);
+			MainStreet(false);
+			Badges(false);
+			Points(true);
 		}
 
-		private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+		private void Points_Tapped(object sender, EventArgs e)
+		{
+			StreetView.ControlTemplate = mainstreet;
+			Points(false);
+			History(false);
+			Settings(false);
+			Badges(false);
+			MainStreet(true);
+		}
+
+		private void blackFriday_Tapped(object sender, EventArgs e)
+		{
+			BadgeView.ControlTemplate = badges;
+			Points(false);
+			History(false);
+			Settings(false);
+			MainStreet(false);
+			Badges(true);
+		}
+
+		private void Token_Tapped(object sender, EventArgs e)
 		{
 
 		}
@@ -123,37 +148,64 @@ namespace Econic.Mobile.Views.Customer
 			Console.WriteLine(name);
 			if(name.Equals("History"))
 			{
-				PointsLayout.IsVisible = false;
-				PointsLayout.IsEnabled = false;
-				HistoryLayout.IsVisible = true;
-				HistoryLayout.IsEnabled = true;
-				SettingsLayout.IsVisible = false;
-				SettingsLayout.IsEnabled = false;
+				Points(false);
+				Settings(false);
+				MainStreet(false);
+				Badges(false);
+				History(true);
 				HistoryView.ControlTemplate = history;
 				
 			}
 
 			if (name.Equals("Loyalty"))
 			{
-				PointsLayout.IsVisible = true;
-				PointsLayout.IsEnabled = true;
-				HistoryLayout.IsVisible = false;
-				HistoryLayout.IsEnabled = false;
-				SettingsLayout.IsVisible = false;
-				SettingsLayout.IsEnabled = false;
+				Points(true);
+				History(false);
+				Settings(false);
+				MainStreet(false);
+				Badges(false);
 			}
 
 			if (name.Equals("Settings"))
 			{
-				PointsLayout.IsVisible = false;
-				PointsLayout.IsEnabled = false;
-				HistoryLayout.IsVisible = false;
-				HistoryLayout.IsEnabled = false;
-				SettingsLayout.IsVisible = true;
-				SettingsLayout.IsEnabled = true;
+				Points(false);
+				History(false);
+				Settings(true);
+				MainStreet(false);
+				Badges(false);
 
 				SettingsView.ControlTemplate = settings;
 			}
+		}
+
+		private void Points(bool visible)
+		{
+			PointsLayout.IsVisible = visible;
+			PointsLayout.IsEnabled = visible;
+		}
+
+		private void History(bool visible)
+		{
+			HistoryLayout.IsVisible = visible;
+			HistoryLayout.IsEnabled = visible;
+		}
+
+		private void Settings(bool visible)
+		{
+			SettingsLayout.IsVisible = visible;
+			SettingsLayout.IsEnabled = visible;
+		}
+
+		private void MainStreet(bool visible)
+		{
+			StreetLayout.IsVisible = visible;
+			StreetLayout.IsEnabled = visible;
+		}
+
+		private void Badges(bool visible)
+		{
+			BadgeLayout.IsVisible = visible;
+			BadgeLayout.IsEnabled = visible;
 		}
 	}
 }
