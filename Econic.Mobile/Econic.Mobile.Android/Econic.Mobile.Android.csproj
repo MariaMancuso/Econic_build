@@ -328,7 +328,6 @@
     <AndroidResource Include="Resources\drawable\icon_settings.png" />
   </ItemGroup>
   <ItemGroup>
-
     <AndroidResource Include="Resources\drawable\img_token_yellow.png" />
   </ItemGroup>
   <ItemGroup>
@@ -369,7 +368,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\img_ziba_logo.png" />
-
     <AndroidResource Include="Resources\drawable\icon_qr.png" />
   </ItemGroup>
   <ItemGroup>
@@ -383,13 +381,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon_message.png" />
-
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\forward_arrow.png" />
   </ItemGroup>
   <ItemGroup>
-
     <AndroidResource Include="Resources\drawable\magic_white_arrow.png" />
   </ItemGroup>
   <ItemGroup>
@@ -502,7 +498,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ziba_quick_action_purchase.png" />
-
     <AndroidResource Include="Resources\drawable\empty_profile.png" />
   </ItemGroup>
   <ItemGroup>
@@ -528,7 +523,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon_bankhelp.PNG" />
-
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\unactive_account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\unactive_alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\unactive_dashboard.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

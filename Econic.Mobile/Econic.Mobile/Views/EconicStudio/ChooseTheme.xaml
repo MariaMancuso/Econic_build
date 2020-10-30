@@ -22,9 +22,9 @@
                 
                     <CarouselView PeekAreaInsets="100"
                                   ItemsSource="{Binding templates}"
-                                  CurrentItemChanged="OnCurrentItemChanged"
+                                  
                                   x:Name="carouselView"
-                                  HeightRequest="475">
+                                  HeightRequest="475"><!--CurrentItemChanged="OnCurrentItemChanged"-->
                         <CarouselView.ItemTemplate>
                             <DataTemplate >
                             <StackLayout>
@@ -101,7 +101,7 @@
                         FontFamily="QuicksandBold"
                         CornerRadius="25"
                         FontSize="16"
-                        Clicked="Button_Clicked"/>
+                        />
 
                 <ContentView ControlTemplate="{StaticResource Footer}"
                          VerticalOptions="EndAndExpand"

@@ -31,15 +31,15 @@ namespace Econic.Mobile.Views.EconicStudio
 			CreateBoxGrid();
 		}
 
-		void OnCurrentItemChanged(object sender, CurrentItemChangedEventArgs e) 
-		{
-			previousItem = e.PreviousItem as ControlTemplates;
-			currentItem = e.CurrentItem as ControlTemplates;
-			//control.ItemChanged(currentItem);
-			//Console.WriteLine(currentItem.name);
-			template = currentItem.name;
-			//Console.WriteLine(template);
-		}
+		//void OnCurrentItemChanged(object sender, CurrentItemChangedEventArgs e) 
+		//{
+		//	previousItem = e.PreviousItem as ControlTemplates;
+		//	currentItem = e.CurrentItem as ControlTemplates;
+		//	//control.ItemChanged(currentItem);
+		//	//Console.WriteLine(currentItem.name);
+		//	template = currentItem.name;
+		//	//Console.WriteLine(template);
+		//}
 
 		private void CreateBoxGrid()
 		{
@@ -67,18 +67,18 @@ namespace Econic.Mobile.Views.EconicStudio
 
 		}
 
-		private async void Button_Clicked(object sender, EventArgs e)
-		{
-			if (template != null)
-			{
+		//private async void Button_Clicked(object sender, EventArgs e)
+		//{
+		//	if (template != null)
+		//	{
 
-				control.ChangeThemeInfo(template);
-				await Navigation.PushAsync(new ChooseLogo());
-			}
-			else
-			{
-				Console.WriteLine("Oops! Something went wrong!");
-			}
-		}
+		//		control.ChangeThemeInfo(template);
+		//		//await Navigation.PushAsync(new ChooseLogo(OwnerBoardingViewModel));
+		//	}
+		//	else
+		//	{
+		//		Console.WriteLine("Oops! Something went wrong!");
+		//	}
+		//}
 	}
 }
