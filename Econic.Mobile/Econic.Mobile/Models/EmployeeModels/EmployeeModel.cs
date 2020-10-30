@@ -8,6 +8,6 @@ namespace Econic.Mobile.Models.EmployeeModels
     public class EmployeeModel
     {
         public ObservableCollection<EmployeeSpecialitiesModel> EmployeeSpecialities { get; set; }
-        public ObservableCollection<EmployeeScheduleModel> EmployeeSchedules { get; set; }
+        public ObservableCollection<ScheduleModel> EmployeeSchedules { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Econic.Mobile.ViewModels;
+﻿using Econic.Mobile.Models;
+using Econic.Mobile.ViewModels;
 using Econic.Mobile.Views.Customer;
 using Econic.Mobile.Views.OwnerProfile;
 using Econic.Mobile.Views.OwnerReg;
@@ -22,7 +23,8 @@ namespace Econic.Mobile
         }
         async void OwnerClicked(object sender, EventArgs arg)
         {
-            OwnerViewModel model = new OwnerViewModel();
+            /*OwnerModel owner = new OwnerModel();
+            OwnerViewModel model = new OwnerViewModel(owner);
             var page = new Hamburger { BindingContext = model };
             //page.Master = new HamburgerMaster { BindingContext = model };
             page.Detail = new NavigationPage(new OwnerTabbedPage 
@@ -33,8 +35,8 @@ namespace Econic.Mobile
             { 
                 BarBackgroundColor = Color.WhiteSmoke,
                 BackgroundColor = Color.WhiteSmoke
-            };
-            await Navigation.PushAsync(page) ;
+            };*/
+            await Navigation.PushAsync(new WelcomeSplash()) ;
         }
 
         async void EmployeeClicked(object sender, EventArgs arg)

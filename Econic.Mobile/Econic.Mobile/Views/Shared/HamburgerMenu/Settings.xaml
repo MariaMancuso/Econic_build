@@ -3,75 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Econic.Mobile.Views.Shared.HamburgerMenu.Settings"
             BarBackgroundColor="WhiteSmoke"
+            xmlns:pages="clr-namespace:Econic.Mobile.Views.Shared.HamburgerMenu"
             SelectedTabColor="#404040" 
-            UnselectedTabColor="#adadad" Padding="20, 0, 20, 0">
-    <ContentPage Title="Settings" BackgroundColor="WhiteSmoke">
-        <ContentPage.Content>
-            <StackLayout>
-                <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
-                    <StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="icon_contacts" WidthRequest="30" HeightRequest="30" />
-                            <Label Text="Contact Details" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
-                        </StackLayout>
-                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0"/>
-                    </StackLayout>
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="ContactDetails"/>
-                    </Frame.GestureRecognizers>
-                </Frame>
-                <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
-                    <StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="icon_card" WidthRequest="30" HeightRequest="30" />
-                            <Label Text="Payment Methods" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
-                        </StackLayout>
-                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0"/>
-                    </StackLayout>
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="Payments" />
-                    </Frame.GestureRecognizers>
-                </Frame>
-                <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
-                    <StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="icon_privacy" WidthRequest="30" HeightRequest="30" />
-                            <Label Text="Privacy and Security" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
-                        </StackLayout>
-                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0"/>
-                    </StackLayout>
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="Privacy"  />
-                    </Frame.GestureRecognizers>
-                </Frame>
-                <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
-                    <StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="icon_languages" WidthRequest="30" HeightRequest="30" />
-                            <Label Text="Languages" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
-                        </StackLayout>
-                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0"/>
-                    </StackLayout>
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="Languages" />
-                    </Frame.GestureRecognizers>
-                </Frame>
-                <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
-                    <StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="icon_revyvvweb" WidthRequest="30" HeightRequest="30" />
-                            <Label Text="Revyvv Web" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
-                        </StackLayout>
-                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0"/>
-                    </StackLayout>
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="Revyvvweb" />
-                    </Frame.GestureRecognizers>
-                </Frame>
-            </StackLayout>
-        </ContentPage.Content>
-    </ContentPage>
-    <ContentPage Title="Schedule" BackgroundColor="WhiteSmoke">
+            UnselectedTabColor="#adadad" Padding="20, 0, 20, 0"
+            BackgroundColor="WhiteSmoke">
 
-    </ContentPage>
+    <TabbedPage.Children>
+
+        <pages:SettingList Title="Settings"/>
+        <ContentPage Title="Schedule" BackgroundColor="WhiteSmoke">
+
+        </ContentPage>
+    </TabbedPage.Children>
 </TabbedPage>

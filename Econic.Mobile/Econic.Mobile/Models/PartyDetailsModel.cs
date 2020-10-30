@@ -15,6 +15,6 @@ namespace Econic.Mobile.Models
         public long Number { get; set; }
         public int CountryCode { get; set; }
         public AddressModel Address { get; set; }
-        public ObservableCollection<EmployeeScheduleModel> Schedule { get; set; }
+        public ObservableCollection<ScheduleModel> Schedule { get; set; }
     }
 }

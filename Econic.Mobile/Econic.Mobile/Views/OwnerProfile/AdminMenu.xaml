@@ -41,6 +41,18 @@
                     <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
                         <StackLayout>
                             <StackLayout Orientation="Horizontal">
+                                <Image Source="icon_purchase" WidthRequest="30" HeightRequest="30" />
+                                <Label Text="Purchases" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                            </StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PurchaseTapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
                                 <Image Source="icon_contacts" WidthRequest="30" HeightRequest="30" />
                                 <Label Text="Customers" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
                             </StackLayout>
@@ -59,7 +71,7 @@
                             <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
                         </StackLayout>
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="Payments" />
+                            <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="" />
                         </Frame.GestureRecognizers>
                     </Frame>
                     <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
@@ -83,7 +95,7 @@
                             <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
                         </StackLayout>
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="Languages" />
+                            <TapGestureRecognizer Tapped="GoodAndServicesTapped" />
                         </Frame.GestureRecognizers>
                     </Frame>
                     <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
@@ -108,6 +120,18 @@
                         </StackLayout>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="QrTapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="icon_location" WidthRequest="30" HeightRequest="30" />
+                                <Label Text="Business Locations" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                            </StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="LocationsTapped" />
                         </Frame.GestureRecognizers>
                     </Frame>
                 </StackLayout>

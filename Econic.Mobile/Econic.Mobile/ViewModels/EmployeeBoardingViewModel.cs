@@ -21,7 +21,7 @@ namespace Econic.Mobile.ViewModels
     public class EmployeeBoardingViewModel : INotifyPropertyChanged
     {
         EmployeeModel employee;
-        EmployeeScheduleModel scheduleModel;
+        ScheduleModel scheduleModel;
         ObservableCollection<OwnerGoalModel> goals;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -45,15 +45,15 @@ namespace Econic.Mobile.ViewModels
                 {
                     new EmployeeSpecialitiesModel()
                 },
-                EmployeeSchedules = new ObservableCollection<EmployeeScheduleModel>()
+                EmployeeSchedules = new ObservableCollection<ScheduleModel>()
                 {
-                    new EmployeeScheduleModel { Day = "Sunday" },
-                    new EmployeeScheduleModel { Day = "Monday" },
-                    new EmployeeScheduleModel { Day = "Tuesday" },
-                    new EmployeeScheduleModel { Day = "Wednesday" },
-                    new EmployeeScheduleModel { Day = "Thursday" },
-                    new EmployeeScheduleModel { Day = "Friday" },
-                    new EmployeeScheduleModel { Day = "Saturday" }
+                    new ScheduleModel { Day = "Sunday" },
+                    new ScheduleModel { Day = "Monday" },
+                    new ScheduleModel { Day = "Tuesday" },
+                    new ScheduleModel { Day = "Wednesday" },
+                    new ScheduleModel { Day = "Thursday" },
+                    new ScheduleModel { Day = "Friday" },
+                    new ScheduleModel { Day = "Saturday" }
                 }
             };
             goals = new ObservableCollection<OwnerGoalModel>()
@@ -88,7 +88,7 @@ namespace Econic.Mobile.ViewModels
         public ICommand SpecialityRemoveTapped { private set; get; }
         public ICommand DayTappedCommand { private set; get; }
 
-        public EmployeeScheduleModel CurrentItem { get; set; }
+        public ScheduleModel CurrentItem { get; set; }
         public SelectionViewModel ECMSelectionViewModel
         {
             get { return new SelectionViewModel(); }
@@ -219,7 +219,7 @@ namespace Econic.Mobile.ViewModels
             if (CurrentItem != null)
                 CurrentItem.IsSelected = false;
 
-            EmployeeScheduleModel model = sender as EmployeeScheduleModel;
+            ScheduleModel model = sender as ScheduleModel;
             scheduleModel = model;
             CurrentItem = scheduleModel;
             CurrentItem.IsSelected = true;

@@ -33,6 +33,78 @@ namespace Econic.Mobile.Services
 
 		#endregion
 	}
+	public class OrderVerfiedLabelConverter : IValueConverter
+	{
+
+		#region IValueConverter implementation
+
+		public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			if (value is bool)
+			{
+				if ((Boolean)value)
+					return "Payment verified";
+				else
+					return "Payment not verified";
+			}
+			return null;
+		}
+
+		public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			throw new NotImplementedException();
+		}
+
+		#endregion
+	}
+	public class OrderVerfiedtextColorConverter : IValueConverter
+	{
+
+		#region IValueConverter implementation
+
+		public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			if (value is bool)
+			{
+				if ((Boolean)value)
+					return Color.FromHex("#3E8F52");
+				else
+					return Color.FromHex("#D03737");
+			}
+			return null;
+		}
+
+		public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			throw new NotImplementedException();
+		}
+
+		#endregion
+	}
+	public class OrderHeaderConverter : IValueConverter
+	{
+
+		#region IValueConverter implementation
+
+		public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			if (value is bool)
+			{
+				if ((Boolean)value)
+					return "Proof of Purchase";
+				else
+					return "Order Fullfillment";
+			}
+			return null;
+		}
+
+		public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			throw new NotImplementedException();
+		}
+
+		#endregion
+	}
 	public class OrderStatusBorderConverter : IValueConverter
 	{
 

@@ -17,6 +17,8 @@ namespace Econic.Mobile.Models
         public string BusinessName { get; set; }
         public string Product { get; set; }
         public AddressModel Address { get; set; }
+        public string BusinessNumber { get; set; }
+        public string Title { get; set; }
         public int MonthlySales { get; set; }
         public string ServiceArea { get; set; }
         public ObservableCollection<OwnerGoalModel> Goals { get; set; }
@@ -28,6 +30,7 @@ namespace Econic.Mobile.Models
         public ObservableCollection<CustomerPartyDetailsModel> Customers { get; set; }
         public bool HasEmployees { get; set; }
         public Account Account { get; set; }
-
+        public ObservableCollection<DetailOrderModel> Orders { get; set; }
+        public ObservableCollection<BusinessLocationModel> BusinessLocations { get; set; }
     }
 }

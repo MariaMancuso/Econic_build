@@ -15,6 +15,7 @@ namespace Econic.Mobile.Views.Shared.HamburgerMenu
         {
             InitializeComponent();
 			BindingContext = new StripLinesViewModel();
+			buttonlist.ItemsSource = new string[] { "1 wk", "1m", "3m", "6m", "1y" };
 		}
     }
 	public class StripLinesViewModel

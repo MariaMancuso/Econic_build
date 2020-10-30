@@ -20,7 +20,7 @@
                 <Label Text="{Binding CustomerSelected.StartDate, StringFormat='Customer Since {0:MMMM dd, yyyy}'}" TextColor="Gray" FontFamily="QuicksandSemiBold" VerticalOptions="Center" />
             </StackLayout>
             <StackLayout Grid.Row="3">
-                <sync:SfListView Orientation="Horizontal" SelectedItem="History" x:Name="buttonlist" ItemSize="80" HeightRequest="40" RowSpacing="0" ColumnSpacing="0" SelectionChangedCommand="{Binding CustomerTabCommand}">
+                <sync:SfListView Orientation="Horizontal" SelectedItem="History" WidthRequest="160" x:Name="buttonlist" ItemSize="80" HeightRequest="40" RowSpacing="0" ColumnSpacing="0" SelectionChangedCommand="{Binding CustomerTabCommand}">
                     <sync:SfListView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout>

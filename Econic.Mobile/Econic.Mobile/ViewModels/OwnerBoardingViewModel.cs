@@ -5,6 +5,7 @@ using Econic.Mobile.Views.Gamification;
 using Econic.Mobile.Views.OwnerProfile;
 using Econic.Mobile.Views.OwnerReg;
 using Econic.Mobile.Views.Shared;
+using Econic.Mobile.Views.Shared.HamburgerMenu;
 using PropertyChanged;
 using System;
 using System.Collections.Generic;
@@ -157,8 +158,8 @@ namespace Econic.Mobile.ViewModels
                         itemToEdit = null;
                     }
 
-                    if(mode == "edit" || mode == "addfromprofile")
-                        await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices(this));
+                    if (mode == "edit" || mode == "addfromprofile")
+                        await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices { BindingContext = this }) ;
                     else
                         await Application.Current.MainPage.Navigation.PushAsync(new  SecondPreview(this));
 
@@ -202,7 +203,19 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new FifthPreview(this));
                     break;
                 case "Profile":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Views.OwnerProfile.AdminMenu() { BindingContext = this});
+                    OwnerViewModel model = new OwnerViewModel(owner);
+                    var page = new Hamburger { BindingContext = model };
+                    //page.Master = new HamburgerMaster { BindingContext = model };
+                    page.Detail = new NavigationPage(new OwnerTabbedPage
+                    {
+                        BindingContext = model,
+                        BarBackgroundColor = Color.WhiteSmoke
+                    })
+                    {
+                        BarBackgroundColor = Color.WhiteSmoke,
+                        BackgroundColor = Color.WhiteSmoke
+                    };
+                    await Application.Current.MainPage.Navigation.PushAsync(page);
                     break;
                 case "EconicStudio":
                     await Application.Current.MainPage.Navigation.PushAsync(new Views.EconicStudio.WelcomeScreen(this));
@@ -231,7 +244,7 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new QRCodes { BindingContext = this});
                     break;
                 case "ProductAndServices":
-                    await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices(this));
+                    await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices { BindingContext = this });
                     break;
                 default:
                     return;

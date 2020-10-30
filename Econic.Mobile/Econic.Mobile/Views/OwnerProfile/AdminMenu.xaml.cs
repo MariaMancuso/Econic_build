@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Econic.Mobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,22 @@ namespace Econic.Mobile.Views.OwnerProfile
         }
         public async void CustomersTapped(object sender, EventArgs args)
         {
+            var model = this.BindingContext as OwnerViewModel;
+            model.CurrentView = new CustomerHistoryView();
             await Navigation.PushAsync(new CustomerList { BindingContext = this.BindingContext });
+        }
+        public async void PurchaseTapped(object sender, EventArgs args)
+        {
+            var model = this.BindingContext as OwnerViewModel;
+            await Navigation.PushAsync(new OrderList { BindingContext = this.BindingContext });
+        }
+        public async void LocationsTapped(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new BusinessLocationList { BindingContext = this.BindingContext });
+        }
+        public async void GoodAndServicesTapped(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new ProductsAndServices { BindingContext = this.BindingContext });
         }
     }
 }

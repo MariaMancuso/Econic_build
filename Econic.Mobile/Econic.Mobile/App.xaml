@@ -147,8 +147,8 @@
             </StackLayout>
         </ControlTemplate>
         
-        <ControlTemplate x:Key="NavigationTemplate">
-            <Grid VerticalOptions="FillAndExpand" Padding="0" HorizontalOptions="FillAndExpand">
+        <ControlTemplate x:Key="NavigationTemplate" >
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="20, 0, 20, 10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />
                     <RowDefinition Height="*" />
@@ -165,7 +165,7 @@
                     <Label Grid.Column="1" Text="ECONIC" HorizontalOptions="CenterAndExpand" TextColor="Silver" FontSize="16" />
 
                 </Grid>
-                <ContentPresenter VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="1" Padding="5, 0, 5, 10" />
+                <ContentPresenter VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="1" />
             </Grid>
         </ControlTemplate>
 

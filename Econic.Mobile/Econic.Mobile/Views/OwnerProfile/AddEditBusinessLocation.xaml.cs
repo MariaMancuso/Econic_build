@@ -1,5 +1,4 @@
-﻿using Econic.Mobile.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Econic.Mobile.Views.OwnerProfile
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProductsAndServices : ContentPage
+    public partial class AddEditBusinessLocation : ContentPage
     {
-        public ProductsAndServices()
+        public AddEditBusinessLocation()
         {
             InitializeComponent();
         }

@@ -21,7 +21,7 @@ namespace Econic.Mobile.Views.Shared
             InitializeComponent();
 
         }
-        private void ListView_ItemDraggingAsync(object sender, ItemDraggingEventArgs e)
+        /*private void ListView_ItemDraggingAsync(object sender, ItemDraggingEventArgs e)
         {
             if (e.Action == DragAction.Drop)
             {
@@ -40,6 +40,6 @@ namespace Econic.Mobile.Views.Shared
             {
                 model.Goals[i].Value = i;
             }
-        }
+        }*/
     }
 }

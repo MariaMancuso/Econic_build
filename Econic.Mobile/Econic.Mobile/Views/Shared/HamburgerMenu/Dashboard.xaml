@@ -4,21 +4,50 @@
              x:Class="Econic.Mobile.Views.Shared.HamburgerMenu.Dashboard" 
             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms" 
             xmlns:sys="clr-namespace:System;assembly=netstandard" 
-            NavigationPage.HasNavigationBar="True" Padding="20, 0, 20, 0">
+             xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" 
+             NavigationPage.HasNavigationBar="True" Padding="20, 0, 20, 0">
 
     <NavigationPage.TitleView>
         <Label Text="Hello, Jonathan Maldonado" TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" />
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
-        <Grid RowSpacing="10">
+        <Grid RowSpacing="20">
             <Grid.RowDefinitions>
+                <RowDefinition Height="8*" />
+                <RowDefinition Height="8*" />
                 <RowDefinition Height="35*" />
                 <RowDefinition Height="8*" />
-                <RowDefinition Height="57*" />
+                <RowDefinition Height="50*" />
             </Grid.RowDefinitions>
 
-            <chart:SfChart x:Name="Chart" BackgroundColor="Transparent" Grid.Row="0" SideBySideSeriesPlacement="False">
+            <StackLayout Grid.Row="0" Spacing="5">
+                <Label  Text="Dashboard" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" HorizontalTextAlignment="Start" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="My Goal: $10,000" FontFamily="QuicksandBold" TextColor="#404040"  HorizontalTextAlignment="Start" />
+                    <Label Text="25% Achieved" FontFamily="QuicksandBold" TextColor="#D03737" HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+            </StackLayout>
+            <sync:SfListView Grid.Row="1" Orientation="Horizontal" SelectedItem="1 wk" WidthRequest="160" x:Name="buttonlist" ItemSize="60" HeightRequest="40" RowSpacing="0" ColumnSpacing="0" SelectionChangedCommand="{Binding CustomerTabCommand}">
+                <sync:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding .}" TextColor="#8b8589" FontFamily="QuicksandBold" />
+                            <BoxView HeightRequest="2" BackgroundColor="#8b8589" />
+                        </StackLayout>
+                    </DataTemplate>
+                </sync:SfListView.ItemTemplate>
+                <sync:SfListView.SelectedItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding .}" TextColor="#404040" FontFamily="QuicksandBold" />
+                            <BoxView HeightRequest="2" BackgroundColor="#404040" />
+                        </StackLayout>
+                    </DataTemplate>
+                </sync:SfListView.SelectedItemTemplate>
+            </sync:SfListView>
+            
+            <chart:SfChart x:Name="Chart" BackgroundColor="Transparent" Grid.Row="2" SideBySideSeriesPlacement="False">
                 <chart:SfChart.PrimaryAxis>
                     <chart:CategoryAxis ShowMajorGridLines="False">
                         <chart:CategoryAxis.LabelStyle>
@@ -53,34 +82,34 @@
                 </chart:SfChart.Series>
             </chart:SfChart>
 
-            <Button Grid.Row="1" BackgroundColor="#404040" Text="Push Me!" TextColor="White" CornerRadius="5" FontFamily="QuicksandBold" FontSize="12"/>
+            <Button Grid.Row="3" BackgroundColor="#404040" Text="Push Me!" TextColor="White" CornerRadius="5" FontFamily="QuicksandBold" FontSize="12"/>
             
-            <StackLayout Grid.Row="2">
+            <StackLayout Grid.Row="4">
                 <Grid RowSpacing="15" ColumnSpacing="15">
                     <Frame Grid.Row="0" Grid.Column="0" CornerRadius="10" BorderColor="#f0f0f0">
                         <StackLayout>
-                            <Image BackgroundColor="Pink" WidthRequest="30" HeightRequest="30" HorizontalOptions="Center" />
+                            <Image BackgroundColor="Pink" WidthRequest="25" HeightRequest="25" HorizontalOptions="Center" />
                             <Label Text="Customer Views" FontFamily="Quicksand" TextColor="#404040" HorizontalTextAlignment="Center" />
                             <Label Text="123" TextColor="#404040" FontFamily="QuicksandBold" HorizontalTextAlignment="Center" />
                         </StackLayout>
                     </Frame>
                     <Frame Grid.Row="0" Grid.Column="1" CornerRadius="10" BorderColor="#f0f0f0">
                         <StackLayout>
-                            <Image BackgroundColor="Pink" WidthRequest="30" HeightRequest="30" HorizontalOptions="Center" />
+                            <Image BackgroundColor="Pink" WidthRequest="25" HeightRequest="25" HorizontalOptions="Center" />
                             <Label Text="Goods Sold" FontFamily="Quicksand" TextColor="#404040" HorizontalTextAlignment="Center" />
                             <Label Text="20" TextColor="#404040" FontFamily="QuicksandBold" HorizontalTextAlignment="Center" />
                         </StackLayout>
                     </Frame>
                     <Frame Grid.Row="1" Grid.Column="0" CornerRadius="10" BorderColor="#f0f0f0">
                         <StackLayout>
-                            <Image BackgroundColor="Pink" WidthRequest="30" HeightRequest="30" HorizontalOptions="Center" />
+                            <Image BackgroundColor="Pink" WidthRequest="25" HeightRequest="25" HorizontalOptions="Center" />
                             <Label Text="Money Earned" FontFamily="Quicksand" TextColor="#404040" HorizontalTextAlignment="Center" />
                             <Label Text="250" TextColor="#404040" FontFamily="QuicksandBold" HorizontalTextAlignment="Center" />
                         </StackLayout>
                     </Frame>
                     <Frame Grid.Row="1" Grid.Column="1" CornerRadius="10" BorderColor="#f0f0f0">
                         <StackLayout>
-                            <Image BackgroundColor="Pink" WidthRequest="30" HeightRequest="30" HorizontalOptions="Center" />
+                            <Image BackgroundColor="Pink" WidthRequest="25" HeightRequest="25" HorizontalOptions="Center" />
                             <Label Text="Appointments" FontFamily="Quicksand" TextColor="#404040" HorizontalTextAlignment="Center" />
                             <Label Text="5" TextColor="#404040" FontFamily="QuicksandBold" HorizontalTextAlignment="Center" />
                         </StackLayout>

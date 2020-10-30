@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.OwnerProfile.OrderView"
+             xmlns:converters="clr-namespace:Econic.Mobile.Services" xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" NavigationPage.HasNavigationBar="True"
+             Padding="20, 0, 20, 0"
+             BackgroundColor="WhiteSmoke">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:OrderHeaderConverter x:Key="cvnheader"/>
+            <converters:OrderVerfiedLabelConverter x:Key="cnvverifiedlabel"/>
+            <converters:OrderVerfiedtextColorConverter x:Key="cnvvtextcolor" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <StackLayout Spacing="20">
+            <Label Text="{Binding OrderSelected.status, Converter={x:StaticResource cvnheader}}" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" HorizontalTextAlignment="Start" />
+            <StackLayout>
+                <Label Text="{Binding OrderSelected.OrderNumber}" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" HorizontalTextAlignment="Start" />
+                <Label Text="{Binding OrderSelected.status, Converter={x:StaticResource cnvverifiedlabel}}" FontFamily="QuicksandBold" TextColor="{Binding OrderSelected.status, Converter={x:StaticResource cnvvtextcolor}}" HorizontalTextAlignment="Start" />
+                <Label Text="{Binding OrderSelected.Type}"  />
+            </StackLayout>
+
+            <BoxView BackgroundColor="LightGray" HeightRequest="1" />
+            <StackLayout>
+                <Label Text="Customer Details" FontFamily="QuicksandBold" TextColor="Silver" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+
+                <StackLayout Orientation="Horizontal" Padding="0, 10, 0, 0">
+                    <Image Source="icon_email" WidthRequest="30" HeightRequest="30" />
+                    <Label Text="{Binding OrderSelected.CustomerEmail}" Padding="10, 0, 0, 0" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="0, 10, 0, 0">
+                    <Image Source="icon_phone" WidthRequest="30" HeightRequest="30" />
+                    <Label Text="{Binding OrderSelected.CustomerNumber}" Padding="10, 0, 0, 0" />
+                </StackLayout>
+            </StackLayout>
+
+            <BoxView BackgroundColor="LightGray" HeightRequest="1" />
+
+            <sync:SfListView ItemsSource="{Binding OrderSelected.Items}"  SelectionMode="None">
+                <sync:SfListView.HeaderTemplate>
+                    <DataTemplate>
+                        <Label Text="Purchased" FontFamily="QuicksandBold" TextColor="Silver" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                    </DataTemplate>
+                </sync:SfListView.HeaderTemplate>
+                <sync:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="0, 10, 0, 0">
+                                <Label Text="{Binding Count}"  HorizontalOptions="Start"/>
+                                <Label Text="{Binding Name}" Padding="10, 0, 0, 0" HorizontalOptions="Start" />
+                                <Label Text="{Binding Price, StringFormat='${0}'}" Padding="10, 0, 0, 0" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </sync:SfListView.ItemTemplate>
+                <sync:SfListView.FooterTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Spacing="0" Padding="0, 10, 0, 0">
+                                <BoxView BackgroundColor="LightGray" HeightRequest="1" />
+                                <StackLayout Orientation="Horizontal" Padding="0, 10, 0, 0">
+                                    <Label Text="Total" HorizontalOptions="Start" />
+                                    <Label Text="{Binding OrderSelected.Total, StringFormat='${0}'}" Padding="10, 0, 0, 0" HorizontalOptions="EndAndExpand" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </sync:SfListView.FooterTemplate>
+            </sync:SfListView>
+            
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
