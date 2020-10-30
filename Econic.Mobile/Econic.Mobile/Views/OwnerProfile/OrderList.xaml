@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" 
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
+             x:Class="Econic.Mobile.Views.OwnerProfile.OrderList"
+             NavigationPage.HasNavigationBar="True"
+             Padding="20, 0, 20, 0"
+             BackgroundColor="WhiteSmoke">
+    <ContentPage.Content>
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="Purchases" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" HorizontalTextAlignment="Start" />
+
+            <inputLayout:SfTextInputLayout Grid.Row="1" InputViewPadding="10" Hint="Search Code" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                <Entry TextChanged="OnFilterTextChanged" />
+            </inputLayout:SfTextInputLayout>
+            
+             <sync:SfListView 
+                 Grid.Row="2"
+                 Orientation="Horizontal" 
+                 SelectedItem="Pending" 
+                 x:Name="buttonlist" 
+                 ItemSize="80" 
+                 HeightRequest="40" 
+                 RowSpacing="0" 
+                 ColumnSpacing="0" 
+                 SelectionChanged="OnTabChanged">
+                    <sync:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Label Text="{Binding .}" TextColor="#8b8589" FontFamily="QuicksandBold" />
+                                <BoxView HeightRequest="2" BackgroundColor="#8b8589" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </sync:SfListView.ItemTemplate>
+                    <sync:SfListView.SelectedItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Label Text="{Binding .}" TextColor="#404040" FontFamily="QuicksandBold" />
+                                <BoxView HeightRequest="2" BackgroundColor="#404040" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </sync:SfListView.SelectedItemTemplate>
+                </sync:SfListView>
+             <sync:SfListView 
+                        x:Name="orderslistview" 
+                        Grid.Row="3"
+                        ItemsSource="{Binding Owner.Orders}" 
+                        ItemSize="100"
+                        SelectedItem="{Binding OrderSelected}" 
+                        TapCommand="{Binding OpenPageCommand}" 
+                        TapCommandParameter="ViewOrder">
+                        <sync:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame BorderColor="Silver" CornerRadius="10" Margin="0, 8, 0, 8" Padding="15">
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout HorizontalOptions="Start">
+                                                <Label Text="{Binding OrderNumber}" FontFamily="QuicksandBold" TextColor="#404040" />
+                                                <Label Text="{Binding CustomerName}" FontFamily="QuicksandBold" TextColor="Gray" />
+                                            </StackLayout>
+                                            <Image Source="forward_arrow" HorizontalOptions="EndAndExpand" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" />
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </sync:SfListView.ItemTemplate>
+                        <sync:SfListView.SelectedItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame BorderColor="Silver" CornerRadius="10" Margin="0, 8, 0, 8" Padding="15" BackgroundColor="#404040">
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout HorizontalOptions="Start">
+                                        <Label Text="{Binding OrderNumber}" FontFamily="QuicksandBold" TextColor="White" />
+                                        <Label Text="{Binding CustomerName}" FontFamily="QuicksandBold" TextColor="White" />
+                                            </StackLayout>
+                                            <Image Source="forward_arrow" HorizontalOptions="EndAndExpand" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" />
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </sync:SfListView.SelectedItemTemplate>
+                    </sync:SfListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

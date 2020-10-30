@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Econic.Mobile.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -34,6 +35,16 @@ namespace Econic.Mobile.ViewModels
 		{
 			if (PropertyChanged != null)
 				this.PropertyChanged(this, new PropertyChangedEventArgs(name));
+		}
+
+		public ObservableCollection<Products> SetProducts()
+		{
+			productCollection = new ObservableCollection<Models.Products>();
+			productCollection.Add(new Models.Products() { Name = "Brow Crayon", Price = "$19.00", img="browcrayon.png" });
+			productCollection.Add(new Models.Products() { Name = "Brow Trio", Price = "$19.00", img = "browtrio.png"});
+			productCollection.Add(new Models.Products() { Name = "Finishing Wax", Price = "$10.00", img = "finishwax.png" });
+			productCollection.Add(new Models.Products() { Name = "Brow Collection Home Signature Kit", Price = "$39.00", img = "homesignaturekit.png" });
+			return productCollection;
 		}
 	}
 }

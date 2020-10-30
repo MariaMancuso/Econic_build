@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
+             x:Class="Econic.Mobile.Views.Shared.HamburgerMenu.ContactDetails"
+             NavigationPage.HasNavigationBar="True"
+             Padding="20, 0, 20, 10"
+             BackgroundColor="WhiteSmoke">
+    <ContentPage.Content>
+        <Grid RowSpacing="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Edit profile" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+            <StackLayout Grid.Row="1">
+                <Image Grid.Row="1" Source="profilepic" HorizontalOptions="Center" WidthRequest="60" HeightRequest="60" />
+                <Button Text="Change Profile Photo" BackgroundColor="Transparent" TextColor="CornflowerBlue" />
+
+                <Label Text="Personal details" TextColor="#919191" FontFamily="QuicksandBold" />
+                <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Name" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <Entry ReturnType="Next" Text="{Binding Owner.Account.Name}" />
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Title" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <Entry ReturnType="Next" Text="{Binding Owner.Title}" />
+                </inputLayout:SfTextInputLayout>
+
+
+                <StackLayout>
+                    <Label Text="Contact information" TextColor="#919191" FontFamily="QuicksandBold" />
+                    <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Phone Number" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                        <Entry ReturnType="Next" Text="{Binding Owner.BusinessNumber}" />
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Email" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                        <Entry ReturnType="Next" Text="{Binding Owner.Account.Username}" />
+                    </inputLayout:SfTextInputLayout>
+                </StackLayout>
+            </StackLayout>
+
+
+            <StackLayout Grid.Row="2" VerticalOptions="End">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="SaveContactDetail" Text="Save" Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

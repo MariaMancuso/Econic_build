@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" 
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
+             x:Class="Econic.Mobile.Views.OwnerProfile.CustomerList"
+             NavigationPage.HasNavigationBar="True"
+             Padding="20, 0, 20, 0"
+             BackgroundColor="WhiteSmoke">
+    <ContentPage.Content>
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Customers" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" HorizontalTextAlignment="Start" />
+
+            <StackLayout Grid.Row="1">
+                <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Search Customer" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <Entry TextChanged="OnFilterTextChanged" />
+                </inputLayout:SfTextInputLayout>
+                <Button Margin="0, 10, 0, 0" Command="{Binding AddCustomerCommand}" Text="+ Add Customer" Style="{StaticResource SecondaryBtn}" />
+            </StackLayout>
+            <sync:SfListView 
+                x:Name="customerlistview" 
+                Grid.Row="2" 
+                ItemsSource="{Binding Owner.Customers}"
+                ItemSize="100"
+                SelectedItem="{Binding CustomerSelected}"
+                TapCommand="{Binding OpenPageCommand}" 
+                TapCommandParameter="ViewCustomer"
+                SelectionBackgroundColor="LightGray">
+                <sync:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                                    <Image Source="empty_profile" />
+                                    <Label Text="{Binding Name}" FontFamily="QuicksandBold" TextColor="#404040" VerticalTextAlignment="Center" Padding="10, 0, 0, 0" />
+                                    <Image Source="forward_arrow" HorizontalOptions="EndAndExpand" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" />
+                                </StackLayout>
+                                <BoxView BackgroundColor="Gray" HeightRequest="0.5"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </sync:SfListView.ItemTemplate>
+            </sync:SfListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

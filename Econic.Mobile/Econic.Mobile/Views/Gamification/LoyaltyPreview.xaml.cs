@@ -13,7 +13,7 @@ namespace Econic.Mobile.Views.Gamification
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoyaltyPreview : ContentPage
     {
-        public LoyaltyPreview(OwnerViewModel OwnerVM)
+        public LoyaltyPreview(OwnerBoardingViewModel OwnerVM)
         {
             InitializeComponent();
             BindingContext = OwnerVM;

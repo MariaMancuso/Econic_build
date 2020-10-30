@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.OwnerProfile.EditEmployee"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms" NavigationPage.HasNavigationBar="True"
+             Padding="20, 0, 20, 0"
+             BackgroundColor="WhiteSmoke">
+    <ContentPage.Content>
+        <Grid RowSpacing="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Orientation="Horizontal">
+                <Image Source="profilepic" HorizontalOptions="Start" HeightRequest="80" WidthRequest="80" VerticalOptions="Center" />
+                <Label Text="Remove" TextColor="#D03737" FontSize="15" FontFamily="QuicksandSemiBold" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="RemoveEmployee"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                <StackLayout Spacing="0">
+                    <Label Text="{Binding EmployeeSelected.Name}" FontFamily="QuicksandBold" TextColor="#404040" />
+                    <Label Text="{Binding EmployeeSelected.PartyType}" FontFamily="QuicksandBold" TextColor="Gray" FontSize="13" />
+                </StackLayout>
+                <ImageButton Source="icon_message" HorizontalOptions="EndAndExpand" HeightRequest="25" WidthRequest="25" VerticalOptions="Start" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Spacing="0">
+                <Label Text="Title" TextColor="#919191" FontFamily="QuicksandBold" />
+                <inputLayout:SfTextInputLayout InputViewPadding="10" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <Entry ReturnType="Next" Text="{Binding EmployeeSelected.Title , Mode=TwoWay}" FontFamily="QuicksandMedium" />
+                </inputLayout:SfTextInputLayout>
+
+                <Label Text="Business Address" TextColor="#919191" FontFamily="QuicksandBold" />
+                <inputLayout:SfTextInputLayout InputViewPadding="10" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <combobox:SfComboBox Text="{Binding EmployeeSelected.Address.Address1}" FontFamily="QuicksandMedium" BackgroundColor="Transparent" />
+                </inputLayout:SfTextInputLayout>
+
+                <Label Text="Contact Info" TextColor="#919191" FontFamily="QuicksandBold" />
+                <inputLayout:SfTextInputLayout InputViewPadding="10" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <Entry ReturnType="Next" Text="{Binding EmployeeSelected.Email}" FontFamily="QuicksandMedium" />
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout InputViewPadding="10" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <Entry ReturnType="Next" Text="{Binding EmployeeSelected.Number}" FontFamily="QuicksandMedium" />
+                </inputLayout:SfTextInputLayout>
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" VerticalOptions="EndAndExpand">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="SaveEmployee" Text="Save" Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -9,13 +9,8 @@ namespace Econic.Mobile.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void SetProperty<TData>(ref TData storage, TData value, [CallerMemberName] string propertyName = "")
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            if (storage.Equals(value))
-                return;
-
-            storage = value;
-
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 

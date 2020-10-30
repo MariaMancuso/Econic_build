@@ -14,7 +14,7 @@ namespace Econic.Mobile.Views.Shared
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemPreview : ContentPage
     {
-        public ItemPreview(OwnerViewModel OwnerVM)
+        public ItemPreview(OwnerBoardingViewModel OwnerVM)
         {
             InitializeComponent();
             BindingContext = OwnerVM;

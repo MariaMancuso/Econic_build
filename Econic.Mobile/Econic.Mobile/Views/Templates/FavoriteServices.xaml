@@ -7,7 +7,7 @@
         <StackLayout Padding="16, 20, 28, 22" Spacing="11">
             
             <StackLayout x:Name="stacklayout">
-                <syncfusion:SfListView x:Name="faveServicesListview"
+                <syncfusion:SfListView x:Name="listview"
                                        ItemsSource="{Binding Services}"
                                        ItemSize="86"
                                        ItemSpacing="10"
@@ -17,41 +17,43 @@
                             <ViewCell>
                                 <Grid RowSpacing="10">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="75"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="75"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <StackLayout HorizontalOptions="StartAndExpand" 
-                                                 Orientation="Horizontal">
-                                        <Frame Grid.Column="0"
+
+                                    <!--<Frame Grid.Column="0"
                                                HeightRequest="75"
                                                WidthRequest="75"
-                                               Padding="0,0,0,0"/>
-                                        <StackLayout Grid.Column="1" 
-                                                     Orientation="Vertical" 
-                                                     Padding="5,0,0,0" 
-                                                     VerticalOptions="StartAndExpand">
-                                            <Label Text="{Binding Name}"
-                                                   HorizontalOptions="Center"
+                                               Padding="0,0,0,0"/>-->
+                                    <StackLayout Grid.Column="0" 
+                                                 Grid.RowSpan="2">
+                                        <Label Text="{Binding Name}"
+                                                  
                                                    HorizontalTextAlignment="Start"
                                                    FontFamily="QuicksandBold"
                                                    FontAttributes="Bold"/>
-                                            <Label Text="{Binding ServiceType}"
-                                                   HorizontalOptions="Center"
+                                        <Label Text="{Binding deal}"
+                                                   
                                                    HorizontalTextAlignment="Start"/>
-                                        </StackLayout>
-                                        <Button Text="Book" 
+                                        <Label Text="{Binding price}"
+                                                   
+                                                   HorizontalTextAlignment="Start"/>
+                                    </StackLayout>
+                                    <Button Text="Book" 
                                                 Grid.Column="2" 
+                                            Grid.Row="1"
                                                 CommandParameter="{Binding .}"
                                                 HorizontalOptions="EndAndExpand"
                                                 WidthRequest="90"
                                                 HeightRequest="37"
                                                 CornerRadius="18"
                                                 Padding="0"/>
-                                    </StackLayout>
+
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>

@@ -32,11 +32,17 @@ namespace Econic.Mobile
 
         public App()
         {
-            Device.SetFlags(new[] { "SwipeView_Experimental" });
+            Device.SetFlags(new[] { "SwipeView_Experimental", "Expander_Experimental" });
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzMzMzI5QDMxMzgyZTMzMmUzMFpUbmo3aGYzM2M5R2cyTmc0WjlhRmhnckFPT3RVR2tzTGlkMlk1WSs0bnM9");
 
             InitializeComponent();
+
+            //Navigation = new NavigationPage(new LandingPage());
+
             Navigation = new NavigationPage(new MainPage());
+            //Navigation.BarBackgroundColor = Color.WhiteSmoke;
+            //Navigation.BarTextColor = Color.FromHex("#404040");
+
 
             Current.MainPage = Navigation;
         }

@@ -39,8 +39,8 @@
                 </Grid>
 
                 <StackLayout Grid.Row="1" HorizontalOptions="Center" Spacing="0" VerticalOptions="Center" Margin="60, 0, 60, 0">
-                    <Label Text="{Binding SplashTitles[0]}" FontFamily="QuicksandBold" TextColor="White" FontSize="30" HorizontalTextAlignment="Center" />
-                    <Label Text="{Binding SplashDetails[0]}" TextColor="White" FontSize="24" HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding SplashTitles[2]}" FontFamily="QuicksandBold" TextColor="White" FontSize="30" HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding SplashDetails[2]}" TextColor="White" FontSize="24" HorizontalTextAlignment="Center" />
                 </StackLayout>
 
                 <ImageButton Grid.Row="2" Command="{Binding OpenPageCommand}" CommandParameter="SharedSplashFour" Style="{StaticResource SplashButton}" />
