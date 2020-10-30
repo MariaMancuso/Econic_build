@@ -15,12 +15,11 @@ namespace Econic.Mobile.Views.EconicStudio
 	{
 		PhotoPickerViewModel additemViewModel;
 		//OwnerViewModel OwnerVM = new OwnerViewModel();
-		public ChooseLogo()
+		public ChooseLogo(OwnerBoardingViewModel ownervm)
 		{
 			InitializeComponent();
 			imageselector.BindingContext = additemViewModel = new PhotoPickerViewModel();
-            OwnerBoardingViewModel OwnerVM = new OwnerBoardingViewModel();
-            bodyContent.BindingContext = OwnerVM;
+            bodyContent.BindingContext = ownervm;
 		}
 
         void OnAddPhotoButtonClicked(object sender, EventArgs args)

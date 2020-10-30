@@ -20,19 +20,15 @@ namespace Econic.Mobile.ViewModels
 {
     public class OwnerBoardingViewModel
     {
-        OwnerModel owner;
         IPermissionService permissionService;
-        string mode;
-        GoodModel itemToEdit;
         SelectionViewModel cmSelection;
         SelectionViewModel nSelection;
         public OwnerBoardingViewModel()
         {
-            owner = new OwnerModel
+            Owner = new OwnerModel
             {
                 Account = new Account(),
                 Address = new AddressModel(),
-                Items = new ObservableCollection<GoodModel>(),
                 Goals = new ObservableCollection<OwnerGoalModel>()
                 {
                 new OwnerGoalModel() { Goal = "Connect you to your customers", Value = 0},
@@ -41,6 +37,7 @@ namespace Econic.Mobile.ViewModels
                 new OwnerGoalModel() { Goal = "Identify and reward your most loyal customers", Value = 0},
                 new OwnerGoalModel() { Goal = "Lower your transactions costs", Value = 0}
                 },
+                Items = new ObservableCollection<ItemModel>(),
 
                 Classifications = new ObservableCollection<ClassificationModel>(),
                 NotifyMethods = new ObservableCollection<NotifyModel>(),
@@ -62,26 +59,12 @@ namespace Econic.Mobile.ViewModels
 
             OpenPageCommand = new Command<string>((arg) => OpenPage(arg));
             InfoTapped = new Command<string>((arg) => OpenInfoPage(arg));
-            AddAnotherTapped = new Command(addAnotherTapped);
-            EditClicked = new Command(editClicked);
+            CMTapped = new Command(cmTapped);
             RemoveClicked = new Command(removeClicked);
-            AddNewItemCommand = new Command(addNewItem);
+            EditClicked = new Command(editClicked);
         }
-        public OwnerModel Owner 
-        { 
-            get { return owner; }
-            set { owner = value; }
-        }
-        public GoodModel ItemToAdd { get; set; }
-        public void RemoveItem(GoodModel itemModel)
-        {
-            owner.Items.Remove(itemModel);
-        }
-        public void AddItem(GoodModel itemModel)
-        {
-            owner.Items.Add(itemModel);
-            ItemToAdd = null;
-        }
+        public OwnerModel Owner { get; set; }
+        public ItemModel CurrentItemModel { get; set; }
         public SelectionViewModel CMSelectionViewModel
         {
             get { return cmSelection; }
@@ -100,7 +83,7 @@ namespace Econic.Mobile.ViewModels
         public string GetInitials()
         {
             Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
-            string init = initials.Replace(owner.BusinessName, "$1");
+            string init = initials.Replace(Owner.BusinessName, "$1");
 
             return init;
         }
@@ -108,15 +91,14 @@ namespace Econic.Mobile.ViewModels
         public int ListViewHeight
         {
             get { return height; }
-            set { height = owner.Items.Count * 120; }
+            set { height = Owner.Items.Count * 120; }
         }
         public ICommand OpenPageCommand { private set; get; }
         public ICommand InfoTapped { private set; get; }
 
-        public ICommand AddAnotherTapped { private set; get; }
+        public ICommand CMTapped { private set; get; }
         public ICommand RemoveClicked { private set; get; }
         public ICommand EditClicked { private set; get; }
-        public ICommand AddNewItemCommand { private set; get; }
 
         private async void OpenPage(string value)
         {
@@ -137,32 +119,21 @@ namespace Econic.Mobile.ViewModels
                 case "SharedDragnDrop":
                     await Application.Current.MainPage.Navigation.PushAsync(new Classification(this));
                     break;
-                case "AddItem":
-                    foreach (string classification in cmSelection.Items)
-                    {
-                        if(!owner.Classifications.Any(x => x.Name == classification))
-                            owner.Classifications.Add(new ClassificationModel { Name = classification });
-                    }
-                    await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, "add"));
-                    break;
-                case "ItemPreview":
-                    await Application.Current.MainPage.Navigation.PushAsync(new ItemPreview(this));
-                    break;
-                case "SecondPreview":
-                    if (ItemToAdd != null)
-                        AddItem(ItemToAdd);
+                case "Preview":
+                    if (CurrentItemModel != null && !Owner.Items.Contains(CurrentItemModel))
+                        Owner.Items.Add(CurrentItemModel);
 
-                    if (itemToEdit != null)
-                    {
-                        RemoveItem(itemToEdit);
-                        itemToEdit = null;
-                    }
-
-                    if (mode == "edit" || mode == "addfromprofile")
-                        await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices { BindingContext = this }) ;
+                    await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices { BindingContext = this }); ;
+                    break;
+                case "AddAnother":
+                    if(CurrentItemModel.Type == "Good")
+                        CurrentItemModel = new ItemModel { Type = "Good"};
                     else
-                        await Application.Current.MainPage.Navigation.PushAsync(new  SecondPreview(this));
-
+                        CurrentItemModel = new ItemModel { Type = "Service" };
+                    await Application.Current.MainPage.Navigation.PushAsync(new AddItem { BindingContext = this });
+                    break;
+                case "SharedPreview":
+                    await Application.Current.MainPage.Navigation.PushAsync(new SecondPreview(this));
                     break;
                 case "NotifyMethod":
                     await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this});
@@ -203,7 +174,7 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new FifthPreview(this));
                     break;
                 case "Profile":
-                    OwnerViewModel model = new OwnerViewModel(owner);
+                    OwnerViewModel model = new OwnerViewModel(Owner);
                     var page = new Hamburger { BindingContext = model };
                     //page.Master = new HamburgerMaster { BindingContext = model };
                     page.Detail = new NavigationPage(new OwnerTabbedPage
@@ -221,21 +192,13 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new Views.EconicStudio.WelcomeScreen(this));
                     break;
                 case "Theme":
-                    await Application.Current.MainPage.Navigation.PushAsync(new ChooseTheme());
+                    await Application.Current.MainPage.Navigation.PushAsync(new ChooseTheme(this));
                     break;
                 default:
                     return;
             }
         }
-        private async void addAnotherTapped()
-        {
-            if (mode == "edit")
-                mode = "addfromprofile";
-            if (ItemToAdd != null)
-                AddItem(ItemToAdd);
 
-            await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, mode));
-        }
         private async void OpenInfoPage(string value)
         {
             switch (value)
@@ -252,21 +215,32 @@ namespace Econic.Mobile.ViewModels
         }
         private async void editClicked(Object sender)
         {
-            mode = "edit";
-            itemToEdit = sender as GoodModel;
-            ItemToAdd = itemToEdit;
-            await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, mode));
+            CurrentItemModel = sender as ItemModel;
+            await Application.Current.MainPage.Navigation.PushAsync(new AddItem { BindingContext = this });
         }
         private void removeClicked(Object sender)
         {
-            mode = "Remove";
-            GoodModel itemModel = sender as GoodModel;
-            RemoveItem(itemModel);
+            var item = sender as ItemModel;
+            Owner.Items.Remove(item);
         }
-        private async void addNewItem()
+        private async void cmTapped(Object sender)
         {
-            mode = "addfromprofile";
-            await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, mode));
+            TapGestureRecognizer tapGesture = sender as TapGestureRecognizer;
+            Frame frame = tapGesture.Parent as Frame;
+            StackLayout stackLayout = frame.Children[0] as StackLayout;
+
+            Label label = stackLayout.Children[1] as Label;
+            frame.BackgroundColor = Color.FromHex("#404040");
+            label.TextColor = Color.White;
+            CurrentItemModel = new ItemModel();
+            CurrentItemModel.Image = new Image();
+            if (label.Text == "Services")
+                CurrentItemModel.Type = "Service";
+            else
+                CurrentItemModel.Type = "Good";
+            await Application.Current.MainPage.Navigation.PushAsync(new AddItem { BindingContext = this});
+            frame.BackgroundColor = Color.White;
+            label.TextColor = Color.FromHex("#404040");
         }
     }
 }

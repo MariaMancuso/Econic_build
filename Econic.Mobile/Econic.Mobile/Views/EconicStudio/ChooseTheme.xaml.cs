@@ -14,12 +14,14 @@ namespace Econic.Mobile.Views.EconicStudio
 	{
 		ControlTemplates previousItem;
 		ControlTemplates currentItem;
-		ControlTemplateViewModel control = new ControlTemplateViewModel();
-		public ChooseTheme()
+		ControlTemplateViewModel control;
+		public ChooseTheme(OwnerBoardingViewModel OwnerVM)
 		{
+
 			InitializeComponent();
+			BindingContext = control = new ControlTemplateViewModel(); ;
+			control.OBViewModel = OwnerVM;
 			CreateBoxGrid();
-			BindingContext = control;
 		}
 
 		void OnCurrentItemChanged(object sender, CurrentItemChangedEventArgs e) 
@@ -32,7 +34,7 @@ namespace Econic.Mobile.Views.EconicStudio
 
 		private void CreateBoxGrid()
 		{
-			ControlTemplateViewModel control = new ControlTemplateViewModel();
+
 			IList<BoxColorModel> b = control.CreateBoxCollection();
 			var boxIndex = 0;
 			//rows

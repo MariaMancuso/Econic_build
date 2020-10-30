@@ -12,8 +12,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="50*" />
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             
@@ -23,42 +23,32 @@
                 <Label Text="Select all the apply." FontFamily="QuicksandBold" TextColor="#404040" FontSize="14" />
             </StackLayout>
 
-            <StackLayout Grid.Row="2">
-                <Frame HasShadow="True" HeightRequest="70" BackgroundColor="White" HorizontalOptions="Fill" CornerRadius="20" Padding="10, 0, 0, 0" Margin="0, 0, 0, 10">
+            <StackLayout Grid.Row="2" Spacing="20">
+                <Frame CornerRadius="20" >
                     <StackLayout Orientation="Horizontal">
-                        <Image Source="Services" WidthRequest="30" HeightRequest="30" />
-                        <Label Text="Services" VerticalTextAlignment="Center" TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" />
+                        <Image Source="Services" />
+                        <Label Text="Services" FontFamily="QuicksandBold" TextColor="#404040" VerticalTextAlignment="Center" />
                     </StackLayout>
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding CMSelectionViewModel.ItemTapped}" CommandParameter="{Binding Source={x:RelativeSource Self}}" />
+                        <TapGestureRecognizer Command="{Binding CMTapped}" CommandParameter="{Binding Source={x:RelativeSource Self}}" />
                     </Frame.GestureRecognizers>
                 </Frame>
 
-                <Frame HasShadow="True" HeightRequest="70" BackgroundColor="White" HorizontalOptions="Fill" CornerRadius="20" Padding="10, 0, 0, 0" Margin="0, 0, 0, 10">
+                <Frame CornerRadius="20" >
                     <StackLayout Orientation="Horizontal">
-                        <Image Source="Products" WidthRequest="30" HeightRequest="30" />
-                        <Label Text="Products" VerticalTextAlignment="Center" TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" />
+                        <Image Source="Products" />
+                        <Label Text="Goods" FontFamily="QuicksandBold" TextColor="#404040" VerticalTextAlignment="Center" />
                     </StackLayout>
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding CMSelectionViewModel.ItemTapped}" CommandParameter="{Binding Source={x:RelativeSource Self}}" />
+                        <TapGestureRecognizer Command="{Binding CMTapped}" CommandParameter="{Binding Source={x:RelativeSource Self}}" />
                     </Frame.GestureRecognizers>
                 </Frame>
 
-                <Frame HasShadow="True" HeightRequest="70" BackgroundColor="White" HorizontalOptions="Fill" CornerRadius="20" Padding="10, 0, 0, 0" Margin="0, 0, 0, 10">
-                    <StackLayout Orientation="Horizontal">
-                        <Image Source="Assets" WidthRequest="30" HeightRequest="30" />
-                        <Label Text="Assets" VerticalTextAlignment="Center" TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" />
-                    </StackLayout>
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding CMSelectionViewModel.ItemTapped}" CommandParameter="{Binding Source={x:RelativeSource Self}}" />
-                    </Frame.GestureRecognizers>
-                </Frame>
-                <Label Text="Have a picture, name, price range and description prepared." FontSize="14" TextColor="#404040" FontFamily="QuicksandBold" />
+                <Label Text="Have a picture, name, price range, and description prepared. Upload a minimum of 1" FontSize="14" FontFamily="QuicksandBold" TextColor="#404040"/>
             </StackLayout>
 
 
-            <StackLayout Grid.Row="3" VerticalOptions="End">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="AddItem" Text="Next" Style="{StaticResource NextItemButton}"/>
+            <StackLayout Grid.Row="3" VerticalOptions="EndAndExpand">
                 <ContentView ControlTemplate="{StaticResource Footer}"/>
             </StackLayout>
             

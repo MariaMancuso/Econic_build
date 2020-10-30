@@ -23,7 +23,7 @@ namespace Econic.Mobile.Models
         public string ServiceArea { get; set; }
         public ObservableCollection<OwnerGoalModel> Goals { get; set; }
         public ObservableCollection<ClassificationModel> Classifications { get; set; }
-        public ObservableCollection<GoodModel> Items { get; set; }
+        public ObservableCollection<ItemModel> Items { get; set; }
         public ObservableCollection<NotifyModel> NotifyMethods { get; set; }
         public InviteMessageModel InviteMessages { get; set; }
         public ObservableCollection<PartyDetailsModel> Employees { get; set; }
