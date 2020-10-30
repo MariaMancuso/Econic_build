@@ -6,11 +6,14 @@
              x:Class="Econic.Mobile.App">
     <Application.Resources>
 
-        <ResourceDictionary>
+        <!--<ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/ControlTemplateResourceDic.xaml" />
+                
+                
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        </ResourceDictionary>-->
+        <ResourceDictionary Source="Views/Templates/Resources/ClassicDictionary.xaml"/>
 
         <Color x:Key="ThemeColor">#D03737</Color>
 
@@ -18,7 +21,7 @@
                ApplyToDerivedTypes="True">
             <Setter Property="BackgroundColor" Value="#F8F8F8"/>
             <Setter Property="NavigationPage.HasNavigationBar" Value="False"/>
-            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Padding" Value="22, 0, 22, 0"/>
         </Style>
 
         <Style TargetType="Label">
@@ -124,6 +127,38 @@
             <Setter Property="WatermarkColor" Value="#404040" />
             <Setter Property="TextColor" Value="#404040" />
         </Style>
+        
+        <!-- TEMPLATE VARIABLES START -->
+
+        <Style x:Key="TextAlignment" TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        </Style>
+        
+        <Style x:Key="AvailableButton" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#e2e2e2"/>
+            <Setter Property="BorderWidth" Value="1"/>
+            <Setter Property="BorderColor" Value="#e2e2e2"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="TextColor" Value="{DynamicResource ThemeColor}"/>
+        </Style>
+        <Style x:Key="UnavailableButton" TargetType="Button">
+            <Setter Property="BorderColor" Value="#e2e2e2"/>
+            <Setter Property="BackgroundColor" Value="#f8f8f8"/>
+            <Setter Property="TextColor" Value="#b9b9b9"/>
+            <Setter Property="BorderWidth" Value=".25"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+        <Style x:Key="SelectedButton" TargetType="Button">
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BackgroundColor" Value="{DynamicResource ThemeColor}"/>
+        </Style>
+        <Style x:Key="ConfirmButton" TargetType="Button">
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BackgroundColor" Value="{DynamicResource ThemeColor}"/>
+        </Style>
+
 
         <!-- CONTROL TEMPLATES START-->
 
@@ -162,7 +197,7 @@
                     </Grid.ColumnDefinitions>
 
                     <ImageButton Grid.Column="0" Source="backarrow" HorizontalOptions="Start" BackgroundColor="Transparent" WidthRequest="25" HeightRequest="25" Clicked="OnBackButtonPressed" />
-                    <Label Grid.Column="1" Text="ECONIC" HorizontalOptions="CenterAndExpand" TextColor="Silver" FontSize="16" />
+                    <Label Grid.Column="1" Text="REVYVV" HorizontalOptions="CenterAndExpand" TextColor="Silver" FontSize="16" />
 
                 </Grid>
                 <ContentPresenter VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="1" />
@@ -183,7 +218,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <Label Grid.Column="1" Text="ECONIC" HorizontalOptions="CenterAndExpand" TextColor="Silver" FontSize="16" />
+                    <Label Grid.Column="1" Text="REVYVV" HorizontalOptions="CenterAndExpand" TextColor="Silver" FontSize="16" />
 
                 </Grid>
                 <ContentPresenter VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="1" Padding="10, 10, 10, 10" />
@@ -225,7 +260,7 @@
         </ControlTemplate>
 
         <ControlTemplate x:Key="FeatureHeaderControlTemplate">
-            <Grid Padding="0, 25, 0, 0">
+            <Grid Padding="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="16"/>
                     <RowDefinition Height="3"/>
@@ -346,13 +381,13 @@
                                 FontSize="7"
                                 BackgroundColor="#e2e2e2"
                                 TextColor="{DynamicResource ThemeColor}"
-                                    Padding="0"/>
+                                Padding="0"/>
                     <Button Text="10:00 AM"
                                 Grid.Row="0"
                                 Grid.Column="1"
                                 FontSize="7"
                                 BackgroundColor="#e2e2e2" 
-                                    Padding="0"
+                                Padding="0"
                                 TextColor="{DynamicResource ThemeColor}"/>
                     <Button Text="10:30 AM"
                                 Grid.Row="0"
@@ -361,7 +396,7 @@
                                 BackgroundColor="#f8f8f8"
                                 BorderWidth=".25"
                                 BorderColor="#e2e2e2"
-                                    Padding="0"
+                                Padding="0"
                                 TextColor="#b9b9b9"/>
                     <Button Text="11:00 AM"
                                 Grid.Row="1"

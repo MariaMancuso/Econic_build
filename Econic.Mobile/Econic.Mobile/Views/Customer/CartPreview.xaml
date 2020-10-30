@@ -3,11 +3,99 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Econic.Mobile.Controls" 
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
-             x:Class="Econic.Mobile.Views.Customer.CartPreview">
+             x:Class="Econic.Mobile.Views.Customer.CartPreview"
+             ControlTemplate="{StaticResource PageWithoutBackBtn}"
+             Padding="0">
     <ContentPage.Content>
-        <StackLayout>
-            <ContentView ControlTemplate="{StaticResource CartPreviewControlTemplate}"/>
-            <ContentView ControlTemplate="{StaticResource FavoriteProductsControlTemplate}"/>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Padding="22,0,22,0">
+                    <Button Text="Proceed to checkout"
+                                    BackgroundColor="{DynamicResource ThemeColor}"
+                                    TextColor="White"
+                                    FontSize="16"
+                                    HorizontalOptions="CenterAndExpand"
+                                    CornerRadius="18"
+                                    WidthRequest="312"
+                                    HeightRequest="40"
+                                    FontFamily="QuicksandBold"/>
+
+                    <Grid Padding="10, 53, 0, 31">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.RowSpan="4"
+                                   Grid.Column="0"
+                                     WidthRequest="141"
+                                   HeightRequest="141">
+                            <Image Source="{Binding img}"
+                                   WidthRequest="141"
+                                   HeightRequest="141"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" Padding="12, 0, 0, 0">
+                            <Label Text="{Binding Name}"
+                                       FontSize="16"
+                                       Grid.Row="0"
+                                       FontFamily="QuicksandBold"/>
+                            <Label Text="{Binding Price}"
+                                       FontSize="24"
+                                       Grid.Row="2"
+                                       Padding="0,0,0,30"/>
+
+                            <local:CustomStepper x:Name="Stepper"
+                                             Text="1"
+                                             Grid.Row="3"
+                                             VerticalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </Grid>
+                    <Button Text="Deal Button"
+                                BackgroundColor="White"
+                                TextColor="{DynamicResource ThemeColor}"
+                                HorizontalOptions="CenterAndExpand"
+                                CornerRadius="18"
+                                WidthRequest="312"
+                                HeightRequest="40"
+                                FontFamily="QuicksandBold"
+                                FontSize="16"/>
+
+                    <Label
+                                   HorizontalOptions="EndAndExpand"
+                                   Padding="0, 18, 0, 28">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Remove      "
+                                              TextColor="{DynamicResource ThemeColor}"
+                                              FontSize="18">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TapCommand}"/>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                                <Span Text="Save"
+                                              TextColor="{DynamicResource ThemeColor}"
+                                              FontSize="18">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TapCommand}"/>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Text="Return Policy"
+                           FontSize="13"
+                           Padding="0, 0, 0, 8"/>
+                   
+                </StackLayout>
+                <ContentView x:Name="TabbedView"
+                             VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

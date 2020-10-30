@@ -2,37 +2,68 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:pulltoRefresh="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
              x:Class="Econic.Mobile.Views.Templates.DealsDashboard">
     <ContentView.Content>
         <StackLayout>
-            <syncfusion:SfListView x:Name="listview"
-                                   ItemsSource="{Binding FaveProducts}"
+            
+            <!--<pulltoRefresh:SfPullToRefresh x:Name="pullToRefresh"
+                               ProgressBackgroundColor="#428BCA" RefreshContentHeight="50" 
+                               RefreshContentWidth="50" TransitionMode="Push" IsRefreshing="False">
+                <pulltoRefresh:SfPullToRefresh.PullableContent>-->
+                    <syncfusion:SfListView x:Name="listview"
+                                   ItemSpacing="10"
+                                   ItemsSource="{Binding Deals}"
                                    HorizontalOptions="Center"
-                                   Orientation="Horizontal"
-                                   ItemSize="250"
-                                   Padding="15, 5, 5, 5">
-                <syncfusion:SfListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout>
-                            <Frame >
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <ListView x:Name="listview"/>
-
-                                </Grid>
-                            </Frame>
-                        </StackLayout>
-                    </DataTemplate>
-                </syncfusion:SfListView.ItemTemplate>
-            </syncfusion:SfListView>
+                                   Orientation="Vertical"
+                                   Padding="0"
+                                   >
+                        <syncfusion:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame x:Name="frame" 
+                                   BackgroundColor="{Binding color}"
+                                   CornerRadius="18"
+                                   HasShadow="True">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped ="TapGestureRecognizer_Tapped"/>
+                                        </Frame.GestureRecognizers>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width=".25*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="{Binding img}"
+                                           Grid.Column="0"
+                                           HeightRequest="100"/>
+                                            <StackLayout Grid.Column="1" Padding="10, 0, 0, 0">
+                                                <Label Text="{Binding DealTitle}"
+                                               TextColor="White"
+                                               FontFamily="QuicksandBold"
+                                               FontSize="20"
+                                               HorizontalTextAlignment="Start"/>
+                                                <Label Text="{Binding ShopTitle}"
+                                               TextColor="White"
+                                               HorizontalTextAlignment="Start"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" 
+                                                 HeightRequest="50"
+                                                 Grid.Column="2">
+                                                <Image x:Name="NextButton" 
+                                               Source="magic_white_arrow.png" 
+                                               HeightRequest="50"
+                                               HorizontalOptions="EndAndExpand"
+                                               />
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </syncfusion:SfListView.ItemTemplate>
+                    </syncfusion:SfListView>
+                <!--</pulltoRefresh:SfPullToRefresh.PullableContent>
+            </pulltoRefresh:SfPullToRefresh>-->
         </StackLayout>
     </ContentView.Content>
 </ContentView>

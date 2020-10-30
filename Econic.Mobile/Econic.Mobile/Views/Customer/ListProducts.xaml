@@ -1,10 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Econic.Mobile.Views.Customer.ListProducts">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="Econic.Mobile.Views.Customer.ListProducts"
+             Padding="0">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Products" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Padding="0">
+                <StackLayout Padding="16, 20, 28, 22" Spacing="11">
+                    <ContentView ControlTemplate="{StaticResource FeatureHeaderControlTemplate}"/>
+                    <ContentView x:Name="ProductsView"/>
+                </StackLayout>
+                
+                <ContentView x:Name="TabbedView"
+                             VerticalOptions="EndAndExpand"
+                             Padding="0"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Econic.Mobile.Views.Templates
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ClassicTemplate : ContentView
+	public partial class CustomerSettings : ContentView
 	{
-		public ClassicTemplate()
+		public CustomerSettings()
 		{
 			InitializeComponent();
 		}

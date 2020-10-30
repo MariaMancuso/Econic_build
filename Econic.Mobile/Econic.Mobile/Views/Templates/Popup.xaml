@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Templates.Popup">
+  <ContentView.Content>
+      <AbsoluteLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <Frame BorderColor="WhiteSmoke">
+                <StackLayout Orientation="Vertical" HeightRequest="300" WidthRequest="200">
+                <Image Source="img_token_yellow.png"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+                <Label Text="What are tokens?"/>
+                <Label Text="How do I earn tokens?"/>
+                <Label Text="How do I redeem tokens?"/>
+                </StackLayout>
+            </Frame>
+        </AbsoluteLayout>
+  </ContentView.Content>
+</ContentView>

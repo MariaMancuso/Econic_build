@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,11 +14,11 @@ namespace Econic.Mobile.Views.Customer
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class GenerateDeals : ContentPage
 	{
-		CustomerViewModel CustomerVM = new CustomerViewModel();
+		
 		public GenerateDeals()
 		{
 			InitializeComponent();
-			BindingContext = CustomerVM;
+			
 		}
 	}
 }
