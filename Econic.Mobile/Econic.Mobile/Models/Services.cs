@@ -8,19 +8,8 @@ namespace Econic.Mobile.Models
 {
 	public class Services
 	{
-		public ImageSource ServiceImg;
-		public string Name { private set; get; }
-		public string ServiceType { private set; get; }
-
-		public Services(string name)
-		{
-			this.Name = name;
-		}
-
-		public void FavoriteServices(string name, string serviceType)
-		{
-			this.Name = name;
-			this.ServiceType = serviceType;
-		}
+		public string Name { set; get; }
+		public string deal { set; get; }
+		public string price { get; set; }
 	}
 }

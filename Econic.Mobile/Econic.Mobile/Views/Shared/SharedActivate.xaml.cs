@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Econic.Mobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,11 @@ namespace Econic.Mobile.Views.Shared
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SharedActivate : ContentPage
     {
+        
         public SharedActivate()
         {
             InitializeComponent();
+            
         }
     }
 }

@@ -101,8 +101,7 @@
                         FontFamily="QuicksandBold"
                         CornerRadius="25"
                         FontSize="16"
-                        Command="{Binding ClickedCommand}"
-                        CommandParameter="ChooseLogo"/>
+                        Clicked="Button_Clicked"/>
 
                 <ContentView ControlTemplate="{StaticResource Footer}"
                          VerticalOptions="EndAndExpand"

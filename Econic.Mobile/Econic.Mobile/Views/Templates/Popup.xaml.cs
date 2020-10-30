@@ -7,19 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Econic.Mobile.Views.Customer
+namespace Econic.Mobile.Views.Templates
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class OnSale : ContentPage
+	public partial class Popup : ContentView
 	{
-		public OnSale()
+		public Popup()
 		{
 			InitializeComponent();
-		}
-
-		private async void Button_Clicked(object sender, EventArgs e)
-		{
-			await Navigation.PushAsync(new Views.Customer.CartPreview());
 		}
 	}
 }

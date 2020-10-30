@@ -26,7 +26,7 @@
                 </Grid.RowDefinitions>
 
                 <StackLayout Grid.Row="0">
-                    <Image BackgroundColor="White" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center" />
+                    <Image BackgroundColor="Transparent" Source="{Binding BizImage[0]}" WidthRequest="150" HeightRequest="150"  HorizontalOptions="Center" />
                     <Label Text="Welcome to bla bla in the Econic mobile business platform." HorizontalTextAlignment="Center" FontFamily="QuicksandBold" TextColor="White" />
                 </StackLayout>
 
@@ -39,8 +39,8 @@
                 </Grid>
 
                 <StackLayout Grid.Row="1" HorizontalOptions="Center" Spacing="0" VerticalOptions="Center" Margin="60, 0, 60, 0">
-                    <Label Text="{Binding SplashTitles[0]}" FontFamily="QuicksandBold" TextColor="White" FontSize="30" HorizontalTextAlignment="Center" />
-                    <Label Text="{Binding SplashDetails[0]}" TextColor="White" FontSize="24" HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding SplashTitles[1]}" FontFamily="QuicksandBold" TextColor="White" FontSize="30" HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding SplashDetails[1]}" TextColor="White" FontSize="24" HorizontalTextAlignment="Center" />
                 </StackLayout>
 
                 <ImageButton Grid.Row="2" Command="{Binding OpenPageCommand}" CommandParameter="SharedSplashThree" Style="{StaticResource SplashButton}" />

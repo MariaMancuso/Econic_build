@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Econic.Mobile.Views.Templates
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class FriendlyTemplate : ContentView
+	public partial class Badges : ContentView
 	{
-		public FriendlyTemplate()
+		public Badges()
 		{
 			InitializeComponent();
 		}
