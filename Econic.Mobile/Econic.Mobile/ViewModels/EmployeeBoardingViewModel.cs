@@ -125,6 +125,18 @@ namespace Econic.Mobile.ViewModels
                 };
             }
         }
+
+        public string[] BizImage
+        {
+            get
+            {
+                return new string[]
+                {
+                    "img_ziba_logo.png"
+                };
+            }
+        }
+
         string classification = "";
         private async void cmTapped(Object sender)
         {

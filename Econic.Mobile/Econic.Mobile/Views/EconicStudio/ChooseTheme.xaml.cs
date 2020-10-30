@@ -15,14 +15,20 @@ namespace Econic.Mobile.Views.EconicStudio
 	{
 		ControlTemplates previousItem;
 		ControlTemplates currentItem;
-		ControlTemplateViewModel control = new ControlTemplateViewModel();
+
+		//ControlTemplateViewModel control = new ControlTemplateViewModel();
 		
 		object template { get; set; }
-		public ChooseTheme()
+		//public ChooseTheme()
+
+		ControlTemplateViewModel control;
+		public ChooseTheme(OwnerBoardingViewModel OwnerVM)
 		{
+
 			InitializeComponent();
+			BindingContext = control = new ControlTemplateViewModel(); ;
+			control.OBViewModel = OwnerVM;
 			CreateBoxGrid();
-			BindingContext = control;
 		}
 
 		void OnCurrentItemChanged(object sender, CurrentItemChangedEventArgs e) 
@@ -37,7 +43,7 @@ namespace Econic.Mobile.Views.EconicStudio
 
 		private void CreateBoxGrid()
 		{
-			ControlTemplateViewModel control = new ControlTemplateViewModel();
+
 			IList<BoxColorModel> b = control.CreateBoxCollection();
 			var boxIndex = 0;
 			//rows
@@ -67,7 +73,7 @@ namespace Econic.Mobile.Views.EconicStudio
 			{
 
 				control.ChangeThemeInfo(template);
-				await Navigation.PushAsync(new BookAppointment());
+				await Navigation.PushAsync(new ChooseLogo());
 			}
 			else
 			{

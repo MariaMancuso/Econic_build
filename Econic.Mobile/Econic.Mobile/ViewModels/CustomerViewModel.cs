@@ -14,6 +14,8 @@ namespace Econic.Mobile.ViewModels
 {
     public class CustomerViewModel
     {
+        ObservableCollection <SummaryOrderModel> customerModel;
+
         public CustomerViewModel()
         {
             OpenPageCommand = new Command<string>((arg) => OpenPage(arg));
@@ -35,6 +37,17 @@ namespace Econic.Mobile.ViewModels
         public bool HasAppointment()
 		{
             return model.hasAppointment;
+		}
+
+        public string[] BizImage
+		{
+			get
+			{
+                return new string[]
+                {
+                    "img_ziba_logo.png"
+                };
+			}
 		}
 
         public string[] SplashTitles
@@ -215,6 +228,33 @@ namespace Econic.Mobile.ViewModels
             levels.Add(new CustomerLevels() { level = 8, disabled = "icon_plant_garden_disabled.png", abled = "icon_plant_garden_idle.png" });
             levels.Add(new CustomerLevels() { level = 9, disabled = "icon_run_office_disabled.png", abled = "icon_run_office_idle.png" });
             return levels;
+		}
+
+        public ObservableCollection<SummaryOrderModel> SetOrders()
+		{
+            customerModel = new ObservableCollection<SummaryOrderModel>()
+			{
+                        new SummaryOrderModel
+                        {
+                            OrderNumber = 12345,
+                            OrderDate = DateTime.Now,
+                            status = true,
+                            ImageSource = "browtrio.png",
+                            ProductName = "Ziba Brow Trio",
+                            Price = 19
+
+                        },
+                        new SummaryOrderModel
+                        {
+                            OrderNumber = 12145,
+                            OrderDate = DateTime.Now,
+                            status = false,
+                            ImageSource = "browcrayon.png",
+                            ProductName = "Ziba Brow Crayon",
+                            Price = 19
+                        }
+            };
+            return customerModel;
 		}
 
     }

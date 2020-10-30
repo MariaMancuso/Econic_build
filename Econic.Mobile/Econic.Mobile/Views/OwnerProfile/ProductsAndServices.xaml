@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Name="Page"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" x:Name="Page"
              x:Class="Econic.Mobile.Views.OwnerProfile.ProductsAndServices" 
              NavigationPage.HasNavigationBar="False" 
              BackgroundColor="WhiteSmoke" 
@@ -10,106 +11,52 @@
         <Grid RowSpacing="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="40*" />
-                <RowDefinition Height="40*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Text="Products and Services" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20"/>
+            <Label Grid.Row="0" Text="Preview of your services. Do you want to buy it?" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20"/>
 
-            <StackLayout Grid.Row="1">
-                <Label Text="My Best Products" FontFamily="QuicksandBold" TextColor="#404040" FontSize="16"/>
-                <ListView ItemsSource="{Binding Owner.Items}" RowHeight="90" Footer="" SelectionMode="None" >
-                    <ListView.ItemTemplate>
+            <StackLayout Grid.Row="1" Spacing="20">
+                <Label Text="Upload a minimum of 1 or a maximum of 10" FontFamily="QuicksandBold" TextColor="Gray" />
+                <sync:SfListView ItemsSource="{Binding Owner.Items}" AutoFitMode="Height" SelectionMode="None" RowSpacing="20" >
+                    <sync:SfListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
-
-                                    <Image Grid.Column="0" Source="{Binding Image.Source}" HeightRequest="80" WidthRequest="80" Aspect="AspectFill"/>
-
-                                    <StackLayout Grid.Column="1" Padding="10, 0, 0, 0">
-                                        <StackLayout VerticalOptions="Start">
-                                            <Label Text="{Binding Name}" FontFamily="QuicksandBold" TextColor="#404040" FontSize="13" VerticalTextAlignment="Start"/>
-                                            <Label Text="{Binding Description}" FontFamily="QuicksandBold" TextColor="Gray" FontSize="12"/>
-                                        </StackLayout>
-
-                                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
-                                            <Label Text="Remove" TextColor="#D03737" FontSize="13" FontFamily="QuicksandSemiBold" Padding="0, 0, 15, 0">
-                                                <Label.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.RemoveClicked, Source={x:Reference Page}}" CommandParameter="{Binding .}"/>
-                                                </Label.GestureRecognizers>
-                                            </Label>
-                                            <Label Text="Edit" TextColor="CornflowerBlue" FontSize="13" FontFamily="QuicksandSemiBold">
-                                                <Label.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.EditClicked, Source={x:Reference Page}}" CommandParameter="{Binding .}" />
-                                                </Label.GestureRecognizers>
-                                            </Label>
+                                <StackLayout Spacing="15">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding Image.Source}" HeightRequest="140" WidthRequest="140" HorizontalOptions="Start" Aspect="Fill"/>
+                                        <StackLayout>
+                                            <Label Text="{Binding Name}" FontFamily="QuicksandBold" TextColor="#404040" FontSize="14" />
+                                            <Label Grid.Column="2" Text="{Binding PriceRange}" FontFamily="QuicksandBold" TextColor="#404040" FontSize="14"/>
                                         </StackLayout>
                                     </StackLayout>
+                                    <Label Text="{Binding Description}" FontFamily="QuicksandBold" TextColor="Gray" FontSize="14" />
 
-                                    <Label Grid.Column="2" Text="{Binding PriceRange}" FontFamily="QuicksandBold" TextColor="#404040" HorizontalOptions="End" />
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <Button Command="{Binding AddNewItemCommand}" BackgroundColor="#DFECF2" TextColor="#517486" Text="+ Add a Product" CornerRadius="20" HorizontalOptions="Start" HeightRequest="30" FontSize="12" FontFamily="QuicksandBold" Padding="15, 0, 15, 0"/>
-            </StackLayout>
-
-            <StackLayout Grid.Row="2" Padding="0, 10, 0, 10">
-                <Label Text="My Best Services" FontFamily="QuicksandBold" TextColor="#404040" FontSize="16" />
-                <ListView ItemsSource="{Binding Owner.Items}" RowHeight="90" SelectionMode="None">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-
-                                    <Image Grid.Column="0" Source="{Binding Image.Source}" HeightRequest="80" WidthRequest="80" Aspect="AspectFill" />
-
-                                    <StackLayout Grid.Column="1" Padding="10, 0, 0, 0">
-                                        <StackLayout VerticalOptions="Start">
-                                            <Label Text="{Binding Name}" FontFamily="QuicksandBold" TextColor="#404040" FontSize="13" VerticalTextAlignment="Start" />
-                                            <Label Text="{Binding Description}" FontFamily="QuicksandBold" TextColor="Gray" FontSize="12" />
-                                        </StackLayout>
-
-                                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
-                                            <Label Text="Remove" TextColor="#D03737" FontSize="13" FontFamily="QuicksandSemiBold" Padding="0, 0, 15, 0">
-                                                <Label.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.RemoveClicked, Source={x:Reference Page}}" CommandParameter="{Binding .}"/>
-                                                </Label.GestureRecognizers>
-                                            </Label>
-                                            <Label Text="Edit" TextColor="CornflowerBlue" FontSize="13" FontFamily="QuicksandSemiBold">
-                                                <Label.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.EditClicked, Source={x:Reference Page}}" CommandParameter="{Binding .}"/>
-                                                </Label.GestureRecognizers>
-                                            </Label>
-                                        </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Spacing="30">
+                                        <Label Text="Remove" TextColor="#D03737" FontSize="13" FontFamily="QuicksandSemiBold" Padding="0, 0, 15, 0">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.RemoveClicked, Source={x:Reference Page}}" CommandParameter="{Binding .}" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                        <Label Text="Edit" TextColor="CornflowerBlue" FontSize="13" FontFamily="QuicksandSemiBold">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.EditClicked, Source={x:Reference Page}}" CommandParameter="{Binding .}" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
                                     </StackLayout>
-
-                                    <Label Grid.Column="2" Text="{Binding PriceRange}" FontFamily="QuicksandBold" TextColor="#404040" HorizontalOptions="End" />
-                                </Grid>
+                                    <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 15, 0, 15"/>
+                                </StackLayout>
                             </ViewCell>
                         </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <Button Command="{Binding AddNewItemCommand}" Text="+ Add a Service" Style="{StaticResource SecondaryBtn}" />
+                    </sync:SfListView.ItemTemplate>
+                </sync:SfListView>
             </StackLayout>
-
+            <StackLayout Grid.Row="2">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="AddAnother" Text="+ Add a Product" Style="{x:StaticResource SecondaryBtn}" HorizontalOptions="Center" Margin="0, 10, 0, 10"/>
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="SharedPreview" Text="Next" Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

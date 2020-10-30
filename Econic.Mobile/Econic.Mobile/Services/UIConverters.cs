@@ -33,6 +33,60 @@ namespace Econic.Mobile.Services
 
 		#endregion
 	}
+	public class GoodVisibilityConverter : IValueConverter
+	{
+
+		#region IValueConverter implementation
+
+		public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			if ((value is string) == false)
+			{
+				throw new ArgumentNullException("value should be string type");
+			}
+
+			string returnValue = (value as string);
+
+			if (returnValue == "Good")
+				return true;
+			else
+				return false;
+		}
+
+		public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			throw new NotImplementedException();
+		}
+
+		#endregion
+	}
+	public class ServiceVisibilityConverter : IValueConverter
+	{
+
+		#region IValueConverter implementation
+
+		public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			if ((value is string) == false)
+			{
+				throw new ArgumentNullException("value should be string type");
+			}
+
+			string returnValue = (value as string);
+
+			if (returnValue == "Service")
+				return true;
+			else
+				return false;
+		}
+
+		public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			throw new NotImplementedException();
+		}
+
+		#endregion
+	}
 	public class OrderVerfiedLabelConverter : IValueConverter
 	{
 

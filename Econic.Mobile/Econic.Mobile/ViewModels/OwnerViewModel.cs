@@ -1,6 +1,8 @@
 ﻿using Econic.Mobile.Models;
 using Econic.Mobile.Models.EmployeeModels;
 using Econic.Mobile.Views.OwnerProfile;
+using Econic.Mobile.Views.OwnerReg;
+using Econic.Mobile.Views.Shared;
 using Econic.Mobile.Views.Shared.HamburgerMenu;
 using Syncfusion.ListView.XForms;
 using System;
@@ -57,6 +59,7 @@ namespace Econic.Mobile.ViewModels
                 OnPropertyChanged("CustomerSelected");
             }
         }
+        public ItemModel CurrentItemModel { get; set; }
         public OwnerModel Owner { get; set; }
 
         public OwnerViewModel(OwnerModel owner)
@@ -75,6 +78,8 @@ namespace Econic.Mobile.ViewModels
             DayTappedCommand = new Command(dayTappedCommand);
             EditBusinessLocationCommand = new Command(editBusinessLocationCommand);
             HourListCommand = new Command(hourListCommand);
+            RemoveClicked = new Command(removeClicked);
+            EditClicked = new Command(editClicked);
             MenuItems = new ObservableCollection<HamburgerMasterMenuItem>(new[]
             {
                     new HamburgerMasterMenuItem { Id = 2, Title = "Support", Icon = "icon_support", TargetType = typeof(Support) },
@@ -92,6 +97,19 @@ namespace Econic.Mobile.ViewModels
         public ICommand EditBusinessLocationCommand { private set; get; }
         public ICommand HourListCommand { private set; get; }
 
+        public ICommand RemoveClicked { private set; get; }
+        public ICommand EditClicked { private set; get; }
+
+        private async void editClicked(Object sender)
+        {
+            CurrentItemModel = sender as ItemModel;
+            await Application.Current.MainPage.Navigation.PushAsync(new AddItem { BindingContext = this });
+        }
+        private void removeClicked(Object sender)
+        {
+            var item = sender as ItemModel;
+            Owner.Items.Remove(item);
+        }
         private void hourListCommand(Object sender)
         {
             Grid grid = sender as Grid;
@@ -129,6 +147,9 @@ namespace Econic.Mobile.ViewModels
 
                     Application.Current.MainPage.Navigation.RemovePage(Application.Current.MainPage.Navigation.NavigationStack[Application.Current.MainPage.Navigation.NavigationStack.Count - 2]);
                     await Application.Current.MainPage.Navigation.PopAsync();
+                    break;
+                case "NotifyMethod":
+                    await Application.Current.MainPage.Navigation.PushAsync(new Notify() { BindingContext = this });
                     break;
                 case "ViewCustomer":
                     await Application.Current.MainPage.Navigation.PushAsync(new ViewCustomer { BindingContext = this });
@@ -177,6 +198,34 @@ namespace Econic.Mobile.ViewModels
                     break;
                 case "SaveContactDetail":
                     await Application.Current.MainPage.Navigation.PopAsync();
+                    break;
+                case "SharedPreview":
+        
+                    var page = new Hamburger { BindingContext = this };
+                    //page.Master = new HamburgerMaster { BindingContext = model };
+                    page.Detail = new NavigationPage(new OwnerTabbedPage
+                    {
+                        BindingContext = this,
+                        BarBackgroundColor = Color.WhiteSmoke
+                    })
+                    {
+                        BarBackgroundColor = Color.WhiteSmoke,
+                        BackgroundColor = Color.WhiteSmoke
+                    };
+                    await Application.Current.MainPage.Navigation.PushAsync(page) ;
+                    break;
+                case "Preview":
+                    if (CurrentItemModel != null && !Owner.Items.Contains(CurrentItemModel))
+                        Owner.Items.Add(CurrentItemModel);
+
+                    await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices { BindingContext = this }); ;
+                    break;
+                case "AddAnother":
+                    if (CurrentItemModel.Type == "Good")
+                        CurrentItemModel = new ItemModel { Type = "Good" };
+                    else
+                        CurrentItemModel = new ItemModel { Type = "Service" };
+                    await Application.Current.MainPage.Navigation.PushAsync(new AddItem { BindingContext = this });
                     break;
                 default:
                     break;

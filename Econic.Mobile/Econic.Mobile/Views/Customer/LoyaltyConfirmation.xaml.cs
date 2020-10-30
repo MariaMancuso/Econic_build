@@ -11,6 +11,7 @@ using Xamarin.Forms.Xaml;
 using System.Dynamic;
 using System.Xml;
 using System.Net;
+using Econic.Mobile.ViewModels;
 
 namespace Econic.Mobile.Views.Customer
 {
@@ -25,6 +26,7 @@ namespace Econic.Mobile.Views.Customer
 		ControlTemplate mainstreet = new ControlTemplate(typeof(MainStreet));
 		ControlTemplate badges = new ControlTemplate(typeof(Badges));
 		ControlTemplate popup = new ControlTemplate(typeof(Popup));
+
 		public LoyaltyConfirmation()
 		{
 			InitializeComponent();
