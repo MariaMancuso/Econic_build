@@ -68,9 +68,9 @@ namespace Econic.Mobile.ViewModels
 				case "Book":
 					await Application.Current.MainPage.Navigation.PushAsync(new BookAppointment());
 					break;
-				//case "Notify":
-				//await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this });
-				//break;
+				case "Notify":
+					await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this });
+					break;
 				case "ETGoHome":
 					await Application.Current.MainPage.Navigation.PushAsync(new DealBoard());
 					break;

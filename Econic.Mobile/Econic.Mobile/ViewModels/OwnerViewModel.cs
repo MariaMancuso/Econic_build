@@ -1,6 +1,7 @@
 ﻿using Econic.Mobile.Models;
 using Econic.Mobile.Models.EmployeeModels;
 using Econic.Mobile.Views.OwnerProfile;
+using Econic.Mobile.Views.OwnerReg;
 using Econic.Mobile.Views.Shared.HamburgerMenu;
 using Syncfusion.ListView.XForms;
 using System;
@@ -129,6 +130,9 @@ namespace Econic.Mobile.ViewModels
 
                     Application.Current.MainPage.Navigation.RemovePage(Application.Current.MainPage.Navigation.NavigationStack[Application.Current.MainPage.Navigation.NavigationStack.Count - 2]);
                     await Application.Current.MainPage.Navigation.PopAsync();
+                    break;
+                case "NotifyMethod":
+                    await Application.Current.MainPage.Navigation.PushAsync(new Notify() { BindingContext = this });
                     break;
                 case "ViewCustomer":
                     await Application.Current.MainPage.Navigation.PushAsync(new ViewCustomer { BindingContext = this });

@@ -67,7 +67,7 @@ namespace Econic.Mobile.Views.EconicStudio
 			{
 
 				control.ChangeThemeInfo(template);
-				await Navigation.PushAsync(new BookAppointment());
+				await Navigation.PushAsync(new ChooseLogo());
 			}
 			else
 			{

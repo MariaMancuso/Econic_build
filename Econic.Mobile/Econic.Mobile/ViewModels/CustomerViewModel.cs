@@ -39,6 +39,17 @@ namespace Econic.Mobile.ViewModels
             return model.hasAppointment;
 		}
 
+        public string[] BizImage
+		{
+			get
+			{
+                return new string[]
+                {
+                    "img_ziba_logo.png"
+                };
+			}
+		}
+
         public string[] SplashTitles
         {
             get
