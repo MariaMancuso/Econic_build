@@ -2,11 +2,69 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Econic.Mobile.Views.Templates.CustomerSettings">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello, this section is in progress. Please come back later!" 
-                 HorizontalOptions="CenterAndExpand"
-                 VerticalOptions="CenterAndExpand"/>
-      </StackLayout>
-  </ContentView.Content>
+    <ContentView.Content>
+        <StackLayout>
+                <Label Grid.Row="0" Text="Settings" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+                <Frame BackgroundColor="Transparent" Padding="0, 40, 0, 10">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="icon_contacts" WidthRequest="30" HeightRequest="30" />
+                            <Label Text="Contact Details" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                        </StackLayout>
+                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="ContactView" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="icon_card" WidthRequest="30" HeightRequest="30" />
+                            <Label Text="Payment Methods" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                        </StackLayout>
+                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="Payments" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="icon_privacy" WidthRequest="30" HeightRequest="30" />
+                            <Label Text="Privacy and Security" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                        </StackLayout>
+                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="Privacy" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="icon_languages" WidthRequest="30" HeightRequest="30" />
+                            <Label Text="Languages" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                        </StackLayout>
+                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="Languages" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="icon_revyvvweb" WidthRequest="30" HeightRequest="30" />
+                            <Label Text="Revyvv Web" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                        </StackLayout>
+                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="Revyvvweb" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </StackLayout>
+    </ContentView.Content>
 </ContentView>

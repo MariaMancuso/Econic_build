@@ -4,7 +4,7 @@
              x:Class="Econic.Mobile.Views.Customer.LoyaltyConfirmation"
              xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             ControlTemplate="{StaticResource NavigationTemplate}"
+             ControlTemplate="{StaticResource PageWithoutBackBtn}"
              Padding="0">
     <ContentPage.Content>
         <StackLayout x:Name="MainLayout">
