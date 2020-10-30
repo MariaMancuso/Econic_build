@@ -14,7 +14,7 @@ namespace Econic.Mobile.Views.OwnerReg
     public partial class Classification : ContentPage
     {
 
-        public Classification(OwnerViewModel OwnerVM)
+        public Classification(OwnerBoardingViewModel OwnerVM)
         {
             InitializeComponent();
 

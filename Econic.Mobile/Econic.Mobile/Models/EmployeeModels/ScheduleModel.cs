@@ -6,7 +6,7 @@ using System.Text;
 namespace Econic.Mobile.Models.EmployeeModels
 {
     [AddINotifyPropertyChangedInterface]
-    public class EmployeeScheduleModel
+    public class ScheduleModel
     {
         public string Day { get; set; }
         public bool IsWorking { get; set; }

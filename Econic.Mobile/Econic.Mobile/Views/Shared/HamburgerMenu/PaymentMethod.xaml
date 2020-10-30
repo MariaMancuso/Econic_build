@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
+             x:Class="Econic.Mobile.Views.Shared.HamburgerMenu.PaymentMethod"
+             NavigationPage.HasNavigationBar="True"
+             Padding="20, 0, 20, 0"
+             BackgroundColor="WhiteSmoke">
+    <ContentPage.Content>
+        <Grid RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Payments" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+            
+            <StackLayout Grid.Row="1">
+                <Label  Text="CONNECT BACK ACCOUNT" FontFamily="QuicksandBold" TextColor="Gray" FontSize="16" />
+                <Label Text="You don't have a connected bank account" FontFamily="QuicksandBold" TextColor="#404040"  />
+            </StackLayout>
+
+            <StackLayout Grid.Row="2">
+                <inputLayout:SfTextInputLayout Grid.Row="0" InputViewPadding="10" Hint="Name on Account" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <Entry ReturnType="Next" />
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout Grid.Row="0" InputViewPadding="10" Hint="Routing Number" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <Entry ReturnType="Next" />
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout Grid.Row="0" InputViewPadding="10" Hint="Account Number" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <Entry ReturnType="Next" />
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout Grid.Row="0" InputViewPadding="10" Hint="Confirm Account Number" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                    <Entry ReturnType="Next" />
+                </inputLayout:SfTextInputLayout>
+                <Label Text="How to find my routing and account numbers?" TextColor="CornflowerBlue" FontFamily="QuicksandBold" FontSize="14"> 
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="Bankhelpinfo"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" Spacing="10">
+                <Label Text="WHAT PAYMENT DO YOU ACCEPT" FontFamily="QuicksandBold" TextColor="Gray" FontSize="16" />
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Accept Credit Cards" FontFamily="QuicksandBold" TextColor="#404040" FontSize="16" HorizontalOptions="Start" />
+                    <Switch Grid.Row="2" HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+
+                <BoxView HeightRequest="1" BackgroundColor="Gray"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Accept bank payments (ACH)" FontFamily="QuicksandBold" TextColor="#404040" FontSize="16" HorizontalOptions="Start" />
+                <Switch Grid.Row="2" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

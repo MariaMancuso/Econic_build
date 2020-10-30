@@ -2,10 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Econic.Mobile.Views.OwnerReg.Sales"
-             NavigationPage.HasNavigationBar="False"
-             xmlns:controls="clr-namespace:Econic.Mobile.Renderers"
-             BackgroundColor="WhiteSmoke"
-             ControlTemplate="{StaticResource NavigationTemplate}">
+             NavigationPage.HasNavigationBar="False" xmlns:controls="clr-namespace:Econic.Mobile.Renderers" xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms" BackgroundColor="WhiteSmoke" xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard" ControlTemplate="{StaticResource NavigationTemplate}">
 
     <ContentPage.Content>
         <Grid RowSpacing="40">
@@ -20,11 +17,14 @@
 
             <StackLayout Grid.Row="1">
                 <Label Text="Tell us how you're doing now" TextColor="#404040" FontFamily="QuicksandBold" />
-                <Frame Style="{StaticResource Customframe}" HorizontalOptions="FillAndExpand"  Grid.Column="0" Grid.Row="0">
-                    <!--<controls:CustomDropDown SelectedItem="{Binding Owner.MonthlySales}" BackgroundColor="Transparent" TitleColor="#404040" FontFamily="QuicksandSemiBold"
-                                 HeightRequest="45"
-                                 Image="ddicon"
-                                 Title="My Monthly Sales"/>-->
+                <Frame Style="{StaticResource Customframe}" Padding="2">
+                    <combobox:SfComboBox HeightRequest="40" BackgroundColor="White" ShowBorder="False" Watermark="My Monthly Sales" WatermarkColor="#404040">
+                        <combobox:SfComboBox.ComboBoxSource>
+                            <ListCollection:List x:TypeArguments="x:String">
+                                <x:String>N/A</x:String>
+                            </ListCollection:List>
+                        </combobox:SfComboBox.ComboBoxSource>
+                    </combobox:SfComboBox>
                 </Frame>
             </StackLayout>
 

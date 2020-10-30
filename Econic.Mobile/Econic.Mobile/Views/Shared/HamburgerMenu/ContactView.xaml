@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" 
+             x:Class="Econic.Mobile.Views.Shared.HamburgerMenu.ContactView"
+             NavigationPage.HasNavigationBar="True"
+             Padding="20, 0, 20, 0"
+             BackgroundColor="WhiteSmoke">
+    <ContentPage.Content>
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Contact Details" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+            
+            <StackLayout Grid.Row="1" >
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="profilepic" HorizontalOptions="Start" HeightRequest="80" WidthRequest="80" VerticalOptions="Center" />
+                    <Label Text="Edit" TextColor="CornflowerBlue" FontSize="15" FontFamily="QuicksandSemiBold" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="ContactDetail" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Label Grid.Row="0" Text="{Binding Owner.Account.Name}" FontFamily="QuicksandBold" TextColor="#404040" FontSize="16" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="2">
+                <Label Text="{Binding Owner.Title}" FontFamily="QuicksandBold" TextColor="Gray" />
+                <Label Text="{Binding Owner.BusinessNumber, StringFormat='Contact: {0}'}" FontFamily="QuicksandBold" TextColor="Gray" />
+                <Label Text="{Binding Owner.Account.Username}" FontFamily="QuicksandBold" TextColor="Gray" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

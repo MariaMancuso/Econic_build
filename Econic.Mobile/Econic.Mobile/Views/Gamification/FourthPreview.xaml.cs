@@ -13,7 +13,7 @@ namespace Econic.Mobile.Views.Gamification
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FourthPreview : ContentPage
     {
-        public FourthPreview(OwnerViewModel OwnerVM)
+        public FourthPreview(OwnerBoardingViewModel OwnerVM)
         {
             InitializeComponent();
             BindingContext = OwnerVM;

@@ -13,7 +13,7 @@ namespace Econic.Mobile.Views.OwnerReg
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AccountRegisteration : ContentPage
     {
-        public AccountRegisteration(OwnerViewModel OwnerVM)
+        public AccountRegisteration(OwnerBoardingViewModel OwnerVM)
         {
             InitializeComponent();
             BindingContext = OwnerVM;

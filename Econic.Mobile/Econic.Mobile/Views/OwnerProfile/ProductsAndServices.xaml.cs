@@ -13,10 +13,9 @@ namespace Econic.Mobile.Views.OwnerProfile
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProductsAndServices : ContentPage
     {
-        public ProductsAndServices(OwnerViewModel OwnerVM)
+        public ProductsAndServices()
         {
             InitializeComponent();
-            BindingContext = OwnerVM;
         }
     }
 }

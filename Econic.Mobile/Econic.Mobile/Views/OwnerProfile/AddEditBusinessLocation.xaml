@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:converter="clr-namespace:Econic.Mobile.Services" 
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms" 
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
+             x:Class="Econic.Mobile.Views.OwnerProfile.AddEditBusinessLocation"
+             NavigationPage.HasNavigationBar="True"
+             Padding="20, 0, 20, 0"
+             x:Name="Page">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:DayBackgroundConverter x:Key="cnvbackground" />
+            <converter:DayLabelConverter x:Key="cnvlabel" />
+            <converter:DayBorderConverter x:Key="cnvborder" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <Grid RowSpacing="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+
+                <Label Grid.Row="0" Text="Business Locations" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+                <StackLayout Grid.Row="1">
+                    <Label Text="Add Location" TextColor="#919191" FontFamily="QuicksandBold" />
+                    <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Name of Location" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                        <Entry ReturnType="Next" Text="{Binding BusinessLocationSelected.Name , Mode=TwoWay}" FontFamily="QuicksandMedium" />
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Type your address here" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                        <Entry ReturnType="Next" Text="{Binding BusinessLocationSelected.Address1}" FontFamily="QuicksandMedium" />
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout InputViewPadding="10" Hint=" Address 2" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                        <Entry ReturnType="Next" Text="{Binding BusinessLocationSelected.Address2 , Mode=TwoWay}" FontFamily="QuicksandMedium" />
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="City" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                        <Entry ReturnType="Next" Text="{Binding BusinessLocationSelected.City , Mode=TwoWay}" FontFamily="QuicksandMedium" />
+                    </inputLayout:SfTextInputLayout>
+
+                    <Grid ColumnSpacing="10">
+                        <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="State" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040" Grid.Column="0">
+                            <combobox:SfComboBox Text="{Binding BusinessLocationSelected.State}" FontFamily="QuicksandMedium" BackgroundColor="Transparent" HeightRequest="44"/>
+                        </inputLayout:SfTextInputLayout>
+                        <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Zip" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040" Grid.Column="1">
+                            <Entry ReturnType="Next" Text="{Binding BusinessLocationSelected.Zip , Mode=TwoWay}" FontFamily="QuicksandMedium" />
+                        </inputLayout:SfTextInputLayout>
+                    </Grid>
+                    <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Phone Number" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                        <Entry ReturnType="Next" Text="{Binding BusinessLocationSelected.Number , Mode=TwoWay}" FontFamily="QuicksandMedium" />
+                    </inputLayout:SfTextInputLayout>
+                </StackLayout>
+
+
+
+                <StackLayout Grid.Row="2">
+                    <Label Text="Store Hours" TextColor="#919191" FontFamily="QuicksandBold" />
+                    <CollectionView  ItemsSource="{Binding BusinessLocationSelected.Hours, Mode=TwoWay}" HeightRequest="50">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="7" />
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="5">
+                                    <Button Text="{Binding Day[0]}" TextColor="{Binding IsSelected, Converter={StaticResource cnvlabel}}" BackgroundColor="{Binding IsSelected, Converter={StaticResource cnvbackground}}" BorderColor="{Binding IsWorking, Converter={StaticResource cnvborder}}" CornerRadius="20" WidthRequest="40" HeightRequest="40" BorderWidth="1" Command="{Binding BindingContext.DayTappedCommand, Source={x:Reference Page}}" CommandParameter="{Binding .}">
+                                    </Button>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+
+                    <CarouselView  ItemsSource="{Binding BusinessLocationSelected.Hours, Mode=TwoWay}" HeightRequest="40" IsSwipeEnabled="False" CurrentItem="{Binding CurrentItem}">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Grid.Row="5" Orientation="Horizontal">
+                                    <Frame Style="{StaticResource Customframe}" Padding="2" Margin="0, 0, 20, 0" HorizontalOptions="FillAndExpand">
+                                        <combobox:SfComboBox HeightRequest="40" BackgroundColor="White" ShowBorder="False" Watermark="Start" WatermarkColor="#404040" SelectedItem="{Binding Start, Mode=TwoWay}">
+                                            <combobox:SfComboBox.ComboBoxSource>
+                                                <ListCollection:List x:TypeArguments="x:String">
+                                                    <x:String>06:00 AM</x:String>
+                                                    <x:String>07:00 AM</x:String>
+                                                </ListCollection:List>
+                                            </combobox:SfComboBox.ComboBoxSource>
+                                        </combobox:SfComboBox>
+                                    </Frame>
+                                    <Frame Style="{StaticResource Customframe}" Padding="2" HorizontalOptions="FillAndExpand">
+                                        <combobox:SfComboBox HeightRequest="40" BackgroundColor="White" ShowBorder="False" Watermark="End" WatermarkColor="#404040" SelectedItem="{Binding End, Mode=TwoWay}">
+                                            <combobox:SfComboBox.ComboBoxSource>
+                                                <ListCollection:List x:TypeArguments="x:String">
+                                                    <x:String>05:00 PM</x:String>
+                                                    <x:String>06:00 PM</x:String>
+                                                </ListCollection:List>
+                                            </combobox:SfComboBox.ComboBoxSource>
+                                        </combobox:SfComboBox>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                </StackLayout>
+
+                <StackLayout Grid.Row="3" Margin="0, 20, 0, 0">
+                    <Button Command="{Binding OpenPageCommand}" CommandParameter="SaveLocation" Text="Save" Style="{StaticResource NextItemButton}"  />
+                    <ContentView ControlTemplate="{StaticResource Footer}" />
+                </StackLayout>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

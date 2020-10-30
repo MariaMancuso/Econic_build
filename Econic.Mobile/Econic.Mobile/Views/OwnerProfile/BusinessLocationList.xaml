@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" 
+             x:Class="Econic.Mobile.Views.OwnerProfile.BusinessLocationList"
+             xmlns:converters="clr-namespace:Econic.Mobile.Services" 
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Expander;assembly=Syncfusion.Expander.XForms" x:Name="Page"
+             NavigationPage.HasNavigationBar="True"
+             Padding="20, 0, 20, 0"
+             BackgroundColor="WhiteSmoke">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:OrderStatusTextConverter x:Key="cnvtextcolor"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="Business Locations" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" HorizontalTextAlignment="Start" />
+
+            <ScrollView Grid.Row="1">
+                <sync:SfListView ItemsSource="{Binding Owner.BusinessLocations}" AutoFitMode="Height" SelectedItem="{Binding BusinessLocationSelected}" ItemSize="300" SelectionBackgroundColor="Transparent">
+                    <sync:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="20">
+                                <StackLayout Orientation="Horizontal" Padding="0, 40, 0, 0">
+                                    <Label Text="{Binding Name}" FontFamily="QuicksandBold" TextColor="#404040" HorizontalOptions="Start" />
+                                    <Label Text="Edit" TextColor="CornflowerBlue" FontSize="13" FontFamily="QuicksandSemiBold" HorizontalOptions="EndAndExpand">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.EditBusinessLocationCommand, Source={x:Reference Page}}" CommandParameter="{Binding .}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="icon_location" WidthRequest="25" HeightRequest="25" />
+                                    <StackLayout Orientation="Horizontal" Spacing="0" Padding="10, 0, 0, 0">
+                                        <Label Text="{Binding Address1}" FontFamily="QuicksandBold" />
+                                        <Label Text="{Binding Address2}" FontFamily="QuicksandBold" />
+                                        <Label Text="{Binding City, StringFormat=', {0},'}" FontFamily="QuicksandBold" />
+                                        <Label Text="{Binding State, StringFormat=' {0}'}" FontFamily="QuicksandBold" />
+                                        <Label Text="{Binding Zip, StringFormat=' {0}'}" FontFamily="QuicksandBold" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0, 10, 0, 0" Spacing="10">
+                                    <Image Source="icon_phone" WidthRequest="30" HeightRequest="30" />
+                                    <Label Text="{Binding Number}" FontFamily="QuicksandBold" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Image Source="icon_clock" WidthRequest="25" HeightRequest="25" />
+                                    <Label Text="Hours" FontFamily="QuicksandBold" />
+                                    <Label Text="{Binding Hours[0].Day[0]}" FontFamily="QuicksandMedium" />
+                                    <Label Text="{Binding Hours[0].Start[1]}" FontFamily="QuicksandMedium" />
+                                    <Label Text="{Binding Hours[0].End[1], StringFormat='- {0}'}" FontFamily="QuicksandMedium" />
+                                    <ImageButton BackgroundColor="Transparent" Command="{Binding Path=BindingContext.HourListCommand, Source={x:Reference Page}}" CommandParameter="{Binding Source={x:Reference expandablegrid}}" Source="icon_bottomarrow" HeightRequest="15" WidthRequest="15"/>
+                                </StackLayout>
+
+                                <Grid Padding="40, 0, 0 ,0" IsVisible="false" x:Name="expandablegrid" HeightRequest="150">
+                                    <StackLayout Orientation="Horizontal" Grid.Row="0">
+                                        <Label Text="{Binding Hours[1].Day[0]}" FontFamily="QuicksandMedium" />
+                                        <Label Text="{Binding Hours[1].Start[1]}" FontFamily="QuicksandMedium" />
+                                        <Label Text="{Binding Hours[1].End[1], StringFormat='- {0}'}" FontFamily="QuicksandMedium" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Grid.Row="1">
+                                        <Label Text="{Binding Hours[2].Day[0]}" FontFamily="QuicksandMedium" />
+                                        <Label Text="{Binding Hours[2].Start[1]}" FontFamily="QuicksandMedium" />
+                                        <Label Text="{Binding Hours[2].End[1], StringFormat='- {0}'}" FontFamily="QuicksandMedium" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Grid.Row="2">
+                                        <Label Text="{Binding Hours[3].Day[0]}" FontFamily="QuicksandMedium" />
+                                        <Label Text="{Binding Hours[3].Start[1]}" FontFamily="QuicksandMedium" />
+                                        <Label Text="{Binding Hours[3].End[1], StringFormat='- {0}'}" FontFamily="QuicksandMedium" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Grid.Row="3">
+                                        <Label Text="{Binding Hours[4].Day[0]}" FontFamily="QuicksandMedium" />
+                                        <Label Text="{Binding Hours[4].Start[1]}" FontFamily="QuicksandMedium" />
+                                        <Label Text="{Binding Hours[4].End[1], StringFormat='- {0}'}" FontFamily="QuicksandMedium" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Grid.Row="4">
+                                        <Label Text="{Binding Hours[5].Day[0]}" FontFamily="QuicksandMedium" />
+                                        <Label Text="{Binding Hours[5].Start[1]}" FontFamily="QuicksandMedium" />
+                                        <Label Text="{Binding Hours[5].End[1], StringFormat='- {0}'}" FontFamily="QuicksandMedium" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Grid.Row="5">
+                                        <Label Text="{Binding Hours[6].Day[0]}" FontFamily="QuicksandMedium" />
+                                        <Label Text="{Binding Hours[6].Start[1]}" FontFamily="QuicksandMedium" />
+                                        <Label Text="{Binding Hours[6].End[1], StringFormat='- {0}'}" FontFamily="QuicksandMedium" />
+                                    </StackLayout>
+                                </Grid>
+                                <BoxView HeightRequest="0.5" BackgroundColor="Gray" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </sync:SfListView.ItemTemplate>
+                    <sync:SfListView.FooterTemplate>
+                        <DataTemplate>
+                            <Button Grid.Row="2" Style="{StaticResource SecondaryBtn}" Command="{Binding OpenPageCommand}" CommandParameter="AddEditLocation" Text="+ Add Another" Margin="0, 5, 0, 0" />
+                        </DataTemplate>
+                    </sync:SfListView.FooterTemplate>
+                </sync:SfListView>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

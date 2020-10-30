@@ -16,8 +16,8 @@ namespace Econic.Mobile.Views.OwnerReg
 		public MoneySplash()
         {
             InitializeComponent();
-            //gg.HeightRequest = Application.Current.MainPage.Height;
-            BindingContext = new OwnerViewModel();
+            gg.HeightRequest = Application.Current.MainPage.Height;
+            BindingContext = new OwnerBoardingViewModel();
 
            // SelectService();
 			//SelectProduct();

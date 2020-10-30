@@ -16,10 +16,5 @@ namespace Econic.Mobile.Views.Shared.HamburgerMenu
         {
             InitializeComponent();
         }
-        private async void SettingTapped(object sender, EventArgs args)
-        {
-            await Navigation.PushAsync(new PrivacyAndSecurity());
-        }
-
     }
 }

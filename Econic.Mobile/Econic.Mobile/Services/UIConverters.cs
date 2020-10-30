@@ -1,5 +1,8 @@
-﻿using Syncfusion.ListView.XForms;
+﻿using Econic.Mobile.Models;
+using Syncfusion.ListView.XForms;
 using System;
+using System.Collections;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using Xamarin.Forms;
 
@@ -21,6 +24,161 @@ namespace Econic.Mobile.Services
 					return Color.White;
 			}
 			return Color.Black;
+		}
+
+		public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			throw new NotImplementedException();
+		}
+
+		#endregion
+	}
+	public class OrderVerfiedLabelConverter : IValueConverter
+	{
+
+		#region IValueConverter implementation
+
+		public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			if (value is bool)
+			{
+				if ((Boolean)value)
+					return "Payment verified";
+				else
+					return "Payment not verified";
+			}
+			return null;
+		}
+
+		public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			throw new NotImplementedException();
+		}
+
+		#endregion
+	}
+	public class OrderVerfiedtextColorConverter : IValueConverter
+	{
+
+		#region IValueConverter implementation
+
+		public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			if (value is bool)
+			{
+				if ((Boolean)value)
+					return Color.FromHex("#3E8F52");
+				else
+					return Color.FromHex("#D03737");
+			}
+			return null;
+		}
+
+		public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			throw new NotImplementedException();
+		}
+
+		#endregion
+	}
+	public class OrderHeaderConverter : IValueConverter
+	{
+
+		#region IValueConverter implementation
+
+		public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			if (value is bool)
+			{
+				if ((Boolean)value)
+					return "Proof of Purchase";
+				else
+					return "Order Fullfillment";
+			}
+			return null;
+		}
+
+		public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			throw new NotImplementedException();
+		}
+
+		#endregion
+	}
+	public class OrderStatusBorderConverter : IValueConverter
+	{
+
+		#region IValueConverter implementation
+
+		public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			if (value is bool)
+			{
+				if ((Boolean)value)
+					return Color.FromHex("#CA9039");
+				else
+					return Color.FromHex("#3E8F52");
+			}
+			return Color.Black;
+		}
+
+		public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			throw new NotImplementedException();
+		}
+
+		#endregion
+	}
+	public class OrderStatusTextConverter : IValueConverter
+	{
+
+		#region IValueConverter implementation
+
+		public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			if (value is bool)
+			{
+				if ((Boolean)value)
+					return "Pending Fullfillment";
+				else
+					return "Fullfilled";
+			}
+			return Color.Black;
+		}
+
+		public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			throw new NotImplementedException();
+		}
+
+		#endregion
+	}
+	public class IndexConverter : IValueConverter
+	{
+
+		#region IValueConverter implementation
+
+		public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+		{
+			if(value != null)
+            {
+				switch (value)
+				{
+					case 0:
+						return Color.DarkGray;
+					case 1:
+						return Color.Silver;
+					case 3:
+						return Color.LightGray;
+					case 4:
+						return Color.FromHex("#e3e3e3");
+					case 5:
+						return Color.FromHex("#f0f0f0");
+					default:
+						return null;
+				}
+			}
+			return Color.White;
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

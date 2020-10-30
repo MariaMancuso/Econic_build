@@ -1,259 +1,353 @@
 ﻿using Econic.Mobile.Models;
-using Econic.Mobile.Services;
-using Econic.Mobile.Views.EconicStudio;
-using Econic.Mobile.Views.Gamification;
+using Econic.Mobile.Models.EmployeeModels;
 using Econic.Mobile.Views.OwnerProfile;
-using Econic.Mobile.Views.OwnerReg;
-using Econic.Mobile.Views.Shared;
-using PropertyChanged;
+using Econic.Mobile.Views.Shared.HamburgerMenu;
+using Syncfusion.ListView.XForms;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text.RegularExpressions;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using Xamarin.Forms.Internals;
 
 namespace Econic.Mobile.ViewModels
 {
-    public class OwnerViewModel
+    public class OwnerViewModel : ViewModel.BaseVM
     {
-        OwnerModel owner;
-        IPermissionService permissionService;
-        string mode;
-        GoodModel itemToEdit;
-        SelectionViewModel cmSelection;
-        SelectionViewModel nSelection;
-        public OwnerViewModel()
+        public ObservableCollection<HamburgerMasterMenuItem> MenuItems { get; set; }
+
+        PartyDetailsModel _selectedEmployee;
+        CustomerPartyDetailsModel _selectedCustomer;
+        DetailOrderModel _selectedOrder;
+        BusinessLocationModel _selectedbusinesslocation;
+        public PartyDetailsModel EmployeeSelected
         {
-            owner = new OwnerModel
+            get { return _selectedEmployee; }
+            set
             {
-                Account = new Account(),
-                Address = new AddressModel(),
-                Items = new ObservableCollection<GoodModel>(),
-                Goals = new ObservableCollection<OwnerGoalModel>()
-                {
-                new OwnerGoalModel() { Goal = "Connect you to your customers", Value = 0},
-                new OwnerGoalModel() { Goal = "Increate your profibility", Value = 0},
-                new OwnerGoalModel() { Goal = "Identify your best products and service - every day", Value = 0},
-                new OwnerGoalModel() { Goal = "Identify and reward your most loyal customers", Value = 0},
-                new OwnerGoalModel() { Goal = "Lower your transactions costs", Value = 0}
-                },
+                _selectedEmployee = value;
+                OnPropertyChanged("EmployeeSelected");
+            }
+        }
+        public CustomerPartyDetailsModel CustomerSelected
+        {
+            get { return _selectedCustomer; }
+            set
+            {
+                _selectedCustomer = value;
+                OnPropertyChanged("CustomerSelected");
+            }
+        }
+        public DetailOrderModel OrderSelected
+        {
+            get { return _selectedOrder; }
+            set
+            {
+                _selectedOrder = value;
+                OnPropertyChanged("OrderSelected");
+            }
+        }
+        public BusinessLocationModel BusinessLocationSelected
+        {
+            get { return _selectedbusinesslocation; }
+            set
+            {
+                _selectedbusinesslocation = value;
+                OnPropertyChanged("CustomerSelected");
+            }
+        }
+        public OwnerModel Owner { get; set; }
 
-                Classifications = new ObservableCollection<ClassificationModel>(),
-                NotifyMethods = new ObservableCollection<NotifyModel>(),
-
-                InviteMessages = new InviteMessageModel()
-                {
-                    CustomerMessage =
-                    "To all my best customers and VIPs, this is an advance invitation to our new app that provides you special deals and rewards your loyalty. " +
-                    "\n\nPlease click the link to install and save." +
-                    "\nwww.ziba.econic.com",
-                    EmployeeMessage
-                    = "Check out out new Econic mobile business. This will help us sell out best products and services to our best customers. Click the link to install." +
-                    "\nwww.ziba.econic.com"
-                }
-            };
-            permissionService = DependencyService.Get<IPermissionService>();
-            cmSelection = new SelectionViewModel();
-            nSelection = new SelectionViewModel();
+        public OwnerViewModel(OwnerModel owner)
+        {
+            Owner = owner;
+            Owner.Employees = new ObservableCollection<PartyDetailsModel>();
+            Owner.Customers = new ObservableCollection<CustomerPartyDetailsModel>();
+            Owner.BusinessLocations = new ObservableCollection<BusinessLocationModel>();
+            if(Owner.Account == null)
+                Owner.Account = new Account();
 
             OpenPageCommand = new Command<string>((arg) => OpenPage(arg));
-            InfoTapped = new Command<string>((arg) => OpenInfoPage(arg));
-            AddAnotherTapped = new Command(addAnotherTapped);
-            EditClicked = new Command(editClicked);
-            RemoveClicked = new Command(removeClicked);
-            AddNewItemCommand = new Command(addNewItem);
+            AddEmployeeCommand = new Command(addEmployee);
+            AddCustomerCommand = new Command(addCustomer);
+            CustomerTabCommand = new Command(customertabchanged);
+            DayTappedCommand = new Command(dayTappedCommand);
+            EditBusinessLocationCommand = new Command(editBusinessLocationCommand);
+            HourListCommand = new Command(hourListCommand);
+            MenuItems = new ObservableCollection<HamburgerMasterMenuItem>(new[]
+            {
+                    new HamburgerMasterMenuItem { Id = 2, Title = "Support", Icon = "icon_support", TargetType = typeof(Support) },
+                    new HamburgerMasterMenuItem { Id = 3, Title = "Revyvv U", Icon = "icon_revyvvu", TargetType = typeof(RevyvvU) }
+            });
+            addOrders();
         }
-        public OwnerModel Owner 
-        { 
-            get { return owner; }
-            set { owner = value; }
-        }
-        public GoodModel ItemToAdd { get; set; }
-        public void RemoveItem(GoodModel itemModel)
-        {
-            owner.Items.Remove(itemModel);
-        }
-        public void AddItem(GoodModel itemModel)
-        {
-            owner.Items.Add(itemModel);
-            ItemToAdd = null;
-        }
-        public SelectionViewModel CMSelectionViewModel
-        {
-            get { return cmSelection; }
-            set { cmSelection = value;}
-        }
-        public SelectionViewModel NMSelectionViewModel
-        {
-            get { return nSelection; }
-            set { nSelection = value; }
-        }
-        public CrossingUIModelViewModel CrossingUIModelViewModel
-        {
-            get { return new CrossingUIModelViewModel(); }
-            set { CrossingUIModelViewModel = value; }
-        }
-        public string GetInitials()
-        {
-            Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
-            string init = initials.Replace(owner.BusinessName, "$1");
 
-            return init;
-        }
-        int height;
-        public int ListViewHeight
-        {
-            get { return height; }
-            set { height = owner.Items.Count * 120; }
-        }
+        public ContentView CurrentView { get; set; }
         public ICommand OpenPageCommand { private set; get; }
-        public ICommand InfoTapped { private set; get; }
+        public ICommand AddEmployeeCommand { private set; get; }
+        public ICommand AddCustomerCommand { private set; get; }
+        public ICommand CustomerTabCommand { private set; get; }
+        public ICommand DayTappedCommand { private set; get; }
+        public ICommand EditBusinessLocationCommand { private set; get; }
+        public ICommand HourListCommand { private set; get; }
 
-        public ICommand AddAnotherTapped { private set; get; }
-        public ICommand RemoveClicked { private set; get; }
-        public ICommand EditClicked { private set; get; }
-        public ICommand AddNewItemCommand { private set; get; }
-
+        private void hourListCommand(Object sender)
+        {
+            Grid grid = sender as Grid;
+            grid.IsVisible = !grid.IsVisible;
+        }
         private async void OpenPage(string value)
         {
             switch (value)
             {
-                case "Address":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Address(this));
+                case "QRcode":
+                    await Application.Current.MainPage.Navigation.PushAsync(new QRCodes { BindingContext = this});
                     break;
-                case "Sales":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Sales(this));
+                case "Settings":
+                    await Application.Current.MainPage.Navigation.PushAsync(new SettingList { BindingContext = this });
                     break;
-                case "FirstPreview":
-                    await Application.Current.MainPage.Navigation.PushAsync(new FirstPreview(this));
+                case "ViewEmployee":
+                    await Task.Delay(5);
+                    await Application.Current.MainPage.Navigation.PushAsync(new ViewEmployee { BindingContext = this });
                     break;
-                case "DragAndDrop":
-                    await Application.Current.MainPage.Navigation.PushAsync(new DragAndDrop { BindingContext = this });
+                case "EditEmployee":
+                    await Application.Current.MainPage.Navigation.PushAsync(new EditEmployee { BindingContext = this });
                     break;
-                case "SharedDragnDrop":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Classification(this));
+                case "SaveEmployee":
+                    await Application.Current.MainPage.Navigation.PopAsync();
                     break;
-                case "AddItem":
-                    foreach (string classification in cmSelection.Items)
+                case "Message":
+                    await Application.Current.MainPage.Navigation.PushAsync(new MessageBox { BindingContext = this });
+                    break;
+                case "RemoveEmployee":
+                    if (EmployeeSelected != null)
                     {
-                        if(!owner.Classifications.Any(x => x.Name == classification))
-                            owner.Classifications.Add(new ClassificationModel { Name = classification });
-                    }
-                    await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, "add"));
-                    break;
-                case "ItemPreview":
-                    await Application.Current.MainPage.Navigation.PushAsync(new ItemPreview(this));
-                    break;
-                case "SecondPreview":
-                    if (ItemToAdd != null)
-                        AddItem(ItemToAdd);
-
-                    if (itemToEdit != null)
-                    {
-                        RemoveItem(itemToEdit);
-                        itemToEdit = null;
+                        Owner.Employees.Remove(EmployeeSelected);
+                        EmployeeSelected = null;
                     }
 
-                    if(mode == "edit" || mode == "addfromprofile")
-                        await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices(this));
-                    else
-                        await Application.Current.MainPage.Navigation.PushAsync(new  SecondPreview(this));
-
+                    Application.Current.MainPage.Navigation.RemovePage(Application.Current.MainPage.Navigation.NavigationStack[Application.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                    await Application.Current.MainPage.Navigation.PopAsync();
                     break;
-                case "NotifyMethod":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this});
-                    //foreach(string notifymethod in nSelection.Items)
-                    //{
-                    //    if(!owner.NotifyMethods.Any(x => x.Name == notifymethod))
-                    //        owner.NotifyMethods.Add(new NotifyModel { Name = notifymethod });
-                    //}
-                    //await Application.Current.MainPage.Navigation.PushAsync(new Notify(this));
+                case "ViewCustomer":
+                    await Application.Current.MainPage.Navigation.PushAsync(new ViewCustomer { BindingContext = this });
                     break;
-                case "Invite":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Invite(this));
+                case "ViewOrder":
+                    await Application.Current.MainPage.Navigation.PushAsync(new OrderView { BindingContext = this });
                     break;
-                case "Features":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Features(this));
+                case "AddEditLocation":
+                    BusinessLocationSelected = new BusinessLocationModel
+                    {
+                        Hours = new ObservableCollection<ScheduleModel>()
+                        {
+                            new ScheduleModel { Day = "Sunday" },
+                            new ScheduleModel { Day = "Monday" },
+                            new ScheduleModel { Day = "Tuesday" },
+                            new ScheduleModel { Day = "Wednesday" },
+                            new ScheduleModel { Day = "Thursday" },
+                            new ScheduleModel { Day = "Friday" },
+                            new ScheduleModel { Day = "Saturday" }
+                        }
+                    };
+                    await Application.Current.MainPage.Navigation.PushAsync(new AddEditBusinessLocation { BindingContext = this });
                     break;
-                case "Permission":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Permission(this));
+                case "SaveLocation":
+                    if (BusinessLocationSelected != null && !Owner.BusinessLocations.Contains(BusinessLocationSelected))
+                        Owner.BusinessLocations.Add(BusinessLocationSelected);
+                    await Application.Current.MainPage.Navigation.PopAsync();
                     break;
-                case "FourthPreview":
-                    bool Granted = await permissionService.RequestAllPermissions();
-                    if(Granted)
-                        await Application.Current.MainPage.Navigation.PushAsync(new FourthPreview(this));
+                case "Payments":
+                    await Application.Current.MainPage.Navigation.PushAsync(new PaymentMethod { BindingContext = this });
                     break;
-                case "LoyaltyPreview":
-                        await Application.Current.MainPage.Navigation.PushAsync(new LoyaltyPreview(this));
+                case "Privacy":
+                    await Application.Current.MainPage.Navigation.PushAsync(new PrivacyAndSecurity { BindingContext = this });
                     break;
-                case "AccountRegisteration":
-                    await Application.Current.MainPage.Navigation.PushAsync(new AccountRegisteration(this));
+                case "Bankhelpinfo":
+                    await Application.Current.MainPage.Navigation.PushAsync(new BankHelpInfo { BindingContext = this });
                     break;
-                case "TwoFactorNumber":
-                    await Application.Current.MainPage.Navigation.PushAsync(new TwoFactorNumber(this));
+                case "ContactDetail":
+                    await Application.Current.MainPage.Navigation.PushAsync(new ContactDetails { BindingContext = this });
                     break;
-                case "TwoFactorConfirm":
-                    await Application.Current.MainPage.Navigation.PushAsync(new TwoFactorConfirm { BindingContext = this });
+                case "Languages":
+                    await Application.Current.MainPage.Navigation.PushAsync(new LanguageList { BindingContext = this });
                     break;
-                case "SharedPageConfirmNum":
-                    await Application.Current.MainPage.Navigation.PushAsync(new FifthPreview(this));
+                case "ContactView":
+                    await Application.Current.MainPage.Navigation.PushAsync(new ContactView { BindingContext = this });
                     break;
-                case "Profile":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Views.OwnerProfile.Profile(this));
-                    break;
-                case "EconicStudio":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Views.EconicStudio.WelcomeScreen(this));
-                    break;
-                case "Theme":
-                    await Application.Current.MainPage.Navigation.PushAsync(new ChooseTheme());
+                case "SaveContactDetail":
+                    await Application.Current.MainPage.Navigation.PopAsync();
                     break;
                 default:
-                    return;
+                    break;
             }
         }
-        private async void addAnotherTapped()
+        private void customertabchanged(Object sender)
         {
-            if (mode == "edit")
-                mode = "addfromprofile";
-            if (ItemToAdd != null)
-                AddItem(ItemToAdd);
+            var e = (ItemSelectionChangedEventArgs)sender;
 
-            await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, mode));
+            if(e.AddedItems.Contains("History"))
+                CurrentView = new CustomerHistoryView { BindingContext = this };
+            else 
+                CurrentView = new CustomerDetailView { BindingContext = this };
         }
-        private async void OpenInfoPage(string value)
+        public ScheduleModel CurrentItem { get; set; }
+        ScheduleModel scheduleModel;
+        private void dayTappedCommand(Object sender)
         {
-            switch (value)
+            if (CurrentItem.Start != null && CurrentItem.End != null)
+                CurrentItem.IsWorking = true;
+            else
+                CurrentItem.IsWorking = false;
+
+            if (CurrentItem != null)
+                CurrentItem.IsSelected = false;
+
+            ScheduleModel model = sender as ScheduleModel;
+            scheduleModel = model;
+            CurrentItem = scheduleModel;
+            CurrentItem.IsSelected = true;
+
+            if (CurrentItem.Start != null && CurrentItem.End != null)
+                CurrentItem.IsWorking = true;
+            else
+                CurrentItem.IsWorking = false;
+        }
+        private async void editBusinessLocationCommand(Object sender)
+        {
+            BusinessLocationSelected = sender as BusinessLocationModel;
+            await Application.Current.MainPage.Navigation.PushAsync(new AddEditBusinessLocation { BindingContext = this });
+        }
+        private void addEmployee()
+        {
+            // add a temp employees
+           for(int i=0; i<5; i++)
             {
-                case "QRCodes":
-                    await Application.Current.MainPage.Navigation.PushAsync(new QRCodes(this));
-                    break;
-                case "ProductAndServices":
-                    await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices(this));
-                    break;
-                default:
-                    return;
+                Owner.Employees.Add(new PartyDetailsModel
+                {
+                    Name = "John Doe Employee " + i,
+                    Email = "johndoe@empr.co",
+                    PartyType = "Part-time",
+                    CountryCode = 1,
+                    Number = 8009898393,
+                    Title = "Sales rep",
+                    Address = new AddressModel()
+                    {
+                        Address1 = "300 N Akard St.",
+                        Address2 = "Unit 802",
+                        City = "Dallas",
+                        State = "Texas",
+                        Zip = 753201
+                    },
+                    Schedule = new ObservableCollection<Models.EmployeeModels.ScheduleModel>()
+                {
+                    new Models.EmployeeModels.ScheduleModel() { Day = "Monday", Start = "8:30 AM", End = "3:30 PM" },
+                    new Models.EmployeeModels.ScheduleModel() { Day = "Tuesday", Start = "8:30 AM", End = "3:30 PM" }
+                }
+                });
             }
         }
-        private async void editClicked(Object sender)
+        private void addCustomer()
         {
-            mode = "edit";
-            itemToEdit = sender as GoodModel;
-            ItemToAdd = itemToEdit;
-            await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, mode));
+            // add temp customers
+            for(int i=0; i <5; i++)
+            {
+                Owner.Customers.Add(new CustomerPartyDetailsModel
+                {
+                    Name = Convert.ToChar(i + (int)'A') +" John Doe Customer " + i,
+                    Email = "johndoe@empr.co",
+                    CountryCode = 1,
+                    Number = 8009898393,
+                    ShippingAddress = new AddressModel()
+                    {
+                        Address1 = "300 N Akard St.",
+                        Address2 = "Unit 802",
+                        City = "Dallas",
+                        State = "Texas",
+                        Zip = 753201
+                    },
+                    Orders = new ObservableCollection<SummaryOrderModel>()
+                    {
+                        new SummaryOrderModel
+                        {
+                            OrderNumber = 12345,
+                            OrderDate = DateTime.Now,
+                            status = true,
+                            ImageSource = "productsamplepic.png",
+                            ProductName = "Ziba Eyebrow Brush",
+                            Price = 9
+
+                        },
+                        new SummaryOrderModel
+                        {
+                            OrderNumber = 12145,
+                            OrderDate = DateTime.Now,
+                            status = false,
+                            ImageSource = "productsamplepic.png",
+                            ProductName = "Usless Product",
+                            Price = 18
+                        }
+                    }
+                });
+            }
         }
-        private void removeClicked(Object sender)
+        private void addOrders()
         {
-            mode = "Remove";
-            GoodModel itemModel = sender as GoodModel;
-            RemoveItem(itemModel);
-        }
-        private async void addNewItem()
-        {
-            mode = "addfromprofile";
-            await Application.Current.MainPage.Navigation.PushAsync(new AddItem(this, mode));
+            Owner.Orders = new ObservableCollection<DetailOrderModel>()
+            {
+                new DetailOrderModel
+                {
+                    Items = new ObservableCollection<Item>
+                    {
+                        new Item { Name = "Multi-Touch Brushes", Count = 2, Price = 38},
+                        new Item { Name = "Brush Collection", Count = 1, Price = 19}
+                    },
+                    CustomerName = "John Doe fullfilled",
+                    CustomerEmail = "JohnDoes@empr.co",
+                    CustomerNumber = 8988997863,
+                    OrderDate = DateTime.Now,
+                    OrderNumber = 12345,
+                    status = true,
+                    PaymentVerified = true,
+                    ShippingAddress = new AddressModel
+                    {
+                        Address1 = "300 N Akard St.",
+                        Address2 = "Unit 802",
+                        City = "Dallas",
+                        State = "Texas",
+                        Zip = 753201
+                    },
+                    Type = "Shipping",
+                    Tax = 6,
+                    Total = 68
+                },
+                new DetailOrderModel
+                {
+                    Items = new ObservableCollection<Item>
+                    {
+                        new Item { Name = "Multi-Touch Brushes", Count = 2, Price = 38},
+                        new Item { Name = "Brush Collection", Count = 1, Price = 19}
+                    },
+                    CustomerName = "John Doe",
+                    CustomerEmail = "JohnDoes@empr.co",
+                    CustomerNumber = 8988997863,
+                    OrderDate = DateTime.Now,
+                    OrderNumber = 19905,
+                    status = false,
+                    PaymentVerified = false,
+                    ShippingAddress = new AddressModel
+                    {
+                        Address1 = "300 N Akard St.",
+                        Address2 = "Unit 802",
+                        City = "Dallas",
+                        State = "Texas",
+                        Zip = 753201
+                    },
+                    Type = "In Store Pick up",
+                    Tax = 6,
+                    Total = 68
+                }
+            };
         }
     }
 }

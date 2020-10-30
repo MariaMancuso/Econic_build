@@ -13,7 +13,7 @@ namespace Econic.Mobile.Views.OwnerReg
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Invite : ContentPage
     {
-        public Invite(OwnerViewModel OwnerVM)
+        public Invite(OwnerBoardingViewModel OwnerVM)
         {
             InitializeComponent();
             BindingContext = OwnerVM;

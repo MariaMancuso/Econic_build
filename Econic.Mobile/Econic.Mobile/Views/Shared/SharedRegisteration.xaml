@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:controls="clr-namespace:Econic.Mobile.Renderers" xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" x:Class="Econic.Mobile.Views.Shared.SharedRegisteration" 
+             xmlns:controls="clr-namespace:Econic.Mobile.Renderers" 
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
+             x:Class="Econic.Mobile.Views.Shared.SharedRegisteration" 
              ControlTemplate="{StaticResource PageWithoutBackBtn}">
     
     <ContentPage.Content>

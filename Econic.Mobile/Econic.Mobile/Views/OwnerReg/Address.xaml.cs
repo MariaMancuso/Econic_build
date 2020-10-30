@@ -14,7 +14,7 @@ namespace Econic.Mobile.Views.OwnerReg
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Address : ContentPage
     {
-        public Address(OwnerViewModel OwnerVM)
+        public Address(OwnerBoardingViewModel OwnerVM)
         {
             InitializeComponent();
             AddStates();

@@ -80,39 +80,23 @@
                                             <!--<controls:CustomDropDown HorizontalOptions ="FillAndExpand"
                                                                      VerticalOptions="Center"
                                                                      x:Name="productsDropdown"/>-->
-                                            <combobox:SfComboBox
-                                                x:Name="productdropdown"
-                                                HeightRequest="40"
-                                                BackgroundColor="White"
-                                                ShowBorder="true"
-                                                Watermark="Products"
-                                                WatermarkColor="#343434"
-                                                DropDownItemHeight="50"
-                                                DataSource="{Binding ProductCollection}">
+                                        <Frame Style="{StaticResource Customframe}" Padding="2">
+                                            <combobox:SfComboBox x:Name="productdropdown" HeightRequest="40" BackgroundColor="White" ShowBorder="true" Watermark="Products" WatermarkColor="#343434" DropDownItemHeight="50" DataSource="{Binding ProductCollection}">
                                                 <combobox:SfComboBox.ItemTemplate>
                                                     <DataTemplate>
-                                                        <Label Text="{Binding Name}"
-                                                               TextColor="#343434"
-                                                               Padding="15, 0, 0, 0"/>
+                                                        <Label Text="{Binding Name}" TextColor="#343434" Padding="15, 0, 0, 0" />
                                                     </DataTemplate>
                                                 </combobox:SfComboBox.ItemTemplate>
                                             </combobox:SfComboBox>
-                                        <!--</Frame>-->
-                                        <!--</Frame>-->
-
-
-                                        <Frame Style="{StaticResource Customframe}">
-                                            <!--<controls:CustomDropDown x:Name="serviceDropdown"
-                                                                     HorizontalOptions="FillAndExpand"
-                                                                     VerticalOptions="Center"/>-->
-
                                         </Frame>
+                                        <!--</Frame>-->
+
                                         <Frame Style="{StaticResource Customframe}" Padding="2">
                                             <combobox:SfComboBox 
                                                 HeightRequest="40"
                                                 BackgroundColor="White"
                                                 ShowBorder="False" 
-                                                Watermark="Products" 
+                                                Watermark="Services" 
                                                 WatermarkColor="#404040">
                                                 <combobox:SfComboBox.ComboBoxSource>
                                                     <ListCollection:List x:TypeArguments="x:String">
