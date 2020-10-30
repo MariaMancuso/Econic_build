@@ -18,6 +18,7 @@ namespace Econic.Mobile.Views.Customer
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoyaltyConfirmation : ContentPage
 	{
+		
 		List<string> list = new List<string>();
 
 		ControlTemplate tabbed = new ControlTemplate(typeof(TabbedView));
@@ -37,7 +38,6 @@ namespace Econic.Mobile.Views.Customer
 			list.Add("History");
 			list.Add("Settings");
 
-
 			CreateSegmentedControl();
 			History(false);
 			Settings(false);
@@ -53,7 +53,6 @@ namespace Econic.Mobile.Views.Customer
 			MainStreet(true);
 			Points(false);
 			Settings(false);
-			//MainStreet(false);
 			Badges(false);
 			History(false);
 			Popups(false);
@@ -66,7 +65,6 @@ namespace Econic.Mobile.Views.Customer
 			Points(false);
 			Settings(false);
 			MainStreet(false);
-			//Badges(false);
 			History(false);
 			Popups(false);
 		}
@@ -80,11 +78,7 @@ namespace Econic.Mobile.Views.Customer
 			MainStreet(false);
 			Badges(false);
 			Points(false);
-			//MainLayout.IsEnabled = false;
-			//MainLayout.IsVisible = false;
-			//MainLayout.BackgroundColor = Color.DarkGray;
 			PopupView.ControlTemplate = popup;
-			//PopupView.IsVisible = true;
 			HeaderLayout.IsVisible = false;
 			TabbedView.IsVisible = false;
 		}
@@ -133,14 +127,10 @@ namespace Econic.Mobile.Views.Customer
 					{
 						stepProgressBar.Children.Add(new StepView() { PrimaryText = "0" });
 					}
-
-					
-
-					if(num > maxNum)
+					if (num > maxNum)
 					{
 						goto End;
 					}
-
 						stepProgressBar.Children.Add(new StepView() { PrimaryText = num.ToString() });
 				}
 				
@@ -203,37 +193,37 @@ namespace Econic.Mobile.Views.Customer
 			}
 		}
 
-		private void Points(bool visible)
+		public void Points(bool visible)
 		{
 			PointsLayout.IsVisible = visible;
 			PointsLayout.IsEnabled = visible;
 		}
 
-		private void History(bool visible)
+		public void History(bool visible)
 		{
 			HistoryLayout.IsVisible = visible;
 			HistoryLayout.IsEnabled = visible;
 		}
 
-		private void Settings(bool visible)
+		public void Settings(bool visible)
 		{
 			SettingsLayout.IsVisible = visible;
 			SettingsLayout.IsEnabled = visible;
 		}
 
-		private void MainStreet(bool visible)
+		public void MainStreet(bool visible)
 		{
 			StreetLayout.IsVisible = visible;
 			StreetLayout.IsEnabled = visible;
 		}
 
-		private void Badges(bool visible)
+		public void Badges(bool visible)
 		{
 			BadgeLayout.IsVisible = visible;
 			BadgeLayout.IsEnabled = visible;
 		}
 
-		private void Popups(bool visible)
+		public void Popups(bool visible)
 		{
 			PopupLayout.IsVisible = visible;
 			PopupLayout.IsEnabled = visible;

@@ -28,7 +28,7 @@
                 
                 <StackLayout Grid.Row="0">
                     <Image BackgroundColor="Transparent" Source="{Binding BizImage[0]}" WidthRequest="150" HeightRequest="150" HorizontalOptions="Center" />
-                    <Label Text="Welcome to Ziba Beauty in the Revyvv mobile business platform." HorizontalTextAlignment="Center" FontFamily="QuicksandBold" TextColor="White" />
+                    <Label Text="{Binding BizName[0]}" HorizontalTextAlignment="Center" FontFamily="QuicksandBold" TextColor="White" />
                 </StackLayout>
 
                 <Grid VerticalOptions="Center" Grid.Row="1">

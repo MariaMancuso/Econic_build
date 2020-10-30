@@ -137,6 +137,17 @@ namespace Econic.Mobile.ViewModels
             }
         }
 
+        public string[] BizName
+        {
+            get
+            {
+                return new string[]
+                {
+                    "Welcome to Ziba Beauty in the Revyvv mobile business platform."
+                };
+            }
+        }
+
         string classification = "";
         private async void cmTapped(Object sender)
         {

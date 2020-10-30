@@ -9,16 +9,22 @@ using System.Dynamic;
 using System.Collections.Generic;
 using System;
 using System.Collections.ObjectModel;
+using Econic.Mobile.Views.Shared.HamburgerMenu;
 
 namespace Econic.Mobile.ViewModels
 {
     public class CustomerViewModel
     {
         ObservableCollection <SummaryOrderModel> customerModel;
-
+        public ObservableCollection<HamburgerMasterMenuItem> MenuItems { get; set; }
         public CustomerViewModel()
         {
             OpenPageCommand = new Command<string>((arg) => OpenPage(arg));
+            MenuItems = new ObservableCollection<HamburgerMasterMenuItem>(new[]
+{
+                    new HamburgerMasterMenuItem { Id = 2, Title = "Support", Icon = "icon_support", TargetType = typeof(Support) },
+                    new HamburgerMasterMenuItem { Id = 3, Title = "Revyvv U", Icon = "icon_revyvvu", TargetType = typeof(RevyvvU) }
+            });
         }
         public ICommand OpenPageCommand { private set; get; }
 
@@ -49,6 +55,17 @@ namespace Econic.Mobile.ViewModels
                 };
 			}
 		}
+
+        public string[] BizName
+        {
+            get
+            {
+                return new string[]
+                {
+                    "Welcome to Ziba Beauty in the Revyvv mobile business platform."
+                };
+            }
+        }
 
         public string[] SplashTitles
         {
@@ -113,7 +130,6 @@ namespace Econic.Mobile.ViewModels
                     //model.hasAccount = true;
                     await Application.Current.MainPage.Navigation.PushAsync(new DealBoard { BindingContext = this });
                     break;
- 
                 default:
                     return;
             }
@@ -187,6 +203,29 @@ namespace Econic.Mobile.ViewModels
             return deals;
         }
 
+        public async void GoTo(string value)
+		{
+			switch (value)
+			{
+				case "Contact":
+                    await Application.Current.MainPage.Navigation.PushAsync(new ContactDetails());
+					break;
+				case "Payment":
+                    await Application.Current.MainPage.Navigation.PushAsync(new PaymentMethod());
+					break;
+				case "Privacy":
+                    await Application.Current.MainPage.Navigation.PushAsync(new PrivacyAndSecurity());
+					break;
+                case "Languages":
+                    await Application.Current.MainPage.Navigation.PushAsync(new LanguageList());
+                    break;
+                case "Revyvv":
+                    await Application.Current.MainPage.Navigation.PushAsync(new RevyvvU());
+                    break;
+			}
+
+		}
+
         public async void SetCard(int id)
 		{
             List<Deals> d = SetDeals();
@@ -256,6 +295,8 @@ namespace Econic.Mobile.ViewModels
             };
             return customerModel;
 		}
+
+
 
     }
 }
