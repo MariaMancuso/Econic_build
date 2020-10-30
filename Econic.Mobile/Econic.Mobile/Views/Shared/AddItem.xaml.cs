@@ -16,22 +16,35 @@ namespace Econic.Mobile.Views.Shared
     public partial class AddItem : ContentPage
     {
         PhotoPickerViewModel additemViewModel;
-        public AddItem(OwnerBoardingViewModel OwnerVM, string mode)
+        public AddItem()
         {
             InitializeComponent();
             imageselector.BindingContext = additemViewModel = new PhotoPickerViewModel();
 
-            if(mode != "edit")
-            {
-                OwnerVM.ItemToAdd = new GoodModel();
-                OwnerVM.ItemToAdd.Image = profilePicture;
-            }
-            bodyContent.BindingContext = OwnerVM;
+            
         }
-
         void OnAddPhotoButtonClicked(object sender, EventArgs args)
         {
             additemViewModel.OnAddPhotoButtonClicked(bodyContent, imageselector, imageNext, imageSkip, imageselectorFrame);
+        }
+        void OnTypeChanged(object sender, Syncfusion.XForms.ComboBox.SelectionChangedEventArgs args)
+        {
+            if(args.Value.ToString() == "Good")
+            {
+                StockCount.IsVisible = true;
+                ShippingContent.IsVisible = true;
+                ServiceDuration.IsVisible = false;
+            }
+            else
+            {
+                StockCount.IsVisible = false;
+                ShippingContent.IsVisible = false;
+                ServiceDuration.IsVisible = true;
+            }
+        }
+        void OnShippedChecked(object sender, EventArgs args)
+        {
+            ShippingRate.IsVisible = !ShippingRate.IsVisible;
         }
         void imageSkipTapped(Object sender, EventArgs e)
         {

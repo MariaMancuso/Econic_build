@@ -19,7 +19,7 @@ namespace Econic.Mobile.Views.OwnerProfile
         }
         public async void QrTapped(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new Shared.HamburgerMenu.Settings { BindingContext = this.BindingContext });
+            await Navigation.PushAsync(new QRCodes { BindingContext = this.BindingContext });
         }
         public async void EmployeesTapped(object sender, EventArgs args)
         {

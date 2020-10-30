@@ -54,7 +54,7 @@ namespace Econic.Mobile.ViewModels
 			BoxCommand = new Command<Color>((arg) => SetThemeColor(arg));
 			
 		}
-
+		public OwnerBoardingViewModel OBViewModel { get; set; }
 		private void SetThemeColor(Color value)
 		{
 			Console.WriteLine(value.ToString());
@@ -68,8 +68,13 @@ namespace Econic.Mobile.ViewModels
 				case "Book":
 					await Application.Current.MainPage.Navigation.PushAsync(new BookAppointment());
 					break;
-				case "Notify":
-					await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this });
+
+				//case "Notify":
+				//	await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this });
+
+				case "ChooseLogo":
+					await Application.Current.MainPage.Navigation.PushAsync(new ChooseLogo(OBViewModel));
+
 					break;
 				case "ETGoHome":
 					await Application.Current.MainPage.Navigation.PushAsync(new DealBoard());

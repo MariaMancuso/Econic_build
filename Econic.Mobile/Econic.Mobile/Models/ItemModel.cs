@@ -5,15 +5,19 @@ using Xamarin.Forms;
 
 namespace Econic.Mobile.Models
 {
-    public class GoodModel
+    public class ItemModel
     {
         public Image Image { get; set; }
 
         public string Name { get; set; }
-        public string MinPrice { get; set; }
-        public string MaxPrice { get; set; }
+        public int MinPrice { get; set; }
+        public int MaxPrice { get; set; }
         public string Description { get; set; }
-
+        public string Type { get; set; }
+        public string StockCount { get; set; }
+        public bool IsShipped { get; set; }
+        public int ShippingRate { get; set; }
+        public string ServiceDuration { get; set; }
         public string PriceRange
         {
             get
@@ -21,9 +25,5 @@ namespace Econic.Mobile.Models
                 return string.Format("${0}-${1}", MinPrice, MaxPrice);
             }
         }
-    }
-    public class ServiceModel : GoodModel
-    {
-        public string TimeFrame { get; set; }
     }
 }

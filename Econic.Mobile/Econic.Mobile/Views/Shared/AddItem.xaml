@@ -3,85 +3,128 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Econic.Mobile.Views.Shared.AddItem"
              NavigationPage.HasNavigationBar="False"
-             xmlns:controls="clr-namespace:Econic.Mobile.Renderers"
              BackgroundColor="WhiteSmoke"
              ControlTemplate="{StaticResource NavigationTemplate}"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:sys="clr-namespace:System;assembly=netstandard">
-    
+             xmlns:sys="clr-namespace:System;assembly=netstandard" 
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"  
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard" 
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:converters="clr-namespace:Econic.Mobile.Services">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:GoodVisibilityConverter x:Key="cnvGood"/>
+            <converters:ServiceVisibilityConverter x:Key="cnvService"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Grid RowSpacing="10" x:Name="bodyContent">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="150"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+            <ScrollView>
+                <Grid RowSpacing="10" x:Name="bodyContent">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="150" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
-                <Label Padding="0, 0, 0, 10" Grid.Row="0" Text="Display your deals with nice juicy pictures and mouth watering text" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20"/>
+                    <Label Padding="0, 0, 0, 10" Grid.Row="0" Text="Display your deals with nice juicy pictures and mouth watering text" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
 
-                <Image Grid.Row="1" x:Name="profilePicture" Source="{Binding ItemToAdd.Image.Source}" Aspect="AspectFill"/>
-                <border:SfBorder Grid.Row="1" x:Name="border" BorderColor="DarkGray" CornerRadius="3">
-                    <border:SfBorder.GestureRecognizers>
-                        <TapGestureRecognizer x:Name="OnGesture" Tapped="OnAddPhotoButtonClicked"/>
-                    </border:SfBorder.GestureRecognizers>
-                    <border:SfBorder.DashArray>
-                        <x:Array Type="{x:Type sys:Double}">
-                            <sys:Double>3</sys:Double>
-                            <sys:Double>4</sys:Double>
-                        </x:Array>
-                    </border:SfBorder.DashArray>
-                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                        <Image Source="cameraicon"/>
-                        <Label Text="Add a picture" TextColor="DarkGray" FontFamily="QuicksandMedium" />
+                    <Image Grid.Row="1" x:Name="profilePicture" Source="{Binding CurrentItemModel.Image.Source, Mode=TwoWay}" Aspect="AspectFill" />
+                    <border:SfBorder Grid.Row="1" x:Name="border" BorderColor="DarkGray" CornerRadius="3">
+                        <border:SfBorder.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="OnGesture" Tapped="OnAddPhotoButtonClicked" />
+                        </border:SfBorder.GestureRecognizers>
+                        <border:SfBorder.DashArray>
+                            <x:Array Type="{x:Type sys:Double}">
+                                <sys:Double>3</sys:Double>
+                                <sys:Double>4</sys:Double>
+                            </x:Array>
+                        </border:SfBorder.DashArray>
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image Source="cameraicon" />
+                            <Label Text="Add a picture" TextColor="DarkGray" FontFamily="QuicksandMedium" />
+                        </StackLayout>
+                    </border:SfBorder>
+
+                    <StackLayout Grid.Row="2">
+                        <inputLayout:SfTextInputLayout InputViewPadding="10" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                            <combobox:SfComboBox SelectedItem="{Binding CurrentItemModel.Type}" SelectionChanged="OnTypeChanged" HeightRequest="40" BackgroundColor="Transparent" ShowBorder="False" Watermark="Type" WatermarkColor="#404040">
+                                <combobox:SfComboBox.ComboBoxSource>
+                                    <ListCollection:List x:TypeArguments="x:String">
+                                        <x:String>Good</x:String>
+                                        <x:String>Service</x:String>
+                                    </ListCollection:List>
+                                </combobox:SfComboBox.ComboBoxSource>
+                            </combobox:SfComboBox>
+                        </inputLayout:SfTextInputLayout>
+
+                        <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Name" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                            <Entry ReturnType="Next" Text="{Binding CurrentItemModel.Name}" FontFamily="QuicksandMedium" />
+                        </inputLayout:SfTextInputLayout>
+
+                        <inputLayout:SfTextInputLayout  x:Name="ServiceDuration" InputViewPadding="10" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                            <combobox:SfComboBox SelectedItem="{Binding CurrentItemModel.ServiceDuration}" BackgroundColor="Transparent" HeightRequest="40" ShowBorder="False" Watermark="Service duration" WatermarkColor="#404040">
+                                <combobox:SfComboBox.ComboBoxSource>
+                                    <ListCollection:List x:TypeArguments="x:String">
+                                        <x:String>15 min</x:String>
+                                        <x:String>30 min</x:String>
+                                        <x:String>45 min</x:String>
+                                        <x:String>1 hour</x:String>
+                                        <x:String>2 hour</x:String>
+                                        <x:String>Unlimited</x:String>
+                                    </ListCollection:List>
+                                </combobox:SfComboBox.ComboBoxSource>
+                            </combobox:SfComboBox>
+                        </inputLayout:SfTextInputLayout>
+
+                        <Grid ColumnSpacing="20">
+                            <inputLayout:SfTextInputLayout Grid.Column="0" Hint="Min Price" InputViewPadding="10" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                                <Entry ReturnType="Next" Text="{Binding CurrentItemModel.MinPrice}" FontFamily="QuicksandMedium" Keyboard="Numeric" />
+                            </inputLayout:SfTextInputLayout>
+                            <inputLayout:SfTextInputLayout Grid.Column="1" Hint="Max Price" InputViewPadding="10" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                                <Entry ReturnType="Next" Text="{Binding CurrentItemModel.MaxPrice}" FontFamily="QuicksandMedium" Keyboard="Numeric" />
+                            </inputLayout:SfTextInputLayout>
+                        </Grid>
+
+                        <inputLayout:SfTextInputLayout x:Name="StockCount" InputViewPadding="10" Hint="How many items would you like to sell" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                            <Entry ReturnType="Next" Text="{Binding CurrentItemModel.StockCount}" FontFamily="QuicksandMedium" />
+                        </inputLayout:SfTextInputLayout>
+
+                        <StackLayout x:Name="ShippingContent" >
+                            <StackLayout Orientation="Horizontal">
+                                <CheckBox CheckedChanged="OnShippedChecked" IsChecked="{Binding CurrentItemModel.IsShipped}" />
+                                <Label Text="Do you ship this product?" VerticalTextAlignment="Center" />
+                            </StackLayout>
+
+                            <inputLayout:SfTextInputLayout x:Name="ShippingRate" IsVisible="false" InputViewPadding="10" Hint="Shipping Rate" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                                <Entry ReturnType="Next" Text="{Binding CurrentItemModel.ShippingRate}" FontFamily="QuicksandMedium" Keyboard="Numeric" />
+                            </inputLayout:SfTextInputLayout>
+                        </StackLayout>
+
+                        <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Description" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                            <Editor AutoSize="TextChanges" HeightRequest="100" Text="{Binding CurrentItemModel.Description}" />
+                        </inputLayout:SfTextInputLayout>
+
+                        <StackLayout Grid.Row="3" VerticalOptions="End">
+                            <Button Command="{Binding OpenPageCommand}" CommandParameter="Preview" Text="Preview" Style="{StaticResource NextItemButton}" />
+                            <ContentView ControlTemplate="{StaticResource Footer}" />
+                        </StackLayout>
+
                     </StackLayout>
-                </border:SfBorder>
-
-                <Frame Grid.Row="2" Style="{StaticResource Customframe}">
-                    <controls:CustomEntry Text="{Binding ItemToAdd.Name}"  HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Name"  />
-                </Frame>
-
-                <Grid Grid.Row="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-
-                    <Frame Grid.Column="0" Style="{StaticResource Customframe}">
-                        <controls:CustomEntry Text="{Binding ItemToAdd.MinPrice}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Min Price"  />
-                    </Frame>
-                    <Frame Grid.Column="1" Style="{StaticResource Customframe}">
-                        <controls:CustomEntry Text="{Binding ItemToAdd.MaxPrice}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Max Price"  />
-                    </Frame>
-
                 </Grid>
-
-                <Frame Grid.Row="4" Style="{StaticResource Customframe}" HeightRequest="100">
-                    <controls:CustomEditor Text="{Binding ItemToAdd.Description}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray"  Placeholder="Description"  />
-                </Frame>
-
-                <StackLayout Grid.Row="5" VerticalOptions="End">
-                    <Button Command="{Binding OpenPageCommand}" CommandParameter="ItemPreview" Text="Continue" Style="{StaticResource NextItemButton}"/>
-                    <ContentView ControlTemplate="{StaticResource Footer}" />
-                </StackLayout>
-            </Grid>
+            </ScrollView>
 
             <StackLayout  Grid.Row="0" IsVisible="false" x:Name="imageselector" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" >
                 <Frame VerticalOptions="End" HeightRequest="300" Padding="0" Margin="0" HasShadow="True" TranslationY="100" x:Name="imageselectorFrame" BackgroundColor="White" CornerRadius="10">
                     <!-- message-->
                     <StackLayout>
-                        <StackLayout Orientation="Horizontal" Padding="20">
-                            <Label Text="Your picture," TextColor="#404040" FontAttributes="Bold"></Label>
-                            <Label Text="XLife" FontAttributes="Bold"></Label>
-                        </StackLayout>
+                        <Label Text="Chose an image" TextColor="#404040" FontFamily="QuicksandBold" Padding="20"/>
 
                         <!-- collectio view to display images-->
                         <CollectionView ItemsLayout="HorizontalList" x:Name="imagesCollectionView" ItemsSource="{Binding MediaAssets}" HeightRequest="110" HorizontalScrollBarVisibility="Never">
@@ -119,9 +162,9 @@
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="imageSkipTapped"></TapGestureRecognizer>
                                 </Frame.GestureRecognizers>
-                                <Label Text="Skip this" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" FontAttributes="Bold"></Label>
+                                <Label Text="Close" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" FontAttributes="Bold"></Label>
                             </Frame>
-                            <Frame x:Name="imageNext" Padding="10" CornerRadius="7" WidthRequest="100" TranslationX="100" IsVisible="true"  BackgroundColor="#CC205E" HasShadow="False">
+                            <Frame x:Name="imageNext" Padding="10" CornerRadius="7" WidthRequest="100" TranslationX="100" IsVisible="true"  BackgroundColor="#404040" HasShadow="False">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="imageNextTapped"></TapGestureRecognizer>
                                 </Frame.GestureRecognizers>
