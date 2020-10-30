@@ -7,17 +7,23 @@
              ControlTemplate="{StaticResource NavigationTemplate}"
              Padding="0">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout x:Name="MainLayout">
+            <RelativeLayout
+                                    x:Name="PopupLayout">
+                <ContentView x:Name="PopupView"/>
+            </RelativeLayout>
             <ScrollView>
-                <StackLayout Padding="20, 0, 20, 10">
-                    <Label Text="Hi, Jeanie"
-                   FontSize="24"
-                   HorizontalOptions="Start"
-                   FontFamily="QuicksandBold"
-                       TextColor="#343434"/>
+                <StackLayout x:Name="HeaderLayout">
+                    <StackLayout Padding="20, 0, 20, 10">
+                        <Label Text="Hi, Jeanie"
+                               FontSize="24"
+                               HorizontalOptions="Start"
+                               FontFamily="QuicksandBold"
+                               TextColor="#343434"/>
 
-                    <buttons:SfSegmentedControl x:Name="segControl"
-                                                HorizontalOptions="StartAndExpand"/>
+                        <buttons:SfSegmentedControl x:Name="segControl"
+                                                    HorizontalOptions="StartAndExpand"/>
+                    </StackLayout>
 
                     <StackLayout x:Name="PointsLayout">
                         <Label Text="MY POINTS"
@@ -31,10 +37,10 @@
                        Padding="0, 0,0 , 10"/>
                         <StackLayout>
                             <Frame x:Name="frame" 
-                       CornerRadius="18"
-                       HasShadow="True"
-                       BorderColor="WhiteSmoke"
-                       HeightRequest="80">
+                                   CornerRadius="18"
+                                   HasShadow="True"
+                                   BorderColor="WhiteSmoke"
+                                   HeightRequest="80">  
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Tapped ="Points_Tapped"/>
                                 </Frame.GestureRecognizers>
@@ -165,6 +171,7 @@
                     <StackLayout x:Name="BadgeLayout">
                         <ContentView x:Name="BadgeView"/>
                     </StackLayout>
+                    
                 </StackLayout>
             </ScrollView>
         <StackLayout>
@@ -172,6 +179,7 @@
                      Padding="0"
                      VerticalOptions="EndAndExpand"/>
         </StackLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

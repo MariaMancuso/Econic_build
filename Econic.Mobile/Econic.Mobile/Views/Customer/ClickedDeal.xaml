@@ -6,7 +6,7 @@
              Padding="0">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout Padding="22, 0, 22, 0">
+            <StackLayout>
                 <Frame BackgroundColor= "{Binding color}"
                        CornerRadius="8"
                        x:Name="frame"

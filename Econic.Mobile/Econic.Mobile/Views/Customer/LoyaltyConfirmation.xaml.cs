@@ -9,6 +9,8 @@ using Syncfusion.XForms.ProgressBar;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Dynamic;
+using System.Xml;
+using System.Net;
 
 namespace Econic.Mobile.Views.Customer
 {
@@ -22,6 +24,7 @@ namespace Econic.Mobile.Views.Customer
 		ControlTemplate settings = new ControlTemplate(typeof(CustomerSettings));
 		ControlTemplate mainstreet = new ControlTemplate(typeof(MainStreet));
 		ControlTemplate badges = new ControlTemplate(typeof(Badges));
+		ControlTemplate popup = new ControlTemplate(typeof(Popup));
 		public LoyaltyConfirmation()
 		{
 			InitializeComponent();
@@ -38,32 +41,50 @@ namespace Econic.Mobile.Views.Customer
 			Settings(false);
 			MainStreet(false);
 			Badges(false);
+			Popups(false);
 			Points(true);
 		}
 
 		private void Points_Tapped(object sender, EventArgs e)
 		{
 			StreetView.ControlTemplate = mainstreet;
-			Points(false);
-			History(false);
-			Settings(false);
-			Badges(false);
 			MainStreet(true);
+			Points(false);
+			Settings(false);
+			//MainStreet(false);
+			Badges(false);
+			History(false);
+			Popups(false);
 		}
 
 		private void blackFriday_Tapped(object sender, EventArgs e)
 		{
 			BadgeView.ControlTemplate = badges;
+			Badges(true);
 			Points(false);
-			History(false);
 			Settings(false);
 			MainStreet(false);
-			Badges(true);
+			//Badges(false);
+			History(false);
+			Popups(false);
 		}
 
 		private void Token_Tapped(object sender, EventArgs e)
 		{
-
+			
+			Popups(true);
+			History(false);
+			Settings(false);
+			MainStreet(false);
+			Badges(false);
+			Points(false);
+			//MainLayout.IsEnabled = false;
+			//MainLayout.IsVisible = false;
+			//MainLayout.BackgroundColor = Color.DarkGray;
+			PopupView.ControlTemplate = popup;
+			//PopupView.IsVisible = true;
+			HeaderLayout.IsVisible = false;
+			TabbedView.IsVisible = false;
 		}
 
 		private void CreateProgressBar() 
@@ -152,6 +173,7 @@ namespace Econic.Mobile.Views.Customer
 				Settings(false);
 				MainStreet(false);
 				Badges(false);
+				Popups(false);
 				History(true);
 				HistoryView.ControlTemplate = history;
 				
@@ -164,6 +186,7 @@ namespace Econic.Mobile.Views.Customer
 				Settings(false);
 				MainStreet(false);
 				Badges(false);
+				Popups(false);
 			}
 
 			if (name.Equals("Settings"))
@@ -173,7 +196,7 @@ namespace Econic.Mobile.Views.Customer
 				Settings(true);
 				MainStreet(false);
 				Badges(false);
-
+				Popups(false);
 				SettingsView.ControlTemplate = settings;
 			}
 		}
@@ -206,6 +229,12 @@ namespace Econic.Mobile.Views.Customer
 		{
 			BadgeLayout.IsVisible = visible;
 			BadgeLayout.IsEnabled = visible;
+		}
+
+		private void Popups(bool visible)
+		{
+			PopupLayout.IsVisible = visible;
+			PopupLayout.IsEnabled = visible;
 		}
 	}
 }

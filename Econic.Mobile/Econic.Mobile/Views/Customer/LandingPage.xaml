@@ -2,22 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Econic.Mobile.Views.Customer.LandingPage"
-             Padding="0">
+             Padding="0"
+             ControlTemplate="{StaticResource PageWithoutBackBtn}">
 
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
                 <StackLayout Padding="22, 0, 22, 0">
-                    <Image Source="img_ziba_logo.png"
-                           HeightRequest="150"
-                       WidthRequest="150"
-                       HorizontalOptions="Center"/>
-                    <!--<Frame HeightRequest="141"
-                       WidthRequest="141"
-                       HorizontalOptions="Center"/>-->
+                    <StackLayout HeightRequest="220"
+                                 WidthRequest="220">
+                        <Image Source="img_ziba_logo.png"
+                           HeightRequest="220"
+                           WidthRequest="220"
+                           HorizontalOptions="Center"/>
+                    </StackLayout>
                     <ContentView x:Name="WelcomeContent"/>
                     <ContentView ControlTemplate="{StaticResource FeatureHeaderControlTemplate}"/>
-                    <Grid>
+                    <Grid ColumnSpacing="10" Padding="22, 0, 22, 0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="100"/>
                         </Grid.RowDefinitions>
@@ -25,18 +26,25 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Text="Shop"
-                            Grid.Column="0"
-                            CornerRadius="18"
-                            BackgroundColor="White"
-                            TextColor="{DynamicResource ThemeColor}"
-                            Clicked="Shop_Clicked"/>
-                        <Button Text="Book"
-                            Grid.Column="1"
-                            CornerRadius="18"
-                            BackgroundColor="White"
-                            TextColor="{DynamicResource ThemeColor}"
-                            Clicked="Book_Clicked"/>
+                        <Frame CornerRadius="18"
+                               Padding="0"
+                               Grid.Column="0"
+                               BackgroundColor="White">
+                            <Button Text="Purchase"
+                                    TextColor="{DynamicResource ThemeColor}"
+                                    Clicked="Shop_Clicked"
+                                    BackgroundColor="White"
+                                    Padding="0"/>
+                        </Frame>
+                        <Frame CornerRadius="18"
+                               Padding="0"
+                               BackgroundColor="White"
+                               Grid.Column="1">
+                            <Button Text="Book"
+                                    BackgroundColor="White"
+                                    TextColor="{DynamicResource ThemeColor}"
+                                    Clicked="Book_Clicked"/>
+                        </Frame>
                     </Grid>
                     <ContentView ControlTemplate="{StaticResource FeatureHeaderControlTemplate}"/>
                     <ContentView x:Name="FaveServices"/>

@@ -276,7 +276,7 @@
         </ControlTemplate>
 
         <ControlTemplate x:Key="FeatureHeaderControlTemplate">
-            <Grid Padding="0, 25, 0, 0">
+            <Grid Padding="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="16"/>
                     <RowDefinition Height="3"/>
