@@ -27,11 +27,8 @@
                     <Label Grid.Row="1" Padding="20, 0, 50, 0" Text="FINDS AND REWARDS YOUR LOYAL CUSTOMERS" 
                            FontFamily="QuicksandBold" TextColor="White" FontSize="34" VerticalOptions="End" />
                 </StackLayout>
-
             </Grid>
-
-
-            <Image Source="logo" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Start" Margin="15" WidthRequest="50" HeightRequest="50" />
+            <Image Source="red_deal_icon.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Start" Margin="15" WidthRequest="50" HeightRequest="50" />
             <ImageButton Clicked="BtnClicked" Style="{StaticResource SplashButton}" />
         </Grid>
     </ContentPage.Content>

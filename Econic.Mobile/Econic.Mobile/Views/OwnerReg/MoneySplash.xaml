@@ -4,156 +4,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Econic.Mobile.Views.OwnerReg.MoneySplash"
              NavigationPage.HasNavigationBar="False"
-             xmlns:controls="clr-namespace:Econic.Mobile.Renderers"
              BackgroundColor="WhiteSmoke"
-             xmlns:local ="clr-namespace:Econic.Mobile.ViewModels"
-             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
-             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard" 
              xmlns:magicGradients="clr-namespace:MagicGradients;assembly=MagicGradients"
              Padding="0">
-    <ContentPage.BindingContext>
-        <local:ProductsViewModel/>
-    </ContentPage.BindingContext>
     <ContentPage.Content>
-        <SwipeView>
-            <SwipeView.BottomItems>
-                <SwipeItems Mode="Reveal"
-                            SwipeBehaviorOnInvoked="RemainOpen">
-
-                    <SwipeItemView>
-                        <Grid x:Name="gg"
-                              Padding="0, 10, 0, 0" 
-                              HeightRequest="659.428571428571">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="50" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-
-                            <Label Grid.Row="0" 
-                                   Text="REVYVV" 
-                                   HorizontalOptions="CenterAndExpand" 
-                                   VerticalOptions="Center" 
-                                   TextColor="Silver" 
-                                   FontSize="14" />
-
-                            <StackLayout Grid.Row="1">
-
-
-                                <Grid Padding="20, 0, 20, 0" RowSpacing="40" VerticalOptions="FillAndExpand">
-
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
-
-                                    <Label Grid.Row="0"
-                                           Text="We know your business is unique. It's yours. Let's get to know each other." 
-                                           FontFamily="QuicksandBold" 
-                                           TextColor="#404040" 
-                                           FontSize="20" />
-
-                                    <StackLayout Grid.Row="1">
-                                        <Label Text="This is what my business is called:" 
-                                               TextColor="#404040" 
-                                               FontFamily="QuicksandBold" />
-                                        <Frame Style="{StaticResource Customframe}">
-                                            <controls:CustomEntry Text="{Binding Owner.BusinessName}"
-                                                                  TextColor="#404040"  
-                                                                  Placeholder="Type the name here"
-                                                                  PlaceholderColor="DarkGray" />
-                                        </Frame>
-                                    </StackLayout>
-
-                                    <StackLayout Grid.Row="2">
-                                        <Label Text="This is what my business sells:" 
-                                               FontFamily="QuicksandBold"
-                                               TextColor="#404040" />
-                                        <Label Text="Select all that makes sense"
-                                               FontFamily="QuicksandMedium" 
-                                               TextColor="DimGray" />
-
-
-                                        <!--<Frame Style="{StaticResource Customframe}">-->
-
-                                            <!--<controls:CustomDropDown HorizontalOptions ="FillAndExpand"
-                                                                     VerticalOptions="Center"
-                                                                     x:Name="productsDropdown"/>-->
-                                        <Frame Style="{StaticResource Customframe}" Padding="2">
-                                            <combobox:SfComboBox x:Name="productdropdown" HeightRequest="40" BackgroundColor="White" ShowBorder="true" Watermark="Products" WatermarkColor="#343434" DropDownItemHeight="50" DataSource="{Binding ProductCollection}">
-                                                <combobox:SfComboBox.ItemTemplate>
-                                                    <DataTemplate>
-                                                        <Label Text="{Binding Name}" TextColor="#343434" Padding="15, 0, 0, 0" />
-                                                    </DataTemplate>
-                                                </combobox:SfComboBox.ItemTemplate>
-                                            </combobox:SfComboBox>
-                                        </Frame>
-                                        <!--</Frame>-->
-
-                                        <Frame Style="{StaticResource Customframe}" Padding="2">
-                                            <combobox:SfComboBox 
-                                                HeightRequest="40"
-                                                BackgroundColor="White"
-                                                ShowBorder="False" 
-                                                Watermark="Services" 
-                                                WatermarkColor="#404040">
-                                                <combobox:SfComboBox.ComboBoxSource>
-                                                    <ListCollection:List x:TypeArguments="x:String">
-                                                        <x:String>Goods</x:String>
-                                                        <x:String>Apparel</x:String>
-                                                        <x:String>Food service</x:String>
-                                                        <x:String>Household goods</x:String>
-                                                        <x:String>Sports</x:String>
-                                                        <x:String>Health and Beauty</x:String>
-                                                        <x:String>Jewlery</x:String>
-                                                    </ListCollection:List>
-                                                </combobox:SfComboBox.ComboBoxSource>
-                                            </combobox:SfComboBox>
-                                        </Frame>
-                                    </StackLayout>
-
-                                    <StackLayout Grid.Row="3" VerticalOptions="End">
-                                        <Button Command="{Binding OpenPageCommand}" CommandParameter="Address" Text="Continue" Style="{StaticResource NextItemButton}" />
-                                        <ContentView ControlTemplate="{StaticResource Footer}" Margin="0, 0, 0, 20" />
-                                    </StackLayout>
-                                </Grid>
-                            </StackLayout>
-
-                        </Grid>
-                    </SwipeItemView>
-                </SwipeItems>
-            </SwipeView.BottomItems>
-            <Grid>
-                <Image Source="OwnerSplashPage4" Aspect="AspectFill" />
-
-                <magicGradients:GradientView VerticalOptions="FillAndExpand">
-                    <magicGradients:GradientView.GradientSource>
-                        <magicGradients:LinearGradient>
-                            <magicGradients:GradientStop Color="Transparent" Offset="0.5" RenderOffset="1" />
-                            <magicGradients:GradientStop Color="#CA9039" Offset="1" />
-                        </magicGradients:LinearGradient>
-                    </magicGradients:GradientView.GradientSource>
-                </magicGradients:GradientView>
-
-                <Grid VerticalOptions="Center" Margin="0, 160, 0, 0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Image Grid.Row="0" Source="shape4" HorizontalOptions="Start" HeightRequest="200" WidthRequest="300" Aspect="Fill" />
-                    <StackLayout Grid.Row="0" VerticalOptions="Center" Padding="20, 0, 0, 0">
-                        <Label Text="MAKES YOU MONEY AND IT'S FREE!" FontFamily="QuicksandBold" TextColor="White" FontSize="30" VerticalOptions="End" />
-                        <Label Text="Econic" TextColor="White" FontSize="24" />
-                        <Label Text="Not ecoomerce" TextColor="White" FontSize="24" />
-                    </StackLayout>
-
-                </Grid>
-
-                <StackLayout HorizontalOptions="Center" VerticalOptions="End" Orientation="Vertical" Margin="20">
-                    <Image Source="swipeup" WidthRequest="70" HeightRequest="70" />
+        <Grid>
+            <Image Source="OwnerSplashPage4" Aspect="AspectFill" />
+            <magicGradients:GradientView VerticalOptions="FillAndExpand">
+                <magicGradients:GradientView.GradientSource>
+                    <magicGradients:LinearGradient>
+                        <magicGradients:GradientStop Color="Transparent" Offset="0.5" RenderOffset="1" />
+                        <magicGradients:GradientStop Color="#CA9039" Offset="1" />
+                    </magicGradients:LinearGradient>
+                </magicGradients:GradientView.GradientSource>
+            </magicGradients:GradientView>
+            <Grid VerticalOptions="Center" Margin="0, 160, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="blue_splash_screen_shape.png" HorizontalOptions="Start" HeightRequest="200" WidthRequest="300" Aspect="Fill" />
+                <StackLayout Grid.Row="0" VerticalOptions="Center" Padding="20, 0, 0, 0">
+                    <Label Text="MAKES YOU MONEY AND IT'S FREE!" FontFamily="QuicksandBold" TextColor="White" FontSize="30" VerticalOptions="End" />
+                    <Label Text="Econic" TextColor="White" FontSize="24" />
+                    <Label Text="Not ecoomerce" TextColor="White" FontSize="24" />
                 </StackLayout>
-                <Image Source="logo" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Start" Margin="15" WidthRequest="50" HeightRequest="50" />
             </Grid>
-        </SwipeView>
+            <Image Source="red_deal_icon.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Start" Margin="15" WidthRequest="50" HeightRequest="50" />
+            <ImageButton Clicked="BtnClicked" Style="{StaticResource SplashButton}" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
