@@ -3,65 +3,162 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="Econic.Mobile.Views.OwnerReg.Address" 
              NavigationPage.HasNavigationBar="False" 
-             xmlns:controls="clr-namespace:Econic.Mobile.Renderers" 
+             xmlns:controls="clr-namespace:Econic.Mobile.Renderers" xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              BackgroundColor="WhiteSmoke" 
              ControlTemplate="{StaticResource NavigationTemplate}">
 
     <ContentPage.Content>
-        <Grid RowSpacing="40">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+        <StackLayout>
+            <ScrollView>
+                <Grid RowSpacing="40">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Text="Even though this is a mobile business, we'd like to know your physical address" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+                <StackLayout Grid.Row="0" >
+                    <Label Text="Your mobile business moves around with you. Where are you when you're not moving?" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+                    <Label Text="*All field are required" FontSize="16" FontFamily="Quicksand"/>
+                </StackLayout>
+                <StackLayout Grid.Row="1" Orientation="Vertical">
+                    <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                               Hint="Address 1" 
+                                               ContainerType="Outlined" 
+                                               OutlineCornerRadius="5" 
+                                               FocusedColor="#404040"
+                                               BackgroundColor="Transparent"
+                                               HeightRequest="50">
+                        <Entry ReturnType="Next" 
+                               Text="{Binding Owner.Address.Address1, Mode=TwoWay}"
+                               FontFamily="QuicksandMedium" />
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                               Hint="Address 2" 
+                                               ContainerType="Outlined" 
+                                               OutlineCornerRadius="5" 
+                                               FocusedColor="#404040"
+                                               BackgroundColor="Transparent"
+                                               HeightRequest="50">
+                        <Entry ReturnType="Next" 
+                               Text="{Binding Owner.Address.Address2, Mode=TwoWay}"
+                               FontFamily="QuicksandMedium" />
+                    </inputLayout:SfTextInputLayout>
 
-            <StackLayout Grid.Row="1" Orientation="Vertical">
-                <Frame Style="{StaticResource Customframe}">
-                    <controls:CustomEntry Text="{Binding Owner.Address.Address1}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Type your address here" />
-                </Frame>
-                <Frame Style="{StaticResource Customframe}">
-                    <controls:CustomEntry Text="{Binding Owner.Address.Address2}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Address 2" />
-                </Frame>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto " />
+                        </Grid.RowDefinitions>
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto " />
-                    </Grid.RowDefinitions>
+                        <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                              
+                                               ContainerType="Outlined" 
+                                               OutlineCornerRadius="5" 
+                                               FocusedColor="#404040"
+                                               BackgroundColor="Transparent"
+                                               Grid.Row="0"
+                                               Grid.Column="0"
+                                               HeightRequest="50">
+                            <combobox:SfComboBox 
+                                                FontFamily="QuicksandMedium" 
+                                                BackgroundColor="Transparent" 
+                                                NoResultsFoundText="No Results Found"
+                                                Watermark="City"
+                                                HeightRequest="50"
+                                                IsEditableMode="True"
+                                                AllowFiltering="True"
+                                                DisplayMemberPath="Name">
+                            </combobox:SfComboBox>
+                        </inputLayout:SfTextInputLayout>
 
-                    <Frame Style="{StaticResource Customframe}" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="0">
-                        <controls:CustomEntry Text="{Binding Owner.Address.City}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="City" />
-                    </Frame>
-                    <Frame Style="{StaticResource Customframe}" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="0">
-                        <!--<controls:CustomDropDown x:Name="Statedd" SelectedItem="{Binding Owner.Address.State}" BackgroundColor="Transparent" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="State" />-->
-                    </Frame>
+                        <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                              
+                                               ContainerType="Outlined" 
+                                               OutlineCornerRadius="5" 
+                                               FocusedColor="#404040"
+                                               BackgroundColor="Transparent"
+                                               Grid.Row="0"
+                                               Grid.Column="1"
+                                               HeightRequest="50">
+                            <combobox:SfComboBox 
+                                                FontFamily="QuicksandMedium" 
+                                                BackgroundColor="Transparent" 
+                                                NoResultsFoundText="No Results Found"
+                                                Watermark="State"
+                                                HeightRequest="50"
+                                                IsEditableMode="True"
+                                                AllowFiltering="True"
+                                                DisplayMemberPath="Name">
+                            </combobox:SfComboBox>
+                        </inputLayout:SfTextInputLayout>
 
-                    <Frame Style="{StaticResource Customframe}" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1">
-                        <controls:CustomEntry Text="{Binding Owner.Address.Zip, Mode=OneWayToSource}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Zip" />
-                    </Frame>
-                </Grid>
-            </StackLayout>
+                        <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                               Hint="Zip" 
+                                               ContainerType="Outlined" 
+                                               OutlineCornerRadius="5" 
+                                               FocusedColor="#404040"
+                                               BackgroundColor="Transparent"
+                                               Grid.Column="0" Grid.Row="1"
+                                               HeightRequest="50">
+                            <Entry ReturnType="Next" 
+                               
+                               FontFamily="QuicksandMedium" />
+                        </inputLayout:SfTextInputLayout>
+                    </Grid>
+                </StackLayout>
 
-            <StackLayout Grid.Row="2" Orientation="Vertical">
-                <Label Text="Do you service or deliver to customers?" FontFamily="QuicksandBold" TextColor="#404040" />
+                <StackLayout Grid.Row="2" Orientation="Vertical">
+                    <Label Text="Is your business online?" FontFamily="QuicksandBold" TextColor="#404040" />
+                    <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                               Hint="Your business URL here" 
+                                               ContainerType="Outlined" 
+                                               OutlineCornerRadius="5" 
+                                               FocusedColor="#404040"
+                                               BackgroundColor="Transparent"
+                                               Grid.Column="0" Grid.Row="1"
+                                               HeightRequest="50">
+                        <Entry ReturnType="Next" 
+                               Text="{Binding Owner.ServiceArea, Mode=TwoWay}"
+                               FontFamily="QuicksandMedium" />
+                    </inputLayout:SfTextInputLayout>
 
-                <Frame Style="{StaticResource Customframe}">
-                    <!--<controls:CustomDropDown SelectedItem="{Binding Owner.ServiceArea}" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="Service Area" />-->
-                </Frame>
-            </StackLayout>
+                    <Label Text="What is your service area?" 
+                           FontFamily="QuicksandBold" 
+                           TextColor="#404040"
+                           Padding="0, 40, 0, 0"/>
+                    <inputLayout:SfTextInputLayout InputViewPadding="10"  
+                                               ContainerType="Outlined" 
+                                               OutlineCornerRadius="5" 
+                                               FocusedColor="#404040"
+                                               BackgroundColor="Transparent"
+                                               Grid.Column="0" Grid.Row="2"
+                                               HeightRequest="50">
+                        <combobox:SfComboBox 
+                                                FontFamily="QuicksandMedium" 
+                                                BackgroundColor="Transparent" 
+                                                NoResultsFoundText="No Results Found"
+                                                Watermark="Service Area"
+                                                HeightRequest="50"
+                                                IsEditableMode="True"
+                                                AllowFiltering="True"
+                                                DisplayMemberPath="Name">
+                        </combobox:SfComboBox>
+                    </inputLayout:SfTextInputLayout>
+                </StackLayout>
 
-            <StackLayout Grid.Row="3" VerticalOptions="End">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="Sales" Text="Continue" Style="{StaticResource NextItemButton}" />
-                <ContentView ControlTemplate="{StaticResource Footer}" />
-            </StackLayout>
+                <StackLayout Grid.Row="3" VerticalOptions="End">
+                    <Button Command="{Binding OpenPageCommand}" CommandParameter="Sales" Text="Continue" Style="{StaticResource NextItemButton}" />
+                    <ContentView ControlTemplate="{StaticResource Footer}" />
+                </StackLayout>
 
-        </Grid>
+            </Grid>
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
