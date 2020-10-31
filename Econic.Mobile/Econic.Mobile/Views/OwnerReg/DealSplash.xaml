@@ -19,14 +19,14 @@
                 </magicGradients:GradientView.GradientSource>
             </magicGradients:GradientView>
 
-            <Grid VerticalOptions="Center" Margin="0, 160, 0, 0">
+            <Grid VerticalOptions="Center" Margin="0, 250, 0, 0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="red_splash_screen_shape.png" HorizontalOptions="StartAndExpand" WidthRequest="320" HeightRequest="220" Aspect="Fill" />
+                <Image Grid.Row="0" Source="red_splash_screen_shape.png" HorizontalOptions="StartAndExpand" WidthRequest="375" HeightRequest="255" Aspect="Fill" />
                 <StackLayout Grid.Row="0" VerticalOptions="Center">
-                    <Label Padding="20, 0, 0, 0" Text="Revyvv" TextColor="White" FontSize="34" />
-                    <Label Grid.Row="1" Padding="20, 0, 0, 0" Text="SELLS YOUR BEST DEALS TO YOUR BEST CUSTOMERS" FontFamily="QuicksandBold" TextColor="White" FontSize="38" VerticalOptions="End" />
+                    <Label Padding="50, 0, 0, 0" Text="Revyvv" TextColor="White" FontSize="30" />
+                    <Label Grid.Row="1" Padding="50, 0, 80, 0" Text="OFFERS YOUR BEST CUSTOMERS THE BEST DEALS" FontFamily="QuicksandBold" TextColor="White" FontSize="30" VerticalOptions="End" />
                 </StackLayout>
             </Grid>
             <Image Source="red_deal_icon.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Start" Margin="15" WidthRequest="50" HeightRequest="50" />
