@@ -21,11 +21,11 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="green_splash_screen_shape.png" HorizontalOptions="Start" WidthRequest="350" HeightRequest="220" Aspect="Fill"/>
+                <Image Grid.Row="0" Source="green_splash_screen_shape.png" HorizontalOptions="Start" WidthRequest="375" HeightRequest="275" Aspect="Fill"/>
                 <StackLayout Grid.Row="0" VerticalOptions="Center">
-                    <Label Padding="20, 0, 0, 0" Text="Revyvv" TextColor="White" FontSize="34" />
-                    <Label Grid.Row="1" Padding="20, 0, 50, 0" Text="FINDS AND REWARDS YOUR LOYAL CUSTOMERS" 
-                           FontFamily="QuicksandBold" TextColor="White" FontSize="34" VerticalOptions="End" />
+                    <Label Padding="40, 0, 0, 0" Text="Revyvv" TextColor="White" FontSize="30" />
+                    <Label Grid.Row="1" Padding="40, 0, 80, 0" Text="FINDS YOUR LOYAL CUSTOMERS AND REWARDS THEM" 
+                           FontFamily="QuicksandBold" TextColor="White" FontSize="30" VerticalOptions="End" />
                 </StackLayout>
             </Grid>
             <Image Source="red_deal_icon.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Start" Margin="15" WidthRequest="50" HeightRequest="50" />
