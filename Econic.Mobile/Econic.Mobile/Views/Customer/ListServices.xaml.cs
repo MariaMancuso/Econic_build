@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Econic.Mobile.Views.Templates;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,13 @@ namespace Econic.Mobile.Views.Customer
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ListServices : ContentPage
 	{
+		ControlTemplate tabbed = new ControlTemplate(typeof(TabbedView));
+		ControlTemplate products = new ControlTemplate(typeof(ServivesView));
 		public ListServices()
 		{
 			InitializeComponent();
+			TabbedView.ControlTemplate = tabbed;
+			Services.ControlTemplate = products;
 		}
 	}
 }

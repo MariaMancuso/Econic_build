@@ -10,11 +10,12 @@ using Xamarin.Forms.Xaml;
 namespace Econic.Mobile.Views.Templates
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CartWithItems : ContentPage
+	public partial class CartWithItems : ContentView
 	{
 		public CartWithItems()
 		{
 			InitializeComponent();
+			
 		}
 	}
 }
