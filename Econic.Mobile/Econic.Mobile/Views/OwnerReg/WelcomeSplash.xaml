@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:magicGradients="clr-namespace:MagicGradients;assembly=MagicGradients" x:Class="Econic.Mobile.Views.OwnerReg.WelcomeSplash"
+             xmlns:magicGradients="clr-namespace:MagicGradients;assembly=MagicGradients"
+             x:Class="Econic.Mobile.Views.OwnerReg.WelcomeSplash"
              NavigationPage.HasNavigationBar="False" Padding="0">
 
     <ContentPage.Content>
@@ -16,25 +17,27 @@
                     </magicGradients:LinearGradient>
                 </magicGradients:GradientView.GradientSource>
             </magicGradients:GradientView>
-            
-            <Grid VerticalOptions="Center" Margin="0, 160, 0, 0">
+
+            <Grid VerticalOptions="Center" Margin="0, 230, 0, 0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="120"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="shape1" HorizontalOptions="Start" />
-                <StackLayout Grid.Row="0" VerticalOptions="Center">
-                    <Label Padding="20, 0, 0, 0"  Text="WELCOME TO"  TextColor="White" FontSize="24" />
-                    <Label Padding="20, 0, 0, 0"  Text="ECONIC" TextColor="White" FontSize="24" />
+                <Image Grid.Row="1" Source="yellow_spash_screen_shape.png" HeightRequest="375" WidthRequest="360" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Label Grid.Row="1" Padding="100, 0, 60, 0" 
+                           Text="IN 30 MINUTES YOUR NEW MOBILE BUSINESS WILL ROCK! AND IT'S FREE" 
+                           HorizontalOptions="CenterAndExpand"
+                           FontFamily="QuicksandBold" TextColor="White" FontSize="24" VerticalOptions="Center"/>
+                <StackLayout  VerticalOptions="Center" Spacing="-2">
+                    <Label Padding="20, 60, 0, 0" Grid.Row="0" Text="Welcome to"  TextColor="White" FontSize="28" HorizontalOptions="Center" HorizontalTextAlignment="Start"/>
+                    <Label Padding="0, 0, 0, 10" Grid.Row="0" Text="Revyvv" TextColor="White" FontSize="28" HorizontalOptions="Center"  HorizontalTextAlignment="Start"/>
+                    
                 </StackLayout>
 
-                <Label Grid.Row="1" Padding="20, 0, 0, 0" 
-                       Text="30 MINUTES FROM NOW YOU'RE GOING TO HAVE A MOBILE BUSINESS THAT ROCKS!" 
-                       FontFamily="QuicksandBold" TextColor="White" FontSize="30" VerticalOptions="End"/>
+               
             </Grid>
-           
 
-            <Image Source="logo" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Start" Margin="15" WidthRequest="50" HeightRequest="50"/>
+            <Image Source="red_deal_icon.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Start" Margin="15" WidthRequest="50" HeightRequest="50"/>
             <ImageButton Clicked="BtnClicked" Style="{StaticResource SplashButton}"/>
         </Grid>
     </ContentPage.Content>
