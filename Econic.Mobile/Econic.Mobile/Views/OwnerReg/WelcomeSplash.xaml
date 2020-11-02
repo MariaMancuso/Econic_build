@@ -18,18 +18,20 @@
                 </magicGradients:GradientView.GradientSource>
             </magicGradients:GradientView>
 
-            <Grid VerticalOptions="Center" Margin="0, 250, 0, 0">
+            <Grid VerticalOptions="Center" Margin="0, 230, 0, 0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Image Grid.RowSpan="2" Source="yellow_spash_screen_shape.png" HorizontalOptions="EndAndExpand" HeightRequest="340" WidthRequest="375"/>
-                <StackLayout Grid.Row="0" VerticalOptions="Center" >
-                    <Label Padding="20, 20, 0, 0"  Text="WELCOME TO"  TextColor="White" FontSize="28" HorizontalOptions="Center" HorizontalTextAlignment="Start"/>
-                    <Label Padding="0, 0, 0, 10"  Text="Revyvv" TextColor="White" FontSize="28" HorizontalOptions="Center"  HorizontalTextAlignment="Start"/>
-                    <Label Grid.Row="0" Padding="40, 0, 15, 0" 
+                <Image Grid.Row="1" Source="yellow_spash_screen_shape.png" HeightRequest="375" WidthRequest="360" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Label Grid.Row="1" Padding="100, 0, 60, 0" 
                            Text="IN 30 MINUTES YOUR NEW MOBILE BUSINESS WILL ROCK! AND IT'S FREE" 
-                           FontFamily="QuicksandBold" TextColor="White" FontSize="30" VerticalOptions="End"/>
+                           HorizontalOptions="CenterAndExpand"
+                           FontFamily="QuicksandBold" TextColor="White" FontSize="24" VerticalOptions="Center"/>
+                <StackLayout  VerticalOptions="Center" Spacing="-2">
+                    <Label Padding="20, 60, 0, 0" Grid.Row="0" Text="Welcome to"  TextColor="White" FontSize="28" HorizontalOptions="Center" HorizontalTextAlignment="Start"/>
+                    <Label Padding="0, 0, 0, 10" Grid.Row="0" Text="Revyvv" TextColor="White" FontSize="28" HorizontalOptions="Center"  HorizontalTextAlignment="Start"/>
+                    
                 </StackLayout>
 
                

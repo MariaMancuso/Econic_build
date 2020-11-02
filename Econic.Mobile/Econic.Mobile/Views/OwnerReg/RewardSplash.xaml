@@ -17,15 +17,15 @@
                 </magicGradients:GradientView.GradientSource>
             </magicGradients:GradientView>
 
-            <Grid VerticalOptions="Center" Margin="0, 160, 0, 0">
+            <Grid VerticalOptions="Center" Margin="0, 250, 0, 0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="green_splash_screen_shape.png" HorizontalOptions="Start" WidthRequest="375" HeightRequest="275" Aspect="Fill"/>
-                <StackLayout Grid.Row="0" VerticalOptions="Center">
-                    <Label Padding="40, 0, 0, 0" Text="Revyvv" TextColor="White" FontSize="30" />
-                    <Label Grid.Row="1" Padding="40, 0, 80, 0" Text="FINDS YOUR LOYAL CUSTOMERS AND REWARDS THEM" 
-                           FontFamily="QuicksandBold" TextColor="White" FontSize="30" VerticalOptions="End" />
+                <Image Grid.Row="0" Source="green_splash_screen_shape.png" HorizontalOptions="EndAndExpand" WidthRequest="375" HeightRequest="250" Aspect="Fill"/>
+                <StackLayout Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Label Padding="80, 0, 0, 0" Text="Revyvv" TextColor="White" FontSize="30" />
+                    <Label Grid.Row="1" Padding="80, 0, 0, 0 " Text="FINDS YOUR LOYAL CUSTOMERS AND REWARDS THEM" 
+                           FontFamily="QuicksandBold" TextColor="White" FontSize="28"  HorizontalOptions="Center"/>
                 </StackLayout>
             </Grid>
             <Image Source="red_deal_icon.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Start" Margin="15" WidthRequest="50" HeightRequest="50" />

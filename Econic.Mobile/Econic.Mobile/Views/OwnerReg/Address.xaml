@@ -57,7 +57,7 @@
                         </Grid.RowDefinitions>
 
                         <inputLayout:SfTextInputLayout InputViewPadding="10" 
-                                              
+                                              Hint="City"
                                                ContainerType="Outlined" 
                                                OutlineCornerRadius="5" 
                                                FocusedColor="#404040"
@@ -69,7 +69,7 @@
                                                 FontFamily="QuicksandMedium" 
                                                 BackgroundColor="Transparent" 
                                                 NoResultsFoundText="No Results Found"
-                                                Watermark="City"
+                                                
                                                 HeightRequest="50"
                                                 IsEditableMode="True"
                                                 AllowFiltering="True"
@@ -153,7 +153,7 @@
                 </StackLayout>
 
                 <StackLayout Grid.Row="3" VerticalOptions="End">
-                    <Button Command="{Binding OpenPageCommand}" CommandParameter="Sales" Text="Continue" Style="{StaticResource NextItemButton}" />
+                        <Button Command="{Binding OpenPageCommand}" CommandParameter="Sales" Text="Validate" BackgroundColor="#ff3475b7" Style="{StaticResource NextItemButton}" />
                     <ContentView ControlTemplate="{StaticResource Footer}" />
                 </StackLayout>
 
