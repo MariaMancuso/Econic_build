@@ -2,9 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:controls="clr-namespace:Econic.Mobile.Renderers" 
-             xmlns:local="clr-namespace:Econic.Mobile.ViewModels" xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:local="clr-namespace:Econic.Mobile.ViewModels" 
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              x:Class="Econic.Mobile.Views.OwnerReg.CheckNameClassifyBusiness"
-             Padding="0">
+             Padding="0"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard">
     <ContentPage.BindingContext>
         <local:ProductsViewModel/>
     </ContentPage.BindingContext>
@@ -43,7 +45,7 @@
                                                TextColor="#404040" 
                                                FontFamily="QuicksandBold" />
                                     <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Name of Location" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
-                                        <Entry ReturnType="Next" Text="{Binding Owner.BusinessName, Mode=TwoWay}" FontFamily="QuicksandMedium" />
+                                        <Entry ReturnType="Next" Text="{Binding User.BusinessName, Mode=TwoWay}" FontFamily="QuicksandMedium" />
                                     </inputLayout:SfTextInputLayout>
                                       </StackLayout>
 
@@ -54,35 +56,24 @@
                                                FontSize="20"/>
                         <Label Text="Select all that apply, minimum of 1" FontSize="16" FontFamily="Quicksand" 
                                                Padding="0, 0, 0, 10"/>
-                        <inputLayout:SfTextInputLayout InputViewPadding="10" 
-                                                                   ContainerType="Outlined" 
-                                                                   OutlineCornerRadius="5" 
-                                                                   FocusedColor="#404040">
+                        <inputLayout:SfTextInputLayout Style="{x:StaticResource cutominputlayout}"
+                                                       Hint="Goods">
                                         <combobox:SfComboBox 
-                                                FontFamily="QuicksandMedium" 
-                                                BackgroundColor="Transparent" 
-                                                Watermark="Goods" 
-                                                NoResultsFoundText="No Results Found"
-                                                HeightRequest="50"
-                                                IsEditableMode="True"
-                                                AllowFiltering="True"
-                                                DisplayMemberPath="Name">
+                                                Style="{x:StaticResource cutomcombobox}"
+                                            SelectedItem="{Binding User.Good}">
+                                <combobox:SfComboBox.ComboBoxSource>
+                                    <ListCollection:List x:TypeArguments="x:String">
+                                        <x:String>N/A</x:String>
+                                    </ListCollection:List>
+                                </combobox:SfComboBox.ComboBoxSource>
                                         </combobox:SfComboBox>
                                     </inputLayout:SfTextInputLayout>
 
-                                    <inputLayout:SfTextInputLayout InputViewPadding="10" 
-                                                                   ContainerType="Outlined"
-                                                                   OutlineCornerRadius="5" 
-                                                                   FocusedColor="#404040">
+                        <inputLayout:SfTextInputLayout Style="{x:StaticResource cutominputlayout}"
+                                                       Hint="Services">
                                         <combobox:SfComboBox 
-                                                FontFamily="QuicksandMedium" 
-                                                BackgroundColor="Transparent" 
-                                                Watermark="Services" 
-                                                NoResultsFoundText="No Results Found"
-                                                HeightRequest="50"
-                                                IsEditableMode="True"
-                                                AllowFiltering="True"
-                                                DisplayMemberPath="Name">
+                                                 Style="{x:StaticResource cutomcombobox}"
+                                            SelectedItem="{Binding User.Service}">
                                         </combobox:SfComboBox>
                                     </inputLayout:SfTextInputLayout>
                                 </StackLayout>

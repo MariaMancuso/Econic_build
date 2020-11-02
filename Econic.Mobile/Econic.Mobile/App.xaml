@@ -6,13 +6,11 @@
              x:Class="Econic.Mobile.App">
     <Application.Resources>
 
-        <!--<ResourceDictionary>
+        <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/ControlTemplateResourceDic.xaml" />
-                
-                
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>-->
+        </ResourceDictionary>
         <ResourceDictionary Source="Views/Templates/Resources/ClassicDictionary.xaml"/>
 
         <Color x:Key="ThemeColor">#D03737</Color>
@@ -89,6 +87,7 @@
                 </VisualStateGroupList>
             </Setter>
         </Style>
+
         <Style x:Key="Customframe" TargetType="Frame">
             <Setter Property="BorderColor" Value="#cbcbcb" />
             <Setter Property="CornerRadius" Value="3" />
