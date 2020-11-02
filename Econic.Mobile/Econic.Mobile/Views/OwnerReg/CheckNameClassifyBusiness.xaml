@@ -56,7 +56,29 @@
                                                FontSize="20"/>
                         <Label Text="Select all that apply, minimum of 1" FontSize="16" FontFamily="Quicksand" 
                                                Padding="0, 0, 0, 10"/>
-                        <inputLayout:SfTextInputLayout Style="{x:StaticResource cutominputlayout}"
+
+                        <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                              Hint="Goods"
+                                               ContainerType="Outlined" 
+                                               OutlineCornerRadius="5" 
+                                               FocusedColor="#404040"
+                                               BackgroundColor="Transparent"
+                                               Grid.Row="0"
+                                               Grid.Column="0"
+                                               HeightRequest="50">
+                            <combobox:SfComboBox 
+                                                FontFamily="QuicksandMedium" 
+                                                BackgroundColor="Transparent" 
+                                                NoResultsFoundText="No Results Found"
+                                                
+                                                HeightRequest="50"
+                                                IsEditableMode="True"
+                                                AllowFiltering="True"
+                                                DisplayMemberPath="Name">
+                            </combobox:SfComboBox>
+                        </inputLayout:SfTextInputLayout>
+                                        
+                        <!--<inputLayout:SfTextInputLayout Style="{x:StaticResource cutominputlayout}"
                                                        Hint="Goods">
                                         <combobox:SfComboBox 
                                                 Style="{x:StaticResource cutomcombobox}"
@@ -67,15 +89,36 @@
                                     </ListCollection:List>
                                 </combobox:SfComboBox.ComboBoxSource>
                                         </combobox:SfComboBox>
-                                    </inputLayout:SfTextInputLayout>
+                                    </inputLayout:SfTextInputLayout>-->
 
-                        <inputLayout:SfTextInputLayout Style="{x:StaticResource cutominputlayout}"
+                        <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                              Hint="Services"
+                                               ContainerType="Outlined" 
+                                               OutlineCornerRadius="5" 
+                                               FocusedColor="#404040"
+                                               BackgroundColor="Transparent"
+                                               Grid.Row="0"
+                                               Grid.Column="0"
+                                               HeightRequest="50">
+                            <combobox:SfComboBox 
+                                                FontFamily="QuicksandMedium" 
+                                                BackgroundColor="Transparent" 
+                                                NoResultsFoundText="No Results Found"
+                                                
+                                                HeightRequest="50"
+                                                IsEditableMode="True"
+                                                AllowFiltering="True"
+                                                DisplayMemberPath="Name">
+                            </combobox:SfComboBox>
+                        </inputLayout:SfTextInputLayout>
+
+                        <!--<inputLayout:SfTextInputLayout Style="{x:StaticResource cutominputlayout}"
                                                        Hint="Services">
                                         <combobox:SfComboBox 
                                                  Style="{x:StaticResource cutomcombobox}"
                                             SelectedItem="{Binding User.Service}">
                                         </combobox:SfComboBox>
-                                    </inputLayout:SfTextInputLayout>
+                                    </inputLayout:SfTextInputLayout>-->
                                 </StackLayout>
 
                                     <StackLayout Grid.Row="3" VerticalOptions="End">

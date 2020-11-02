@@ -28,13 +28,14 @@
             </StackLayout>
 
             <StackLayout Grid.Row="2" Spacing="15">
-                <Frame CornerRadius="18" HeightRequest="60">
+                <Frame CornerRadius="18" HeightRequest="50">
                     <StackLayout Orientation="Horizontal">
-                        <Image Source="icon_services" />
+                        <Image Source="icon_services" HeightRequest="30" WidthRequest="30"/>
                         <Label Text="Services" 
                                FontFamily="QuicksandBold" 
                                TextColor="#404040" 
-                               VerticalTextAlignment="Center" />
+                               VerticalTextAlignment="Center" 
+                               Padding="10, 0, 0, 0"/>
                     </StackLayout>
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding CMTapped}" 
@@ -42,13 +43,14 @@
                     </Frame.GestureRecognizers>
                 </Frame>
 
-                <Frame CornerRadius="18">
+                <Frame CornerRadius="18" HeightRequest="50">
                     <StackLayout Orientation="Horizontal">
-                        <Image Source="icon_products" />
+                        <Image Source="icon_products" HeightRequest="30" WidthRequest="30"/>
                         <Label Text="Goods"
                                FontFamily="QuicksandBold" 
                                TextColor="#404040" 
-                               VerticalTextAlignment="Center" />
+                               VerticalTextAlignment="Center" 
+                               Padding="10, 0, 0, 0"/>
                     </StackLayout>
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding CMTapped}" 

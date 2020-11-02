@@ -15,12 +15,12 @@
         <Setter Property="FontFamily" Value="QuicksandBold"/>
         <Setter Property="Padding" Value="15, 0, 15, 0"/>
     </Style>
-    <Style TargetType="inputLayout:SfTextInputLayout" x:Key="cutominputlayout">
+    <!--<Style TargetType="inputLayout:SfTextInputLayout" x:Key="cutominputlayout">
         <Setter Property="InputViewPadding" Value="10"/>
         <Setter Property="ContainerType" Value="Outlined"/>
         <Setter Property="FocusedColor" Value="#404040"/>
         <Setter Property="OutlineCornerRadius" Value="5"/>
-    </Style>
+    </Style>-->
     <Style TargetType="combobox:SfComboBox" x:Key="cutomcombobox">
         <Setter Property="FontFamily" Value="QuicksandMedium"/>
         <Setter Property="BackgroundColor" Value="Transparent"/>

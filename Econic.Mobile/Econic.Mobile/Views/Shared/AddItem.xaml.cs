@@ -15,17 +15,17 @@ namespace Econic.Mobile.Views.Shared
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddItem : ContentPage
     {
-        PhotoPickerViewModel additemViewModel;
+        //PhotoPickerViewModel additemViewModel;
         public AddItem()
         {
             InitializeComponent();
-            imageselector.BindingContext = additemViewModel = new PhotoPickerViewModel();
+            //imageselector.BindingContext = additemViewModel = new PhotoPickerViewModel();
 
             
         }
         void OnAddPhotoButtonClicked(object sender, EventArgs args)
         {
-            additemViewModel.OnAddPhotoButtonClicked(bodyContent, imageselector, imageNext, imageSkip, imageselectorFrame);
+            //additemViewModel.OnAddPhotoButtonClicked(bodyContent, imageselector, imageNext, imageSkip, imageselectorFrame);
         }
         void OnTypeChanged(object sender, Syncfusion.XForms.ComboBox.SelectionChangedEventArgs args)
         {
@@ -48,17 +48,17 @@ namespace Econic.Mobile.Views.Shared
         }
         void imageSkipTapped(Object sender, EventArgs e)
         {
-            additemViewModel.imageSkipTapped(bodyContent, imageselector);
+            //additemViewModel.imageSkipTapped(bodyContent, imageselector);
         }
 
         void imageNextTapped(System.Object sender, System.EventArgs e)
         {
-            additemViewModel.ImageNextTapped(profilePicture, bodyContent, imageselector);
+            //additemViewModel.ImageNextTapped(profilePicture, bodyContent, imageselector);
         }
 
         void imageTapped(System.Object sender, System.EventArgs e)
         {
-            additemViewModel.ImageTapped(sender, e, profilePicture, bodyContent, imageselector, imageNext);
+            //additemViewModel.ImageTapped(sender, e, profilePicture, bodyContent, imageselector, imageNext);
         }
     }
 }

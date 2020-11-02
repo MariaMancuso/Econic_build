@@ -270,7 +270,7 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new Classification(this));
                     break;
                 case "Preview":
-                    if (CurrentItemModel != null && !User.Items.Contains(CurrentItemModel))
+                    if (CurrentItemModel.Equals("Yes") && !User.Items.Contains(CurrentItemModel))
                         User.Items.Add(CurrentItemModel);
 
                     await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices { BindingContext = this }); ;
