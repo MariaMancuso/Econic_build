@@ -1,23 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
+  <PropertyGroup Label="MultilingualAppToolkit">
+    <MultilingualAppToolkitVersion>4.0</MultilingualAppToolkitVersion>
+    <MultilingualFallbackLanguage>en</MultilingualFallbackLanguage>
+    <TranslationReport Condition="'$(Configuration)' == 'Release'">true</TranslationReport>
+    <SuppressPseudoWarning Condition="'$(Configuration)' == 'Debug'">true</SuppressPseudoWarning>
+  </PropertyGroup>
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
-
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets" Label="MultilingualAppToolkit" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\v$(MultilingualAppToolkitVersion)\Microsoft.Multilingual.ResxResources.targets')" />
+  <Target Name="MATPrerequisite" BeforeTargets="PrepareForBuild" Condition="!Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets')" Label="MultilingualAppToolkit">
+    <Warning Text="$(MSBuildProjectFile) is Multilingual build enabled, but the Multilingual App Toolkit is unavailable during the build. If building with Visual Studio, please check to ensure that toolkit is properly installed." />
+  </Target>
   <ItemGroup>
+    <None Remove="MultilingualResources\Econic.Mobile.es-US.xlf" />
+    <None Remove="MultilingualResources\Econic.Mobile.ur.xlf" />
     <None Remove="Resources\Fonts\Quicksand-Bold.ttf" />
     <None Remove="Resources\Fonts\Quicksand-Light.ttf" />
     <None Remove="Resources\Fonts\Quicksand-Medium.ttf" />
     <None Remove="Resources\Fonts\Quicksand-Regular.ttf" />
     <None Remove="Resources\Fonts\Quicksand-SemiBold.ttf" />
   </ItemGroup>
-
   <ItemGroup>
     <EmbeddedResource Include="Resources\Fonts\Quicksand-Bold.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Quicksand-Light.ttf" />
@@ -25,10 +35,10 @@
     <EmbeddedResource Include="Resources\Fonts\Quicksand-Regular.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Quicksand-SemiBold.ttf" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.0.0" />
     <PackageReference Include="MagicGradients" Version="1.1.1" />
+    <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.2.9" />
     <PackageReference Include="Sharpnado.Shadows" Version="1.2.0" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.3.0.42" />
@@ -40,19 +50,27 @@
     <PackageReference Include="Syncfusion.Xamarin.SfProgressBar" Version="18.3.0.44" />
     <PackageReference Include="Syncfusion.Xamarin.SfPullToRefresh" Version="18.3.0.44" />
     <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="18.3.0.40" />
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="18.3.0.44" />
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1560" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <PackageReference Include="Xamarin.Forms.InputKit" Version="3.4.1" />
     <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.1.41" />
   </ItemGroup>
-
   <ItemGroup>
     <Reference Include="Mono.Android">
       <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
-
   <ItemGroup>
+    <XliffResource Include="MultilingualResources\Econic.Mobile.es-US.xlf" />
+    <XliffResource Include="MultilingualResources\Econic.Mobile.ur.xlf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\AppResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
     <Compile Update="Views\Gamification\FirstPreview.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
@@ -87,8 +105,11 @@
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
   </ItemGroup>
-
   <ItemGroup>
+    <EmbeddedResource Update="Resources\AppResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\ControlTemplateResourceDic.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -131,7 +152,13 @@
     <EmbeddedResource Update="Views\Employee\EmployeeClassification.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Employee\EmployeeMenu.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Employee\EmployeeSchedule.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Employee\EmployeeTabbedPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Employee\GoalOutliner.xaml">

@@ -13,8 +13,8 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Text="Language" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
-            <sync:SfListView Grid.Row="1" x:Name="langugelistview" AutoFitMode="DynamicHeight">
+            <Label Grid.Row="0" Text="Language" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" x:Name="test" />
+            <sync:SfListView Grid.Row="1" x:Name="langugelistview" AutoFitMode="DynamicHeight" SelectionChanged="OnLanguageSelected">
                 <sync:SfListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

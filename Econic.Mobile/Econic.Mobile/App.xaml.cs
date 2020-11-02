@@ -1,14 +1,18 @@
 ﻿using Econic.Mobile.Models;
+using Econic.Mobile.Resources;
 using Econic.Mobile.ViewModels;
 using Econic.Mobile.Views.Customer;
 using Econic.Mobile.Views.EconicStudio;
+using Econic.Mobile.Views.Employee;
 using Econic.Mobile.Views.Gamification;
 using Econic.Mobile.Views.OwnerProfile;
 using Econic.Mobile.Views.OwnerReg;
 using Econic.Mobile.Views.Shared;
 using Econic.Mobile.Views.Shared.HamburgerMenu;
+using Plugin.Multilingual;
 using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -32,6 +36,8 @@ namespace Econic.Mobile
 
         public App()
         {
+            CrossMultilingual.Current.CurrentCultureInfo = new CultureInfo("en");
+            AppResources.Culture = CrossMultilingual.Current.CurrentCultureInfo;
             Device.SetFlags(new[] { "SwipeView_Experimental", "Expander_Experimental" });
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzMzMzI5QDMxMzgyZTMzMmUzMFpUbmo3aGYzM2M5R2cyTmc0WjlhRmhnckFPT3RVR2tzTGlkMlk1WSs0bnM9");
 

@@ -14,13 +14,13 @@ using System.Linq;
 using Econic.Mobile.Views.Shared.HamburgerMenu;
 using Econic.Mobile.Models;
 using System.ComponentModel;
+using Econic.Mobile.Views.OwnerProfile;
 
 namespace Econic.Mobile.ViewModels
 {
     [AddINotifyPropertyChangedInterface]
     public class EmployeeBoardingViewModel : INotifyPropertyChanged
     {
-        EmployeeModel employee;
         ScheduleModel scheduleModel;
         ObservableCollection<OwnerGoalModel> goals;
 
@@ -39,7 +39,7 @@ namespace Econic.Mobile.ViewModels
             SpecialityRemoveTapped = new Command(specialityRemoveTapped);
             DayTappedCommand = new Command(dayTappedCommand);
 
-            employee = new EmployeeModel()
+            Employee = new EmployeeModel()
             {
                 EmployeeSpecialities = new ObservableCollection<EmployeeSpecialitiesModel>()
                 {
@@ -65,11 +65,7 @@ namespace Econic.Mobile.ViewModels
                 new OwnerGoalModel() { Goal = "Lower your transactions costs", Value = 4}
                 };
         }
-        public EmployeeModel Employee
-        {
-            get { return employee; }
-            set { employee = value; }
-        }
+        public EmployeeModel Employee { get; set; }
         public ObservableCollection<OwnerGoalModel> Goals
         {
             get
@@ -198,7 +194,10 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new GoalOutliner { BindingContext = this });
                     break;
                 case "SharedMenuPage":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Hamburger { BindingContext = new EmployeeViewModel() });
+                    EmployeeViewModel employeeViewModel = new EmployeeViewModel(Employee);
+                    var page = new Hamburger { BindingContext = employeeViewModel };
+                    page.Detail = new EmployeeTabbedPage { BindingContext = employeeViewModel };
+                    await Application.Current.MainPage.Navigation.PushAsync(page);
                     break;
                 default:
                     return;

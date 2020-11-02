@@ -1,4 +1,6 @@
-﻿using Econic.Mobile.Views.Shared.HamburgerMenu;
+﻿using Econic.Mobile.Models;
+using Econic.Mobile.Models.EmployeeModels;
+using Econic.Mobile.Views.Shared.HamburgerMenu;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,8 +14,9 @@ namespace Econic.Mobile.ViewModels
     {
         public ObservableCollection<HamburgerMasterMenuItem> MenuItems { get; set; }
 
-        public EmployeeViewModel()
+        public EmployeeViewModel(EmployeeModel employee)
         {
+            Owner = employee;
             MenuItems = new ObservableCollection<HamburgerMasterMenuItem>(new[]
             {
                     new HamburgerMasterMenuItem { Id = 0, Title = "My Dashboard", Icon = "icon_account", TargetType = typeof(Dashboard) },
@@ -22,7 +25,9 @@ namespace Econic.Mobile.ViewModels
                     new HamburgerMasterMenuItem { Id = 3, Title = "Revyvv U", Icon = "icon_revyvvu", TargetType = typeof(RevyvvU) }
             });
             OpenPageCommand = new Command<string>((arg) => OpenPage(arg));
+            addOrders();
         }
+        public EmployeeModel Owner { get; set; }
         public ICommand OpenPageCommand { private set; get; }
         private async void OpenPage(string value)
         {
@@ -37,6 +42,64 @@ namespace Econic.Mobile.ViewModels
                 default:
                     break;
             }
+        }
+        private void addOrders()
+        {
+            Owner.Orders = new ObservableCollection<DetailOrderModel>()
+            {
+                new DetailOrderModel
+                {
+                    Items = new ObservableCollection<Item>
+                    {
+                        new Item { Name = "Multi-Touch Brushes", Count = 2, Price = 38},
+                        new Item { Name = "Brush Collection", Count = 1, Price = 19}
+                    },
+                    CustomerName = "John Doe fullfilled",
+                    CustomerEmail = "JohnDoes@empr.co",
+                    CustomerNumber = 8988997863,
+                    OrderDate = DateTime.Now,
+                    OrderNumber = 12345,
+                    status = true,
+                    PaymentVerified = true,
+                    ShippingAddress = new AddressModel
+                    {
+                        Address1 = "300 N Akard St.",
+                        Address2 = "Unit 802",
+                        City = "Dallas",
+                        State = "Texas",
+                        Zip = 753201
+                    },
+                    Type = "Shipping",
+                    Tax = 6,
+                    Total = 68
+                },
+                new DetailOrderModel
+                {
+                    Items = new ObservableCollection<Item>
+                    {
+                        new Item { Name = "Multi-Touch Brushes", Count = 2, Price = 38},
+                        new Item { Name = "Brush Collection", Count = 1, Price = 19}
+                    },
+                    CustomerName = "John Doe",
+                    CustomerEmail = "JohnDoes@empr.co",
+                    CustomerNumber = 8988997863,
+                    OrderDate = DateTime.Now,
+                    OrderNumber = 19905,
+                    status = false,
+                    PaymentVerified = false,
+                    ShippingAddress = new AddressModel
+                    {
+                        Address1 = "300 N Akard St.",
+                        Address2 = "Unit 802",
+                        City = "Dallas",
+                        State = "Texas",
+                        Zip = 753201
+                    },
+                    Type = "In Store Pick up",
+                    Tax = 6,
+                    Total = 68
+                }
+            };
         }
     }
 }
