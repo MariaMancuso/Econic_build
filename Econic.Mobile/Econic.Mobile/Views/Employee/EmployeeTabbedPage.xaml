@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<renderers:CustomTabbedPage xmlns:renderers="clr-namespace:Econic.Mobile.Renderers" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Employee.EmployeeTabbedPage"
+            xmlns:pages="clr-namespace:Econic.Mobile.Views.Shared.HamburgerMenu"
+            xmlns:employeepages="clr-namespace:Econic.Mobile.Views.Employee"
+            SelectedTabColor="#404040"
+            UnselectedTabColor="Gray">
+  <!--Pages can be added as references or inline-->
+    <NavigationPage Title="Dashboard" BarBackgroundColor="WhiteSmoke">
+        <x:Arguments>
+            <pages:Dashboard />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Alerts" BarBackgroundColor="WhiteSmoke">
+        <x:Arguments>
+            <ContentPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Account" BarBackgroundColor="WhiteSmoke">
+        <x:Arguments>
+            <employeepages:EmployeeMenu />
+        </x:Arguments>
+    </NavigationPage>
+</renderers:CustomTabbedPage>

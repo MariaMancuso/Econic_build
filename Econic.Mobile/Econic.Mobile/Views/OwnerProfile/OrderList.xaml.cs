@@ -14,35 +14,29 @@ namespace Econic.Mobile.Views.OwnerProfile
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OrderList : ContentPage
     {
-        bool isPending;
         public OrderList()
         {
             InitializeComponent();
-            buttonlist.ItemsSource = new string[] { "Pending", "Fullfilled" };
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            this.orderslistview.DataSource.Filter = filterpending;
-            this.orderslistview.DataSource.RefreshFilter();
+            this.pendinglistview.DataSource.Filter = Filterpending;
+            this.pendinglistview.DataSource.RefreshFilter();
+
+            this.fullfilledlistview.DataSource.Filter = Filterfullfilled;
+            this.fullfilledlistview.DataSource.RefreshFilter();
             isPending = true;
         }
-        private void OnTabChanged(object sender, EventArgs e)
+        bool isPending;
+        void OnTabChanged(object sender, Syncfusion.XForms.TabView.SelectionChangedEventArgs args)
         {
-            var ev = (ItemSelectionChangedEventArgs)e;
-            if (ev.AddedItems.Contains("Fullfilled"))
-            {
-                this.orderslistview.DataSource.Filter = filterfullfilled;
-                isPending = false;
-            }
-            else
-            {
-                this.orderslistview.DataSource.Filter = filterpending;
+            if (args.Name == "Pending")
                 isPending = true;
-            }
-            this.orderslistview.DataSource.RefreshFilter();
+            else
+                isPending = false;
         }
-        private bool filterpending(object obj)
+        private bool Filterpending(object obj)
         {
             var order = obj as DetailOrderModel;
             if (!order.status)
@@ -50,7 +44,7 @@ namespace Econic.Mobile.Views.OwnerProfile
             else
                 return false;
         }
-        private bool filterfullfilled(object obj)
+        private bool Filterfullfilled(object obj)
         {
             var order = obj as DetailOrderModel;
             if (order.status)
@@ -58,33 +52,42 @@ namespace Econic.Mobile.Views.OwnerProfile
             else
                 return false;
         }
-        Entry searchBar = null;
         private void OnFilterTextChanged(object sender, TextChangedEventArgs e)
         {
-            searchBar = (sender as Entry);
-            if (orderslistview.DataSource != null)
+            if (isPending && pendinglistview.DataSource != null)
             {
-                this.orderslistview.DataSource.Filter = FilterOrders;
-                this.orderslistview.DataSource.RefreshFilter();
+                this.pendinglistview.DataSource.Filter = FilterOrders;
+                this.pendinglistview.DataSource.RefreshFilter();
+            }
+            else if (!isPending && pendinglistview.DataSource != null)
+            {
+                this.fullfilledlistview.DataSource.Filter = FilterOrders;
+                this.fullfilledlistview.DataSource.RefreshFilter();
             }
         }
 
         private bool FilterOrders(object obj)
         {
-            if (searchBar == null || searchBar.Text == null)
+            if (SearchEntry == null || SearchEntry.Text == null)
                 return true;
 
             var order = obj as DetailOrderModel;
+
             if(isPending)
-                if (order.OrderNumber.ToString().Contains(searchBar.Text) && filterpending(obj))
+            {
+                if (order.OrderNumber.ToString().Contains(SearchEntry.Text) && Filterpending(obj))
                     return true;
                 else
                     return false;
+            }
             else
-                if (order.OrderNumber.ToString().Contains(searchBar.Text) && filterfullfilled(obj))
-                return true;
-            else
-                return false;
+            {
+                if (order.OrderNumber.ToString().Contains(SearchEntry.Text) && Filterfullfilled(obj))
+                    return true;
+                else
+                    return false;
+
+            }
         }
     }
 }

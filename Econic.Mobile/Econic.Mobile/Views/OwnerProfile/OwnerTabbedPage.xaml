@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Econic.Mobile.Views.OwnerProfile.OwnerTabbedPage"
             xmlns:page1="clr-namespace:Econic.Mobile.Views.Shared.HamburgerMenu"
-            xmlns:page3="clr-namespace:Econic.Mobile.Views.OwnerProfile">
+            xmlns:page3="clr-namespace:Econic.Mobile.Views.OwnerProfile" SelectedTabColor="#404040" UnselectedTabColor="Gray">
     <NavigationPage.TitleView >
         <StackLayout Orientation="Horizontal" Padding="10, 0, 10, 0">
             <Label Text="Ziba Beauty" TextColor="Silver" VerticalOptions="Center"/>

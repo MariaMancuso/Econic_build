@@ -33,7 +33,6 @@ namespace Econic.Mobile.Views.OwnerProfile
         }
         public async void PurchaseTapped(object sender, EventArgs args)
         {
-            var model = this.BindingContext as OwnerViewModel;
             await Navigation.PushAsync(new OrderList { BindingContext = this.BindingContext });
         }
         public async void LocationsTapped(object sender, EventArgs args)

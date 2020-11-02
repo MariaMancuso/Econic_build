@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.Employee.EmployeeMenu"
+             Padding="20, 0, 20, 0"
+             NavigationPage.HasNavigationBar="True">
+    <ContentPage.Content>
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Account" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+
+            <Image Grid.Row="1" Grid.Column="0" Source="profilepic" Aspect="AspectFit" WidthRequest="80" HeightRequest="80" HorizontalOptions="Start" />
+
+            <StackLayout Grid.Row="2">
+                <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="icon_purchase" WidthRequest="30" HeightRequest="30" />
+                            <Label Text="Purchases" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                        </StackLayout>
+                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PurchaseTapped" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="icon_contacts" WidthRequest="30" HeightRequest="30" />
+                            <Label Text="Clients" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                        </StackLayout>
+                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ClientTapped" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="icon_promo" WidthRequest="30" HeightRequest="30" />
+                            <Label Text="Schedules" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
+                        </StackLayout>
+                        <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
