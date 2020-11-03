@@ -6,9 +6,9 @@
              BackgroundColor="#343434"
              Padding="0"
              ControlTemplate="{StaticResource StudioNavigationTemplate}">
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <viewModels:OwnerBoardingViewModel/>
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
     
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">

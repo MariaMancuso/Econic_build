@@ -20,14 +20,15 @@ namespace Econic.Mobile.Views.EconicStudio
 		object template { get; set; }
 		//public ChooseTheme()
 
-		ControlTemplateViewModel control;
+		//ControlTemplateViewModel control;
 		public ChooseTheme(OwnerBoardingViewModel OwnerVM)
 		{
 
 			InitializeComponent();
-			BindingContext = control = new ControlTemplateViewModel(); ;
-			control.OBViewModel = OwnerVM;
-			CreateBoxGrid();
+			//BindingContext = control = new ControlTemplateViewModel(); ;
+			//control.OBViewModel = OwnerVM;
+			BindingContext = OwnerVM;
+			CreateBoxGrid(OwnerVM);
 		}
 
 		//void OnCurrentItemChanged(object sender, CurrentItemChangedEventArgs e) 
@@ -40,7 +41,7 @@ namespace Econic.Mobile.Views.EconicStudio
 		//	//Console.WriteLine(template);
 		//}
 
-		private void CreateBoxGrid()
+		private void CreateBoxGrid(OwnerBoardingViewModel control)
 		{
 
 			IList<BoxColorModel> b = control.CreateBoxCollection();

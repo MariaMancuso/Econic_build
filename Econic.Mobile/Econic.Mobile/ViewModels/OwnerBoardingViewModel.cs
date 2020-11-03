@@ -153,7 +153,7 @@ namespace Econic.Mobile.ViewModels
 
                
 
-                    break;
+                    //break;
                 case "ETGoHome":
                     await Application.Current.MainPage.Navigation.PushAsync(new DealBoard());
                     break;
