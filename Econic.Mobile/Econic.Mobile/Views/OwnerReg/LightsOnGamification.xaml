@@ -6,52 +6,63 @@
     <ContentPage.Content>
         <Grid RowSpacing="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <StackLayout Grid.Row="0" Padding="10, 0, 10, 20">
+            <StackLayout Padding="10, 0, 10, 0">
                 <Label Text="We like your style. Your business is looking good." 
                        FontFamily="QuicksandBold" 
                        TextColor="#404040" 
-                       FontSize="20" />
-            </StackLayout>
-            
-            <Image Grid.Row="1" Source="store_lights_on.png"
-                   HeightRequest="125"/>
-            <Label Text="" 
-                   Grid.Row="2"
-                   FontFamily="QuicksandBold" 
-                   TextColor="#404040" 
-                   FontSize="20"/>
+                       FontSize="20" 
+                       Grid.Row="0"/>
 
+                <Label Text="{Binding User.BusinessName}" 
+                       Grid.Row="1"
+                       HorizontalOptions="CenterAndExpand"
+                       FontFamily="QuicksandBold" 
+                       TextColor="#404040" 
+                       FontSize="20"
+                       Padding="0, 30, 0, 30"/>
+                <Image Grid.Row="2" Source="store_lights_on.png"
+                           HeightRequest="125"/>
+            </StackLayout>
             <Grid Grid.Row="2" 
                   VerticalOptions="EndAndExpand" 
-                  RowSpacing="20">
-                <Image Source="bg_animation.png" 
+                  RowSpacing="10">
+                <StackLayout Grid.ColumnSpan="2"
+                             Grid.RowSpan="2">
+                    <Image Source="bg_animation.png" 
+                           HorizontalOptions="CenterAndExpand"
+                           Aspect="AspectFill"
+                           HeightRequest="225"
+                           WidthRequest="400"/>
+                </StackLayout>
+                <StackLayout Padding="0, 40, 20, 0"
+                             HorizontalOptions="StartAndExpand"
+                           VerticalOptions="EndAndExpand">
+                    <Image Source="component_467_1.png"
+                           WidthRequest="225"
+                           HeightRequest="200"
+                           Grid.RowSpan="2"
+                           Grid.Column="0"/>
+                </StackLayout>
+                <Label Text="See the lights? They're on!"
                        HorizontalOptions="CenterAndExpand"
-                       Aspect="AspectFill"
-                       HeightRequest="200"
-                       WidthRequest="400"
+                       VerticalOptions="CenterAndExpand"
+                       Padding="20, 0, 0, 60"
+                       FontSize="12"
+                       FontFamily="QuicksandBold"
                        Grid.ColumnSpan="2"
                        Grid.RowSpan="2"/>
-                <Image Source="component_467_1.png"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="EndAndExpand"
-                       WidthRequest="275"
-                       Grid.RowSpan="2"
-                       Grid.Column="0"/>
-                <Label Text="See the lights? They're on!"
-                       HorizontalOptions="Center"
-                       FontSize="12"
-                       Grid.Column="1"
-                       Grid.Row="1"/>
             </Grid>
-            <StackLayout Grid.Row="3" VerticalOptions="End">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="EconicStudio" Text="Let's Keep Building" Style="{StaticResource NextItemButton}" />
+            <StackLayout Grid.Row="3" >
+                <Button Command="{Binding OpenPageCommand}"
+                        CommandParameter="EconicStudio" 
+                        Text="Let's Keep Building" 
+                        Style="{StaticResource NextItemButton}" />
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
         </Grid>

@@ -55,7 +55,17 @@
                 <Button Text="Save" Clicked="OnSaveClicked" BackgroundColor="Transparent" TextColor="CornflowerBlue" FontFamily="QuicksandBold" x:Name="savebutton" />
             </StackLayout>
             <StackLayout Grid.Row="3" VerticalOptions="EndAndExpand">
-                <Button Text="Continue" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Padding="80, 0, 80, 0" BackgroundColor="White" TextColor="#434343" FontFamily="QuicksandBold" CornerRadius="25" FontSize="16" Command="{Binding OpenPageCommand}" CommandParameter="NotifyMethod" />
+                <Button Text="Continue" 
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="EndAndExpand" 
+                        Padding="80, 0, 80, 0"
+                        BackgroundColor="White" 
+                        TextColor="#434343"
+                        FontFamily="QuicksandBold" 
+                        CornerRadius="25" 
+                        FontSize="16"
+                        Command="{Binding OpenPageCommand}" 
+                        CommandParameter="NotifyMethod" />
                 <ContentView ControlTemplate="{StaticResource Footer}" VerticalOptions="EndAndExpand" Padding="0, 20, 0, 10" Grid.Row="5" />
             </StackLayout>
         </Grid>
