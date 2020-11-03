@@ -22,7 +22,7 @@
                    Padding="0, 0, 0, 20"/>
             <StackLayout Grid.Row="1">
                 <Label Padding="0, 0, 0, 20" 
-                       Text="We're all about profits so we only care about the bestsellers, you should too." 
+                       Text="We're all about profits so we only care about the bestsellers right now, you should too." 
                        FontFamily="Quicksand" 
                        TextColor="#404040" />
             </StackLayout>

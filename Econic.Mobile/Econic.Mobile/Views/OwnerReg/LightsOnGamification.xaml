@@ -60,7 +60,7 @@
             </Grid>
             <StackLayout Grid.Row="3" >
                 <Button Command="{Binding OpenPageCommand}"
-                        CommandParameter="EconicStudio" 
+                        CommandParameter="Features" 
                         Text="Let's Keep Building" 
                         Style="{StaticResource NextItemButton}" />
                 <ContentView ControlTemplate="{StaticResource Footer}" />

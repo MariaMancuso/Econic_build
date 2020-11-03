@@ -14,7 +14,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Text="Your employees will now feel empowered by your business" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+            <Label Grid.Row="0" Text="Empower your employees to succeed with your new mobile business." FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
 
             <Grid Grid.Row="1" RowSpacing="30" Padding="10" ColumnSpacing="20">
                 <Grid.ColumnDefinitions>
@@ -28,17 +28,17 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
 
-                <Image Grid.Row="0" Grid.Column="0" Source="submit" HeightRequest="20" WidthRequest="20" />
+                <Image Grid.Row="0" Grid.Column="0" Source="icon_submit" HeightRequest="30" WidthRequest="30" />
                 <Label Grid.Row="0" Grid.Column="1" Text="Submit Availibility" FontFamily="QuicksandSemiBold" TextColor="#404040" VerticalTextAlignment="Center"/>
 
-                <Image Grid.Row="1" Grid.Column="0" Source="sell" HeightRequest="20" WidthRequest="20" />
-                <Label Grid.Row="1" Grid.Column="1" Text="Sell products and services" FontFamily="QuicksandSemiBold" TextColor="#404040" VerticalTextAlignment="Center" />
+                <Image Grid.Row="1" Grid.Column="0" Source="component_509_1" HeightRequest="30" WidthRequest="30" />
+                <Label Grid.Row="1" Grid.Column="1" Text="Sell goods and services" FontFamily="QuicksandSemiBold" TextColor="#404040" VerticalTextAlignment="Center" />
 
-                <Image Grid.Row="2" Grid.Column="0" Source="loyalty" HeightRequest="20" WidthRequest="20" />
+                <Image Grid.Row="2" Grid.Column="0" Source="icon_loyalty" HeightRequest="30" WidthRequest="30" />
                 <Label Grid.Row="2" Grid.Column="1" Text="View Loyalty account" FontFamily="QuicksandSemiBold" TextColor="#404040" VerticalTextAlignment="Center" />
 
-                <Image Grid.Row="3" Grid.Column="0" Source="notification" HeightRequest="20" WidthRequest="20" />
-                <Label Grid.Row="3" Grid.Column="1" Text="Receive Econic notifications" FontFamily="QuicksandSemiBold" TextColor="#404040" VerticalTextAlignment="Center" />
+                <Image Grid.Row="3" Grid.Column="0" Source="icon_notifications" HeightRequest="30" WidthRequest="30" />
+                <Label Grid.Row="3" Grid.Column="1" Text="Receive Revyvv notifications" FontFamily="QuicksandSemiBold" TextColor="#404040" VerticalTextAlignment="Center" />
                 
             </Grid>
 

@@ -33,18 +33,21 @@
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
                     <StackLayout Grid.Row="0" Padding="0, 0, 20, 0">
-                        <Label 
-                                           Text="We're so happy to see you getting started with Revyvv. What shall we call you?" 
-                                           FontFamily="QuicksandBold" 
-                                           TextColor="#404040" 
-                                           FontSize="20" />
+                        <Label Text="We're so happy to see you getting started with Revyvv. What shall we call you?" 
+                               FontFamily="QuicksandBold" 
+                               TextColor="#404040" 
+                               FontSize="20" />
                         <Label Text="*All field are required" FontSize="16" FontFamily="Quicksand"/>
                     </StackLayout>
                     <StackLayout Grid.Row="1">
                                         <Label Text="This is what my business is called:" 
                                                TextColor="#404040" 
                                                FontFamily="QuicksandBold" />
-                                    <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Name of Location" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
+                                    <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                                                   Hint="Your business name here" 
+                                                                   ContainerType="Outlined" 
+                                                                   OutlineCornerRadius="5" 
+                                                                   FocusedColor="#404040">
                                         <Entry ReturnType="Next" Text="{Binding User.BusinessName, Mode=TwoWay}" FontFamily="QuicksandMedium" />
                                     </inputLayout:SfTextInputLayout>
                                       </StackLayout>

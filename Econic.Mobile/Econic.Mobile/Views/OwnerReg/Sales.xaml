@@ -23,7 +23,10 @@
                 <Label Text="*All field are required" FontSize="16" FontFamily="Quicksand"/>
             </StackLayout>
             <StackLayout Grid.Row="1">
-                <Label Text="How many transactions do you make a month?" TextColor="#404040" FontFamily="QuicksandBold" />
+                <Label Text="How many transactions do you make a month?" 
+                       TextColor="#404040" 
+                       FontFamily="QuicksandBold" 
+                       FontSize="14"/>
                 <inputLayout:SfTextInputLayout InputViewPadding="10" 
                                                ContainerType="Outlined" 
                                                OutlineCornerRadius="5" 
@@ -47,7 +50,10 @@
             </StackLayout>
 
             <StackLayout Grid.Row="2">
-                <Label Text="What is your average transaction amount?" TextColor="#404040" FontFamily="QuicksandBold" />
+                <Label Text="What is your average transaction amount?" 
+                       TextColor="#404040" 
+                       FontFamily="QuicksandBold" 
+                       FontSize="14"/>
                 <inputLayout:SfTextInputLayout InputViewPadding="10" 
                                                ContainerType="Outlined" 
                                                OutlineCornerRadius="5" 
@@ -70,7 +76,10 @@
             </StackLayout>
 
             <StackLayout Grid.Row="3">
-                <Label Text="How many transactions do you make a month?" TextColor="#404040" FontFamily="QuicksandBold" />
+                <Label Text="What is your average monthly gross revenue?" 
+                       TextColor="#404040" 
+                       FontFamily="QuicksandBold" 
+                       FontSize="14"/>
                 <inputLayout:SfTextInputLayout InputViewPadding="10" 
                                                ContainerType="Outlined" 
                                                OutlineCornerRadius="5" 
