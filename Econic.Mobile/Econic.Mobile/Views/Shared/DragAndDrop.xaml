@@ -45,7 +45,7 @@
                         <Label Text="5" HorizontalTextAlignment="Center"/>
                     </Frame>
                 </Grid>
-                <syncfusion:SfListView x:Name="listView" Grid.Column="1" ItemsSource="{Binding Owner.Goals}" DragStartMode="OnDragIndicator" BackgroundColor="White" ItemSize="60" >
+                <syncfusion:SfListView x:Name="listView" Grid.Column="1" ItemsSource="{Binding User.Goals}" DragStartMode="OnDragIndicator" BackgroundColor="White" ItemSize="60" >
 
                     <syncfusion:SfListView.DragItemTemplate>
                         <DataTemplate>

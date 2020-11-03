@@ -33,12 +33,25 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Label Padding="0, 0, 0, 10" Grid.Row="0" Text="Display your deals with nice juicy pictures and mouth watering text" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
+                    <Label Padding="0, 10, 0, 10" 
+                           Grid.Row="0" 
+                           Text="We take your stuff and turn it into deals that fly off the shelf. Go for it." 
+                           FontFamily="QuicksandBold" 
+                           TextColor="#404040" 
+                           FontSize="20" />
 
-                    <Image Grid.Row="1" x:Name="profilePicture" Source="{Binding CurrentItemModel.Image.Source, Mode=TwoWay}" Aspect="AspectFill" />
-                    <border:SfBorder Grid.Row="1" x:Name="border" BorderColor="DarkGray" CornerRadius="3">
+                    <Image Grid.Row="1" 
+                           x:Name="profilePicture" 
+                           Source="{Binding CurrentItemModel.Image.Source, Mode=TwoWay}" 
+                           Aspect="AspectFill"/>
+                    <border:SfBorder Grid.Row="1" 
+                                     x:Name="border" 
+                                     BorderColor="DarkGray" 
+                                     CornerRadius="3">
                         <border:SfBorder.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="OnGesture" Tapped="OnAddPhotoButtonClicked" />
+                            <TapGestureRecognizer 
+                                x:Name="OnGesture" 
+                                Tapped="OnAddPhotoButtonClicked" />
                         </border:SfBorder.GestureRecognizers>
                         <border:SfBorder.DashArray>
                             <x:Array Type="{x:Type sys:Double}">
@@ -46,15 +59,35 @@
                                 <sys:Double>4</sys:Double>
                             </x:Array>
                         </border:SfBorder.DashArray>
-                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <StackLayout HorizontalOptions="Center" 
+                                     VerticalOptions="Center">
                             <Image Source="cameraicon" />
-                            <Label Text="Add a picture" TextColor="DarkGray" FontFamily="QuicksandMedium" />
+                            <Label Text="Add a picture" 
+                                   TextColor="DarkGray" 
+                                   FontFamily="QuicksandMedium" />
                         </StackLayout>
                     </border:SfBorder>
 
-                    <StackLayout Grid.Row="2">
-                        <inputLayout:SfTextInputLayout InputViewPadding="10" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
-                            <combobox:SfComboBox SelectedItem="{Binding CurrentItemModel.Type}" SelectionChanged="OnTypeChanged" HeightRequest="40" BackgroundColor="Transparent" ShowBorder="False" Watermark="Type" WatermarkColor="#404040">
+                    <StackLayout Grid.Row="2" Spacing="20" Padding="0, 40, 0, 0">
+                        <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                               ContainerType="Outlined" 
+                                               OutlineCornerRadius="5" 
+                                               FocusedColor="#404040"
+                                               BackgroundColor="Transparent"
+                                               Grid.Row="0"
+                                               Grid.Column="0"
+                                               Hint="Selection type"
+                                               HeightRequest="40">
+                            <combobox:SfComboBox 
+                                                FontFamily="QuicksandMedium" 
+                                                BackgroundColor="Transparent" 
+                                                NoResultsFoundText="No Results Found"
+                                                HeightRequest="40"
+                                                IsEditableMode="True"
+                                                AllowFiltering="True"
+                                                DisplayMemberPath="Name"
+                                                SelectedItem="{Binding CurrentItemModel.Type}"
+                                                SelectionChanged="OnTypeChanged">
                                 <combobox:SfComboBox.ComboBoxSource>
                                     <ListCollection:List x:TypeArguments="x:String">
                                         <x:String>Good</x:String>
@@ -64,12 +97,28 @@
                             </combobox:SfComboBox>
                         </inputLayout:SfTextInputLayout>
 
-                        <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Name" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
-                            <Entry ReturnType="Next" Text="{Binding CurrentItemModel.Name}" FontFamily="QuicksandMedium" />
+                        <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                                       HeightRequest="50"
+                                                       Hint="Name" 
+                                                       ContainerType="Outlined" 
+                                                       OutlineCornerRadius="5"
+                                                       FocusedColor="#404040">
+                            <Entry ReturnType="Next" 
+                                   Text="{Binding CurrentItemModel.Name}" 
+                                   FontFamily="QuicksandMedium" />
                         </inputLayout:SfTextInputLayout>
 
-                        <inputLayout:SfTextInputLayout  x:Name="ServiceDuration" InputViewPadding="10" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
-                            <combobox:SfComboBox SelectedItem="{Binding CurrentItemModel.ServiceDuration}" BackgroundColor="Transparent" HeightRequest="40" ShowBorder="False" Watermark="Service duration" WatermarkColor="#404040">
+                        <inputLayout:SfTextInputLayout  x:Name="ServiceDuration" 
+                                                        InputViewPadding="10" 
+                                                        ContainerType="Outlined" 
+                                                        OutlineCornerRadius="5" 
+                                                        FocusedColor="#404040"
+                                                        Hint="Service duration">
+                            <combobox:SfComboBox SelectedItem="{Binding CurrentItemModel.ServiceDuration}" 
+                                                 BackgroundColor="Transparent" 
+                                                 HeightRequest="50" 
+                                                 ShowBorder="False" 
+                                                 >
                                 <combobox:SfComboBox.ComboBoxSource>
                                     <ListCollection:List x:TypeArguments="x:String">
                                         <x:String>15 min</x:String>
@@ -84,26 +133,91 @@
                         </inputLayout:SfTextInputLayout>
 
                         <Grid ColumnSpacing="20">
-                            <inputLayout:SfTextInputLayout Grid.Column="0" Hint="Min Price" InputViewPadding="10" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
-                                <Entry ReturnType="Next" Text="{Binding CurrentItemModel.MinPrice}" FontFamily="QuicksandMedium" Keyboard="Numeric" />
+                            <inputLayout:SfTextInputLayout Grid.Column="0" 
+                                                           Hint="Min Price" 
+                                                           InputViewPadding="10" 
+                                                           ContainerType="Outlined" 
+                                                           OutlineCornerRadius="5"
+                                                           HeightRequest="50" 
+                                                           FocusedColor="#404040">
+                                <Entry ReturnType="Next" 
+                                       Text="{Binding CurrentItemModel.MinPrice}" 
+                                       FontFamily="QuicksandMedium"
+                                       Keyboard="Numeric" />
                             </inputLayout:SfTextInputLayout>
-                            <inputLayout:SfTextInputLayout Grid.Column="1" Hint="Max Price" InputViewPadding="10" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
-                                <Entry ReturnType="Next" Text="{Binding CurrentItemModel.MaxPrice}" FontFamily="QuicksandMedium" Keyboard="Numeric" />
+                            <inputLayout:SfTextInputLayout Grid.Column="1"
+                                                           Hint="Max Price" 
+                                                           InputViewPadding="10"
+                                                           ContainerType="Outlined"
+                                                           OutlineCornerRadius="5" 
+                                                           HeightRequest="50"
+                                                           FocusedColor="#404040">
+                                <Entry ReturnType="Next" 
+                                       Text="{Binding CurrentItemModel.MaxPrice}" 
+                                       FontFamily="QuicksandMedium" 
+                                       Keyboard="Numeric" />
                             </inputLayout:SfTextInputLayout>
+                            <StackLayout Grid.Column="2" Padding="0, 20, 0, 0">
+                                <ImageButton Grid.Column="2" 
+                                         Source="icon_feather_info.png"
+                                         BackgroundColor="Transparent"
+                                         HeightRequest="22"
+                                         WidthRequest="22"
+                                         HorizontalOptions="CenterAndExpand"/>
+                            </StackLayout>
+
                         </Grid>
 
-                        <inputLayout:SfTextInputLayout x:Name="StockCount" InputViewPadding="10" Hint="How many items would you like to sell" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
-                            <Entry ReturnType="Next" Text="{Binding CurrentItemModel.StockCount}" FontFamily="QuicksandMedium" />
+                        <inputLayout:SfTextInputLayout x:Name="StockCount" 
+                                                       InputViewPadding="10" 
+                                                       Hint="How many items would you like to sell" 
+                                                       ContainerType="Outlined" 
+                                                       OutlineCornerRadius="5"
+                                                       FocusedColor="#404040">
+                            <Entry ReturnType="Next"
+                                   Text="{Binding CurrentItemModel.StockCount}" 
+                                   FontFamily="QuicksandMedium" />
                         </inputLayout:SfTextInputLayout>
 
                         <StackLayout x:Name="ShippingContent" >
-                            <StackLayout Orientation="Horizontal">
-                                <CheckBox CheckedChanged="OnShippedChecked" IsChecked="{Binding CurrentItemModel.IsShipped}" />
-                                <Label Text="Do you ship this product?" VerticalTextAlignment="Center" />
+                            <StackLayout Padding="0, 0, 0, 10">
+                                <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                               ContainerType="Outlined" 
+                                               OutlineCornerRadius="5" 
+                                               FocusedColor="#404040"
+                                               BackgroundColor="Transparent"
+                                               Hint="Do you ship this product"
+                                               HeightRequest="50">
+                                    <combobox:SfComboBox 
+                                                FontFamily="QuicksandMedium" 
+                                                BackgroundColor="Transparent" 
+                                                NoResultsFoundText="No Results Found"
+                                                HeightRequest="50"
+                                                IsEditableMode="True"
+                                                AllowFiltering="True"
+                                                DisplayMemberPath="Name"
+                                                SelectionChanged="OnShipChanged">
+                                        <combobox:SfComboBox.ComboBoxSource>
+                                            <ListCollection:List x:TypeArguments="x:String">
+                                                <x:String>Yes</x:String>
+                                                <x:String>No</x:String>
+                                            </ListCollection:List>
+                                        </combobox:SfComboBox.ComboBoxSource>
+                                    </combobox:SfComboBox>
+                                </inputLayout:SfTextInputLayout>
                             </StackLayout>
 
-                            <inputLayout:SfTextInputLayout x:Name="ShippingRate" IsVisible="false" InputViewPadding="10" Hint="Shipping Rate" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
-                                <Entry ReturnType="Next" Text="{Binding CurrentItemModel.ShippingRate}" FontFamily="QuicksandMedium" Keyboard="Numeric" />
+                            <inputLayout:SfTextInputLayout x:Name="ShippingRate" 
+                                                           IsVisible="false" 
+                                                           InputViewPadding="10" 
+                                                           Hint="Shipping Rate" 
+                                                           ContainerType="Outlined" 
+                                                           OutlineCornerRadius="5" 
+                                                           FocusedColor="#404040">
+                                <Entry ReturnType="Next" 
+                                       Text="{Binding CurrentItemModel.ShippingRate}" 
+                                       FontFamily="QuicksandMedium" 
+                                       Keyboard="Numeric" />
                             </inputLayout:SfTextInputLayout>
                         </StackLayout>
 
