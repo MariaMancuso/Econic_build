@@ -285,7 +285,7 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new SecondPreview(this));
                     break;
                 case "NotifyMethod":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this});
+                    await Application.Current.MainPage.Navigation.PushAsync(new LightsOnGamification { BindingContext = this});
                     //foreach(string notifymethod in nSelection.Items)
                     //{
                     //    if(!owner.NotifyMethods.Any(x => x.Name == notifymethod))
