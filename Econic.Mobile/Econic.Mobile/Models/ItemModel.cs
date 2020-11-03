@@ -7,7 +7,7 @@ namespace Econic.Mobile.Models
 {
     public class ItemModel
     {
-        public Image Image { get; set; }
+        public ImageSource ImageSource { get; set; }
 
         public string Name { get; set; }
         public int MinPrice { get; set; }

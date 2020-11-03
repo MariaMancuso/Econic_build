@@ -20,7 +20,6 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-
         <ScrollView>
             <Grid RowSpacing="10" x:Name="bodyContent">
                 <Grid.RowDefinitions>
@@ -83,7 +82,6 @@
                             FontFamily="QuicksandBold" 
                             x:Name="savebutton" />
                 </StackLayout>
-
                 <StackLayout Grid.Row="3" Spacing="20" Padding="0, 40, 0, 0">
                     <inputLayout:SfTextInputLayout InputViewPadding="10" 
                                                ContainerType="Outlined" 

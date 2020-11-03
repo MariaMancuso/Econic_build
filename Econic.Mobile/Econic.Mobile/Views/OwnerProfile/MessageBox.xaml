@@ -22,7 +22,7 @@
                         BackgroundColor="Transparent" 
                         Watermark="To: All Employees" 
                         NoResultsFoundText="No Results Found"
-                        DataSource="{Binding Owner.Employees}" 
+                        DataSource="{Binding User.Employees}" 
                         SelectedItem="{Binding EmployeeSelected}"
                         IsEditableMode="True"
                         AllowFiltering="True"

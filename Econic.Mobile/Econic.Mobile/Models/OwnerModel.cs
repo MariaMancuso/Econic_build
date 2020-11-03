@@ -1,10 +1,5 @@
-﻿using Econic.Mobile.Models.EmployeeModels;
-using Econic.Mobile.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿using System.Collections.ObjectModel;
+using Xamarin.Forms;
 
 namespace Econic.Mobile.Models
 {
@@ -19,6 +14,7 @@ namespace Econic.Mobile.Models
         public string Good { get; set; }
         public AddressModel Address { get; set; }
         public string BusinessNumber { get; set; }
+        public Image LogoIcon { get; set; }
         public string Title { get; set; }
         public int MonthlySales { get; set; }
         public string ServiceArea { get; set; }

@@ -16,7 +16,7 @@ namespace Econic.Mobile.ViewModels
 
         public EmployeeViewModel(EmployeeModel employee)
         {
-            Owner = employee;
+            User = employee;
             MenuItems = new ObservableCollection<HamburgerMasterMenuItem>(new[]
             {
                     new HamburgerMasterMenuItem { Id = 0, Title = "My Dashboard", Icon = "icon_account", TargetType = typeof(Dashboard) },
@@ -27,7 +27,7 @@ namespace Econic.Mobile.ViewModels
             OpenPageCommand = new Command<string>((arg) => OpenPage(arg));
             addOrders();
         }
-        public EmployeeModel Owner { get; set; }
+        public EmployeeModel User { get; set; }
         public ICommand OpenPageCommand { private set; get; }
         private async void OpenPage(string value)
         {
@@ -45,7 +45,7 @@ namespace Econic.Mobile.ViewModels
         }
         private void addOrders()
         {
-            Owner.Orders = new ObservableCollection<DetailOrderModel>()
+            User.Orders = new ObservableCollection<DetailOrderModel>()
             {
                 new DetailOrderModel
                 {
