@@ -61,9 +61,37 @@ namespace Econic.Mobile.Views.Shared
                 ServiceDuration.IsVisible = true;
             }
         }
+        void OnShipChanged(object sender, Syncfusion.XForms.ComboBox.SelectionChangedEventArgs e)
+        {
+            Console.WriteLine(e.Value);
+            if (e.Value.ToString().Equals("Yes"))
+            {
+                ShippingRate.IsVisible = true;
+            }
+            if (e.Value.ToString().Equals("No"))
+            {
+                ShippingRate.IsVisible = false;
+            }
+        }
+
         void OnShippedChecked(object sender, EventArgs args)
         {
             ShippingRate.IsVisible = !ShippingRate.IsVisible;
         }
+        void imageSkipTapped(Object sender, EventArgs e)
+        {
+            //additemViewModel.imageSkipTapped(bodyContent, imageselector);
+        }
+
+        void imageNextTapped(System.Object sender, System.EventArgs e)
+        {
+            //additemViewModel.ImageNextTapped(profilePicture, bodyContent, imageselector);
+        }
+
+        void imageTapped(System.Object sender, System.EventArgs e)
+        {
+            //additemViewModel.ImageTapped(sender, e, profilePicture, bodyContent, imageselector, imageNext);
+        }
     }
+}
 }
