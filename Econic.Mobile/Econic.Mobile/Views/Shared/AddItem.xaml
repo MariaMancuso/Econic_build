@@ -201,7 +201,7 @@
                                                 IsEditableMode="True"
                                                 AllowFiltering="True"
                                                 DisplayMemberPath="Name"
-                                                SelectedItem="{Binding CurrentItemModel.IsShipped}">
+                                                SelectedItem="">
                                         <combobox:SfComboBox.ComboBoxSource>
                                             <ListCollection:List x:TypeArguments="x:String">
                                                 <x:String>Yes</x:String>
