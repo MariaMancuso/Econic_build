@@ -151,8 +151,7 @@ namespace Econic.Mobile.ViewModels
                 //case "Notify":
                 //	await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this });
 
-                case "ChooseLogo":
-                    await Application.Current.MainPage.Navigation.PushAsync(new ChooseLogo(this));
+               
 
                     break;
                 case "ETGoHome":
@@ -343,6 +342,9 @@ namespace Econic.Mobile.ViewModels
                     break;
                 case "Theme":
                     await Application.Current.MainPage.Navigation.PushAsync(new ChooseTheme(this));
+                    break;
+                case "ChooseLogo":
+                    await Application.Current.MainPage.Navigation.PushAsync(new ChooseLogo(this));
                     break;
                 default:
                     return;

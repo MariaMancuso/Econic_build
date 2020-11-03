@@ -5,9 +5,9 @@
              xmlns:viewModels ="clr-namespace:Econic.Mobile.ViewModels"
              BackgroundColor="#343434"
              Padding="0"
-             ControlTemplate="{StaticResource EconicStudioNavigationTemplate}">
+             ControlTemplate="{StaticResource StudioNavigationTemplate}">
     <ContentPage.BindingContext>
-        <viewModels:ControlTemplateViewModel/>
+        <viewModels:OwnerBoardingViewModel/>
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
@@ -101,7 +101,8 @@
                         FontFamily="QuicksandBold"
                         CornerRadius="25"
                         FontSize="16"
-                        />
+                        Command ="{Binding OpenPageCommand}"
+                        CommandParameter="ChooseLogo"/>
 
                 <ContentView ControlTemplate="{StaticResource Footer}"
                          VerticalOptions="EndAndExpand"

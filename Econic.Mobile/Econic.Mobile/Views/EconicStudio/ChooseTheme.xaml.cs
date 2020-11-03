@@ -16,8 +16,7 @@ namespace Econic.Mobile.Views.EconicStudio
 		ControlTemplates previousItem;
 		ControlTemplates currentItem;
 
-		//ControlTemplateViewModel control = new ControlTemplateViewModel();
-		
+				
 		object template { get; set; }
 		//public ChooseTheme()
 
@@ -72,8 +71,8 @@ namespace Econic.Mobile.Views.EconicStudio
 		//	if (template != null)
 		//	{
 
-		//		control.ChangeThemeInfo(template);
-		//		//await Navigation.PushAsync(new ChooseLogo(OwnerBoardingViewModel));
+		//		//control.ChangeThemeInfo(template);
+		//		//await Navigation.PushAsync(new ChooseLogo());
 		//	}
 		//	else
 		//	{

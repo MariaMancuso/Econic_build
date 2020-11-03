@@ -225,7 +225,7 @@
         </ControlTemplate>
         
 
-        <ControlTemplate x:Key="EconicStudioNavigationTemplate">
+        <ControlTemplate x:Key="StudioNavigationTemplate">
             <Grid VerticalOptions="FillAndExpand"
                   Padding="10">
                 <Grid.RowDefinitions>
