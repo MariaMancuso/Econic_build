@@ -9,22 +9,44 @@ using System.IO;
 using System.Collections.Generic;
 using Econic.Mobile.Services;
 using Xamarin.Essentials;
+using Syncfusion.SfImageEditor.XForms;
 
 namespace Econic.Mobile.Views.Shared
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddItem : ContentPage
     {
-        //PhotoPickerViewModel additemViewModel;
+
+
         public AddItem()
         {
             InitializeComponent();
-            //imageselector.BindingContext = additemViewModel = new PhotoPickerViewModel();
-
-            
+            editor.ToolbarSettings.IsVisible = false;
         }
-        void OnAddPhotoButtonClicked(object sender, EventArgs args)
+        async void OnAddPhotoButtonClicked(object sender, EventArgs args)
         {
+
+            Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
+            if (stream != null)
+            {
+                editor.Source = ImageSource.FromStream(() => stream);
+            }
+        }
+        private void CropEditor_ImageLoaded(object sender, ImageLoadedEventArgs args)
+        {
+            editor.ToggleCropping(1, 1);
+            editcontent.IsVisible = true;
+            savebutton.IsVisible = true;
+            imageplaceholder.IsVisible = false;
+        }
+        void OnSaveClicked(object sender, EventArgs args)
+        {
+            editor.Crop();
+            savebutton.IsVisible = false;
+        }
+        void OnChangeClicked(object sender, EventArgs args)
+        {
+            OnAddPhotoButtonClicked(sender, args);
             //additemViewModel.OnAddPhotoButtonClicked(bodyContent, imageselector, imageNext, imageSkip, imageselectorFrame);
         }
         void OnTypeChanged(object sender, Syncfusion.XForms.ComboBox.SelectionChangedEventArgs args)

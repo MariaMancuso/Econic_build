@@ -42,6 +42,7 @@ namespace Econic.Mobile
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzMzMzI5QDMxMzgyZTMzMmUzMFpUbmo3aGYzM2M5R2cyTmc0WjlhRmhnckFPT3RVR2tzTGlkMlk1WSs0bnM9");
 
             InitializeComponent();
+<<<<<<< HEAD
 
             //Navigation = new NavigationPage(new LandingPage());
 
@@ -49,6 +50,11 @@ namespace Econic.Mobile
             //Navigation.BarBackgroundColor = Color.WhiteSmoke;
             //Navigation.BarTextColor = Color.FromHex("#404040");
 
+=======
+            Navigation = new NavigationPage(new AddItem());
+            Navigation.BarBackgroundColor = Color.WhiteSmoke;
+            Navigation.BarTextColor = Color.FromHex("#404040");
+>>>>>>> origin/latestbranch1
 
             Current.MainPage = Navigation;
         }

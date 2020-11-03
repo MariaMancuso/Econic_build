@@ -81,7 +81,7 @@
                              Padding="0, 20, 0, 10"/>
                 </StackLayout>
             </Grid>
-          
-        </StackLayout>
+
+       </StackLayout>
     </ContentPage.Content>
 </ContentPage>

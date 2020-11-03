@@ -144,6 +144,9 @@
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox">
       <Version>18.3.0.40</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfImageEditor">
+      <Version>18.3.0.44</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfListView">
       <Version>18.3.0.38</Version>
     </PackageReference>
