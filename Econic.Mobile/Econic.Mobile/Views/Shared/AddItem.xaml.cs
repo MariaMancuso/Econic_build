@@ -16,8 +16,6 @@ namespace Econic.Mobile.Views.Shared
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddItem : ContentPage
     {
-
-
         public AddItem()
         {
             InitializeComponent();
@@ -53,11 +51,10 @@ namespace Econic.Mobile.Views.Shared
         }
         private void ImageSavingEvent(object sender, ImageSavingEventArgs args)
         {
-            args.Cancel = true; // Stop the image from saving to location
-
             var byteArray = GetImageStreamAsBytes(args.Stream);
             ItemModel prop = BindingContext.GetType().GetProperty("CurrentItemModel").GetValue(BindingContext) as ItemModel;
             prop.ImageSource = ImageSource.FromStream(() => new MemoryStream(byteArray));
+            args.Cancel = true; // Stop the image from saving to location
         }
         void OnChangeClicked(object sender, EventArgs args)
         {
@@ -110,5 +107,6 @@ namespace Econic.Mobile.Views.Shared
                 }
                 return ms.ToArray();
             }
+        }
     }
 }
