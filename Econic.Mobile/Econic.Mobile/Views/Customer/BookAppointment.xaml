@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:Econic.Mobile.Renderers"
-             x:Class="Econic.Mobile.Views.Customer.BookAppointment">
+             x:Class="Econic.Mobile.Views.Customer.BookAppointment"
+             Padding="22">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -11,22 +12,22 @@
                        FontSize="24"
                        TextColor="{DynamicResource ThemeColor}"
                        HorizontalOptions="Center"
-                       HorizontalTextAlignment="Center"/>
+                       Style="{DynamicResource TextAlignment}"/>
                 <Label Text="Type of Service: "
                        Padding="0, 0, 0, 10"
-                       TextColor="{DynamicResource ThemeColor}"
-                       />
+                       TextColor="{DynamicResource ThemeColor}"/>
 
                 <Frame Padding="0, 0, 0, 0"
                        HeightRequest="48"
                        WidthRequest="336"
                        >
-                    <local:CustomDropDown HorizontalOptions ="FillAndExpand"
+                    <!--<local:CustomDropDown HorizontalOptions ="FillAndExpand"
                                     VerticalOptions="Center"
-                                    x:Name="serviceDropdown"/>
+                                    x:Name="serviceDropdown"/>-->
                 </Frame>
                 <Label Text="Availability: "
                        Padding="0, 36, 0, 10"
+                       HorizontalTextAlignment="Start"
                        TextColor="{DynamicResource ThemeColor}"/>
                 
                 <Grid Padding="0, 0, 0, 0">
@@ -40,14 +41,14 @@
                     </Grid.ColumnDefinitions>
                     <Frame Grid.Column="0"
                            Padding="0">
-                        <local:CustomDropDown HorizontalOptions ="FillAndExpand"
-                                              x:Name="monthDropdown"/>
+                        <!--<local:CustomDropDown HorizontalOptions ="FillAndExpand"
+                                              x:Name="monthDropdown"/>-->
                     </Frame>
 
                     <Frame Grid.Column="2"
                            Padding="0">
-                        <local:CustomDropDown HorizontalOptions ="FillAndExpand"
-                                         x:Name="dayDropdown"/>
+                        <!--<local:CustomDropDown HorizontalOptions ="FillAndExpand"
+                                         x:Name="dayDropdown"/>-->
                     </Frame>
                 </Grid>
 
@@ -64,52 +65,58 @@
                     </Grid.ColumnDefinitions>
                     
                     <Button Text="9:30 AM"
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        />
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Style="{DynamicResource AvailableButton}"
+                           
+                            />
                     <Button Text="10:00 AM"
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        />
+                            Grid.Row="0"
+                            Grid.Column="1" 
+                            Style="{DynamicResource AvailableButton}"
+                            
+                            />
                     <Button Text="10:30 AM"
-                        Grid.Row="0"
-                        Grid.Column="2"
-                        />
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Style="{DynamicResource UnavailableButton}"
+                            />
                     <Button Text="11:00 AM"
                         Grid.Row="1"
                         Grid.Column="0"
-                        />
+                        Style="{DynamicResource UnavailableButton}"/>
                     <Button Text="11:30 AM"
                         Grid.Row="1"
                         Grid.Column="1"
-                        />
+      
+                        Style="{DynamicResource SelectedButton}"/>
                     <Button Text="12:00 PM"
                         Grid.Row="1"
                         Grid.Column="2"
-                        />
+                        Style="{DynamicResource AvailableButton}"/>
                     <Button Text="12:30 PM"
                         Grid.Row="2"
                         Grid.Column="0"
-                        />
+                         Style="{DynamicResource AvailableButton}"/>
                     <Button Text="3:30 PM"
                         Grid.Row="2"
                         Grid.Column="1"
-                        />
+                         Style="{DynamicResource AvailableButton}"/>
                     
                 </Grid>
 
                 <Label Text="You selected: "
                        Padding="0, 55, 0, 10"
                        TextColor="{DynamicResource ThemeColor}"
-                       HorizontalOptions="Center"/>
-                
+                       Style="{DynamicResource TextAlignment}"/>
+
                 <Label Text="Type of Service"
                        FontFamily="QuicksandBold"
-                       HorizontalOptions="Center"
+                       Style="{DynamicResource TextAlignment}"
                        FontSize="20"/>
                 
                 <Label Text="September 27 @ 11:30 AM"
-                       HorizontalOptions="Center"
+                       Style="{DynamicResource TextAlignment}"
                        FontSize="20"/>
 
                 <Button Text="CONFIRM"
@@ -117,8 +124,7 @@
                         HorizontalOptions="Center"
                         HeightRequest="60"
                         WidthRequest="336"
-                        TextColor="White"
-                        BackgroundColor="{DynamicResource ThemeColor}"/>
+                        Style="{DynamicResource ConfirmButton}"/>
 
             </StackLayout>
         </ScrollView>
