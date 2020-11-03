@@ -42,7 +42,7 @@ namespace Econic.Mobile
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzMzMzI5QDMxMzgyZTMzMmUzMFpUbmo3aGYzM2M5R2cyTmc0WjlhRmhnckFPT3RVR2tzTGlkMlk1WSs0bnM9");
 
             InitializeComponent();
-            Navigation = new NavigationPage(new GoalOutliner { BindingContext = new EmployeeBoardingViewModel()});
+            Navigation = new NavigationPage(new AddItem());
             Navigation.BarBackgroundColor = Color.WhiteSmoke;
             Navigation.BarTextColor = Color.FromHex("#404040");
 

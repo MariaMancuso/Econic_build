@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Econic.Mobile.Views.OwnerProfile
+namespace Econic.Mobile.Views.Shared
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CustomerHistoryView : ContentView
+    public partial class UserDetailView : ContentView
     {
-        public CustomerHistoryView()
+        public UserDetailView()
         {
             InitializeComponent();
         }

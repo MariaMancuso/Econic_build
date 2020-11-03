@@ -25,5 +25,6 @@ namespace Econic.Mobile.Views.Employee
         {
             await Navigation.PushAsync(new CustomerList { BindingContext = this.BindingContext });
         }
+
     }
 }

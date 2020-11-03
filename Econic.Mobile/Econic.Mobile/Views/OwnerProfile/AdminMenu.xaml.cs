@@ -27,8 +27,6 @@ namespace Econic.Mobile.Views.OwnerProfile
         }
         public async void CustomersTapped(object sender, EventArgs args)
         {
-            var model = this.BindingContext as OwnerViewModel;
-            model.CurrentView = new CustomerHistoryView();
             await Navigation.PushAsync(new CustomerList { BindingContext = this.BindingContext });
         }
         public async void PurchaseTapped(object sender, EventArgs args)

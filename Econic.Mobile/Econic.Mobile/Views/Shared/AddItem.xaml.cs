@@ -9,23 +9,42 @@ using System.IO;
 using System.Collections.Generic;
 using Econic.Mobile.Services;
 using Xamarin.Essentials;
+using Syncfusion.SfImageEditor.XForms;
 
 namespace Econic.Mobile.Views.Shared
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddItem : ContentPage
     {
-        PhotoPickerViewModel additemViewModel;
+
         public AddItem()
         {
             InitializeComponent();
-            imageselector.BindingContext = additemViewModel = new PhotoPickerViewModel();
-
-            
+            editor.ToolbarSettings.IsVisible = false;
         }
-        void OnAddPhotoButtonClicked(object sender, EventArgs args)
+        async void OnAddPhotoButtonClicked(object sender, EventArgs args)
         {
-            additemViewModel.OnAddPhotoButtonClicked(bodyContent, imageselector, imageNext, imageSkip, imageselectorFrame);
+            Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
+            if (stream != null)
+            {
+                editor.Source = ImageSource.FromStream(() => stream);
+            }
+        }
+        private void CropEditor_ImageLoaded(object sender, ImageLoadedEventArgs args)
+        {
+            editor.ToggleCropping(1, 1);
+            editcontent.IsVisible = true;
+            savebutton.IsVisible = true;
+            imageplaceholder.IsVisible = false;
+        }
+        void OnSaveClicked(object sender, EventArgs args)
+        {
+            editor.Crop();
+            savebutton.IsVisible = false;
+        }
+        void OnChangeClicked(object sender, EventArgs args)
+        {
+            OnAddPhotoButtonClicked(sender, args);
         }
         void OnTypeChanged(object sender, Syncfusion.XForms.ComboBox.SelectionChangedEventArgs args)
         {
@@ -45,20 +64,6 @@ namespace Econic.Mobile.Views.Shared
         void OnShippedChecked(object sender, EventArgs args)
         {
             ShippingRate.IsVisible = !ShippingRate.IsVisible;
-        }
-        void imageSkipTapped(Object sender, EventArgs e)
-        {
-            additemViewModel.imageSkipTapped(bodyContent, imageselector);
-        }
-
-        void imageNextTapped(System.Object sender, System.EventArgs e)
-        {
-            additemViewModel.ImageNextTapped(profilePicture, bodyContent, imageselector);
-        }
-
-        void imageTapped(System.Object sender, System.EventArgs e)
-        {
-            additemViewModel.ImageTapped(sender, e, profilePicture, bodyContent, imageselector, imageNext);
         }
     }
 }

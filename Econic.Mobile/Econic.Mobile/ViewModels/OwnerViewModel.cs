@@ -73,10 +73,9 @@ namespace Econic.Mobile.ViewModels
             OpenPageCommand = new Command<string>((arg) => OpenPage(arg));
             AddEmployeeCommand = new Command(addEmployee);
             AddCustomerCommand = new Command(addCustomer);
-            CustomerTabCommand = new Command(customertabchanged);
+            //CustomerTabCommand = new Command(customertabchanged);
             DayTappedCommand = new Command(dayTappedCommand);
             EditBusinessLocationCommand = new Command(editBusinessLocationCommand);
-            HourListCommand = new Command(hourListCommand);
             RemoveClicked = new Command(removeClicked);
             EditClicked = new Command(editClicked);
             MenuItems = new ObservableCollection<HamburgerMasterMenuItem>(new[]
@@ -91,11 +90,9 @@ namespace Econic.Mobile.ViewModels
         public ICommand OpenPageCommand { private set; get; }
         public ICommand AddEmployeeCommand { private set; get; }
         public ICommand AddCustomerCommand { private set; get; }
-        public ICommand CustomerTabCommand { private set; get; }
+       // public ICommand CustomerTabCommand { private set; get; }
         public ICommand DayTappedCommand { private set; get; }
         public ICommand EditBusinessLocationCommand { private set; get; }
-        public ICommand HourListCommand { private set; get; }
-
         public ICommand RemoveClicked { private set; get; }
         public ICommand EditClicked { private set; get; }
 
@@ -108,11 +105,6 @@ namespace Econic.Mobile.ViewModels
         {
             var item = sender as ItemModel;
             Owner.Items.Remove(item);
-        }
-        private void hourListCommand(Object sender)
-        {
-            Grid grid = sender as Grid;
-            grid.IsVisible = !grid.IsVisible;
         }
         private async void OpenPage(string value)
         {
@@ -227,7 +219,7 @@ namespace Econic.Mobile.ViewModels
                     break;
             }
         }
-        private void customertabchanged(Object sender)
+       /* private void customertabchanged(Object sender)
         {
             var e = (ItemSelectionChangedEventArgs)sender;
 
@@ -235,7 +227,7 @@ namespace Econic.Mobile.ViewModels
                 CurrentView = new CustomerHistoryView { BindingContext = this };
             else 
                 CurrentView = new CustomerDetailView { BindingContext = this };
-        }
+        }*/
         public ScheduleModel CurrentItem { get; set; }
         ScheduleModel scheduleModel;
         private void dayTappedCommand(Object sender)
