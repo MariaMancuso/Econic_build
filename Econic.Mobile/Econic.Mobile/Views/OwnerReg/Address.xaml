@@ -11,7 +11,7 @@
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-                <Grid RowSpacing="60">
+                <Grid RowSpacing="30">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />

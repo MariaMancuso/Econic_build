@@ -24,13 +24,13 @@
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
-                <Label Grid.Row="0" Text="{Binding Owner.Account.Name}" FontFamily="QuicksandBold" TextColor="#404040" FontSize="16" />
+                <Label Grid.Row="0" Text="{Binding User.Account.Name}" FontFamily="QuicksandBold" TextColor="#404040" FontSize="16" />
             </StackLayout>
 
             <StackLayout Grid.Row="2">
-                <Label Text="{Binding Owner.Title}" FontFamily="QuicksandBold" TextColor="Gray" />
-                <Label Text="{Binding Owner.BusinessNumber, StringFormat='Contact: {0}'}" FontFamily="QuicksandBold" TextColor="Gray" />
-                <Label Text="{Binding Owner.Account.Username}" FontFamily="QuicksandBold" TextColor="Gray" />
+                <Label Text="{Binding User.Title}" FontFamily="QuicksandBold" TextColor="Gray" />
+                <Label Text="{Binding User.BusinessNumber, StringFormat='Contact: {0}'}" FontFamily="QuicksandBold" TextColor="Gray" />
+                <Label Text="{Binding User.Account.Username}" FontFamily="QuicksandBold" TextColor="Gray" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>

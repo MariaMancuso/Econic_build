@@ -60,16 +60,16 @@ namespace Econic.Mobile.ViewModels
             }
         }
         public ItemModel CurrentItemModel { get; set; }
-        public OwnerModel Owner { get; set; }
+        public OwnerModel User { get; set; }
 
-        public OwnerViewModel(OwnerModel owner)
+        public OwnerViewModel(OwnerModel _user)
         {
-            Owner = owner;
-            Owner.Employees = new ObservableCollection<PartyDetailsModel>();
-            Owner.Customers = new ObservableCollection<CustomerPartyDetailsModel>();
-            Owner.BusinessLocations = new ObservableCollection<BusinessLocationModel>();
-            if(Owner.Account == null)
-                Owner.Account = new Account();
+            User = _user;
+            User.Employees = new ObservableCollection<PartyDetailsModel>();
+            User.Customers = new ObservableCollection<CustomerPartyDetailsModel>();
+            User.BusinessLocations = new ObservableCollection<BusinessLocationModel>();
+            if(User.Account == null)
+                User.Account = new Account();
 
             OpenPageCommand = new Command<string>((arg) => OpenPage(arg));
             AddEmployeeCommand = new Command(addEmployee);
@@ -105,7 +105,7 @@ namespace Econic.Mobile.ViewModels
         private void removeClicked(Object sender)
         {
             var item = sender as ItemModel;
-            Owner.Items.Remove(item);
+            User.Items.Remove(item);
         }
         private async void OpenPage(string value)
         {
@@ -133,7 +133,7 @@ namespace Econic.Mobile.ViewModels
                 case "RemoveEmployee":
                     if (EmployeeSelected != null)
                     {
-                        Owner.Employees.Remove(EmployeeSelected);
+                        User.Employees.Remove(EmployeeSelected);
                         EmployeeSelected = null;
                     }
 
@@ -166,8 +166,8 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new AddEditBusinessLocation { BindingContext = this });
                     break;
                 case "SaveLocation":
-                    if (BusinessLocationSelected != null && !Owner.BusinessLocations.Contains(BusinessLocationSelected))
-                        Owner.BusinessLocations.Add(BusinessLocationSelected);
+                    if (BusinessLocationSelected != null && !User.BusinessLocations.Contains(BusinessLocationSelected))
+                        User.BusinessLocations.Add(BusinessLocationSelected);
                     await Application.Current.MainPage.Navigation.PopAsync();
                     break;
                 case "Payments":
@@ -207,8 +207,8 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(page) ;
                     break;
                 case "Preview":
-                    if (CurrentItemModel != null && !Owner.Items.Contains(CurrentItemModel))
-                        Owner.Items.Add(CurrentItemModel);
+                    if (CurrentItemModel != null && !User.Items.Contains(CurrentItemModel))
+                        User.Items.Add(CurrentItemModel);
 
                     await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices { BindingContext = this }); ;
                     break;
@@ -264,7 +264,7 @@ namespace Econic.Mobile.ViewModels
             // add a temp employees
            for(int i=0; i<5; i++)
             {
-                Owner.Employees.Add(new PartyDetailsModel
+                User.Employees.Add(new PartyDetailsModel
                 {
                     Name = "John Doe Employee " + i,
                     Email = "johndoe@empr.co",
@@ -293,7 +293,7 @@ namespace Econic.Mobile.ViewModels
             // add temp customers
             for(int i=0; i <5; i++)
             {
-                Owner.Customers.Add(new CustomerPartyDetailsModel
+                User.Customers.Add(new CustomerPartyDetailsModel
                 {
                     Name = Convert.ToChar(i + (int)'A') +" John Doe Customer " + i,
                     Email = "johndoe@empr.co",
@@ -334,7 +334,7 @@ namespace Econic.Mobile.ViewModels
         }
         private void addOrders()
         {
-            Owner.Orders = new ObservableCollection<DetailOrderModel>()
+            User.Orders = new ObservableCollection<DetailOrderModel>()
             {
                 new DetailOrderModel
                 {

@@ -35,8 +35,8 @@
                    FontFamily="QuicksandBold"
                    Padding="22, -10, 22, 40"/>
             <Image Source="design_mug.png"
-                   HorizontalOptions="CenterAndExpand"
-                   HeightRequest="150"/>
+                   HeightRequest="150"
+                   HorizontalOptions="CenterAndExpand"/>
             <Label Text="What you need to prepare:"
                    TextColor="White"
                    FontSize="18"

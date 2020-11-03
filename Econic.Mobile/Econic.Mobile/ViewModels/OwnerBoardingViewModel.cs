@@ -32,6 +32,7 @@ namespace Econic.Mobile.ViewModels
             {
                 Account = new Account(),
                 Address = new AddressModel(),
+                LogoIcon = new Image(),
                 Goals = new ObservableCollection<OwnerGoalModel>()
                 {
                 new OwnerGoalModel() { Goal = "Connect you to your customers", Value = 0},
@@ -251,7 +252,7 @@ namespace Econic.Mobile.ViewModels
         // studio stuff ends
         private async void OpenPage(string value)
         {
-            switch (value)
+                switch (value)
             {
                 case "Address":
                     await Application.Current.MainPage.Navigation.PushAsync(new Address(this));
@@ -288,8 +289,8 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new LightsOnGamification { BindingContext = this});
                     //foreach(string notifymethod in nSelection.Items)
                     //{
-                    //    if(!owner.NotifyMethods.Any(x => x.Name == notifymethod))
-                    //        owner.NotifyMethods.Add(new NotifyModel { Name = notifymethod });
+                    //    if(!User.NotifyMethods.Any(x => x.Name == notifymethod))
+                    //        User.NotifyMethods.Add(new NotifyModel { Name = notifymethod });
                     //}
                     //await Application.Current.MainPage.Navigation.PushAsync(new Notify(this));
                     break;
@@ -385,7 +386,6 @@ namespace Econic.Mobile.ViewModels
             frame.BackgroundColor = Color.FromHex("#404040");
             label.TextColor = Color.White;
             CurrentItemModel = new ItemModel();
-            CurrentItemModel.Image = new Image();
             if (label.Text == "Services")
                 CurrentItemModel.Type = "Service";
             else

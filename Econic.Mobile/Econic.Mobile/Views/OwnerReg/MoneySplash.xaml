@@ -26,7 +26,6 @@
                 <StackLayout Grid.Row="0" VerticalOptions="Center" Padding="80, 0, 45, 0">
                     <Label Text="MAKES YOU MONEY AND IT'S FREE!" FontFamily="QuicksandBold" TextColor="White" FontSize="28" VerticalOptions="End" />
                     <Label Text="To join the Revyvv Revolution, please follow the short set up wizard and answer all our annoying questions. You'll be glad you did." TextColor="White" FontSize="16" FontFamily="QuicksandBold" />
-
                 </StackLayout>
             </Grid>
             <Image Source="red_deal_icon.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Start" Margin="15" WidthRequest="50" HeightRequest="50" />

@@ -1,87 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" xmlns:sys="clr-namespace:System;assembly=System.Runtime"
-             x:Class="Econic.Mobile.Views.EconicStudio.ChooseLogo"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" xmlns:sys="clr-namespace:System;assembly=System.Runtime" xmlns:imageeditor="clr-namespace:Syncfusion.SfImageEditor.XForms;assembly=Syncfusion.SfImageEditor.XForms" x:Class="Econic.Mobile.Views.EconicStudio.ChooseLogo"
              BackgroundColor="#343434"
              Padding="0"
              ControlTemplate="{StaticResource StudioNavigationTemplate}">
     <ContentPage.Content>
-        <StackLayout>
-            <Grid RowSpacing="10" x:Name="bodyContent">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Label Text="Upload your logo"
-                       FontSize="22"
-                       TextColor="White"
-                       HorizontalTextAlignment="Center"
-                       FontFamily="QuicksandBold"
-                       Padding="0, 0, 0, 20"
-                       Grid.Row="0"/>
+        <Grid RowSpacing="10" x:Name="bodyContent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="200" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Text="Upload your logo" 
+                   FontSize="22" 
+                   TextColor="White" 
+                   HorizontalTextAlignment="Center" 
+                   FontFamily="QuicksandBold" 
+                   Padding="0, 0, 0, 20"
+                   Grid.Row="0" />
 
-                <StackLayout Grid.Row="1" HeightRequest="150" WidthRequest="150">
-                    <border:SfBorder Grid.Row="1" 
-                                 x:Name="border" 
-                                 BorderColor="DarkGray" 
-                                 CornerRadius="3"
-                                 WidthRequest="150">
-                    <border:SfBorder.GestureRecognizers>
-                        <TapGestureRecognizer x:Name="OnGesture" />
-                    </border:SfBorder.GestureRecognizers>
-                    <border:SfBorder.DashArray>
-                        <x:Array Type="{x:Type sys:Double}">
-                            <sys:Double>3</sys:Double>
-                            <sys:Double>4</sys:Double>
-                        </x:Array>
-                    </border:SfBorder.DashArray>
-                    <StackLayout HorizontalOptions="Center" 
-                             VerticalOptions="Center"
-                             HeightRequest="150"
-                             WidthRequest="150">
-                        <Label Text="Tap to upload your logo"
-                           TextColor="DarkGray" 
-                           FontFamily="QuicksandMedium" 
-                           HorizontalTextAlignment="Center"
-                           VerticalOptions="CenterAndExpand"/>
-                    </StackLayout>
-                </border:SfBorder>
-            </StackLayout>
+            <imageeditor:SfImageEditor Grid.Row="1" 
+                                       ImageLoaded="CropEditor_ImageLoaded" 
+                                       x:Name="editor" 
+                                       Source="{Binding User.LogoIcon.Source, Mode=TwoWay}"
+                                       WidthRequest="200" 
+                                       HorizontalOptions="CenterAndExpand" 
+                                       BackgroundColor="Transparent" />
 
-                <Label HorizontalOptions="Center"
-                       VerticalOptions="CenterAndExpand"
-                       Grid.Row="2">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Change"
-                              TextColor="#5a98fa">
-                                <Span.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ClickedCommand}"/>
-                                </Span.GestureRecognizers>
-                            </Span>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <StackLayout VerticalOptions="EndAndExpand" Grid.Row="4">
-                    <Button Text="Continue"
-                            HorizontalOptions="CenterAndExpand"
-                            Padding="80, 0, 80, 0"
-                            BackgroundColor="White"
-                            TextColor="#434343"
-                            FontFamily="QuicksandBold"
-                            CornerRadius="25"
-                            FontSize="16"
-                            Command="{Binding OpenPageCommand}"
-                            CommandParameter="NotifyMethod"/>
-                    <ContentView ControlTemplate="{StaticResource Footer}"
-                             Padding="0, 20, 0, 10"/>
+            <border:SfBorder Grid.Row="1" 
+                             x:Name="border" 
+                             BorderColor="DarkGray" 
+                             CornerRadius="3" 
+                             WidthRequest="200" 
+                             HorizontalOptions="CenterAndExpand">
+
+                <border:SfBorder.DashArray>
+                    <x:Array Type="{x:Type sys:Double}">
+                        <sys:Double>3</sys:Double>
+                        <sys:Double>4</sys:Double>
+                    </x:Array>
+                </border:SfBorder.DashArray>
+
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" x:Name="imageplaceholder">
+                    <Button Clicked="OnAddPhotoButtonClicked" 
+                            BackgroundColor="Transparent" 
+                            Text="Tap to upload your logo" 
+                            TextColor="White"/>
                 </StackLayout>
-            </Grid>
+            </border:SfBorder>
 
-       </StackLayout>
+            <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="editcontent" IsVisible="false">
+                <Button Text="Change" Clicked="OnChangeClicked" BackgroundColor="Transparent" TextColor="#cc3636" FontFamily="QuicksandBold" />
+                <Button Text="Save" Clicked="OnSaveClicked" BackgroundColor="Transparent" TextColor="CornflowerBlue" FontFamily="QuicksandBold" x:Name="savebutton" />
+            </StackLayout>
+            <StackLayout Grid.Row="3" VerticalOptions="EndAndExpand">
+                <Button Text="Continue" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Padding="80, 0, 80, 0" BackgroundColor="White" TextColor="#434343" FontFamily="QuicksandBold" CornerRadius="25" FontSize="16" Command="{Binding OpenPageCommand}" CommandParameter="NotifyMethod" />
+                <ContentView ControlTemplate="{StaticResource Footer}" VerticalOptions="EndAndExpand" Padding="0, 20, 0, 10" Grid.Row="5" />
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -110,7 +110,6 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DevicePermissions.cs" />
-    <Compile Include="Services\MediaServiceImplementation .cs" />
     <Compile Include="Services\PermissionUtil.cs" />
     <Compile Include="Services\PhotoPickerService.cs" />
   </ItemGroup>
@@ -581,16 +580,23 @@
     <AndroidResource Include="Resources\drawable\storegamification.png" />
   </ItemGroup>
   <ItemGroup>
+
     <AndroidResource Include="Resources\drawable\store_no_lights.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\design_mug.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\store_lights_on.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\component_467_1.png" />
+
+    <AndroidResource Include="Resources\drawable\icon_products2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icon_services2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\design_mug.png" />
+
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>

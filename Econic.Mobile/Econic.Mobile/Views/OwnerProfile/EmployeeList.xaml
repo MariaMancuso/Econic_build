@@ -22,7 +22,7 @@
             <sync:SfListView 
                 x:Name="employeelistview"
                 Grid.Row="1" 
-                ItemsSource="{Binding Owner.Employees}" 
+                ItemsSource="{Binding User.Employees}" 
                 ItemSize="100" 
                 SelectedItem="{Binding EmployeeSelected}" 
                 TapCommand="{Binding OpenPageCommand}" 

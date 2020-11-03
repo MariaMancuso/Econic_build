@@ -30,7 +30,7 @@
                     <tabview:SfTabItem.Content>
                         <sync:SfListView 
                             x:Name="pendinglistview" 
-                            ItemsSource="{Binding Owner.Orders}" 
+                            ItemsSource="{Binding User.Orders}" 
                             ItemSize="100" SelectedItem="{Binding OrderSelected}" 
                             TapCommand="{Binding OpenPageCommand}" 
                             TapCommandParameter="ViewOrder">
@@ -69,7 +69,7 @@
                 </tabview:SfTabItem>
                 <tabview:SfTabItem Title="Fullfiled" SelectionColor="#404040" TitleFontSize="Body" TitleFontFamily="QuicksandBold" TitleFontColor="#898989">
                     <tabview:SfTabItem.Content>
-                        <sync:SfListView x:Name="fullfilledlistview" ItemsSource="{Binding Owner.Orders}" ItemSize="100" SelectedItem="{Binding OrderSelected}" TapCommand="{Binding OpenPageCommand}" TapCommandParameter="ViewOrder">
+                        <sync:SfListView x:Name="fullfilledlistview" ItemsSource="{Binding User.Orders}" ItemSize="100" SelectedItem="{Binding OrderSelected}" TapCommand="{Binding OpenPageCommand}" TapCommandParameter="ViewOrder">
                             <sync:SfListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>

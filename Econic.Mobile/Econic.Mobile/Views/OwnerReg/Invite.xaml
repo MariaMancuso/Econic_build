@@ -22,7 +22,7 @@
             <StackLayout Grid.Row="1" Orientation="Vertical">
                 <Label Text="My Customers" FontFamily="QuicksandBold" TextColor="#404040" FontSize="16"/>
                 <Frame Style="{StaticResource Customframe}" HeightRequest="130">
-                    <controls:CustomEditor Text="{Binding Owner.InviteMessages.CustomerMessage}" FontSize="Small" FontFamily="QuicksandSemiBold" HorizontalOptions="FillAndExpand" />
+                    <controls:CustomEditor Text="{Binding User.InviteMessages.CustomerMessage}" FontSize="Small" FontFamily="QuicksandSemiBold" HorizontalOptions="FillAndExpand" />
                 </Frame>
             </StackLayout>
 
@@ -30,12 +30,12 @@
                 <Label Text="My Employees" FontFamily="QuicksandBold" TextColor="#404040" FontSize="16"/>
 
                 <Frame Style="{StaticResource Customframe}" HeightRequest="130">
-                    <controls:CustomEditor Text="{Binding Owner.InviteMessages.EmployeeMessage}" FontSize="Small" FontFamily="QuicksandSemiBold" HorizontalOptions="FillAndExpand" />
+                    <controls:CustomEditor Text="{Binding User.InviteMessages.EmployeeMessage}" FontSize="Small" FontFamily="QuicksandSemiBold" HorizontalOptions="FillAndExpand" />
                 </Frame>
             </StackLayout>
 
             <StackLayout Grid.Row="3" Orientation="Horizontal">
-                <CheckBox IsChecked="{Binding Owner.HasEmployees}" CheckedChanged="OnCheckedChanged"/>
+                <CheckBox IsChecked="{Binding User.HasEmployees}" CheckedChanged="OnCheckedChanged"/>
                 <Label Text="I do not have any employees" VerticalTextAlignment="Center" TextColor="#404040" FontFamily="QuicksandRegular"/>
             </StackLayout>
             

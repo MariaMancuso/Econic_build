@@ -23,8 +23,8 @@ namespace Econic.Mobile
         }
         async void OwnerClicked(object sender, EventArgs arg)
         {
-            /*OwnerModel owner = new OwnerModel();
-            OwnerViewModel model = new OwnerViewModel(owner);
+            /*OwnerModel User = new OwnerModel();
+            OwnerViewModel model = new OwnerViewModel(User);
             var page = new Hamburger { BindingContext = model };
             //page.Master = new HamburgerMaster { BindingContext = model };
             page.Detail = new NavigationPage(new OwnerTabbedPage 
