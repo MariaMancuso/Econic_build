@@ -24,6 +24,8 @@ namespace Econic.Mobile.Droid
         {
             Instance = this;
 
+            FormsActivity = this;
+            FormsContext = this;
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
