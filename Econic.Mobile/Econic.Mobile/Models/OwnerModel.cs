@@ -10,7 +10,8 @@ namespace Econic.Mobile.Models
 
         }
         public string BusinessName { get; set; }
-        public string Product { get; set; }
+        public string Service { get; set; }
+        public string Good { get; set; }
         public AddressModel Address { get; set; }
         public string BusinessNumber { get; set; }
         public Image LogoIcon { get; set; }

@@ -2,7 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Econic.Mobile.Views.OwnerReg.Sales"
-             NavigationPage.HasNavigationBar="False" xmlns:controls="clr-namespace:Econic.Mobile.Renderers" xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms" BackgroundColor="WhiteSmoke" xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard" ControlTemplate="{StaticResource NavigationTemplate}">
+             NavigationPage.HasNavigationBar="False" 
+             xmlns:controls="clr-namespace:Econic.Mobile.Renderers" 
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             BackgroundColor="WhiteSmoke"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard" xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             ControlTemplate="{StaticResource NavigationTemplate}">
 
     <ContentPage.Content>
         <Grid RowSpacing="40">
@@ -13,26 +18,83 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Text="Econic is super focused on creating profits for you. A little financial info will help." FontFamily="QuicksandBold" TextColor="#404040" FontSize="20"/>
-
+            <StackLayout Grid.Row="0" >
+                <Label Text="Do you want to make more money? That's what we thought. Answer truthfully." FontFamily="QuicksandBold" TextColor="#404040" FontSize="20"/>
+                <Label Text="*All field are required" FontSize="16" FontFamily="Quicksand"/>
+            </StackLayout>
             <StackLayout Grid.Row="1">
-                <Label Text="Tell us how you're doing now" TextColor="#404040" FontFamily="QuicksandBold" />
-                <Frame Style="{StaticResource Customframe}" Padding="2">
-                    <combobox:SfComboBox HeightRequest="40" BackgroundColor="White" ShowBorder="False" Watermark="My Monthly Sales" WatermarkColor="#404040">
-                        <combobox:SfComboBox.ComboBoxSource>
-                            <ListCollection:List x:TypeArguments="x:String">
-                                <x:String>N/A</x:String>
-                            </ListCollection:List>
-                        </combobox:SfComboBox.ComboBoxSource>
+                <Label Text="How many transactions do you make a month?" TextColor="#404040" FontFamily="QuicksandBold" />
+                <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                               ContainerType="Outlined" 
+                                               OutlineCornerRadius="5" 
+                                               FocusedColor="#404040"
+                                               BackgroundColor="Transparent"
+                                               Grid.Row="0"
+                                               Grid.Column="0"
+                                               Hint="Select monthly transactions"
+                                               HeightRequest="50">
+                    <combobox:SfComboBox 
+                                                FontFamily="QuicksandMedium" 
+                                                BackgroundColor="Transparent" 
+                                                NoResultsFoundText="No Results Found"
+                                                
+                                                HeightRequest="50"
+                                                IsEditableMode="True"
+                                                AllowFiltering="True"
+                                                DisplayMemberPath="Name">
                     </combobox:SfComboBox>
-                </Frame>
+                </inputLayout:SfTextInputLayout>
             </StackLayout>
 
-            <Label Grid.Row="2" Text="We're not the government, we're your partners. We don't sell this data, we use it to help make you" TextColor="#404040" FontFamily="QuicksandSemiBold" />
+            <StackLayout Grid.Row="2">
+                <Label Text="What is your average transaction amount?" TextColor="#404040" FontFamily="QuicksandBold" />
+                <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                               ContainerType="Outlined" 
+                                               OutlineCornerRadius="5" 
+                                               FocusedColor="#404040"
+                                               BackgroundColor="Transparent"
+                                               Grid.Row="0"
+                                               Grid.Column="0"
+                                               Hint="Select transaction amount"
+                                               HeightRequest="50">
+                    <combobox:SfComboBox 
+                                                FontFamily="QuicksandMedium" 
+                                                BackgroundColor="Transparent" 
+                                                NoResultsFoundText="No Results Found"
+                                                HeightRequest="50"
+                                                IsEditableMode="True"
+                                                AllowFiltering="True"
+                                                DisplayMemberPath="Name">
+                    </combobox:SfComboBox>
+                </inputLayout:SfTextInputLayout>
+            </StackLayout>
 
+            <StackLayout Grid.Row="3">
+                <Label Text="How many transactions do you make a month?" TextColor="#404040" FontFamily="QuicksandBold" />
+                <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                               ContainerType="Outlined" 
+                                               OutlineCornerRadius="5" 
+                                               FocusedColor="#404040"
+                                               BackgroundColor="Transparent"
+                                               Grid.Row="0"
+                                               Grid.Column="0"
+                                               Hint="Select average revenue"
+                                               HeightRequest="50">
+                    <combobox:SfComboBox 
+                                                FontFamily="QuicksandMedium" 
+                                                BackgroundColor="Transparent" 
+                                                NoResultsFoundText="No Results Found"
+                                                
+                                                HeightRequest="50"
+                                                IsEditableMode="True"
+                                                AllowFiltering="True"
+                                                DisplayMemberPath="Name">
+                    </combobox:SfComboBox>
+                </inputLayout:SfTextInputLayout>
+            </StackLayout>
 
-            <StackLayout Grid.Row="3" VerticalOptions="End">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="FirstPreview" Text="Continue" Style="{StaticResource NextItemButton}"/>
+            <StackLayout Grid.Row="4" VerticalOptions="End">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="FirstPreview" Text="Continue" BackgroundColor="#ff3475b7" Style="{StaticResource NextItemButton}"/>
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
             

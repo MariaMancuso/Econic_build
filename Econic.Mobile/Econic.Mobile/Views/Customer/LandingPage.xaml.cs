@@ -34,7 +34,7 @@ namespace Econic.Mobile.Views.Customer
 
 		private async void Book_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new Views.Customer.BookAppointment());
+			await Navigation.PushAsync(new Views.Customer.ListServices());
 		}
 	}
 }

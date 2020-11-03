@@ -12,11 +12,7 @@ namespace Econic.Mobile.Models
 			get { return name; }
 			set { name = value; }
 		}
-		public int Rating { private set; get; }
-		//public string Name { set; get; }
-
-		public int Price { private set; get; }
-
-		
+		public string img { get; set; }
+		public string Price { set; get; }
 	}
 }

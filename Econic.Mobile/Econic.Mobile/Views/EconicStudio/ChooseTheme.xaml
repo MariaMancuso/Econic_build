@@ -5,10 +5,10 @@
              xmlns:viewModels ="clr-namespace:Econic.Mobile.ViewModels"
              BackgroundColor="#343434"
              Padding="0"
-             ControlTemplate="{StaticResource EconicStudioNavigationTemplate}">
-    <ContentPage.BindingContext>
-        <viewModels:ControlTemplateViewModel/>
-    </ContentPage.BindingContext>
+             ControlTemplate="{StaticResource StudioNavigationTemplate}">
+    <!--<ContentPage.BindingContext>
+        <viewModels:OwnerBoardingViewModel/>
+    </ContentPage.BindingContext>-->
     
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
@@ -22,9 +22,9 @@
                 
                     <CarouselView PeekAreaInsets="100"
                                   ItemsSource="{Binding templates}"
-                                  CurrentItemChanged="OnCurrentItemChanged"
+                                  
                                   x:Name="carouselView"
-                                  HeightRequest="475">
+                                  HeightRequest="475"><!--CurrentItemChanged="OnCurrentItemChanged"-->
                         <CarouselView.ItemTemplate>
                             <DataTemplate >
                             <StackLayout>
@@ -101,7 +101,7 @@
                         FontFamily="QuicksandBold"
                         CornerRadius="25"
                         FontSize="16"
-                        Command="{Binding ClickedCommand}"
+                        Command ="{Binding OpenPageCommand}"
                         CommandParameter="ChooseLogo"/>
 
                 <ContentView ControlTemplate="{StaticResource Footer}"

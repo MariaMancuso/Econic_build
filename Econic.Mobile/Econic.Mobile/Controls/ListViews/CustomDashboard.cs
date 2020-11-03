@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace Econic.Mobile.Controls.ListViews
 {
@@ -6,7 +7,8 @@ namespace Econic.Mobile.Controls.ListViews
 	{
 		public CustomDashboard()
 		{
-			//var frame 
+
+
 		}
 	}
 }

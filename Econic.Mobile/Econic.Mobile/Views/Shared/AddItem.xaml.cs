@@ -17,6 +17,7 @@ namespace Econic.Mobile.Views.Shared
     public partial class AddItem : ContentPage
     {
 
+
         public AddItem()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace Econic.Mobile.Views.Shared
         }
         async void OnAddPhotoButtonClicked(object sender, EventArgs args)
         {
+
             Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
             StreamReader reader = new StreamReader(stream);
             if (stream != null)
@@ -60,6 +62,7 @@ namespace Econic.Mobile.Views.Shared
         void OnChangeClicked(object sender, EventArgs args)
         {
             OnAddPhotoButtonClicked(sender, args);
+            //additemViewModel.OnAddPhotoButtonClicked(bodyContent, imageselector, imageNext, imageSkip, imageselectorFrame);
         }
         void OnTypeChanged(object sender, Syncfusion.XForms.ComboBox.SelectionChangedEventArgs args)
         {
@@ -76,10 +79,25 @@ namespace Econic.Mobile.Views.Shared
                 ServiceDuration.IsVisible = true;
             }
         }
+
+        void OnShipChanged(object sender, Syncfusion.XForms.ComboBox.SelectionChangedEventArgs e)
+		{
+            Console.WriteLine(e.Value);
+            if(e.Value.ToString().Equals("Yes"))
+            {
+                ShippingRate.IsVisible = true;
+            }
+            if (e.Value.ToString().Equals("No"))
+            {
+                ShippingRate.IsVisible = false;
+            }
+        }
+
         void OnShippedChecked(object sender, EventArgs args)
         {
             ShippingRate.IsVisible = !ShippingRate.IsVisible;
         }
+
         private byte[] GetImageStreamAsBytes(Stream input)
         {
             var buffer = new byte[16 * 1024];
@@ -92,6 +110,5 @@ namespace Econic.Mobile.Views.Shared
                 }
                 return ms.ToArray();
             }
-        }
     }
 }

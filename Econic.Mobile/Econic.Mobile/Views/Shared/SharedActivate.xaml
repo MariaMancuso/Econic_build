@@ -5,31 +5,31 @@
              ControlTemplate="{StaticResource NavigationTemplate}">
     
     <ContentPage.Content>
-        <Grid RowSpacing="60">
+        <Grid RowSpacing="30">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Label Grid.Row="0" Text="Your loyalty account is now activated. Enjoy great deals and rewards." FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
 
-            <Grid Grid.Row="1" RowSpacing="40">
+            <Grid Grid.Row="1" RowSpacing="10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Image Grid.Row="0" Grid.Column="0" Source=""/>
+                <Image Grid.Row="0" Grid.Column="0" Source="img_token_yellow.png"/>
                 <Label Grid.Row="0" Grid.Column="1" 
                        Text="Here's your first loyalty token to get you started! Every time you check out a deal the point clock starts. When you purchase, you earn double points."
                        FontFamily="QuickSandMedium" TextColor="#404040"/>
 
-                <Image Grid.Row="1" Grid.Column="0" Source="" />
+                <Image Grid.Row="1" Grid.Column="0" Source="img_tom_6.png" />
                 <Label Grid.Row="1" Grid.Column="1" 
                        Text="Say Hi to Tomme, he's your personal deal finder. Stay tuned to his offers." 
                        FontFamily="QuickSandMedium" TextColor="#404040" />

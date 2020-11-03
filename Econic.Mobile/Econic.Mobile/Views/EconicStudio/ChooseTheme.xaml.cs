@@ -6,6 +6,7 @@ using Econic.Mobile.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System;
+using Econic.Mobile.Views.Customer;
 
 namespace Econic.Mobile.Views.EconicStudio
 {
@@ -14,25 +15,33 @@ namespace Econic.Mobile.Views.EconicStudio
 	{
 		ControlTemplates previousItem;
 		ControlTemplates currentItem;
-		ControlTemplateViewModel control;
+
+				
+		object template { get; set; }
+		//public ChooseTheme()
+
+		//ControlTemplateViewModel control;
 		public ChooseTheme(OwnerBoardingViewModel OwnerVM)
 		{
 
 			InitializeComponent();
-			BindingContext = control = new ControlTemplateViewModel(); ;
-			control.OBViewModel = OwnerVM;
-			CreateBoxGrid();
+			//BindingContext = control = new ControlTemplateViewModel(); ;
+			//control.OBViewModel = OwnerVM;
+			BindingContext = OwnerVM;
+			CreateBoxGrid(OwnerVM);
 		}
 
-		void OnCurrentItemChanged(object sender, CurrentItemChangedEventArgs e) 
-		{
-			previousItem = e.PreviousItem as ControlTemplates;
-			currentItem = e.CurrentItem as ControlTemplates;
-			control.ItemChanged(currentItem);
-			//Console.WriteLine("Item Changed");
-		}
+		//void OnCurrentItemChanged(object sender, CurrentItemChangedEventArgs e) 
+		//{
+		//	previousItem = e.PreviousItem as ControlTemplates;
+		//	currentItem = e.CurrentItem as ControlTemplates;
+		//	//control.ItemChanged(currentItem);
+		//	//Console.WriteLine(currentItem.name);
+		//	template = currentItem.name;
+		//	//Console.WriteLine(template);
+		//}
 
-		private void CreateBoxGrid()
+		private void CreateBoxGrid(OwnerBoardingViewModel control)
 		{
 
 			IList<BoxColorModel> b = control.CreateBoxCollection();
@@ -58,5 +67,18 @@ namespace Econic.Mobile.Views.EconicStudio
 
 		}
 
+		//private async void Button_Clicked(object sender, EventArgs e)
+		//{
+		//	if (template != null)
+		//	{
+
+		//		//control.ChangeThemeInfo(template);
+		//		//await Navigation.PushAsync(new ChooseLogo());
+		//	}
+		//	else
+		//	{
+		//		Console.WriteLine("Oops! Something went wrong!");
+		//	}
+		//}
 	}
 }

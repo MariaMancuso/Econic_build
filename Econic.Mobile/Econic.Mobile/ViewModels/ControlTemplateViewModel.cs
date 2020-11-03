@@ -2,7 +2,7 @@
 using Econic.Mobile.Services;
 using Econic.Mobile.Views.Customer;
 using Econic.Mobile.Views.EconicStudio;
-using Econic.Mobile.Views.Templates;
+using Econic.Mobile.Views.Templates.Resources;
 using Econic.Mobile.Views.OwnerReg;
 using System;
 using System.Collections.Generic;
@@ -12,6 +12,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
+using System.Collections;
 
 namespace Econic.Mobile.ViewModels
 { 
@@ -35,6 +37,9 @@ namespace Econic.Mobile.ViewModels
 		public ControlTemplates PreviousTemplate { get; set; }
 		public ControlTemplates CurrentTemplate { get; set; }
 		public ControlTemplates CurrentItem { get; set; }
+
+		
+		public ResourceDictionary ThemeDict { get; set; }
 
 		public ControlTemplateViewModel() {
 			list = new List<ControlTemplates>();
@@ -63,14 +68,14 @@ namespace Econic.Mobile.ViewModels
 				case "Book":
 					await Application.Current.MainPage.Navigation.PushAsync(new BookAppointment());
 					break;
-				case "ChooseLogo":
-					await Application.Current.MainPage.Navigation.PushAsync(new ChooseLogo(OBViewModel));
-					break;
 
 				//case "Notify":
-					//await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this });
-					//break;
+				//	await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this });
 
+				case "ChooseLogo":
+					await Application.Current.MainPage.Navigation.PushAsync(new ChooseLogo(OBViewModel));
+
+					break;
 				case "ETGoHome":
 					await Application.Current.MainPage.Navigation.PushAsync(new DealBoard());
 					break;
@@ -130,38 +135,38 @@ namespace Econic.Mobile.ViewModels
 		{
 			PreviousTemplate = CurrentTemplate;
 			CurrentTemplate = item;
-			//Console.Write("You've Selected the " +  item.name + " template");
+			Console.Write("You've Selected the " +  item.name + " template");
 			//ChangeThemeInfo(item.name);
 			OnPropertyChanged("PreviousTemplate");
 			OnPropertyChanged("CurrentTemplate");
 		}
 
-		void ChangeThemeInfo(string name)
+		public void ChangeThemeInfo(object template)
 		{
-			if(name == "Classic")
-			{
-				//App.Current.Resources["Label"] = App.Current.Resources["Georgia"];
-				
-			}
+			//Theme theme = (Theme)template;
 
-			if(name == "Modern")
-			{
-
-			}
-
-			if(name == "Friendly")
-			{
-
-			}
+			//ICollection<ResourceDictionary> mergedDictionaries = Application.Current.Resources.MergedDictionaries;
+			//if (mergedDictionaries != null)
+			//{
+			//	Console.WriteLine(mergedDictionaries.Count);
+			//	mergedDictionaries.Clear();
+			//	switch (theme)
+			//	{
+			//		case Theme.Classic:
+			//			mergedDictionaries.Add(new Views.Templates.Resources.ClassicDictionary());
+			//			break;
+			//		case Theme.Modern:
+			//			mergedDictionaries.Add(new Views.Templates.Resources.ModernDictionary());
+			//			break;
+			//		case Theme.Friendly:
+			//			mergedDictionaries.Add(new Views.Templates.Resources.Friendly());
+			//			break;
+			//		default:
+			//			break;
+			//	}
+			//}
+			
 		}
-
-		//void PositionChanged(int position)
-		//{
-		//	PreviousPosition = CurrentPosition;
-		//	CurrentPosition = position;
-		//	OnPropertyChanged("PreviousPosition");
-		//	OnPropertyChanged("CurrentPosition");
-		//}
 
 		void OnPropertyChanged([CallerMemberName] string propertyName = null)
 		{

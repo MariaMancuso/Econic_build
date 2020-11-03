@@ -14,7 +14,7 @@ namespace Econic.Mobile.Views.OwnerReg
         {
             InitializeComponent();
             BindingContext = OwnerVM;
-            Initials.Text = OwnerVM?.GetInitials();
+            //Initials.Text = OwnerVM?.GetInitials();
         }
     }
 }
