@@ -58,7 +58,6 @@
                 <Button Command="{Binding OpenPageCommand}" CommandParameter="SharedPreview" Text="Done" Style="{StaticResource NextItemButton}"/>
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
-
         </Grid>
     </ContentPage.Content>
 </ContentPage>
