@@ -9,7 +9,6 @@ using Android.OS;
 using System.Threading.Tasks;
 using System.IO;
 using Android.Content;
-using ImagePicker.Droid.DependencyServiceImplementation;
 using Lottie.Forms.Droid;
 using Econic.Mobile.Droid.Services;
 
@@ -24,8 +23,7 @@ namespace Econic.Mobile.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Instance = this;
-            FormsActivity = this;
-            FormsContext = this;
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
@@ -40,7 +38,6 @@ namespace Econic.Mobile.Droid
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-            MediaServiceImplementation.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             DevicePermissions.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
@@ -49,7 +46,6 @@ namespace Econic.Mobile.Droid
         public TaskCompletionSource<Stream> PickImageTaskCompletionSource { set; get; }
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent intent)
         {
-            MediaServiceImplementation.OnActivityResult(requestCode, resultCode, intent);
             base.OnActivityResult(requestCode, resultCode, intent);
             if (requestCode == PickImageId)
             {

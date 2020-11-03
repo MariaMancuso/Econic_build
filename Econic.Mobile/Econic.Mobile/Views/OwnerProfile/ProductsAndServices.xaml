@@ -19,13 +19,13 @@
 
             <StackLayout Grid.Row="1" Spacing="20">
                 <Label Text="Upload a minimum of 1 or a maximum of 10" FontFamily="QuicksandBold" TextColor="Gray" />
-                <sync:SfListView ItemsSource="{Binding Owner.Items}" AutoFitMode="Height" SelectionMode="None" RowSpacing="20" >
+                <sync:SfListView ItemsSource="{Binding User.Items}" AutoFitMode="Height" SelectionMode="None" RowSpacing="20" >
                     <sync:SfListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Spacing="15">
                                     <StackLayout Orientation="Horizontal">
-                                        <Image Source="{Binding Image.Source}" HeightRequest="140" WidthRequest="140" HorizontalOptions="Start" Aspect="Fill"/>
+                                        <Image Source="{Binding ImageSource}" HeightRequest="140" WidthRequest="140" HorizontalOptions="Start" Aspect="Fill"/>
                                         <StackLayout>
                                             <Label Text="{Binding Name}" FontFamily="QuicksandBold" TextColor="#404040" FontSize="14" />
                                             <Label Grid.Column="2" Text="{Binding PriceRange}" FontFamily="QuicksandBold" TextColor="#404040" FontSize="14"/>

@@ -22,21 +22,21 @@
 
                 <Label Text="Personal details" TextColor="#919191" FontFamily="QuicksandBold" />
                 <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Name" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
-                    <Entry ReturnType="Next" Text="{Binding Owner.Account.Name}" />
+                    <Entry ReturnType="Next" Text="{Binding User.Account.Name}" />
                 </inputLayout:SfTextInputLayout>
 
                 <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Title" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
-                    <Entry ReturnType="Next" Text="{Binding Owner.Title}" />
+                    <Entry ReturnType="Next" Text="{Binding User.Title}" />
                 </inputLayout:SfTextInputLayout>
 
 
                 <StackLayout>
                     <Label Text="Contact information" TextColor="#919191" FontFamily="QuicksandBold" />
                     <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Phone Number" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
-                        <Entry ReturnType="Next" Text="{Binding Owner.BusinessNumber}" />
+                        <Entry ReturnType="Next" Text="{Binding User.BusinessNumber}" />
                     </inputLayout:SfTextInputLayout>
                     <inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Email" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040">
-                        <Entry ReturnType="Next" Text="{Binding Owner.Account.Username}" />
+                        <Entry ReturnType="Next" Text="{Binding User.Account.Username}" />
                     </inputLayout:SfTextInputLayout>
                 </StackLayout>
             </StackLayout>

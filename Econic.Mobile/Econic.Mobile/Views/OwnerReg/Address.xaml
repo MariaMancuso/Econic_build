@@ -20,10 +20,10 @@
 
             <StackLayout Grid.Row="1" Orientation="Vertical">
                 <Frame Style="{StaticResource Customframe}">
-                    <controls:CustomEntry Text="{Binding Owner.Address.Address1}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Type your address here" />
+                    <controls:CustomEntry Text="{Binding User.Address.Address1}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Type your address here" />
                 </Frame>
                 <Frame Style="{StaticResource Customframe}">
-                    <controls:CustomEntry Text="{Binding Owner.Address.Address2}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Address 2" />
+                    <controls:CustomEntry Text="{Binding User.Address.Address2}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Address 2" />
                 </Frame>
 
                 <Grid>
@@ -37,14 +37,14 @@
                     </Grid.RowDefinitions>
 
                     <Frame Style="{StaticResource Customframe}" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="0">
-                        <controls:CustomEntry Text="{Binding Owner.Address.City}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="City" />
+                        <controls:CustomEntry Text="{Binding User.Address.City}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="City" />
                     </Frame>
                     <Frame Style="{StaticResource Customframe}" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="0">
-                        <!--<controls:CustomDropDown x:Name="Statedd" SelectedItem="{Binding Owner.Address.State}" BackgroundColor="Transparent" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="State" />-->
+                        <!--<controls:CustomDropDown x:Name="Statedd" SelectedItem="{Binding User.Address.State}" BackgroundColor="Transparent" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="State" />-->
                     </Frame>
 
                     <Frame Style="{StaticResource Customframe}" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1">
-                        <controls:CustomEntry Text="{Binding Owner.Address.Zip, Mode=OneWayToSource}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Zip" />
+                        <controls:CustomEntry Text="{Binding User.Address.Zip, Mode=OneWayToSource}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Zip" />
                     </Frame>
                 </Grid>
             </StackLayout>
@@ -53,7 +53,7 @@
                 <Label Text="Do you service or deliver to customers?" FontFamily="QuicksandBold" TextColor="#404040" />
 
                 <Frame Style="{StaticResource Customframe}">
-                    <!--<controls:CustomDropDown SelectedItem="{Binding Owner.ServiceArea}" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="Service Area" />-->
+                    <!--<controls:CustomDropDown SelectedItem="{Binding User.ServiceArea}" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" TitleColor="#404040" FontFamily="QuicksandSemiBold" HeightRequest="45" Image="ddicon" Title="Service Area" />-->
                 </Frame>
             </StackLayout>
 

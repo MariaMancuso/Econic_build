@@ -24,7 +24,7 @@
             <Label Grid.Row="0" Text="Business Locations" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" HorizontalTextAlignment="Start" />
 
             <ScrollView Grid.Row="1">
-                <sync:SfListView ItemsSource="{Binding Owner.BusinessLocations}" AutoFitMode="DynamicHeight" SelectedItem="{Binding BusinessLocationSelected}" SelectionBackgroundColor="Transparent">
+                <sync:SfListView ItemsSource="{Binding User.BusinessLocations}" AutoFitMode="DynamicHeight" SelectedItem="{Binding BusinessLocationSelected}" SelectionBackgroundColor="Transparent">
                     <sync:SfListView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Spacing="20">

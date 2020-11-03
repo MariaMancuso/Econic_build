@@ -59,7 +59,7 @@
                                                TextColor="#404040" 
                                                FontFamily="QuicksandBold" />
                                         <Frame Style="{StaticResource Customframe}">
-                                            <controls:CustomEntry Text="{Binding Owner.BusinessName}"
+                                            <controls:CustomEntry Text="{Binding User.BusinessName}"
                                                                   TextColor="#404040"  
                                                                   Placeholder="Type the name here"
                                                                   PlaceholderColor="DarkGray" />

@@ -33,7 +33,10 @@
 
             <imageeditor:SfImageEditor 
                 Grid.Row="1" 
-                ImageLoaded="CropEditor_ImageLoaded" x:Name="editor" Source="{Binding CurrentItemModel.Image.Source}" WidthRequest="200" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent"/>
+                ImageLoaded="CropEditor_ImageLoaded" 
+                x:Name="editor" WidthRequest="200"
+                HorizontalOptions="CenterAndExpand" 
+                BackgroundColor="Transparent"/>
 
             <border:SfBorder Grid.Row="1" x:Name="border" BorderColor="DarkGray" CornerRadius="3" WidthRequest="200" HorizontalOptions="CenterAndExpand">
                 <border:SfBorder.DashArray>
@@ -47,7 +50,7 @@
                     <Label Text="Add a picture" TextColor="DarkGray" FontFamily="QuicksandMedium" />
                 </StackLayout>
             </border:SfBorder>
-
+            
             <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="editcontent" IsVisible="false">
                 <Button Text="Change" Clicked="OnChangeClicked" BackgroundColor="Transparent" TextColor="#cc3636" FontFamily="QuicksandBold" />
                 <Button Text="Save" Clicked="OnSaveClicked" BackgroundColor="Transparent" TextColor="CornflowerBlue" FontFamily="QuicksandBold" x:Name="savebutton" />

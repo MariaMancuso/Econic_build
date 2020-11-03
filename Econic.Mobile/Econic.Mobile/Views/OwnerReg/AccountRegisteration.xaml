@@ -31,19 +31,19 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <Frame Style="{StaticResource Customframe}" Grid.Row="0">
-                    <controls:CustomEntry Text="{Binding Owner.Account.Name}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Name" />
+                    <controls:CustomEntry Text="{Binding User.Account.Name}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Name" />
                 </Frame>
 
                 <Frame Style="{StaticResource Customframe}" Grid.Row="1">
-                    <controls:CustomEntry Text="{Binding Owner.Account.Phone}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Phone" />
+                    <controls:CustomEntry Text="{Binding User.Account.Phone}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Phone" />
                 </Frame>
 
                 <Frame Style="{StaticResource Customframe}" Grid.Row="2">
-                    <controls:CustomEntry Text="{Binding Owner.Account.Username}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Username" />
+                    <controls:CustomEntry Text="{Binding User.Account.Username}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Username" />
                 </Frame>
 
                 <Frame Style="{StaticResource Customframe}" Grid.Row="3" >
-                    <controls:CustomEntry x:Name="Password" Text="{Binding Owner.Account.Password}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Password" />
+                    <controls:CustomEntry x:Name="Password" Text="{Binding User.Account.Password}" HorizontalOptions="FillAndExpand" PlaceholderColor="DarkGray" Placeholder="Password" />
                 </Frame>
 
                 <Frame Style="{StaticResource Customframe}" Grid.Row="4" >

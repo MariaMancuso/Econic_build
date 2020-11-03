@@ -26,7 +26,7 @@
             <sync:SfListView 
                 x:Name="customerlistview" 
                 Grid.Row="2" 
-                ItemsSource="{Binding Owner.Customers}"
+                ItemsSource="{Binding User.Customers}"
                 ItemSize="100"
                 SelectedItem="{Binding CustomerSelected}"
                 TapCommand="{Binding OpenPageCommand}" 

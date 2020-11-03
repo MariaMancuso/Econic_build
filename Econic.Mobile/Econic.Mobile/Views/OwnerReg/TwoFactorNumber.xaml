@@ -34,7 +34,7 @@
                     <Image Grid.Column="0" Grid.Row="0" Source="TwoFactor" />
                     <StackLayout Grid.Column="1" Grid.Row="0">
                         <Label Text="We'll send a code via a text to:" TextColor="#404040" FontFamily="QuicksandSemiBold" />
-                        <Label Text="{Binding Owner.Account.Phone, Converter={StaticResource cnvPhoneNum}}" TextColor="#404040" FontFamily="QuicksandSemiBold" />
+                        <Label Text="{Binding User.Account.Phone, Converter={StaticResource cnvPhoneNum}}" TextColor="#404040" FontFamily="QuicksandSemiBold" />
                         <Label Text="to get you set up" TextColor="#404040" FontFamily="QuicksandSemiBold" />
                         <Label Text="Use a different number" FontSize="12" TextColor="CornflowerBlue" FontFamily="QuicksandBold" />
                     </StackLayout>

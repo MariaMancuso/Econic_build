@@ -25,10 +25,11 @@ namespace Econic.Mobile.ViewModels
         SelectionViewModel nSelection;
         public OwnerBoardingViewModel()
         {
-            Owner = new OwnerModel
+            User = new OwnerModel
             {
                 Account = new Account(),
                 Address = new AddressModel(),
+                LogoIcon = new Image(),
                 Goals = new ObservableCollection<OwnerGoalModel>()
                 {
                 new OwnerGoalModel() { Goal = "Connect you to your customers", Value = 0},
@@ -63,7 +64,7 @@ namespace Econic.Mobile.ViewModels
             RemoveClicked = new Command(removeClicked);
             EditClicked = new Command(editClicked);
         }
-        public OwnerModel Owner { get; set; }
+        public OwnerModel User { get; set; }
         public ItemModel CurrentItemModel { get; set; }
         public SelectionViewModel CMSelectionViewModel
         {
@@ -83,7 +84,7 @@ namespace Econic.Mobile.ViewModels
         public string GetInitials()
         {
             Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
-            string init = initials.Replace(Owner.BusinessName, "$1");
+            string init = initials.Replace(User.BusinessName, "$1");
 
             return init;
         }
@@ -91,7 +92,7 @@ namespace Econic.Mobile.ViewModels
         public int ListViewHeight
         {
             get { return height; }
-            set { height = Owner.Items.Count * 120; }
+            set { height = User.Items.Count * 120; }
         }
         public ICommand OpenPageCommand { private set; get; }
         public ICommand InfoTapped { private set; get; }
@@ -102,7 +103,7 @@ namespace Econic.Mobile.ViewModels
 
         private async void OpenPage(string value)
         {
-            switch (value)
+                switch (value)
             {
                 case "Address":
                     await Application.Current.MainPage.Navigation.PushAsync(new Address(this));
@@ -120,8 +121,8 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new Classification(this));
                     break;
                 case "Preview":
-                    if (CurrentItemModel != null && !Owner.Items.Contains(CurrentItemModel))
-                        Owner.Items.Add(CurrentItemModel);
+                    if (CurrentItemModel != null && !User.Items.Contains(CurrentItemModel))
+                        User.Items.Add(CurrentItemModel);
 
                     await Application.Current.MainPage.Navigation.PushAsync(new ProductsAndServices { BindingContext = this }); ;
                     break;
@@ -139,8 +140,8 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this});
                     //foreach(string notifymethod in nSelection.Items)
                     //{
-                    //    if(!owner.NotifyMethods.Any(x => x.Name == notifymethod))
-                    //        owner.NotifyMethods.Add(new NotifyModel { Name = notifymethod });
+                    //    if(!User.NotifyMethods.Any(x => x.Name == notifymethod))
+                    //        User.NotifyMethods.Add(new NotifyModel { Name = notifymethod });
                     //}
                     //await Application.Current.MainPage.Navigation.PushAsync(new Notify(this));
                     break;
@@ -174,7 +175,7 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new FifthPreview(this));
                     break;
                 case "Profile":
-                    OwnerViewModel model = new OwnerViewModel(Owner);
+                    OwnerViewModel model = new OwnerViewModel(User);
                     var page = new Hamburger { BindingContext = model };
                     //page.Master = new HamburgerMaster { BindingContext = model };
                     page.Detail = new NavigationPage(new OwnerTabbedPage
@@ -221,7 +222,7 @@ namespace Econic.Mobile.ViewModels
         private void removeClicked(Object sender)
         {
             var item = sender as ItemModel;
-            Owner.Items.Remove(item);
+            User.Items.Remove(item);
         }
         private async void cmTapped(Object sender)
         {
@@ -233,7 +234,6 @@ namespace Econic.Mobile.ViewModels
             frame.BackgroundColor = Color.FromHex("#404040");
             label.TextColor = Color.White;
             CurrentItemModel = new ItemModel();
-            CurrentItemModel.Image = new Image();
             if (label.Text == "Services")
                 CurrentItemModel.Type = "Service";
             else

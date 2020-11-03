@@ -20,14 +20,20 @@ namespace Econic.Mobile.Views.Shared
         public AddItem()
         {
             InitializeComponent();
+            editor.ImageSaving += ImageSavingEvent;
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             editor.ToolbarSettings.IsVisible = false;
         }
         async void OnAddPhotoButtonClicked(object sender, EventArgs args)
         {
             Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
+            StreamReader reader = new StreamReader(stream);
             if (stream != null)
             {
-                editor.Source = ImageSource.FromStream(() => stream);
+                editor.Source = ImageSource.FromStream(() => stream);              
             }
         }
         private void CropEditor_ImageLoaded(object sender, ImageLoadedEventArgs args)
@@ -40,7 +46,16 @@ namespace Econic.Mobile.Views.Shared
         void OnSaveClicked(object sender, EventArgs args)
         {
             editor.Crop();
+            editor.Save();
             savebutton.IsVisible = false;
+        }
+        private void ImageSavingEvent(object sender, ImageSavingEventArgs args)
+        {
+            args.Cancel = true; // Stop the image from saving to location
+
+            var byteArray = GetImageStreamAsBytes(args.Stream);
+            ItemModel prop = BindingContext.GetType().GetProperty("CurrentItemModel").GetValue(BindingContext) as ItemModel;
+            prop.ImageSource = ImageSource.FromStream(() => new MemoryStream(byteArray));
         }
         void OnChangeClicked(object sender, EventArgs args)
         {
@@ -64,6 +79,19 @@ namespace Econic.Mobile.Views.Shared
         void OnShippedChecked(object sender, EventArgs args)
         {
             ShippingRate.IsVisible = !ShippingRate.IsVisible;
+        }
+        private byte[] GetImageStreamAsBytes(Stream input)
+        {
+            var buffer = new byte[16 * 1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                return ms.ToArray();
+            }
         }
     }
 }
