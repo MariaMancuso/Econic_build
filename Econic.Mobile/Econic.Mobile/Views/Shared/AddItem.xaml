@@ -180,12 +180,7 @@
                         </inputLayout:SfTextInputLayout>
 
                         <StackLayout x:Name="ShippingContent" >
-                            <StackLayout>
-                                <!--<CheckBox CheckedChanged="OnShippedChecked" 
-                                          IsChecked="{Binding CurrentItemModel.IsShipped}" />
-                                <Label Text="Do you ship this product?"
-                                       VerticalTextAlignment="Center" />-->
-
+                            <StackLayout Padding="0, 0, 0, 10">
                                 <inputLayout:SfTextInputLayout InputViewPadding="10" 
                                                ContainerType="Outlined" 
                                                OutlineCornerRadius="5" 
@@ -201,7 +196,7 @@
                                                 IsEditableMode="True"
                                                 AllowFiltering="True"
                                                 DisplayMemberPath="Name"
-                                                SelectedItem="">
+                                                SelectionChanged="OnShipChanged">
                                         <combobox:SfComboBox.ComboBoxSource>
                                             <ListCollection:List x:TypeArguments="x:String">
                                                 <x:String>Yes</x:String>
