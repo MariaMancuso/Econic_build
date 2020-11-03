@@ -55,7 +55,7 @@
                     BackgroundColor="#DFECF2" TextColor="#517486" Text="+ Add another" CornerRadius="20" HorizontalOptions="Center" Padding="10, 0, 10, 0" VerticalOptions="End"/>
 
             <StackLayout Grid.Row="4" VerticalOptions="End">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="SecondPreview" Text="Done" Style="{StaticResource NextItemButton}"/>
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="SharedPreview" Text="Done" Style="{StaticResource NextItemButton}"/>
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
 
