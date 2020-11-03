@@ -18,10 +18,12 @@ namespace Econic.Mobile.Droid
     [Activity(Label = "Econic.Mobile", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        internal static MainActivity Instance { get; private set; }
         public static Activity FormsActivity { get; set; }
         public static Context FormsContext { get; set; }
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            Instance = this;
             FormsActivity = this;
             FormsContext = this;
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -43,11 +45,27 @@ namespace Econic.Mobile.Droid
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
-        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        public static readonly int PickImageId = 1000;
+        public TaskCompletionSource<Stream> PickImageTaskCompletionSource { set; get; }
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent intent)
         {
-            MediaServiceImplementation.OnActivityResult(requestCode, resultCode, data);
-            base.OnActivityResult(requestCode, resultCode, data);
+            MediaServiceImplementation.OnActivityResult(requestCode, resultCode, intent);
+            base.OnActivityResult(requestCode, resultCode, intent);
+            if (requestCode == PickImageId)
+            {
+                if ((resultCode == Result.Ok) && (intent != null))
+                {
+                    Android.Net.Uri uri = intent.Data;
+                    Stream stream = ContentResolver.OpenInputStream(uri);
 
+                    // Set the Stream as the completion of the Task
+                    PickImageTaskCompletionSource.SetResult(stream);
+                }
+                else
+                {
+                    PickImageTaskCompletionSource.SetResult(null);
+                }
+            }
         }
     }
 }

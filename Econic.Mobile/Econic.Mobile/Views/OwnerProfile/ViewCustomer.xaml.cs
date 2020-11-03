@@ -9,7 +9,6 @@ namespace Econic.Mobile.Views.OwnerProfile
         public ViewCustomer()
         {
             InitializeComponent();
-            buttonlist.ItemsSource = new string[] { "History", "Detail" };
         }
     }
 }

@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" x:Class="Econic.Mobile.Views.OwnerProfile.ViewCustomer"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" x:Class="Econic.Mobile.Views.OwnerProfile.ViewCustomer"
              NavigationPage.HasNavigationBar="True"
              Padding="20, 0, 20, 0"
              BackgroundColor="WhiteSmoke"
+             xmlns:tabview="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             xmlns:views="clr-namespace:Econic.Mobile.Views.Shared"
              x:Name="Page">
     <ContentPage.Content>
         <Grid RowSpacing="15">
@@ -19,27 +22,23 @@
                 <Label Text="{Binding CustomerSelected.Name}" TextColor="#404040" FontFamily="QuicksandSemiBold" VerticalOptions="Center" />
                 <Label Text="{Binding CustomerSelected.StartDate, StringFormat='Customer Since {0:MMMM dd, yyyy}'}" TextColor="Gray" FontFamily="QuicksandSemiBold" VerticalOptions="Center" />
             </StackLayout>
-            <StackLayout Grid.Row="3">
-                <sync:SfListView Orientation="Horizontal" SelectedItem="History" WidthRequest="160" x:Name="buttonlist" ItemSize="80" HeightRequest="40" RowSpacing="0" ColumnSpacing="0" SelectionChangedCommand="{Binding CustomerTabCommand}">
-                    <sync:SfListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout>
-                                <Label Text="{Binding .}" TextColor="#8b8589" FontFamily="QuicksandBold" />
-                                <BoxView HeightRequest="2" BackgroundColor="#8b8589" />
-                            </StackLayout>
-                        </DataTemplate>
-                    </sync:SfListView.ItemTemplate>
-                    <sync:SfListView.SelectedItemTemplate>
-                        <DataTemplate>
-                            <StackLayout>
-                                <Label Text="{Binding .}" TextColor="#404040" FontFamily="QuicksandBold" />
-                                <BoxView HeightRequest="2" BackgroundColor="#404040" />
-                            </StackLayout>
-                        </DataTemplate>
-                    </sync:SfListView.SelectedItemTemplate>
-                </sync:SfListView>
-                <ContentView Content="{Binding CurrentView}" />
-            </StackLayout>
+
+            <tabview:SfTabView Grid.Row="3">
+                <tabview:SfTabView.SelectionIndicatorSettings>
+                    <tabview:SelectionIndicatorSettings Color="#404040" />
+                </tabview:SfTabView.SelectionIndicatorSettings>
+
+                <tabview:SfTabItem Grid.Row="3" Title="History" SelectionColor="#404040" TitleFontSize="Body" TitleFontFamily="QuicksandBold" TitleFontColor="#898989">
+                    <tabview:SfTabItem.Content>
+                        <views:PurchaseHistoryView />
+                    </tabview:SfTabItem.Content>
+                </tabview:SfTabItem>
+                <tabview:SfTabItem Title="Details" SelectionColor="#404040" TitleFontSize="Body" TitleFontFamily="QuicksandBold" TitleFontColor="#898989">
+                    <tabview:SfTabItem.Content>
+                        <views:UserDetailView />
+                    </tabview:SfTabItem.Content>
+                </tabview:SfTabItem>
+            </tabview:SfTabView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

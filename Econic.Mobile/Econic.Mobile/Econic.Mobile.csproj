@@ -45,6 +45,7 @@
     <PackageReference Include="Syncfusion.Xamarin.Expander" Version="18.3.0.44" />
     <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="18.3.0.42" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.3.0.40" />
+    <PackageReference Include="Syncfusion.Xamarin.SfImageEditor" Version="18.3.0.44" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.3.0.38" />
     <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.3.0.38" />
     <PackageReference Include="Syncfusion.Xamarin.SfProgressBar" Version="18.3.0.44" />
@@ -79,6 +80,12 @@
     </Compile>
     <Compile Update="Views\OwnerReg\Address.xaml.cs">
       <DependentUpon>Address.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shared\UserDetailView.xaml.cs">
+      <DependentUpon>UserDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shared\PurchaseHistoryView.xaml.cs">
+      <DependentUpon>PurchaseHistoryView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Shared\SharedActivate.xaml.cs">
       <DependentUpon>SharedActivate.xaml</DependentUpon>
@@ -180,12 +187,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\OwnerProfile\BusinessLocationList.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\OwnerProfile\CustomerDetailView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\OwnerProfile\CustomerHistoryView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\OwnerProfile\CustomerList.xaml">
