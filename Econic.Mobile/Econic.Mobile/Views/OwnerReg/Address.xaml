@@ -2,15 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="Econic.Mobile.Views.OwnerReg.Address" 
-             NavigationPage.HasNavigationBar="False" 
-             xmlns:controls="clr-namespace:Econic.Mobile.Renderers" xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              BackgroundColor="WhiteSmoke" 
              ControlTemplate="{StaticResource NavigationTemplate}">
 
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-                <Grid RowSpacing="40">
+                <Grid RowSpacing="60">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -23,6 +24,7 @@
                     <Label Text="*All field are required" FontSize="16" FontFamily="Quicksand"/>
                 </StackLayout>
                 <StackLayout Grid.Row="1" Orientation="Vertical">
+                    
                     <inputLayout:SfTextInputLayout InputViewPadding="10" 
                                                Hint="Address 1" 
                                                ContainerType="Outlined" 
@@ -31,7 +33,7 @@
                                                BackgroundColor="Transparent"
                                                HeightRequest="50">
                         <Entry ReturnType="Next" 
-                               Text="{Binding Owner.Address.Address1, Mode=TwoWay}"
+                               Text="{Binding User.Address.Address1, Mode=TwoWay}"
                                FontFamily="QuicksandMedium" />
                     </inputLayout:SfTextInputLayout>
                     <inputLayout:SfTextInputLayout InputViewPadding="10" 
@@ -42,11 +44,11 @@
                                                BackgroundColor="Transparent"
                                                HeightRequest="50">
                         <Entry ReturnType="Next" 
-                               Text="{Binding Owner.Address.Address2, Mode=TwoWay}"
+                               Text="{Binding User.Address.Address2, Mode=TwoWay}"
                                FontFamily="QuicksandMedium" />
                     </inputLayout:SfTextInputLayout>
 
-                    <Grid>
+                    <Grid RowSpacing="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
@@ -56,7 +58,7 @@
                             <RowDefinition Height="Auto " />
                         </Grid.RowDefinitions>
 
-                        <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                            <inputLayout:SfTextInputLayout InputViewPadding="10" 
                                               Hint="City"
                                                ContainerType="Outlined" 
                                                OutlineCornerRadius="5" 
@@ -65,7 +67,7 @@
                                                Grid.Row="0"
                                                Grid.Column="0"
                                                HeightRequest="50">
-                            <combobox:SfComboBox 
+                                <combobox:SfComboBox 
                                                 FontFamily="QuicksandMedium" 
                                                 BackgroundColor="Transparent" 
                                                 NoResultsFoundText="No Results Found"
@@ -74,11 +76,11 @@
                                                 IsEditableMode="True"
                                                 AllowFiltering="True"
                                                 DisplayMemberPath="Name">
-                            </combobox:SfComboBox>
-                        </inputLayout:SfTextInputLayout>
+                                </combobox:SfComboBox>
+                            </inputLayout:SfTextInputLayout>
 
-                        <inputLayout:SfTextInputLayout InputViewPadding="10" 
-                                              
+                            <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                                              Hint="State"
                                                ContainerType="Outlined" 
                                                OutlineCornerRadius="5" 
                                                FocusedColor="#404040"
@@ -90,7 +92,7 @@
                                                 FontFamily="QuicksandMedium" 
                                                 BackgroundColor="Transparent" 
                                                 NoResultsFoundText="No Results Found"
-                                                Watermark="State"
+                                                
                                                 HeightRequest="50"
                                                 IsEditableMode="True"
                                                 AllowFiltering="True"
@@ -124,7 +126,7 @@
                                                Grid.Column="0" Grid.Row="1"
                                                HeightRequest="50">
                         <Entry ReturnType="Next" 
-                               Text="{Binding Owner.ServiceArea, Mode=TwoWay}"
+                               Text="{Binding User.ServiceArea, Mode=TwoWay}"
                                FontFamily="QuicksandMedium" />
                     </inputLayout:SfTextInputLayout>
 
@@ -138,12 +140,13 @@
                                                FocusedColor="#404040"
                                                BackgroundColor="Transparent"
                                                Grid.Column="0" Grid.Row="2"
-                                               HeightRequest="50">
+                                               HeightRequest="50"
+                                                   Hint="Service Area">
                         <combobox:SfComboBox 
                                                 FontFamily="QuicksandMedium" 
                                                 BackgroundColor="Transparent" 
                                                 NoResultsFoundText="No Results Found"
-                                                Watermark="Service Area"
+                                               
                                                 HeightRequest="50"
                                                 IsEditableMode="True"
                                                 AllowFiltering="True"

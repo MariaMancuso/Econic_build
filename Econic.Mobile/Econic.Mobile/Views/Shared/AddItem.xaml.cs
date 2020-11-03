@@ -17,6 +17,7 @@ namespace Econic.Mobile.Views.Shared
     public partial class AddItem : ContentPage
     {
 
+
         public AddItem()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace Econic.Mobile.Views.Shared
         }
         async void OnAddPhotoButtonClicked(object sender, EventArgs args)
         {
+
             Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
             if (stream != null)
             {
@@ -45,6 +47,7 @@ namespace Econic.Mobile.Views.Shared
         void OnChangeClicked(object sender, EventArgs args)
         {
             OnAddPhotoButtonClicked(sender, args);
+            //additemViewModel.OnAddPhotoButtonClicked(bodyContent, imageselector, imageNext, imageSkip, imageselectorFrame);
         }
         void OnTypeChanged(object sender, Syncfusion.XForms.ComboBox.SelectionChangedEventArgs args)
         {
@@ -61,10 +64,11 @@ namespace Econic.Mobile.Views.Shared
                 ServiceDuration.IsVisible = true;
             }
         }
+
         void OnShipChanged(object sender, Syncfusion.XForms.ComboBox.SelectionChangedEventArgs e)
-        {
+		{
             Console.WriteLine(e.Value);
-            if (e.Value.ToString().Equals("Yes"))
+            if(e.Value.ToString().Equals("Yes"))
             {
                 ShippingRate.IsVisible = true;
             }
@@ -93,5 +97,4 @@ namespace Econic.Mobile.Views.Shared
             //additemViewModel.ImageTapped(sender, e, profilePicture, bodyContent, imageselector, imageNext);
         }
     }
-}
 }

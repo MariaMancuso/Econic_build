@@ -31,12 +31,13 @@
                                                BackgroundColor="Transparent"
                                                Grid.Row="0"
                                                Grid.Column="0"
+                                               Hint="Select monthly transactions"
                                                HeightRequest="50">
                     <combobox:SfComboBox 
                                                 FontFamily="QuicksandMedium" 
                                                 BackgroundColor="Transparent" 
                                                 NoResultsFoundText="No Results Found"
-                                                Watermark="Select monthly transactions"
+                                                
                                                 HeightRequest="50"
                                                 IsEditableMode="True"
                                                 AllowFiltering="True"
@@ -54,12 +55,12 @@
                                                BackgroundColor="Transparent"
                                                Grid.Row="0"
                                                Grid.Column="0"
+                                               Hint="Select transaction amount"
                                                HeightRequest="50">
                     <combobox:SfComboBox 
                                                 FontFamily="QuicksandMedium" 
                                                 BackgroundColor="Transparent" 
                                                 NoResultsFoundText="No Results Found"
-                                                Watermark="Select transaction amount"
                                                 HeightRequest="50"
                                                 IsEditableMode="True"
                                                 AllowFiltering="True"
@@ -77,12 +78,13 @@
                                                BackgroundColor="Transparent"
                                                Grid.Row="0"
                                                Grid.Column="0"
+                                               Hint="Select average revenue"
                                                HeightRequest="50">
                     <combobox:SfComboBox 
                                                 FontFamily="QuicksandMedium" 
                                                 BackgroundColor="Transparent" 
                                                 NoResultsFoundText="No Results Found"
-                                                Watermark="Select average revenue"
+                                                
                                                 HeightRequest="50"
                                                 IsEditableMode="True"
                                                 AllowFiltering="True"

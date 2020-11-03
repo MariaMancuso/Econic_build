@@ -15,9 +15,16 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Text="Preview of your services. Do you want to buy it?" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20"/>
+            <Label Grid.Row="0"
+                   Text="Preview of your services. Do you want to buy it?" 
+                   FontFamily="QuicksandBold"
+                   TextColor="#404040" 
+                   FontSize="20"/>
 
-            <Image Grid.Row="1" Source="{Binding ItemToAdd.Image.Source}" HorizontalOptions="FillAndExpand" Aspect="AspectFill"/>
+            <Image Grid.Row="1" 
+                   Source="{Binding ItemToAdd.Image.Source}" 
+                   HorizontalOptions="FillAndExpand" 
+                   Aspect="AspectFill"/>
 
             <StackLayout Grid.Row="2">
                 <Grid>
@@ -25,16 +32,30 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Text="{Binding ItemToAdd.Name}" TextColor="#404040" FontFamily="QuicksandBold"  FontSize="16" HorizontalOptions="Start"/>
-                    <Label Grid.Column="1" Text="{Binding ItemToAdd.PriceRange}"  TextColor="#404040" FontFamily="QuicksandBold" FontSize="16" HorizontalOptions="End"/>
+                    <Label Grid.Column="0" 
+                           Text="{Binding ItemToAdd.Name}" 
+                           TextColor="#404040" 
+                           FontFamily="QuicksandBold"  
+                           FontSize="16" 
+                           HorizontalOptions="Start"/>
+                    <Label Grid.Column="1"
+                           Text="{Binding ItemToAdd.PriceRange}" 
+                           TextColor="#404040"
+                           FontFamily="QuicksandBold" 
+                           FontSize="16"
+                           HorizontalOptions="End"/>
                 </Grid>
-                <Label Text="{Binding ItemToAdd.Description}" TextColor="#404040" FontFamily="QuicksandSemiBold" />
+                <Label Text="{Binding ItemToAdd.Description}" 
+                       TextColor="#404040"
+                       FontFamily="QuicksandSemiBold" />
             </StackLayout>
 
-            <Button Command="{Binding AddAnotherTapped}" Grid.Row="3" BackgroundColor="#DFECF2" TextColor="#517486" Text="+ Add another" CornerRadius="20" HorizontalOptions="Center" Padding="10, 0, 10, 0" VerticalOptions="End"/>
+            <Button Command="{Binding AddAnotherTapped}" 
+                    Grid.Row="3" 
+                    BackgroundColor="#DFECF2" TextColor="#517486" Text="+ Add another" CornerRadius="20" HorizontalOptions="Center" Padding="10, 0, 10, 0" VerticalOptions="End"/>
 
             <StackLayout Grid.Row="4" VerticalOptions="End">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="SecondPreview" Text="Done" Style="{StaticResource NextItemButton}"/>
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="SharedPreview" Text="Done" Style="{StaticResource NextItemButton}"/>
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
 

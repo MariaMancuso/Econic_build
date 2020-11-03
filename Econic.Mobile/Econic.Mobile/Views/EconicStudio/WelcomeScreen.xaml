@@ -2,20 +2,40 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Econic.Mobile.Views.EconicStudio.WelcomeScreen"
-             ControlTemplate="{x:StaticResource NavigationTemplate}"
              BackgroundColor="#343434">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Give your mobile business some of your personality in the Econic Studio"
+            <Grid VerticalOptions="FillAndExpand"
+                  Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" VerticalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="1" Text="REVYVV STUDIO"
+                           HorizontalOptions="CenterAndExpand"
+                           TextColor="Silver"
+                           FontSize="14"/>
+
+                </Grid>
+                </Grid>
+
+             <Label Text="Give your mobile business some of your personality in the Revyvv Studio"
                    TextColor="White"
                    FontSize="24"
                    HorizontalTextAlignment="Center"
                    HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="StartAndExpand"
                    FontFamily="QuicksandBold"
-                   Padding="22, 0, 22, 40"/>
-            <Image Source="ColorPalette.png"
-                   HorizontalOptions="CenterAndExpand"
-                   />
+                   Padding="22, -10, 22, 40"/>
+            <Image Source=""
+                   HorizontalOptions="CenterAndExpand"/>
             <Label Text="What you need to prepare:"
                    TextColor="White"
                    FontSize="18"
@@ -31,7 +51,7 @@
                    HorizontalOptions="CenterAndExpand"
                    HorizontalTextAlignment="Center"
                    />
-            <Label Text="-An app icon design or choose one of ours"
+            <Label Text="-An app icon design (you can use your logo)"
                    FontSize="16"
                    TextColor="White"
                    HorizontalOptions="CenterAndExpand"
@@ -44,10 +64,12 @@
                     HorizontalOptions="CenterAndExpand"
                     Padding="74, 0, 74, 0"
                     FontFamily="QuicksandBold"
+                    VerticalOptions="EndAndExpand"
                     Command="{Binding OpenPageCommand}"
                     CommandParameter="Theme"/>
             <ContentView ControlTemplate="{StaticResource Footer}"
-                         VerticalOptions="EndAndExpand"/>
+                         VerticalOptions="EndAndExpand"
+                         Padding="10, 0, 10, 10"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
