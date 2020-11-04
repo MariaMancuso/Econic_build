@@ -18,12 +18,17 @@
                 </magicGradients:GradientView.GradientSource>
             </magicGradients:GradientView>
 
-            <Grid VerticalOptions="Center" Margin="0, 230, 0, 0">
+            <Grid VerticalOptions="Center" Margin="0, 200, 0, 0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Image Grid.Row="1" Source="yellow_spash_screen_shape.png" HeightRequest="375" WidthRequest="360" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Image Grid.Row="1" 
+                       Source="yellow_spash_screen_shape.png" 
+                       HorizontalOptions="End" 
+                       HeightRequest="255" 
+                       WidthRequest="365" 
+                       VerticalOptions="CenterAndExpand"/>
                 <Label Grid.Row="1" Padding="100, 0, 60, 0" 
                            Text="IN 30 MINUTES YOUR NEW MOBILE BUSINESS WILL ROCK! AND IT'S FREE" 
                            HorizontalOptions="CenterAndExpand"
@@ -37,8 +42,17 @@
                
             </Grid>
 
-            <Image Source="red_deal_icon.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Start" Margin="15" WidthRequest="50" HeightRequest="50"/>
-            <ImageButton Clicked="BtnClicked" Style="{StaticResource SplashButton}"/>
+            <Image Source="{Binding RevyvvLogo[0]}" 
+                   Aspect="AspectFit" 
+                   HorizontalOptions="CenterAndExpand" 
+                   VerticalOptions="Start" 
+                   Margin="15" 
+                   WidthRequest="50" 
+                   HeightRequest="50"/>
+            <ImageButton 
+                         Style="{StaticResource SplashButton}"
+                         Command="{Binding OpenPageCommand}"
+                         CommandParameter="RewardSplash"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

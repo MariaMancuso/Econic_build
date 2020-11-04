@@ -79,6 +79,18 @@ namespace Econic.Mobile.ViewModels
             ClickedCommand = new Command<string>((arg) => NextPage(arg));
             BoxCommand = new Command<Color>((arg) => SetThemeColor(arg));
         }
+
+        public string[] RevyvvLogo
+        {
+            get
+            {
+                return new string[]
+                {
+                    "logo.png"
+                };
+            }
+        }
+
         public OwnerModel User { get; set; }
         public ItemModel CurrentItemModel { get; set; }
         public SelectionViewModel CMSelectionViewModel
@@ -339,6 +351,18 @@ namespace Econic.Mobile.ViewModels
                     break;
                 case "ChooseLogo":
                     await Application.Current.MainPage.Navigation.PushAsync(new ChooseLogo(this));
+                    break;
+                case "RewardSplash":
+                    await Application.Current.MainPage.Navigation.PushAsync(new RewardSplash() { BindingContext = this });
+                    break;
+                case "DealSplash":
+                    await Application.Current.MainPage.Navigation.PushAsync(new DealSplash() { BindingContext = this });
+                    break;
+                case "MoneySplash":
+                    await Application.Current.MainPage.Navigation.PushAsync(new MoneySplash() { BindingContext = this });
+                    break;
+                case "BusinessName":
+                    await Application.Current.MainPage.Navigation.PushAsync(new CheckNameClassifyBusiness() { BindingContext = this });
                     break;
                 default:
                     return;

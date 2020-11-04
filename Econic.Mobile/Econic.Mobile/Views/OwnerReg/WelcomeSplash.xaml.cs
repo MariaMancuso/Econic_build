@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Econic.Mobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,13 +13,11 @@ namespace Econic.Mobile.Views.OwnerReg
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WelcomeSplash : ContentPage
     {
+        OwnerBoardingViewModel owner = new OwnerBoardingViewModel();
         public WelcomeSplash()
         {
             InitializeComponent();
-        }
-        async void BtnClicked(object sender, EventArgs args)
-        {
-            await Navigation.PushAsync(new RewardSplash());
+            BindingContext = owner;
         }
     }
 }

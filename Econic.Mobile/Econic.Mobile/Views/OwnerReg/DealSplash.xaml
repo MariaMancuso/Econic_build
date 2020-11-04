@@ -29,8 +29,16 @@
                     <Label Grid.Row="1" Padding="80, 0, 50, 0" Text="OFFERS YOUR BEST CUSTOMERS THE BEST DEALS" FontFamily="QuicksandBold" TextColor="White" FontSize="28" VerticalOptions="End" />
                 </StackLayout>
             </Grid>
-            <Image Source="red_deal_icon.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Start" Margin="15" WidthRequest="50" HeightRequest="50" />
-            <ImageButton Clicked="BtnClicked" Style="{StaticResource SplashButton}" />
+            <Image Source="{Binding RevyvvLogo[0]}" 
+                   Aspect="AspectFit" 
+                   HorizontalOptions="CenterAndExpand" 
+                   VerticalOptions="Start" 
+                   Margin="15" 
+                   WidthRequest="50" 
+                   HeightRequest="50" />
+            <ImageButton Style="{StaticResource SplashButton}" 
+                          Command="{Binding OpenPageCommand}"
+                         CommandParameter="MoneySplash"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
