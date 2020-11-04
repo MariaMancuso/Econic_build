@@ -69,11 +69,10 @@
                                                Grid.Row="0"
                                                Grid.Column="0"
                                                HeightRequest="50">
-                            <combobox:SfComboBox 
+                            <combobox:SfComboBox x:Name="goodsBox"
                                                 FontFamily="QuicksandMedium" 
                                                 BackgroundColor="Transparent" 
                                                 NoResultsFoundText="No Results Found"
-                                                
                                                 HeightRequest="50"
                                                 IsEditableMode="True"
                                                 AllowFiltering="True"

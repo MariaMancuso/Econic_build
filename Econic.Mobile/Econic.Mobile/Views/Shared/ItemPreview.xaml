@@ -61,7 +61,10 @@
                     VerticalOptions="End"/>
 
             <StackLayout Grid.Row="4" VerticalOptions="End">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="SharedPreview" Text="Done" Style="{StaticResource NextItemButton}"/>
+                <Button Command="{Binding OpenPageCommand}" 
+                        CommandParameter="SharedPreview" 
+                        Text="Done" 
+                        Style="{StaticResource NextItemButton}"/>
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
         </Grid>

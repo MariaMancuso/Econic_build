@@ -59,9 +59,10 @@ namespace Econic.Mobile
         }
         protected override void OnStart()
         {
-            AppCenter.Start("android=1a9e1431-a251-474c-aa72-2deb1ba40b4e;" +
-                  "ios=56e09e3b-62b9-49a0-9aea-d4e79016dad1;",
-                  typeof(Analytics), typeof(Crashes));
+            //DO NOT DELETE
+            //AppCenter.Start("android=83f2adab-6ee2-4e54-ac8c-ed063abd0947;"
+            //    + "ios=ec3f5a5c-fb48-4a0d-9792-f1a00403a27f;",
+            //      typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()
