@@ -4,7 +4,8 @@
              x:Class="Econic.Mobile.Views.Gamification.FourthPreview" 
              NavigationPage.HasNavigationBar="False" 
              BackgroundColor="WhiteSmoke" 
-             ControlTemplate="{StaticResource NavigationTemplate}" 
+             Padding="10, 0, 10, 0"
+             ControlTemplate="{StaticResource PageWithoutBackBtn}" 
              xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
     
     <ContentPage.Content>
@@ -13,12 +14,26 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Label Grid.Row="0" Text="Now that your store is open and ready to make money, let's make it secure." FontFamily="QuicksandBold" TextColor="#404040" FontSize="20" />
 
-            <lottie:AnimationView Grid.Row="1" Animation="annimationtest.json" AutoPlay="True" Loop="True" />
-
+            <Image Source="secure_background.png"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   Grid.Row="1"/>
+            <StackLayout Grid.Row="1" Padding="0">
+                <Image Source="customer_line.png"
+                   HorizontalOptions="Start"
+                   VerticalOptions="End"
+                   HeightRequest="175"/>
+                <Image Source="half_tom_w_key.png"
+                   VerticalOptions="EndAndExpand"
+                   HorizontalOptions="EndAndExpand"
+                   HeightRequest="200"
+                   Grid.Row="1"/>
+            </StackLayout>
             <StackLayout Grid.Row="2" VerticalOptions="End">
                 <Button Command="{Binding OpenPageCommand}" CommandParameter="LoyaltyPreview" Text="Let's sell some deals" Style="{StaticResource NextItemButton}" />
                 <ContentView ControlTemplate="{StaticResource Footer}" />

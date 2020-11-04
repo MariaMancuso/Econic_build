@@ -325,8 +325,8 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new Permission(this));
                     break;
                 case "FourthPreview":
-                    bool Granted = await permissionService.RequestAllPermissions();
-                    if(Granted)
+                    //bool Granted = await permissionService.RequestAllPermissions();
+                    //if(Granted)
                         await Application.Current.MainPage.Navigation.PushAsync(new FourthPreview(this));
                     break;
                 case "LoyaltyPreview":

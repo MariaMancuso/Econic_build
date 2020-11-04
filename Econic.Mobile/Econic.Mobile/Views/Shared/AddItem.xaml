@@ -20,8 +20,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
+        <ScrollView>
         <Grid RowSpacing="10" x:Name="bodyContent">
-            <Grid.RowDefinitions>
+            
+                <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="200" />
                 <RowDefinition Height="Auto" />
@@ -51,15 +53,15 @@
                 <Button Text="Change" Clicked="OnChangeClicked" BackgroundColor="Transparent" TextColor="#cc3636" FontFamily="QuicksandBold" />
                 <Button Text="Save" Clicked="OnSaveClicked" BackgroundColor="Transparent" TextColor="CornflowerBlue" FontFamily="QuicksandBold" x:Name="savebutton" />
             </StackLayout>
-            <ScrollView Grid.Row="3">
-                <StackLayout>
+            <!--<ScrollView Grid.Row="3">-->
+                <StackLayout Grid.Row="3">
                     <StackLayout  Spacing="20" >
                         <inputLayout:SfTextInputLayout InputViewPadding="10" ContainerType="Outlined" OutlineCornerRadius="5" FocusedColor="#404040" BackgroundColor="Transparent" Hint="Selection type" HeightRequest="40">
                             <combobox:SfComboBox FontFamily="QuicksandMedium" BackgroundColor="Transparent" NoResultsFoundText="No Results Found" HeightRequest="40" IsEditableMode="True" AllowFiltering="True" DisplayMemberPath="Name" SelectedItem="{Binding CurrentItemModel.Type}" SelectionChanged="OnTypeChanged">
                                 <combobox:SfComboBox.ComboBoxSource>
                                     <ListCollection:List x:TypeArguments="x:String">
-                                        <x:String>Good</x:String>
-                                        <x:String>Service</x:String>
+                                        <x:String>Goods</x:String>
+                                        <x:String>Services</x:String>
                                     </ListCollection:List>
                                 </combobox:SfComboBox.ComboBoxSource>
                             </combobox:SfComboBox>
@@ -128,8 +130,9 @@
                         <ContentView ControlTemplate="{StaticResource Footer}" />
                     </StackLayout>
                 </StackLayout>
-            </ScrollView>
 
+            
         </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
