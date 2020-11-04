@@ -13,9 +13,9 @@ namespace Econic.Mobile.Views.OwnerReg
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WelcomeSplash : ContentPage
     {
-        OwnerBoardingViewModel owner = new OwnerBoardingViewModel();
         public WelcomeSplash()
         {
+            OwnerBoardingViewModel owner = new OwnerBoardingViewModel();
             InitializeComponent();
             BindingContext = owner;
         }

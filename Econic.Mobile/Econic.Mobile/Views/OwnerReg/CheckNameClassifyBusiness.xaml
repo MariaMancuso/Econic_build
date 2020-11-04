@@ -27,11 +27,11 @@
             <StackLayout Grid.Row="1">
                 <Grid Padding="20, 0, 20, 0" RowSpacing="40" VerticalOptions="FillAndExpand">
                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
                     <StackLayout Grid.Row="0" Padding="0, 0, 20, 0">
                         <Label Text="We're so happy to see you getting started with Revyvv. What shall we call you?" 
                                FontFamily="QuicksandBold" 
@@ -40,19 +40,19 @@
                         <Label Text="*All field are required" FontSize="16" FontFamily="Quicksand"/>
                     </StackLayout>
                     <StackLayout Grid.Row="1">
-                                        <Label Text="This is what my business is called:" 
+                        <Label Text="This is what my business is called:" 
                                                TextColor="#404040" 
                                                FontFamily="QuicksandBold" />
-                                    <inputLayout:SfTextInputLayout InputViewPadding="10" 
+                        <inputLayout:SfTextInputLayout InputViewPadding="10" 
                                                                    Hint="Your business name here" 
                                                                    ContainerType="Outlined" 
                                                                    OutlineCornerRadius="5" 
                                                                    FocusedColor="#404040">
-                                        <Entry ReturnType="Next" Text="{Binding User.BusinessName, Mode=TwoWay}" FontFamily="QuicksandMedium" />
-                                    </inputLayout:SfTextInputLayout>
-                                      </StackLayout>
+                            <Entry ReturnType="Next" Text="{Binding User.BusinessName, Mode=TwoWay}" FontFamily="QuicksandMedium" />
+                        </inputLayout:SfTextInputLayout>
+                    </StackLayout>
 
-                                    <StackLayout Grid.Row="2" Spacing="10">
+                    <StackLayout Grid.Row="2" Spacing="10">
                         <Label Text="My business sells:" 
                                                FontFamily="QuicksandBold"
                                                TextColor="#404040" 
@@ -80,19 +80,6 @@
                                                 DisplayMemberPath="Name">
                             </combobox:SfComboBox>
                         </inputLayout:SfTextInputLayout>
-                                        
-                        <!--<inputLayout:SfTextInputLayout Style="{x:StaticResource cutominputlayout}"
-                                                       Hint="Goods">
-                                        <combobox:SfComboBox 
-                                                Style="{x:StaticResource cutomcombobox}"
-                                            SelectedItem="{Binding User.Good}">
-                                <combobox:SfComboBox.ComboBoxSource>
-                                    <ListCollection:List x:TypeArguments="x:String">
-                                        <x:String>N/A</x:String>
-                                    </ListCollection:List>
-                                </combobox:SfComboBox.ComboBoxSource>
-                                        </combobox:SfComboBox>
-                                    </inputLayout:SfTextInputLayout>-->
 
                         <inputLayout:SfTextInputLayout InputViewPadding="10" 
                                               Hint="Services"
@@ -115,22 +102,19 @@
                             </combobox:SfComboBox>
                         </inputLayout:SfTextInputLayout>
 
-                        <!--<inputLayout:SfTextInputLayout Style="{x:StaticResource cutominputlayout}"
-                                                       Hint="Services">
-                                        <combobox:SfComboBox 
-                                                 Style="{x:StaticResource cutomcombobox}"
-                                            SelectedItem="{Binding User.Service}">
-                                        </combobox:SfComboBox>
-                                    </inputLayout:SfTextInputLayout>-->
-                                </StackLayout>
+                    </StackLayout>
 
-                                    <StackLayout Grid.Row="3" VerticalOptions="End">
-                        <Button Command="{Binding OpenPageCommand}" CommandParameter="Address" Text="Continue" Style="{StaticResource NextItemButton}" BackgroundColor="#ff3475b7"/>
-                                        <ContentView ControlTemplate="{StaticResource Footer}" Margin="0, 0, 0, 20" />
-                                    </StackLayout>
-                                </Grid>
-                            </StackLayout>
-
-                        </Grid>
+                    <StackLayout Grid.Row="3" VerticalOptions="End">
+                        <Button Command="{Binding OpenPageCommand}"
+                                CommandParameter="Address"
+                                Text="Continue" 
+                                Style="{StaticResource NextItemButton}" 
+                                BackgroundColor="#ff3475b7"/>
+                        <ContentView ControlTemplate="{StaticResource Footer}" 
+                                                     Margin="0, 0, 0, 20" />
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

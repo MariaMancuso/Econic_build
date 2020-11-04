@@ -15,6 +15,10 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+
 
 [assembly: ExportFont("Quicksand-Regular.ttf", Alias = "Quicksand")]
 [assembly: ExportFont("Quicksand-Bold.ttf", Alias = "QuicksandBold")]
@@ -38,7 +42,7 @@ namespace Econic.Mobile
         {
             CrossMultilingual.Current.CurrentCultureInfo = new CultureInfo("en");
             AppResources.Culture = CrossMultilingual.Current.CurrentCultureInfo;
-            Device.SetFlags(new[] { "SwipeView_Experimental", "Expander_Experimental" });
+			Xamarin.Forms.Device.SetFlags(new[] { "SwipeView_Experimental", "Expander_Experimental" });
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzMzMzI5QDMxMzgyZTMzMmUzMFpUbmo3aGYzM2M5R2cyTmc0WjlhRmhnckFPT3RVR2tzTGlkMlk1WSs0bnM9");
 
             InitializeComponent();
@@ -55,6 +59,9 @@ namespace Econic.Mobile
         }
         protected override void OnStart()
         {
+            AppCenter.Start("android=1a9e1431-a251-474c-aa72-2deb1ba40b4e;" +
+                  
+                  typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()

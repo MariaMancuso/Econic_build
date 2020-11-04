@@ -23,10 +23,24 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="red_splash_screen_shape.png" HorizontalOptions="EndAndExpand" WidthRequest="375" HeightRequest="250" Aspect="Fill" />
+                <Image Grid.Row="0" 
+                       Source="red_splash_screen_shape.png" 
+                       HorizontalOptions="EndAndExpand" 
+                       WidthRequest="375" 
+                       HeightRequest="250" 
+                       Aspect="Fill" />
                 <StackLayout Grid.Row="0" VerticalOptions="Center">
-                    <Label Padding="80, 0, 0, 0" Text="Revyvv" TextColor="White" FontSize="30" />
-                    <Label Grid.Row="1" Padding="80, 0, 50, 0" Text="OFFERS YOUR BEST CUSTOMERS THE BEST DEALS" FontFamily="QuicksandBold" TextColor="White" FontSize="28" VerticalOptions="End" />
+                    <Label Padding="80, 0, 0, 0" 
+                           Text="Revyvv" 
+                           TextColor="White" 
+                           FontSize="30" />
+                    <Label Grid.Row="1" 
+                           Padding="80, 0, 50, 0" 
+                           Text="OFFERS YOUR BEST CUSTOMERS THE BEST DEALS" 
+                           FontFamily="QuicksandBold" 
+                           TextColor="White" 
+                           FontSize="28" 
+                           VerticalOptions="End" />
                 </StackLayout>
             </Grid>
             <Image Source="{Binding RevyvvLogo[0]}" 

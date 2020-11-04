@@ -16,7 +16,7 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Row="0"
-                   Text="Preview of your services. Do you want to buy it?" 
+                   Text="This is the preview of your deals! How do they look?" 
                    FontFamily="QuicksandBold"
                    TextColor="#404040" 
                    FontSize="20"/>
@@ -52,7 +52,13 @@
 
             <Button Command="{Binding AddAnotherTapped}" 
                     Grid.Row="3" 
-                    BackgroundColor="#DFECF2" TextColor="#517486" Text="+ Add another" CornerRadius="20" HorizontalOptions="Center" Padding="10, 0, 10, 0" VerticalOptions="End"/>
+                    BackgroundColor="#DFECF2" 
+                    TextColor="#517486" 
+                    Text="+ Add another" 
+                    CornerRadius="20"
+                    HorizontalOptions="Center" 
+                    Padding="10, 0, 10, 0" 
+                    VerticalOptions="End"/>
 
             <StackLayout Grid.Row="4" VerticalOptions="End">
                 <Button Command="{Binding OpenPageCommand}" CommandParameter="SharedPreview" Text="Done" Style="{StaticResource NextItemButton}"/>
