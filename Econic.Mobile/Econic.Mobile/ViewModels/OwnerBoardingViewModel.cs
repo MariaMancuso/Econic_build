@@ -148,13 +148,6 @@ namespace Econic.Mobile.ViewModels
                 case "Book":
                     await Application.Current.MainPage.Navigation.PushAsync(new BookAppointment());
                     break;
-
-                //case "Notify":
-                //	await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this });
-
-               
-
-                    //break;
                 case "ETGoHome":
                     await Application.Current.MainPage.Navigation.PushAsync(new DealBoard());
                     break;
@@ -286,7 +279,7 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new SecondPreview(this));
                     break;
                 case "NotifyMethod":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Notify { BindingContext = this});
+                    await Application.Current.MainPage.Navigation.PushAsync(new LightsOnGamification { BindingContext = this});
                     //foreach(string notifymethod in nSelection.Items)
                     //{
                     //    if(!User.NotifyMethods.Any(x => x.Name == notifymethod))

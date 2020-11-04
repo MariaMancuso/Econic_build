@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Econic.Mobile.Views.OwnerReg.LightsOnGamification"
+             ControlTemplate="{StaticResource PageWithoutBackBtn}">
+    <ContentPage.Content>
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Padding="10, 0, 10, 0">
+                <Label Text="We like your style. Your business is looking good." 
+                       FontFamily="QuicksandBold" 
+                       TextColor="#404040" 
+                       FontSize="20" 
+                       Grid.Row="0"/>
+
+                <Label Text="{Binding User.BusinessName}" 
+                       Grid.Row="1"
+                       HorizontalOptions="CenterAndExpand"
+                       FontFamily="QuicksandBold" 
+                       TextColor="#404040" 
+                       FontSize="20"
+                       Padding="0, 30, 0, 30"/>
+                <Image Grid.Row="2" Source="store_lights_on.png"
+                           HeightRequest="125"/>
+            </StackLayout>
+            <Grid Grid.Row="2" 
+                  VerticalOptions="EndAndExpand" 
+                  RowSpacing="10">
+                <StackLayout Grid.ColumnSpan="2"
+                             Grid.RowSpan="2">
+                    <Image Source="bg_animation.png" 
+                           HorizontalOptions="CenterAndExpand"
+                           Aspect="AspectFill"
+                           HeightRequest="225"
+                           WidthRequest="400"/>
+                </StackLayout>
+                <StackLayout Padding="0, 40, 20, 0"
+                             HorizontalOptions="StartAndExpand"
+                           VerticalOptions="EndAndExpand">
+                    <Image Source="component_467_1.png"
+                           WidthRequest="225"
+                           HeightRequest="200"
+                           Grid.RowSpan="2"
+                           Grid.Column="0"/>
+                </StackLayout>
+                <Label Text="See the lights? They're on!"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       Padding="20, 0, 0, 60"
+                       FontSize="12"
+                       FontFamily="QuicksandBold"
+                       Grid.ColumnSpan="2"
+                       Grid.RowSpan="2"/>
+            </Grid>
+            <StackLayout Grid.Row="3" >
+                <Button Command="{Binding OpenPageCommand}"
+                        CommandParameter="EconicStudio" 
+                        Text="Let's Keep Building" 
+                        Style="{StaticResource NextItemButton}" />
+                <ContentView ControlTemplate="{StaticResource Footer}" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
