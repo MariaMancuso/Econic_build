@@ -2,7 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Econic.Mobile.Views.OwnerProfile.AdminMenu" 
-             Padding="20, 0, 20, 0">
+             Padding="20, 0, 20, 0"
+             NavigationPage.HasNavigationBar="True"
+             BackgroundColor="WhiteSmoke">
+        <NavigationPage.TitleView >
+        <StackLayout Orientation="Horizontal" Padding="10, 0, 10, 0">
+            <Label Text="{Binding User.BusinessName}" TextColor="Silver" VerticalOptions="Center"/>
+            <ImageButton 
+                Clicked="SettingsTapped"
+                BackgroundColor="Transparent" 
+                Source="icon_settings" 
+                HorizontalOptions="EndAndExpand"
+                HeightRequest="35" 
+                WidthRequest="35"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
         <Grid RowSpacing="10">
             <Grid.RowDefinitions>
@@ -40,11 +54,11 @@
                 <StackLayout>
                     <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
                         <StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 0, 0, 20" />
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="icon_purchase" WidthRequest="30" HeightRequest="30" />
                                 <Label Text="Purchases" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
                             </StackLayout>
-                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
                         </StackLayout>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="PurchaseTapped" />
@@ -52,11 +66,11 @@
                     </Frame>
                     <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
                         <StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 0, 0, 20" />
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="icon_contacts" WidthRequest="30" HeightRequest="30" />
                                 <Label Text="Customers" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
                             </StackLayout>
-                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
                         </StackLayout>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="CustomersTapped" />
@@ -64,11 +78,11 @@
                     </Frame>
                     <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
                         <StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 0, 0, 20" />
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="icon_promo" WidthRequest="30" HeightRequest="30" />
                                 <Label Text="Promotions" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
                             </StackLayout>
-                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
                         </StackLayout>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="" />
@@ -76,11 +90,11 @@
                     </Frame>
                     <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
                         <StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 0, 0, 20" />
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="icon_employees" WidthRequest="30" HeightRequest="30" />
                                 <Label Text="Employees" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
                             </StackLayout>
-                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
                         </StackLayout>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="EmployeesTapped" />
@@ -88,11 +102,11 @@
                     </Frame>
                     <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
                         <StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 0, 0, 20" />
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="icon_service" WidthRequest="30" HeightRequest="30" />
                                 <Label Text="Goods &amp; Services" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
                             </StackLayout>
-                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
                         </StackLayout>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="GoodAndServicesTapped" />
@@ -100,11 +114,11 @@
                     </Frame>
                     <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
                         <StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 0, 0, 20" />
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="icon_revyvvweb" WidthRequest="30" HeightRequest="30" />
                                 <Label Text="Revyvv Web" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
                             </StackLayout>
-                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
                         </StackLayout>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding OpenPageCommand}" CommandParameter="Revyvvweb" />
@@ -112,11 +126,11 @@
                     </Frame>
                     <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
                         <StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 0, 0, 20" />
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="icon_qr" WidthRequest="30" HeightRequest="30" />
                                 <Label Text="My QR codes" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
                             </StackLayout>
-                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
                         </StackLayout>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="QrTapped" />
@@ -124,11 +138,11 @@
                     </Frame>
                     <Frame BackgroundColor="Transparent" Padding="0, 10, 0, 10">
                         <StackLayout>
+                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 0, 0, 20" />
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="icon_location" WidthRequest="30" HeightRequest="30" />
                                 <Label Text="Business Locations" TextColor="#404040" FontFamily="QuicksandBold" VerticalOptions="Center" />
                             </StackLayout>
-                            <BoxView HeightRequest="0.5" BackgroundColor="Gray" Margin="0, 20, 0, 0" />
                         </StackLayout>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="LocationsTapped" />

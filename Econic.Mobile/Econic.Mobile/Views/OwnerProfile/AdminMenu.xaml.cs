@@ -1,4 +1,5 @@
 ﻿using Econic.Mobile.ViewModels;
+using Econic.Mobile.Views.Shared.HamburgerMenu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,10 @@ namespace Econic.Mobile.Views.OwnerProfile
         public AdminMenu()
         {
             InitializeComponent();
+        }
+        public async void SettingsTapped(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new SettingList { BindingContext = this.BindingContext });
         }
         public async void QrTapped(object sender, EventArgs args)
         {

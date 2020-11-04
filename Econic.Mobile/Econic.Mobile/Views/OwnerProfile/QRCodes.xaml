@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Econic.Mobile.Views.OwnerProfile.QRCodes" 
-             NavigationPage.HasNavigationBar="False" 
-             BackgroundColor="WhiteSmoke" 
-             ControlTemplate="{StaticResource NavigationTemplate}">
+             NavigationPage.HasNavigationBar="True" 
+             BackgroundColor="WhiteSmoke"
+             Padding="20, 0, 20, 0">
     
     <ContentPage.Content>
         <Grid RowSpacing="30">

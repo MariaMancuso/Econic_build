@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace Econic.Mobile.Views.OwnerProfile
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OwnerTabbedPage : Xamarin.Forms.TabbedPage
+    public partial class OwnerTabbedPage : Renderers.CustomTabbedPage
     {
         public OwnerTabbedPage()
         {

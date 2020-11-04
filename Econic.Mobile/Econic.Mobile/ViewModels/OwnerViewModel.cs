@@ -111,12 +111,6 @@ namespace Econic.Mobile.ViewModels
         {
             switch (value)
             {
-                case "QRcode":
-                    await Application.Current.MainPage.Navigation.PushAsync(new QRCodes { BindingContext = this});
-                    break;
-                case "Settings":
-                    await Application.Current.MainPage.Navigation.PushAsync(new SettingList { BindingContext = this });
-                    break;
                 case "ViewEmployee":
                     await Task.Delay(5);
                     await Application.Current.MainPage.Navigation.PushAsync(new ViewEmployee { BindingContext = this });

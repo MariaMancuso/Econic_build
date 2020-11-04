@@ -70,7 +70,17 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout Padding="5">
-                                    <Button Text="{Binding Day[0]}" TextColor="{Binding IsSelected, Converter={StaticResource cnvlabel}}" BackgroundColor="{Binding IsSelected, Converter={StaticResource cnvbackground}}" BorderColor="{Binding IsWorking, Converter={StaticResource cnvborder}}" CornerRadius="20" WidthRequest="40" HeightRequest="40" BorderWidth="1" Command="{Binding BindingContext.DayTappedCommand, Source={x:Reference Page}}" CommandParameter="{Binding .}">
+                                    <Button 
+                                        Text="{Binding Day[0]}" 
+                                        TextColor="{Binding IsSelected, Converter={StaticResource cnvlabel}}" 
+                                        BackgroundColor="{Binding IsSelected, Converter={StaticResource cnvbackground}}" 
+                                        BorderColor="{Binding IsWorking, Converter={StaticResource cnvborder}}" 
+                                        CornerRadius="20" 
+                                        WidthRequest="40" 
+                                        HeightRequest="40" 
+                                        BorderWidth="1" 
+                                        Command="{Binding BindingContext.DayTappedCommand, Source={x:Reference Page}}" 
+                                        CommandParameter="{Binding .}">
                                     </Button>
                                 </StackLayout>
                             </DataTemplate>

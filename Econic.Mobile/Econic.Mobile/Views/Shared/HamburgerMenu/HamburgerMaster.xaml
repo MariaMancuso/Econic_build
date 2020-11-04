@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Econic.Mobile.Views.Shared.HamburgerMenu.HamburgerMaster"
-             Title="Master">
-  <StackLayout>
-        <StackLayout Padding="0,20,0,20" HorizontalOptions="Start">
+             Title="Master"
+             Padding="20, 20, 20, 0">
+  <StackLayout Spacing="20">
+        <StackLayout HorizontalOptions="Start">
             <Image Source="profilepic.png" Aspect="AspectFit" WidthRequest="85" HeightRequest="85" />
             <Label Text="Name" TextColor="#404040" FontFamily="QuickSandBold" />
             <Label Text="Business Name" TextColor="#404040" FontFamily="QuickSandBold" />
@@ -12,9 +13,9 @@
         <ListView x:Name="MenuItemsListView" SeparatorVisibility="None" HasUnevenRows="true" ItemsSource="{Binding MenuItems}">
             <ListView.ItemTemplate>
         <DataTemplate>
-                    <ViewCell>
+                    <ViewCell Height="60">
                         <!-- Main design for our menu items -->
-                        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20">
+                        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
                             <Image Source="{Binding Icon}" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" />
                             <Label Text="{Binding Title}" FontSize="Medium" FontFamily="QuickSandBold" VerticalOptions="Center" TextColor="#404040" />
                         </StackLayout>

@@ -326,20 +326,15 @@ namespace Econic.Mobile.ViewModels
                 case "Profile":
                     OwnerViewModel model = new OwnerViewModel(User);
                     var page = new Hamburger { BindingContext = model };
-                    //page.Master = new HamburgerMaster { BindingContext = model };
-                    page.Detail = new NavigationPage(new OwnerTabbedPage
+                    page.Detail = new OwnerTabbedPage
                     {
                         BindingContext = model,
                         BarBackgroundColor = Color.WhiteSmoke
-                    })
-                    {
-                        BarBackgroundColor = Color.WhiteSmoke,
-                        BackgroundColor = Color.WhiteSmoke
                     };
                     await Application.Current.MainPage.Navigation.PushAsync(page);
                     break;
                 case "EconicStudio":
-                    await Application.Current.MainPage.Navigation.PushAsync(new Views.EconicStudio.WelcomeScreen(this));
+                    await Application.Current.MainPage.Navigation.PushAsync(new WelcomeScreen(this));
                     break;
                 case "Theme":
                     await Application.Current.MainPage.Navigation.PushAsync(new ChooseTheme(this));
