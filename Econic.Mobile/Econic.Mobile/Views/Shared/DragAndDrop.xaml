@@ -4,7 +4,7 @@
              x:Class="Econic.Mobile.Views.Shared.DragAndDrop"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="WhiteSmoke"
-             ControlTemplate="{StaticResource NavigationTemplate}"
+             ControlTemplate="{StaticResource PageWithoutBackBtn}"
              xmlns:conventer="clr-namespace:Econic.Mobile.Services"
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms">
     <ContentPage.Resources>
@@ -21,7 +21,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             
-            <Label Grid.Row="0" Text="We do some pretty cool things for you, if we don't say so ourselves!" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20"/>
+            <Label Grid.Row="0" Text="Revyvv puts serious power into your hands. What's most important to you?" FontFamily="QuicksandBold" TextColor="#404040" FontSize="20"/>
             <Label Grid.Row="1" Text="Drag to rank in order of importance to you" TextColor="#404040" FontFamily="QuicksandSemiBold" />
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
@@ -67,7 +67,7 @@
             </Grid>
 
                 <StackLayout Grid.Row="3" VerticalOptions="End">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="SharedDragnDrop" Text="Next" Style="{StaticResource NextItemButton}"/>
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="SharedDragnDrop" Text="Continue" Style="{StaticResource NextItemButton}"/>
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>
             

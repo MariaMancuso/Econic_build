@@ -28,8 +28,17 @@
                     <Label Text="To join the Revyvv Revolution, please follow the short set up wizard and answer all our annoying questions. You'll be glad you did." TextColor="White" FontSize="16" FontFamily="QuicksandBold" />
                 </StackLayout>
             </Grid>
-            <Image Source="red_deal_icon.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Start" Margin="15" WidthRequest="50" HeightRequest="50" />
-            <ImageButton Clicked="BtnClicked" Style="{StaticResource SplashButton}" />
+            <Image Source="{Binding RevyvvLogo[0]}"
+                   Aspect="AspectFit" 
+                   HorizontalOptions="CenterAndExpand" 
+                   VerticalOptions="Start" 
+                   Margin="15" 
+                   WidthRequest="50" 
+                   HeightRequest="50" />
+            <ImageButton 
+                         Style="{StaticResource SplashButton}" 
+                         Command="{Binding OpenPageCommand}"
+                         CommandParameter="BusinessName"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

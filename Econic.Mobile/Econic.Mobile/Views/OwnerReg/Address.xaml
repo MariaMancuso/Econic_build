@@ -26,7 +26,7 @@
                 <StackLayout Grid.Row="1" Orientation="Vertical">
                     
                     <inputLayout:SfTextInputLayout InputViewPadding="10" 
-                                               Hint="Address 1" 
+                                               Hint="Your business address here" 
                                                ContainerType="Outlined" 
                                                OutlineCornerRadius="5" 
                                                FocusedColor="#404040"
@@ -135,13 +135,13 @@
                            TextColor="#404040"
                            Padding="0, 40, 0, 0"/>
                     <inputLayout:SfTextInputLayout InputViewPadding="10"  
-                                               ContainerType="Outlined" 
-                                               OutlineCornerRadius="5" 
-                                               FocusedColor="#404040"
-                                               BackgroundColor="Transparent"
-                                               Grid.Column="0" Grid.Row="2"
-                                               HeightRequest="50"
-                                                   Hint="Service Area">
+                                                   ContainerType="Outlined" 
+                                                   OutlineCornerRadius="5" 
+                                                   FocusedColor="#404040"
+                                                   BackgroundColor="Transparent"
+                                                   Grid.Column="0" Grid.Row="2"
+                                                   HeightRequest="50"
+                                                   Hint="My service area">
                         <combobox:SfComboBox 
                                                 FontFamily="QuicksandMedium" 
                                                 BackgroundColor="Transparent" 

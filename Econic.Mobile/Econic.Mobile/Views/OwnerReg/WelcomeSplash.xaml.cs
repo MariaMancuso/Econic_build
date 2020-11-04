@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Econic.Mobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,11 +15,9 @@ namespace Econic.Mobile.Views.OwnerReg
     {
         public WelcomeSplash()
         {
+            OwnerBoardingViewModel owner = new OwnerBoardingViewModel();
             InitializeComponent();
-        }
-        async void BtnClicked(object sender, EventArgs args)
-        {
-            await Navigation.PushAsync(new RewardSplash());
+            BindingContext = owner;
         }
     }
 }

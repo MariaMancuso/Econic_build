@@ -4,7 +4,7 @@
              x:Class="Econic.Mobile.Views.OwnerReg.FirstPreview"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="WhiteSmoke"
-             ControlTemplate="{StaticResource PageWithoutBackBtn}"
+             ControlTemplate="{StaticResource NavigationTemplate}"
              xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              Padding="0">
     <ContentPage.Content>

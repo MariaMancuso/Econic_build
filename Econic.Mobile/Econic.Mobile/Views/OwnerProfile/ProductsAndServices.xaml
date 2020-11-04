@@ -52,8 +52,8 @@
                     </sync:SfListView.ItemTemplate>
                 </sync:SfListView>
             </StackLayout>
-            <StackLayout Grid.Row="2">
-                <Button Command="{Binding OpenPageCommand}" CommandParameter="AddAnother" Text="+ Add a Product" Style="{x:StaticResource SecondaryBtn}" HorizontalOptions="Center" Margin="0, 10, 0, 10"/>
+            <StackLayout Grid.Row="2" Spacing="20">
+                <Button Command="{Binding OpenPageCommand}" CommandParameter="AddAnother" Text="+ Add another" Style="{x:StaticResource SecondaryBtn}" HorizontalOptions="Center" Margin="0, 10, 0, 10"/>
                 <Button Command="{Binding OpenPageCommand}" CommandParameter="SharedPreview" Text="Next" Style="{StaticResource NextItemButton}" />
                 <ContentView ControlTemplate="{StaticResource Footer}" />
             </StackLayout>

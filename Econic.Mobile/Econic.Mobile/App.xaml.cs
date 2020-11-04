@@ -15,6 +15,10 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+
 
 [assembly: ExportFont("Quicksand-Regular.ttf", Alias = "Quicksand")]
 [assembly: ExportFont("Quicksand-Bold.ttf", Alias = "QuicksandBold")]
@@ -38,12 +42,12 @@ namespace Econic.Mobile
         {
             CrossMultilingual.Current.CurrentCultureInfo = new CultureInfo("en");
             AppResources.Culture = CrossMultilingual.Current.CurrentCultureInfo;
-            Device.SetFlags(new[] { "SwipeView_Experimental", "Expander_Experimental" });
+			Xamarin.Forms.Device.SetFlags(new[] { "SwipeView_Experimental", "Expander_Experimental" });
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzMzMzI5QDMxMzgyZTMzMmUzMFpUbmo3aGYzM2M5R2cyTmc0WjlhRmhnckFPT3RVR2tzTGlkMlk1WSs0bnM9");
 
             InitializeComponent();
 
-            Navigation = new NavigationPage(MainPage());
+            Navigation = new NavigationPage(new MainPage());
             Navigation.BarBackgroundColor = Color.WhiteSmoke;
             Navigation.BarTextColor = Color.FromHex("#404040");
 
@@ -55,6 +59,10 @@ namespace Econic.Mobile
         }
         protected override void OnStart()
         {
+            //DO NOT DELETE
+            //AppCenter.Start("android=83f2adab-6ee2-4e54-ac8c-ed063abd0947;"
+            //    + "ios=ec3f5a5c-fb48-4a0d-9792-f1a00403a27f;",
+            //      typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()

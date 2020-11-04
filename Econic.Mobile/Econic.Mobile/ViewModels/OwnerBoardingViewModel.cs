@@ -78,7 +78,20 @@ namespace Econic.Mobile.ViewModels
 
             ClickedCommand = new Command<string>((arg) => NextPage(arg));
             BoxCommand = new Command<Color>((arg) => SetThemeColor(arg));
+            //GetClassifications();
         }
+
+        public string[] RevyvvLogo
+        {
+            get
+            {
+                return new string[]
+                {
+                    "logo.png"
+                };
+            }
+        }
+
         public OwnerModel User { get; set; }
         public ItemModel CurrentItemModel { get; set; }
         public SelectionViewModel CMSelectionViewModel
@@ -99,8 +112,15 @@ namespace Econic.Mobile.ViewModels
         public string GetInitials()
         {
             Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
-            string init = initials.Replace(User.BusinessName, "$1");
-
+			string init;
+			if (User.BusinessName != null)
+			{
+                init = initials.Replace(User.BusinessName, "$1");
+            }
+            else
+			{
+                init = initials.Replace("Ziba Beauty", "$1");
+            }
             return init;
         }
         int height;
@@ -125,7 +145,21 @@ namespace Econic.Mobile.ViewModels
         public ObservableCollection<BoxColorModel> BoxColors { get; set; }
         public IList<BoxColorModel> box;
 
-		public event PropertyChangedEventHandler PropertyChanged;
+        private List<string> goods { get; set; }
+        public List<string> Goods
+		{
+            get { return goods; }
+            set { goods = value; }
+		}
+        private List<string> services { get; set; }
+
+        public List<string> Services
+		{
+			get { return services; }
+            set { services = value; }
+		}
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
 		public int PreviousPosition { get; set; }
         public int CurrentPosition { get; set; }
@@ -280,12 +314,6 @@ namespace Econic.Mobile.ViewModels
                     break;
                 case "NotifyMethod":
                     await Application.Current.MainPage.Navigation.PushAsync(new LightsOnGamification { BindingContext = this});
-                    //foreach(string notifymethod in nSelection.Items)
-                    //{
-                    //    if(!User.NotifyMethods.Any(x => x.Name == notifymethod))
-                    //        User.NotifyMethods.Add(new NotifyModel { Name = notifymethod });
-                    //}
-                    //await Application.Current.MainPage.Navigation.PushAsync(new Notify(this));
                     break;
                 case "Invite":
                     await Application.Current.MainPage.Navigation.PushAsync(new Invite(this));
@@ -297,8 +325,8 @@ namespace Econic.Mobile.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new Permission(this));
                     break;
                 case "FourthPreview":
-                    bool Granted = await permissionService.RequestAllPermissions();
-                    if(Granted)
+                    //bool Granted = await permissionService.RequestAllPermissions();
+                    //if(Granted)
                         await Application.Current.MainPage.Navigation.PushAsync(new FourthPreview(this));
                     break;
                 case "LoyaltyPreview":
@@ -334,6 +362,18 @@ namespace Econic.Mobile.ViewModels
                     break;
                 case "ChooseLogo":
                     await Application.Current.MainPage.Navigation.PushAsync(new ChooseLogo(this));
+                    break;
+                case "RewardSplash":
+                    await Application.Current.MainPage.Navigation.PushAsync(new RewardSplash() { BindingContext = this });
+                    break;
+                case "DealSplash":
+                    await Application.Current.MainPage.Navigation.PushAsync(new DealSplash() { BindingContext = this });
+                    break;
+                case "MoneySplash":
+                    await Application.Current.MainPage.Navigation.PushAsync(new MoneySplash() { BindingContext = this });
+                    break;
+                case "BusinessName":
+                    await Application.Current.MainPage.Navigation.PushAsync(new CheckNameClassifyBusiness() { BindingContext = this });
                     break;
                 default:
                     return;
@@ -381,6 +421,55 @@ namespace Econic.Mobile.ViewModels
             await Application.Current.MainPage.Navigation.PushAsync(new AddItem { BindingContext = this});
             frame.BackgroundColor = Color.White;
             label.TextColor = Color.FromHex("#404040");
+        }
+
+        private List<DropdownItems> item;
+
+        public List<DropdownItems> DropItem
+		{
+            get { return item; }
+			set { item = value; }
+		}
+        public List<DropdownItems> SetClassificationDropdowns()
+		{
+            item = new List<DropdownItems>();
+			item.Add(new DropdownItems { CategoryID = 1, Name = "Construction/Home Repair", IsGood = true, IsService = true});
+			item.Add(new DropdownItems { CategoryID = 2, Name = "Motor Vehicle and Parts Dealers", IsGood = true, IsService = false});
+			item.Add(new DropdownItems { CategoryID = 3, Name = "Furniture and Home Furishings", IsGood = true, IsService = true});
+            item.Add(new DropdownItems { CategoryID = 4, Name = "Electronics and Appliance Stores", IsGood = true, IsService = true});
+            item.Add(new DropdownItems { CategoryID = 5, Name = "Building Material, Garden Equipment and Supplies Dealers", IsGood = true, IsService = false});
+            item.Add(new DropdownItems { CategoryID = 6, Name = "Food and Beverage Stores", IsGood = true, IsService = false});
+            item.Add(new DropdownItems { CategoryID = 7, Name = "Health and Personal Care Stores", IsGood = true, IsService = true});
+            item.Add(new DropdownItems { CategoryID = 8, Name = "Clothing/Clothing Accessories Stores", IsGood = true, IsService =  false});
+            item.Add(new DropdownItems { CategoryID = 9, Name = "Sporting Goods, Hobby, Musical Instrument, and Book Stores", IsGood = true, IsService = false});
+            return item;
+        }
+
+        public void GetClassifications()
+        {
+            List<DropdownItems> items;
+            goods = new List<string>();
+            services = new List<string>();
+            items = SetClassificationDropdowns();
+
+            for (int i = 0; i > items.Count; i++)
+            {
+                if (items[i].IsGood && items[i].IsService)
+                {
+                    goods.Add(items[i].Name);
+                    services.Add(items[i].Name);
+                }
+
+                if (items[i].IsGood && !items[i].IsService)
+                {
+                    goods.Add(items[i].Name);
+                }
+
+                if (!items[i].IsGood && items[i].IsService)
+                {
+                    services.Add(items[i].Name);
+                }
+            }
         }
     }
 }
