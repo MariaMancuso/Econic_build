@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:magicGradients="clr-namespace:MagicGradients;assembly=MagicGradients" x:Class="Econic.Mobile.Views.OwnerReg.RewardSplash"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:magicGradients="clr-namespace:MagicGradients;assembly=MagicGradients" 
+             x:Class="Econic.Mobile.Views.OwnerReg.RewardSplash"
              NavigationPage.HasNavigationBar="False" Padding="0">
 
     <ContentPage.Content>
@@ -24,12 +25,26 @@
                 <Image Grid.Row="0" Source="green_splash_screen_shape.png" HorizontalOptions="EndAndExpand" WidthRequest="375" HeightRequest="250" Aspect="Fill"/>
                 <StackLayout Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                     <Label Padding="80, 0, 0, 0" Text="Revyvv" TextColor="White" FontSize="30" />
-                    <Label Grid.Row="1" Padding="80, 0, 0, 0 " Text="FINDS YOUR LOYAL CUSTOMERS AND REWARDS THEM" 
-                           FontFamily="QuicksandBold" TextColor="White" FontSize="28"  HorizontalOptions="Center"/>
+                    <Label Grid.Row="1" 
+                           Padding="80, 0, 0, 0 " 
+                           Text="FINDS YOUR LOYAL CUSTOMERS AND REWARDS THEM" 
+                           FontFamily="QuicksandBold" 
+                           TextColor="White" 
+                           FontSize="28"  
+                           HorizontalOptions="Center"/>
                 </StackLayout>
             </Grid>
-            <Image Source="red_deal_icon.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Start" Margin="15" WidthRequest="50" HeightRequest="50" />
-            <ImageButton Clicked="BtnClicked" Style="{StaticResource SplashButton}" />
+            <Image Source="{Binding RevyvvLogo[0]}" 
+                   Aspect="AspectFit" 
+                   HorizontalOptions="CenterAndExpand"  
+                   VerticalOptions="Start" 
+                   Margin="15" 
+                   WidthRequest="50" 
+                   HeightRequest="50"/>
+            <ImageButton 
+                         Style="{StaticResource SplashButton}" 
+                         Command="{Binding OpenPageCommand}"
+                         CommandParameter="DealSplash"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

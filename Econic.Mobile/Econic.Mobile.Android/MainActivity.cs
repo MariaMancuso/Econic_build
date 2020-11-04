@@ -11,6 +11,8 @@ using System.IO;
 using Android.Content;
 using Lottie.Forms.Droid;
 using Econic.Mobile.Droid.Services;
+using Acr.UserDialogs;
+using Xamarin.Forms;
 
 namespace Econic.Mobile.Droid
 {
@@ -22,6 +24,7 @@ namespace Econic.Mobile.Droid
         public static Context FormsContext { get; set; }
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            UserDialogs.Init(() => (Activity)Forms.Context);
             Instance = this;
 
             FormsActivity = this;

@@ -8,7 +8,6 @@ namespace Econic.Mobile.Models
     public class ItemModel
     {
         public ImageSource ImageSource { get; set; }
-
         public string Name { get; set; }
         public int MinPrice { get; set; }
         public int MaxPrice { get; set; }
@@ -25,5 +24,13 @@ namespace Econic.Mobile.Models
                 return string.Format("${0}-${1}", MinPrice, MaxPrice);
             }
         }
+    }
+
+    public class DropdownItems
+	{
+        public int CategoryID { get; set; }
+        public bool IsGood { get; set; }
+        public bool IsService { get; set; }
+        public string Name { get; set; }
     }
 }

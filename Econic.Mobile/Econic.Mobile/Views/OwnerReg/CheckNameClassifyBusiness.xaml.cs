@@ -1,4 +1,5 @@
-﻿using Econic.Mobile.ViewModels;
+﻿using Econic.Mobile.Models;
+using Econic.Mobile.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,16 @@ namespace Econic.Mobile.Views.OwnerReg
 	public partial class CheckNameClassifyBusiness : ContentPage
 	{
 		OwnerBoardingViewModel owner = new OwnerBoardingViewModel();
+
 		public CheckNameClassifyBusiness()
 		{
 			InitializeComponent();
 			gg.HeightRequest = Application.Current.MainPage.Height;
-			BindingContext = owner;
+			//BindingContext = owner;
+			goodsBox.BindingContext = owner;
+			goodsBox.ComboBoxSource = owner.Goods;
 		}
+
+		
 	}
 }
