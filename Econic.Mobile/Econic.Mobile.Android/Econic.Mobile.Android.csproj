@@ -580,7 +580,7 @@
     <AndroidResource Include="Resources\drawable\storegamification.png" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
+
     <AndroidResource Include="Resources\drawable\icon_dashboard.png" />
   </ItemGroup>
   <ItemGroup>
@@ -597,7 +597,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\dashboard_goods_and_services.png" />
-=======
 
     <AndroidResource Include="Resources\drawable\store_no_lights.png" />
   </ItemGroup>
@@ -615,7 +614,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\design_mug.png" />
 
->>>>>>> 4d68f31df0c7c97a43d6ddfee664d2d7326910bf
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>

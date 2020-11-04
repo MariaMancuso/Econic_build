@@ -43,7 +43,7 @@ namespace Econic.Mobile
 
             InitializeComponent();
 
-            Navigation = new NavigationPage(new FifthPreview(new OwnerBoardingViewModel()));
+            Navigation = new NavigationPage(MainPage());
             Navigation.BarBackgroundColor = Color.WhiteSmoke;
             Navigation.BarTextColor = Color.FromHex("#404040");
 
