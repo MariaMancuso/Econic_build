@@ -60,7 +60,7 @@ namespace Econic.Mobile
         protected override void OnStart()
         {
             AppCenter.Start("android=1a9e1431-a251-474c-aa72-2deb1ba40b4e;" +
-                  
+                  "ios=56e09e3b-62b9-49a0-9aea-d4e79016dad1;",
                   typeof(Analytics), typeof(Crashes));
         }
 
